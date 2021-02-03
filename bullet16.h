@@ -4,8 +4,6 @@ class bullet16 :
 	public bullet
 {
 private:
-	vector<tagBullet>			_vBullet;
-	vector<tagBullet>::iterator _viBullet;
 	int _index;	// 16방 이미지 프레임인덱스입니다
 	float _range;
 	float _turnangle;

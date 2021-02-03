@@ -51,15 +51,15 @@ void banditWalk::update(enemyinfo &info)
 	}
 	else
 	{
+		info.pt.x -= cosf(info.moveAngle)*info.speed;
+		info.pt.y -= -sinf(info.moveAngle)*info.speed;
 		_img = IMAGEMANAGER->findImage("bandit_walk");
 		if (info.direction == E_LEFT)
 		{
-			info.pt.x -= 5;
 			_motion = banditwalkleft;
 		}
 		if (info.direction == E_RIGHT)
 		{
-			info.pt.x += 5;
 			_motion = banditwalkright;
 		}
 	}

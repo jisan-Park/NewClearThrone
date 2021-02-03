@@ -5,9 +5,7 @@ HRESULT shotGun::init(POINT pt)
 {
 	_img = IMAGEMANAGER->findImage("shotgun");
 	_pt = pt;
-	//setWH();
-	_hwidth = 30;
-	_hheight = 30;
+	_radius = 20;
 	_state = NOWUSING;
 	_type = SHOTGUN;
 	_damage = 5;

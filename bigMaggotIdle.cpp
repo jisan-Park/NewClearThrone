@@ -49,6 +49,8 @@ void bigMaggotIdle::update(enemyinfo & info)
 	else
 	{
 		_img = IMAGEMANAGER->findImage("bigmaggot_idle");
+		info.pt.x -= cosf(info.moveAngle)*info.speed;
+		info.pt.y -= -sinf(info.moveAngle)*info.speed;
 		if (info.direction == E_LEFT) _motion = bigmaggotidleleft;
 		if (info.direction == E_RIGHT) _motion = bigmaggotidleright;
 	}

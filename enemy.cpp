@@ -41,5 +41,44 @@ void enemy::setAnimation()
 
 void enemy::setState(ENEMYSTATE state)
 {
-	
+
+}
+
+bool enemy::inRange()
+{
+	if (getDistance(PLAYERMANAGER->getPlayer()->getPt(), _info.pt) < _info.noticeRange) return true;
+	else return false;
+}
+
+float enemy::EtoPAngle()
+{
+	return getAngle(PLAYERMANAGER->getPlayer()->getPt(), _info.pt);
+}
+
+void enemy::collision()
+{
+	for (int i = 0; i < PLAYERMANAGER->getPlayer()->getWeapon()->getBullet()->getVbullet().size(); ++i)
+	{
+		RECT temp;
+		if (IntersectRect(&temp, &PLAYERMANAGER->getPlayer()->getWeapon()->getBullet()->getVbullet()[i].rc, &_info.rc))
+		{
+			_info.isHurt = true;
+			_info.pt.x += cosf(PLAYERMANAGER->getPlayer()->getWeapon()->getBullet()->getVbullet()[i].angle) * 10;
+			_info.pt.y += -sinf(PLAYERMANAGER->getPlayer()->getWeapon()->getBullet()->getVbullet()[i].angle) * 10;
+			PLAYERMANAGER->getPlayer()->getWeapon()->getBullet()->removeBullet(i);
+
+
+			break;
+		}
+	}
+	//for (PLAYERMANAGER->getPlayer()->getWeapon()->getBullet()->getViBullet() = PLAYERMANAGER->getPlayer()->getWeapon()->getBullet()->getVbullet().begin();
+	//	PLAYERMANAGER->getPlayer()->getWeapon()->getBullet()->getViBullet() != PLAYERMANAGER->getPlayer()->getWeapon()->getBullet()->getVbullet().end();)
+	//{
+	//	RECT temp;
+	//	if (IntersectRect(&temp, &PLAYERMANAGER->getPlayer()->getWeapon()->getBullet()->getViBullet()->rc, &_info.rc))
+	//	{
+	//		PLAYERMANAGER->getPlayer()->getWeapon()->getBullet()->getVbullet().erase;
+	//		_info.nextState = E_HURT;
+	//	}
+	//}
 }

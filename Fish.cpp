@@ -34,7 +34,7 @@ void Fish::update()
 
 void Fish::render(HDC hdc)
 {
-	_img->aniRender(hdc, _pt.x, _pt.y, _motion);
+	_img->aniRender(hdc, _pt.x - _img->getFrameWidth() / 2, _pt.y - _img->getFrameHeight() / 2, _motion);
 	_currentWeapon->render(hdc);
 }
 
@@ -222,6 +222,10 @@ void Fish::contral()
 	if (KEYMANAGER->isOnceKeyDown(VK_RBUTTON) && _playerstate == WALK)
 	{
 		_isdash = true;
+	}
+	if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
+	{
+		_currentWeapon->fire();
 	}
 	if (_isdash)
 	{

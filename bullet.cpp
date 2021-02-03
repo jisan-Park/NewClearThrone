@@ -40,6 +40,11 @@ void bullet::render(HDC hdc)
 	}
 }
 
+void bullet::removeBullet(int arrnum)
+{
+	_vBullet.erase(_vBullet.begin() + arrnum);
+}
+
 void bullet::fire(POINT pt, float speed, float angle, whoshot who)
 {
 }
@@ -68,3 +73,5 @@ void bullet::move()
 		else ++_viBullet;
 	}
 }
+
+

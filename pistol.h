@@ -6,5 +6,6 @@ class pistol :
 public:
 	virtual HRESULT init(POINT pt);
 	virtual void update();
+	virtual void fire();
 };
 

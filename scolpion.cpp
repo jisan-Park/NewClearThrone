@@ -8,10 +8,12 @@ HRESULT scolpion::init(float x, float y)
 	_info.width = 65;
 	_info.height = 65;
 	_info.hp = 60;
-	_info.speed = 10;
+	_info.speed = 3;
 	_info.moveAngle = 0;
 	_info.rc = RectMakeCenter(_info.pt.x, _info.pt.y, _info.width, _info.height);
 	_info.direction = E_RIGHT;
+	_info.nstate = UNNOTICED;
+	_info.noticeRange = 500;
 	_enemyType = SCOLPION;
 	_enState = new scolpionIdle;
 	_enState->init(_info);
@@ -20,9 +22,19 @@ HRESULT scolpion::init(float x, float y)
 
 void scolpion::update()
 {
+	collision();
 	_info.rc = RectMakeCenter(_info.pt.x, _info.pt.y, _info.width, _info.height);
 	_enState->update(_info);
 	setState(_info.nextState);
+	if (inRange() == true)
+	{
+		_info.nextState = E_WALK;
+		_info.moveAngle = EtoPAngle();
+	}
+
+
+
+
 }
 
 void scolpion::render(HDC hdc)

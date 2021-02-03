@@ -25,7 +25,7 @@ void enemyState::release()
 
 void enemyState::render(HDC hdc)
 {
-	_img->aniRender(hdc, _pt.x, _pt.y, _motion);
+	_img->aniRender(hdc, _pt.x - _img->getFrameWidth() / 2, _pt.y - _img->getFrameHeight() / 2, _motion);
 }
 
 void enemyState::init(image * img, animation * ani, int x, int y)

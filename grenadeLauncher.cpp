@@ -5,11 +5,9 @@ HRESULT grenadeLauncher::init(POINT pt)
 {
 	_img = IMAGEMANAGER->findImage("grenadelauncher");
 	_pt = pt;
-	//setWH();
-	_hwidth = 30;
-	_hheight = 30;
 	_state = NOWUSING;
 	_type = GRENADELAUNCHER;
+	_radius = 20;
 	_damage = 5;
 	_coolDown = 3;
 	_angle = 0;

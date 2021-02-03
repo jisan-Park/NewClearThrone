@@ -14,7 +14,7 @@ void bullet16::release()
 void bullet16::update()
 {
 	move();
-		
+
 }
 
 void bullet16::render(HDC hdc)
@@ -22,6 +22,7 @@ void bullet16::render(HDC hdc)
 	for (_viBullet = _vBullet.begin(); _viBullet != _vBullet.end(); ++_viBullet)
 	{
 		_viBullet->img->frameRender(hdc, _viBullet->rc.left, _viBullet->rc.top, _viBullet->count, 0);
+		//Rectangle(hdc, _viBullet->rc);
 	}
 }
 

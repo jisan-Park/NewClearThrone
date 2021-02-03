@@ -10,13 +10,18 @@ void weapon::update()
 {
 }
 
+void weapon::fire()
+{
+}
+
 void weapon::release()
 {
 }
 
 void weapon::render(HDC hdc)
 {
-	_img->frameRender(hdc, _pt.x - _hwidth, _pt.y - _hwidth, _index, 0);
+	_img->frameRender(hdc, _imgx - _img->getFrameWidth() / 2, _imgy - _img->getFrameHeight() / 2, _index, 0);
+	_bullet->render(hdc);
 }
 
 void weapon::setFrameIndex(float angle)
@@ -25,7 +30,7 @@ void weapon::setFrameIndex(float angle)
 	//angle = _angle + PI16;
 	//_index = int(angle / PI8);
 	//_img->setFrameX(_index);
-	if ((_angle < PI16 * 1 && _angle >= 0) || (_angle > PI - PI16 && _angle < PI*2)) _index = 0;
+	if ((_angle < PI16 * 1 && _angle >= 0) || (_angle > PI - PI16 && _angle < PI * 2)) _index = 0;
 	if (_angle > PI16 * 1 && _angle <= PI16 * 3) _index = 1;
 	if (_angle > PI16 * 3 && _angle <= PI16 * 5) _index = 2;
 	if (_angle > PI16 * 5 && _angle <= PI16 * 7) _index = 3;
@@ -64,8 +69,9 @@ void weapon::setAngle(float angle)
 	if (_angle <= 0) _angle += PI2;
 }
 
-void weapon::setWH()
+
+void weapon::Position()
 {
-	_hwidth = getImg()->getFrameWidth() / 2;
-	_hheight = getImg()->getFrameHeight() / 2;
+	_imgx = _pt.x + cosf(_angle) * _radius;
+	_imgy = _pt.y + -sinf(_angle) * _radius;
 }

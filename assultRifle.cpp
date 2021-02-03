@@ -5,12 +5,10 @@ HRESULT assultRifle::init(POINT pt)
 {
 	_img = IMAGEMANAGER->findImage("assultrifle");
 	_pt = pt;
-	//setWH();
-	_hwidth = 30;
-	_hheight = 30;
 	_state = NOWUSING;
 	_type = ASSULTRIFLE;
 	_damage = 5;
+	_radius = 20;
 	_coolDown = 3;
 	_angle = 0;
 

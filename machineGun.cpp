@@ -5,9 +5,7 @@ HRESULT machineGun::init(POINT pt)
 {
 	_img = IMAGEMANAGER->findImage("machinegun");
 	_pt = pt;
-	//setWH();
-	_hwidth = 30;
-	_hheight = 30;
+	_radius = 20;
 	_state = NOWUSING;
 	_type = MACHINEGUN;
 	_damage = 5;

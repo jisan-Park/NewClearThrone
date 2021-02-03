@@ -10,7 +10,6 @@ enum ENEMYSTATE
 	E_IDLE,
 	E_WALK,
 	E_FIRE,
-	E_HURT,
 	E_DEAD,
 	E_ATTACK,
 	E_IMMUNE
@@ -39,12 +38,13 @@ struct enemyinfo
 	int firecnt;			//발사 쿨입니다
 	float aimAngle;		//조준각입니다
 	float moveAngle;		//이동각입니다
+	float noticeRange;
 	bool isHurt;		//다쳤는지 보는겁니다
 
 
 	ENEMYSTATE state;
 	ENEMYSTATE nextState;
-	
+
 	ENEMYMOVETYPE movetype;
 	ENEMYDIRECTION direction;
 	ENEMYNOTICESTATE nstate;

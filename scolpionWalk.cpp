@@ -47,6 +47,8 @@ void scolpionWalk::update(enemyinfo & info)
 	}
 	else
 	{
+		info.pt.x -= cosf(info.moveAngle)*info.speed;
+		info.pt.y -= -sinf(info.moveAngle)*info.speed;
 		_img = IMAGEMANAGER->findImage("scolpion_walk");
 		if (info.direction == E_LEFT) _motion = scolpionwalkleft;
 		if (info.direction == E_RIGHT) _motion = scolpionwalkright;

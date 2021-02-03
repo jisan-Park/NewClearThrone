@@ -16,8 +16,9 @@
 namespace TFIVE_UTIL
 {
 	float getDistance(float x1, float y1, float x2, float y2);
+	float getDistance(POINT pt1, POINT pt2);
 
 	float getAngle(float x1, float y1, float x2, float y2);
-
+	float getAngle(POINT pt1, POINT pt2);
 
 }

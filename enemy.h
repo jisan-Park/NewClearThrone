@@ -7,6 +7,7 @@ protected:
 	enemyinfo _info;
 	enemyState* _enState;
 	ENEMYTYPE _enemyType;
+	int _rndMoveCnt = 0;
 public:
 	enemy();
 	~enemy();
@@ -20,9 +21,13 @@ public:
 	virtual void attack();
 	virtual void move();
 	virtual void setAnimation();
+	void collision();
 
 	virtual void setState(ENEMYSTATE state);
 	virtual ENEMYTYPE getEnemyType() { return _enemyType; };
 	virtual enemyinfo getInfo() { return _info; };
+	bool inRange();
+	float EtoPAngle();
+
 };
 

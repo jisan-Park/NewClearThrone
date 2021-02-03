@@ -5,9 +5,7 @@ HRESULT razerRifle::init(POINT pt)
 {
 	_img = IMAGEMANAGER->findImage("razerrifle");
 	_pt = pt;
-	//setWH();
-	_hwidth = 30;
-	_hheight = 30;
+	_radius = 20;
 	_state = NOWUSING;
 	_type = RAZERRIFLE;
 	_damage = 5;

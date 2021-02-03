@@ -5,9 +5,7 @@ HRESULT triplemachinegun::init(POINT pt)
 {
 	_img = IMAGEMANAGER->findImage("triplemachinegun");
 	_pt = pt;
-	//setWH();
-	_hwidth = 30;
-	_hheight = 30;
+	_radius = 20;
 	_state = NOWUSING;
 	_type = ASSULTRIFLE;
 	_damage = 5;

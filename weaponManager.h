@@ -6,7 +6,7 @@
 #include "pistol.h"
 #include "razerRifle.h"
 #include "shotGun.h"
-class weaponManager: public singletonBase <weaponManager>
+class weaponManager : public singletonBase <weaponManager>
 {
 private:
 	razerRifle* test;
@@ -17,7 +17,7 @@ public:
 	void release();
 	void update();
 	void render(HDC hdc);
-	
+
 	void setImage();
 };
 
