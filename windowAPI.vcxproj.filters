@@ -1,0 +1,1093 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="2DGameFramework">
+      <UniqueIdentifier>{2ee19535-a953-4eef-ad75-d9e30b26b349}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\SingletonBase">
+      <UniqueIdentifier>{71976e2a-20c6-4f27-b50f-5b7ec7fbdd1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playGround">
+      <UniqueIdentifier>{07ed6059-248b-4fb2-8666-6b17c3978591}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\Manager">
+      <UniqueIdentifier>{12a1bdad-ebcf-45e6-b39a-e738f4dfc0e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\Utils">
+      <UniqueIdentifier>{c962e91d-abcd-4709-8f30-f32302d8f874}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\subclass">
+      <UniqueIdentifier>{eca857ea-1fbf-4672-be0b-fb4a06a330e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\subclass\animation">
+      <UniqueIdentifier>{069079e2-3f8c-4815-aa2f-ca7ea766fa86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\subclass\effect">
+      <UniqueIdentifier>{30db4124-efb2-40b2-99a0-0ef52e46c48a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\subclass\image">
+      <UniqueIdentifier>{caf0e1cc-ae3a-47e7-865a-91a0755607a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\subclass\timer">
+      <UniqueIdentifier>{7638a757-93e6-4e15-a9f4-6dfaee8a20dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\subclass\progressBar">
+      <UniqueIdentifier>{d7d3bb39-5a49-4aa5-bb12-7e2c752bf39e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{825694cf-9b46-4407-b982-4fd257620140}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\gameManager">
+      <UniqueIdentifier>{47a8699b-2e7b-4529-b7a6-3ad1d97440ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\subclass\camera">
+      <UniqueIdentifier>{99957a7a-97b1-4552-9013-c57d85d035b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\Player">
+      <UniqueIdentifier>{95c14275-a2cd-4e8a-b3f8-a90ce6d43931}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy">
+      <UniqueIdentifier>{81dd4154-8852-4ea9-bf0b-e4ebf16d322d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\enemyState">
+      <UniqueIdentifier>{48e37f09-08b1-4321-a6eb-adae45c38ec8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage2">
+      <UniqueIdentifier>{e2c3dee3-6c71-4a1e-844f-1ab95b6631c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage1">
+      <UniqueIdentifier>{d19ddabb-0eb3-464b-ba31-f402191742a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage3">
+      <UniqueIdentifier>{85856f5d-2587-4241-9155-1d932186f0b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage1\bigMaggot">
+      <UniqueIdentifier>{77ebd099-4089-409a-862b-e91e5ff64d91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage1\greenMaggot">
+      <UniqueIdentifier>{c243f647-d661-4d69-92df-e00d06f35e99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage1\maggot">
+      <UniqueIdentifier>{c219f451-463d-4c68-956f-ca3f81aa6694}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage1\maggotNest">
+      <UniqueIdentifier>{bb14e9f1-dc2d-4549-acb3-24ecac0ae2ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage1\scolpion">
+      <UniqueIdentifier>{c7e5a098-8ccc-4769-915b-7a65a9d9459c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage2\bigRat">
+      <UniqueIdentifier>{52bfc7d3-f371-47e5-ab4f-ed0a437caeb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage2\frog">
+      <UniqueIdentifier>{c0389e02-3784-4604-87bc-6c5d82c4c9fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage2\gator">
+      <UniqueIdentifier>{e3dd671e-5858-47bd-959a-f57011ecfd3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage2\greenFrog">
+      <UniqueIdentifier>{3e16a227-dae9-4347-81c6-b3a5ea4135e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage2\greenRat">
+      <UniqueIdentifier>{21b96183-c1c6-4861-8542-b4f7c10c39db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage2\rat">
+      <UniqueIdentifier>{7f5856dc-01e9-48d6-a37d-cbf582a4b100}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage3\assassin">
+      <UniqueIdentifier>{866d977e-6cec-4369-ba95-bc71d4d5e74a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage3\bigDog">
+      <UniqueIdentifier>{fbfba74c-00a6-447b-896e-bfde55091728}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage3\raven">
+      <UniqueIdentifier>{97eedb39-5e28-4012-8a3d-aeddf74ffb18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage3\salamander">
+      <UniqueIdentifier>{5166670b-3963-44ef-83bd-cfeade03739f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage3\sniper">
+      <UniqueIdentifier>{a20e1cab-576e-488d-bd7c-e136e421ce75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage1\big_Bandit">
+      <UniqueIdentifier>{8903eb3f-7d92-43b8-95d4-eee48df58195}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage1\big_Bandit\bigBanditState">
+      <UniqueIdentifier>{30a17df6-ab2c-41e6-bbe9-6ef3e8534754}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage1\bigMaggot\bigMaggotState">
+      <UniqueIdentifier>{8184b51b-2343-48cb-918b-b3d020be923f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage1\greenMaggot\greenMaggotState">
+      <UniqueIdentifier>{18e42aaf-c71e-4e06-999e-8b0bbaf05c93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage1\maggot\maggotState">
+      <UniqueIdentifier>{c51ca924-d65d-4f16-854f-7fcc1219fbf8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage1\maggotNest\maggotNestState">
+      <UniqueIdentifier>{a87864d6-b28f-4a04-be98-2202631ac5b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage1\scolpion\scolpionState">
+      <UniqueIdentifier>{3068664a-0253-4639-a992-325b090ba731}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage2\bigRat\bigRatState">
+      <UniqueIdentifier>{70eccdd9-d075-4488-b7c6-0bb1a97d3057}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage2\frog\frogState">
+      <UniqueIdentifier>{2b862c01-6883-4d0b-bff4-e260c5da4cb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage2\gator\gatorState">
+      <UniqueIdentifier>{736f8c2c-3d57-4ac5-a04c-46f328991564}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage2\greenFrog\greenFrogState">
+      <UniqueIdentifier>{e6816daa-fa54-4763-bcd2-56b52d2a7f58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage2\greenRat\greenRatState">
+      <UniqueIdentifier>{c8e1aca8-c825-4d80-a3d0-0da196003a66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage2\rat\ratState">
+      <UniqueIdentifier>{eb8f15d8-bfad-4efc-a1db-91fd8e5f1e24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage3\assassin\assassinState">
+      <UniqueIdentifier>{43293f5e-c5e5-412c-8901-3ebae45b4f50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage3\bigDog\bigDogState">
+      <UniqueIdentifier>{26c55ed1-a6aa-4763-819a-8bc1c1e3da55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage3\sniper\sniperState">
+      <UniqueIdentifier>{33875804-a73a-40a6-b76e-9297d9cc3772}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage3\salamander\salamanderState">
+      <UniqueIdentifier>{090f406e-99ca-41fd-a8c5-42fcc9c691df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage3\raven\ravenState">
+      <UniqueIdentifier>{94443b7d-0af9-4932-920e-060d947b103f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage1\bandit">
+      <UniqueIdentifier>{9652a8ea-4fd8-4c47-af97-b4318d69d90d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\enemy\stage1\bandit\banditState">
+      <UniqueIdentifier>{ec472ff4-a25c-4d23-91e8-3e75451ab544}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\bullet">
+      <UniqueIdentifier>{63f66288-1df3-4ac2-84cb-14f87fa46941}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\weapon">
+      <UniqueIdentifier>{64a96864-fbab-4e32-86b3-fb5bf5cae452}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="windowAPI.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="commonMacroFunction.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="singletonBase.h">
+      <Filter>2DGameFramework\SingletonBase</Filter>
+    </ClInclude>
+    <ClInclude Include="randomFunction.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="gameNode.h">
+      <Filter>2DGameFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="playGround.h">
+      <Filter>playGround</Filter>
+    </ClInclude>
+    <ClInclude Include="keyManager.h">
+      <Filter>2DGameFramework\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="image.h">
+      <Filter>2DGameFramework\subclass\image</Filter>
+    </ClInclude>
+    <ClInclude Include="utils.h">
+      <Filter>2DGameFramework\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="imageManager.h">
+      <Filter>2DGameFramework\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="timer.h">
+      <Filter>2DGameFramework\subclass\timer</Filter>
+    </ClInclude>
+    <ClInclude Include="timeManager.h">
+      <Filter>2DGameFramework\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="animation.h">
+      <Filter>2DGameFramework\subclass\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="effect.h">
+      <Filter>2DGameFramework\subclass\effect</Filter>
+    </ClInclude>
+    <ClInclude Include="effectManager.h">
+      <Filter>2DGameFramework\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="sceneManager.h">
+      <Filter>2DGameFramework\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="soundManager.h">
+      <Filter>2DGameFramework\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="keyAniManager.h">
+      <Filter>2DGameFramework\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="iniDataManager.h">
+      <Filter>2DGameFramework\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="StartScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="customScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="gameScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="gameManager.h">
+      <Filter>2DGameFramework\gameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="settingScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="mainmenuScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="maptoolScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="mapManager.h">
+      <Filter>2DGameFramework\gameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="cameraManager.h">
+      <Filter>2DGameFramework\gameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.h">
+      <Filter>2DGameFramework\subclass\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Meiting.h">
+      <Filter>2DGameFramework\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Plant.h">
+      <Filter>2DGameFramework\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>2DGameFramework\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="playerManager.h">
+      <Filter>2DGameFramework\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Crystal.h">
+      <Filter>2DGameFramework\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Eyes.h">
+      <Filter>2DGameFramework\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Fish.h">
+      <Filter>2DGameFramework\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="selectScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="enemyState.h">
+      <Filter>2DGameFramework\enemy\enemyState</Filter>
+    </ClInclude>
+    <ClInclude Include="enemy.h">
+      <Filter>2DGameFramework\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="enemyManager.h">
+      <Filter>2DGameFramework\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="banditDead.h">
+      <Filter>2DGameFramework\enemy\stage1\bandit\banditState</Filter>
+    </ClInclude>
+    <ClInclude Include="banditIdle.h">
+      <Filter>2DGameFramework\enemy\stage1\bandit\banditState</Filter>
+    </ClInclude>
+    <ClInclude Include="banditState.h">
+      <Filter>2DGameFramework\enemy\stage1\bandit\banditState</Filter>
+    </ClInclude>
+    <ClInclude Include="banditWalk.h">
+      <Filter>2DGameFramework\enemy\stage1\bandit\banditState</Filter>
+    </ClInclude>
+    <ClInclude Include="bandit.h">
+      <Filter>2DGameFramework\enemy\stage1\bandit</Filter>
+    </ClInclude>
+    <ClInclude Include="bigBanditDead.h">
+      <Filter>2DGameFramework\enemy\stage1\big_Bandit\bigBanditState</Filter>
+    </ClInclude>
+    <ClInclude Include="bigBanditFire.h">
+      <Filter>2DGameFramework\enemy\stage1\big_Bandit\bigBanditState</Filter>
+    </ClInclude>
+    <ClInclude Include="bigBanditIdle.h">
+      <Filter>2DGameFramework\enemy\stage1\big_Bandit\bigBanditState</Filter>
+    </ClInclude>
+    <ClInclude Include="bigBanditState.h">
+      <Filter>2DGameFramework\enemy\stage1\big_Bandit\bigBanditState</Filter>
+    </ClInclude>
+    <ClInclude Include="bigBanditWalk.h">
+      <Filter>2DGameFramework\enemy\stage1\big_Bandit\bigBanditState</Filter>
+    </ClInclude>
+    <ClInclude Include="bigBandit.h">
+      <Filter>2DGameFramework\enemy\stage1\big_Bandit</Filter>
+    </ClInclude>
+    <ClInclude Include="bigMaggotBurrow.h">
+      <Filter>2DGameFramework\enemy\stage1\bigMaggot\bigMaggotState</Filter>
+    </ClInclude>
+    <ClInclude Include="bigMaggotDead.h">
+      <Filter>2DGameFramework\enemy\stage1\bigMaggot\bigMaggotState</Filter>
+    </ClInclude>
+    <ClInclude Include="bigMaggotIdle.h">
+      <Filter>2DGameFramework\enemy\stage1\bigMaggot\bigMaggotState</Filter>
+    </ClInclude>
+    <ClInclude Include="bigMaggotState.h">
+      <Filter>2DGameFramework\enemy\stage1\bigMaggot\bigMaggotState</Filter>
+    </ClInclude>
+    <ClInclude Include="bigMaggot.h">
+      <Filter>2DGameFramework\enemy\stage1\bigMaggot</Filter>
+    </ClInclude>
+    <ClInclude Include="greenMaggotDead.h">
+      <Filter>2DGameFramework\enemy\stage1\greenMaggot\greenMaggotState</Filter>
+    </ClInclude>
+    <ClInclude Include="greenMaggotIdle.h">
+      <Filter>2DGameFramework\enemy\stage1\greenMaggot\greenMaggotState</Filter>
+    </ClInclude>
+    <ClInclude Include="greenMaggotState.h">
+      <Filter>2DGameFramework\enemy\stage1\greenMaggot\greenMaggotState</Filter>
+    </ClInclude>
+    <ClInclude Include="greenMaggot.h">
+      <Filter>2DGameFramework\enemy\stage1\greenMaggot</Filter>
+    </ClInclude>
+    <ClInclude Include="maggotNestDead.h">
+      <Filter>2DGameFramework\enemy\stage1\maggotNest\maggotNestState</Filter>
+    </ClInclude>
+    <ClInclude Include="maggotNestIdle.h">
+      <Filter>2DGameFramework\enemy\stage1\maggotNest\maggotNestState</Filter>
+    </ClInclude>
+    <ClInclude Include="maggotNestState.h">
+      <Filter>2DGameFramework\enemy\stage1\maggotNest\maggotNestState</Filter>
+    </ClInclude>
+    <ClInclude Include="maggotNest.h">
+      <Filter>2DGameFramework\enemy\stage1\maggotNest</Filter>
+    </ClInclude>
+    <ClInclude Include="scolpionDead.h">
+      <Filter>2DGameFramework\enemy\stage1\scolpion\scolpionState</Filter>
+    </ClInclude>
+    <ClInclude Include="scolpionFire.h">
+      <Filter>2DGameFramework\enemy\stage1\scolpion\scolpionState</Filter>
+    </ClInclude>
+    <ClInclude Include="scolpionIdle.h">
+      <Filter>2DGameFramework\enemy\stage1\scolpion\scolpionState</Filter>
+    </ClInclude>
+    <ClInclude Include="scolpionState.h">
+      <Filter>2DGameFramework\enemy\stage1\scolpion\scolpionState</Filter>
+    </ClInclude>
+    <ClInclude Include="scolpionWalk.h">
+      <Filter>2DGameFramework\enemy\stage1\scolpion\scolpionState</Filter>
+    </ClInclude>
+    <ClInclude Include="scolpion.h">
+      <Filter>2DGameFramework\enemy\stage1\scolpion</Filter>
+    </ClInclude>
+    <ClInclude Include="bigRatAttack.h">
+      <Filter>2DGameFramework\enemy\stage2\bigRat\bigRatState</Filter>
+    </ClInclude>
+    <ClInclude Include="bigRatDead.h">
+      <Filter>2DGameFramework\enemy\stage2\bigRat\bigRatState</Filter>
+    </ClInclude>
+    <ClInclude Include="bigRatFire.h">
+      <Filter>2DGameFramework\enemy\stage2\bigRat\bigRatState</Filter>
+    </ClInclude>
+    <ClInclude Include="bigRatIdle.h">
+      <Filter>2DGameFramework\enemy\stage2\bigRat\bigRatState</Filter>
+    </ClInclude>
+    <ClInclude Include="bigRatState.h">
+      <Filter>2DGameFramework\enemy\stage2\bigRat\bigRatState</Filter>
+    </ClInclude>
+    <ClInclude Include="bigRatWalk.h">
+      <Filter>2DGameFramework\enemy\stage2\bigRat\bigRatState</Filter>
+    </ClInclude>
+    <ClInclude Include="bigRat.h">
+      <Filter>2DGameFramework\enemy\stage2\bigRat</Filter>
+    </ClInclude>
+    <ClInclude Include="frogDead.h">
+      <Filter>2DGameFramework\enemy\stage2\frog\frogState</Filter>
+    </ClInclude>
+    <ClInclude Include="frogIdle.h">
+      <Filter>2DGameFramework\enemy\stage2\frog\frogState</Filter>
+    </ClInclude>
+    <ClInclude Include="frogState.h">
+      <Filter>2DGameFramework\enemy\stage2\frog\frogState</Filter>
+    </ClInclude>
+    <ClInclude Include="frogWalk.h">
+      <Filter>2DGameFramework\enemy\stage2\frog\frogState</Filter>
+    </ClInclude>
+    <ClInclude Include="frog.h">
+      <Filter>2DGameFramework\enemy\stage2\frog</Filter>
+    </ClInclude>
+    <ClInclude Include="gatorDead.h">
+      <Filter>2DGameFramework\enemy\stage2\gator\gatorState</Filter>
+    </ClInclude>
+    <ClInclude Include="gatorIdle.h">
+      <Filter>2DGameFramework\enemy\stage2\gator\gatorState</Filter>
+    </ClInclude>
+    <ClInclude Include="gatorState.h">
+      <Filter>2DGameFramework\enemy\stage2\gator\gatorState</Filter>
+    </ClInclude>
+    <ClInclude Include="gatorWalk.h">
+      <Filter>2DGameFramework\enemy\stage2\gator\gatorState</Filter>
+    </ClInclude>
+    <ClInclude Include="gator.h">
+      <Filter>2DGameFramework\enemy\stage2\gator</Filter>
+    </ClInclude>
+    <ClInclude Include="greenFrogDead.h">
+      <Filter>2DGameFramework\enemy\stage2\greenFrog\greenFrogState</Filter>
+    </ClInclude>
+    <ClInclude Include="greenFrogIdle.h">
+      <Filter>2DGameFramework\enemy\stage2\greenFrog\greenFrogState</Filter>
+    </ClInclude>
+    <ClInclude Include="greenFrogState.h">
+      <Filter>2DGameFramework\enemy\stage2\greenFrog\greenFrogState</Filter>
+    </ClInclude>
+    <ClInclude Include="greenFrogWalk.h">
+      <Filter>2DGameFramework\enemy\stage2\greenFrog\greenFrogState</Filter>
+    </ClInclude>
+    <ClInclude Include="greenFrog.h">
+      <Filter>2DGameFramework\enemy\stage2\greenFrog</Filter>
+    </ClInclude>
+    <ClInclude Include="greenRatDead.h">
+      <Filter>2DGameFramework\enemy\stage2\greenRat\greenRatState</Filter>
+    </ClInclude>
+    <ClInclude Include="greenRatIdle.h">
+      <Filter>2DGameFramework\enemy\stage2\greenRat\greenRatState</Filter>
+    </ClInclude>
+    <ClInclude Include="greenRatState.h">
+      <Filter>2DGameFramework\enemy\stage2\greenRat\greenRatState</Filter>
+    </ClInclude>
+    <ClInclude Include="greenRatWalk.h">
+      <Filter>2DGameFramework\enemy\stage2\greenRat\greenRatState</Filter>
+    </ClInclude>
+    <ClInclude Include="greenRat.h">
+      <Filter>2DGameFramework\enemy\stage2\greenRat</Filter>
+    </ClInclude>
+    <ClInclude Include="ratDead.h">
+      <Filter>2DGameFramework\enemy\stage2\rat\ratState</Filter>
+    </ClInclude>
+    <ClInclude Include="ratIdle.h">
+      <Filter>2DGameFramework\enemy\stage2\rat\ratState</Filter>
+    </ClInclude>
+    <ClInclude Include="ratState.h">
+      <Filter>2DGameFramework\enemy\stage2\rat\ratState</Filter>
+    </ClInclude>
+    <ClInclude Include="ratWalk.h">
+      <Filter>2DGameFramework\enemy\stage2\rat\ratState</Filter>
+    </ClInclude>
+    <ClInclude Include="rat.h">
+      <Filter>2DGameFramework\enemy\stage2\rat</Filter>
+    </ClInclude>
+    <ClInclude Include="assassinDead.h">
+      <Filter>2DGameFramework\enemy\stage3\assassin\assassinState</Filter>
+    </ClInclude>
+    <ClInclude Include="assassinIdle.h">
+      <Filter>2DGameFramework\enemy\stage3\assassin\assassinState</Filter>
+    </ClInclude>
+    <ClInclude Include="assassinState.h">
+      <Filter>2DGameFramework\enemy\stage3\assassin\assassinState</Filter>
+    </ClInclude>
+    <ClInclude Include="assassinWalk.h">
+      <Filter>2DGameFramework\enemy\stage3\assassin\assassinState</Filter>
+    </ClInclude>
+    <ClInclude Include="assassin.h">
+      <Filter>2DGameFramework\enemy\stage3\assassin</Filter>
+    </ClInclude>
+    <ClInclude Include="bigDogIdle.h">
+      <Filter>2DGameFramework\enemy\stage3\bigDog\bigDogState</Filter>
+    </ClInclude>
+    <ClInclude Include="bigDogSpin.h">
+      <Filter>2DGameFramework\enemy\stage3\bigDog\bigDogState</Filter>
+    </ClInclude>
+    <ClInclude Include="bigDogState.h">
+      <Filter>2DGameFramework\enemy\stage3\bigDog\bigDogState</Filter>
+    </ClInclude>
+    <ClInclude Include="bigDog.h">
+      <Filter>2DGameFramework\enemy\stage3\bigDog</Filter>
+    </ClInclude>
+    <ClInclude Include="sniperDead.h">
+      <Filter>2DGameFramework\enemy\stage3\sniper\sniperState</Filter>
+    </ClInclude>
+    <ClInclude Include="sniperIdle.h">
+      <Filter>2DGameFramework\enemy\stage3\sniper\sniperState</Filter>
+    </ClInclude>
+    <ClInclude Include="sniperState.h">
+      <Filter>2DGameFramework\enemy\stage3\sniper\sniperState</Filter>
+    </ClInclude>
+    <ClInclude Include="sniperWalk.h">
+      <Filter>2DGameFramework\enemy\stage3\sniper\sniperState</Filter>
+    </ClInclude>
+    <ClInclude Include="sniper.h">
+      <Filter>2DGameFramework\enemy\stage3\sniper</Filter>
+    </ClInclude>
+    <ClInclude Include="salamanderWalk.h">
+      <Filter>2DGameFramework\enemy\stage3\salamander\salamanderState</Filter>
+    </ClInclude>
+    <ClInclude Include="salamanderDead.h">
+      <Filter>2DGameFramework\enemy\stage3\salamander\salamanderState</Filter>
+    </ClInclude>
+    <ClInclude Include="salamanderFire.h">
+      <Filter>2DGameFramework\enemy\stage3\salamander\salamanderState</Filter>
+    </ClInclude>
+    <ClInclude Include="salamanderIdle.h">
+      <Filter>2DGameFramework\enemy\stage3\salamander\salamanderState</Filter>
+    </ClInclude>
+    <ClInclude Include="salamanderState.h">
+      <Filter>2DGameFramework\enemy\stage3\salamander\salamanderState</Filter>
+    </ClInclude>
+    <ClInclude Include="salamander.h">
+      <Filter>2DGameFramework\enemy\stage3\salamander</Filter>
+    </ClInclude>
+    <ClInclude Include="ravenWalk.h">
+      <Filter>2DGameFramework\enemy\stage3\raven\ravenState</Filter>
+    </ClInclude>
+    <ClInclude Include="ravenDead.h">
+      <Filter>2DGameFramework\enemy\stage3\raven\ravenState</Filter>
+    </ClInclude>
+    <ClInclude Include="ravenFly.h">
+      <Filter>2DGameFramework\enemy\stage3\raven\ravenState</Filter>
+    </ClInclude>
+    <ClInclude Include="ravenIdle.h">
+      <Filter>2DGameFramework\enemy\stage3\raven\ravenState</Filter>
+    </ClInclude>
+    <ClInclude Include="ravenState.h">
+      <Filter>2DGameFramework\enemy\stage3\raven\ravenState</Filter>
+    </ClInclude>
+    <ClInclude Include="raven.h">
+      <Filter>2DGameFramework\enemy\stage3\raven</Filter>
+    </ClInclude>
+    <ClInclude Include="maggotDead.h">
+      <Filter>2DGameFramework\enemy\stage1\maggot\maggotState</Filter>
+    </ClInclude>
+    <ClInclude Include="maggotIdle.h">
+      <Filter>2DGameFramework\enemy\stage1\maggot\maggotState</Filter>
+    </ClInclude>
+    <ClInclude Include="maggotState.h">
+      <Filter>2DGameFramework\enemy\stage1\maggot\maggotState</Filter>
+    </ClInclude>
+    <ClInclude Include="maggot.h">
+      <Filter>2DGameFramework\enemy\stage1\maggot</Filter>
+    </ClInclude>
+    <ClInclude Include="grenadeLauncher.h">
+      <Filter>2DGameFramework\weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="machineGun.h">
+      <Filter>2DGameFramework\weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="pistol.h">
+      <Filter>2DGameFramework\weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="razerRifle.h">
+      <Filter>2DGameFramework\weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="shotGun.h">
+      <Filter>2DGameFramework\weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="shovel.h">
+      <Filter>2DGameFramework\weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="sword.h">
+      <Filter>2DGameFramework\weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="triplemachinegun.h">
+      <Filter>2DGameFramework\weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="weapon.h">
+      <Filter>2DGameFramework\weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="weaponManager.h">
+      <Filter>2DGameFramework\weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="wrench.h">
+      <Filter>2DGameFramework\weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="assultRifle.h">
+      <Filter>2DGameFramework\weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="bullet.h">
+      <Filter>2DGameFramework\bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="bullet1.h">
+      <Filter>2DGameFramework\bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="bullet16.h">
+      <Filter>2DGameFramework\bullet</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="winMain.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="gameNode.cpp">
+      <Filter>2DGameFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="playGround.cpp">
+      <Filter>playGround</Filter>
+    </ClCompile>
+    <ClCompile Include="keyManager.cpp">
+      <Filter>2DGameFramework\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="image.cpp">
+      <Filter>2DGameFramework\subclass\image</Filter>
+    </ClCompile>
+    <ClCompile Include="utils.cpp">
+      <Filter>2DGameFramework\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="imageManager.cpp">
+      <Filter>2DGameFramework\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="timer.cpp">
+      <Filter>2DGameFramework\subclass\timer</Filter>
+    </ClCompile>
+    <ClCompile Include="timeManager.cpp">
+      <Filter>2DGameFramework\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="animation.cpp">
+      <Filter>2DGameFramework\subclass\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="effect.cpp">
+      <Filter>2DGameFramework\subclass\effect</Filter>
+    </ClCompile>
+    <ClCompile Include="effectManager.cpp">
+      <Filter>2DGameFramework\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="sceneManager.cpp">
+      <Filter>2DGameFramework\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="soundManager.cpp">
+      <Filter>2DGameFramework\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="keyAniManager.cpp">
+      <Filter>2DGameFramework\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="iniDataManager.cpp">
+      <Filter>2DGameFramework\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="StartScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="gameScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="customScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="gameManager.cpp">
+      <Filter>2DGameFramework\gameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="settingScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="mainmenuScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="maptoolScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="mapManager.cpp">
+      <Filter>2DGameFramework\gameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="cameraManager.cpp">
+      <Filter>2DGameFramework\gameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="camera.cpp">
+      <Filter>2DGameFramework\subclass\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Plant.cpp">
+      <Filter>2DGameFramework\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>2DGameFramework\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="playerManager.cpp">
+      <Filter>2DGameFramework\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Crystal.cpp">
+      <Filter>2DGameFramework\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Eyes.cpp">
+      <Filter>2DGameFramework\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Fish.cpp">
+      <Filter>2DGameFramework\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Meiting.cpp">
+      <Filter>2DGameFramework\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="selectScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="enemyState.cpp">
+      <Filter>2DGameFramework\enemy\enemyState</Filter>
+    </ClCompile>
+    <ClCompile Include="enemy.cpp">
+      <Filter>2DGameFramework\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="enemyManager.cpp">
+      <Filter>2DGameFramework\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="banditDead.cpp">
+      <Filter>2DGameFramework\enemy\stage1\bandit\banditState</Filter>
+    </ClCompile>
+    <ClCompile Include="banditIdle.cpp">
+      <Filter>2DGameFramework\enemy\stage1\bandit\banditState</Filter>
+    </ClCompile>
+    <ClCompile Include="banditState.cpp">
+      <Filter>2DGameFramework\enemy\stage1\bandit\banditState</Filter>
+    </ClCompile>
+    <ClCompile Include="banditWalk.cpp">
+      <Filter>2DGameFramework\enemy\stage1\bandit\banditState</Filter>
+    </ClCompile>
+    <ClCompile Include="bandit.cpp">
+      <Filter>2DGameFramework\enemy\stage1\bandit</Filter>
+    </ClCompile>
+    <ClCompile Include="bigBanditDead.cpp">
+      <Filter>2DGameFramework\enemy\stage1\big_Bandit\bigBanditState</Filter>
+    </ClCompile>
+    <ClCompile Include="bigBanditFire.cpp">
+      <Filter>2DGameFramework\enemy\stage1\big_Bandit\bigBanditState</Filter>
+    </ClCompile>
+    <ClCompile Include="bigBanditIdle.cpp">
+      <Filter>2DGameFramework\enemy\stage1\big_Bandit\bigBanditState</Filter>
+    </ClCompile>
+    <ClCompile Include="bigBanditState.cpp">
+      <Filter>2DGameFramework\enemy\stage1\big_Bandit\bigBanditState</Filter>
+    </ClCompile>
+    <ClCompile Include="bigBanditWalk.cpp">
+      <Filter>2DGameFramework\enemy\stage1\big_Bandit\bigBanditState</Filter>
+    </ClCompile>
+    <ClCompile Include="bigBandit.cpp">
+      <Filter>2DGameFramework\enemy\stage1\big_Bandit</Filter>
+    </ClCompile>
+    <ClCompile Include="bigMaggotBurrow.cpp">
+      <Filter>2DGameFramework\enemy\stage1\bigMaggot\bigMaggotState</Filter>
+    </ClCompile>
+    <ClCompile Include="bigMaggotDead.cpp">
+      <Filter>2DGameFramework\enemy\stage1\bigMaggot\bigMaggotState</Filter>
+    </ClCompile>
+    <ClCompile Include="bigMaggotIdle.cpp">
+      <Filter>2DGameFramework\enemy\stage1\bigMaggot\bigMaggotState</Filter>
+    </ClCompile>
+    <ClCompile Include="bigMaggotState.cpp">
+      <Filter>2DGameFramework\enemy\stage1\bigMaggot\bigMaggotState</Filter>
+    </ClCompile>
+    <ClCompile Include="bigMaggot.cpp">
+      <Filter>2DGameFramework\enemy\stage1\bigMaggot</Filter>
+    </ClCompile>
+    <ClCompile Include="greenMaggotDead.cpp">
+      <Filter>2DGameFramework\enemy\stage1\greenMaggot\greenMaggotState</Filter>
+    </ClCompile>
+    <ClCompile Include="greenMaggotIdle.cpp">
+      <Filter>2DGameFramework\enemy\stage1\greenMaggot\greenMaggotState</Filter>
+    </ClCompile>
+    <ClCompile Include="greenMaggotState.cpp">
+      <Filter>2DGameFramework\enemy\stage1\greenMaggot\greenMaggotState</Filter>
+    </ClCompile>
+    <ClCompile Include="greenMaggot.cpp">
+      <Filter>2DGameFramework\enemy\stage1\greenMaggot</Filter>
+    </ClCompile>
+    <ClCompile Include="maggotNestDead.cpp">
+      <Filter>2DGameFramework\enemy\stage1\maggotNest\maggotNestState</Filter>
+    </ClCompile>
+    <ClCompile Include="maggotNestIdle.cpp">
+      <Filter>2DGameFramework\enemy\stage1\maggotNest\maggotNestState</Filter>
+    </ClCompile>
+    <ClCompile Include="maggotNestState.cpp">
+      <Filter>2DGameFramework\enemy\stage1\maggotNest\maggotNestState</Filter>
+    </ClCompile>
+    <ClCompile Include="maggotNest.cpp">
+      <Filter>2DGameFramework\enemy\stage1\maggotNest</Filter>
+    </ClCompile>
+    <ClCompile Include="scolpionDead.cpp">
+      <Filter>2DGameFramework\enemy\stage1\scolpion\scolpionState</Filter>
+    </ClCompile>
+    <ClCompile Include="scolpionFire.cpp">
+      <Filter>2DGameFramework\enemy\stage1\scolpion\scolpionState</Filter>
+    </ClCompile>
+    <ClCompile Include="scolpionIdle.cpp">
+      <Filter>2DGameFramework\enemy\stage1\scolpion\scolpionState</Filter>
+    </ClCompile>
+    <ClCompile Include="scolpionState.cpp">
+      <Filter>2DGameFramework\enemy\stage1\scolpion\scolpionState</Filter>
+    </ClCompile>
+    <ClCompile Include="scolpionWalk.cpp">
+      <Filter>2DGameFramework\enemy\stage1\scolpion\scolpionState</Filter>
+    </ClCompile>
+    <ClCompile Include="scolpion.cpp">
+      <Filter>2DGameFramework\enemy\stage1\scolpion</Filter>
+    </ClCompile>
+    <ClCompile Include="bigRatAttack.cpp">
+      <Filter>2DGameFramework\enemy\stage2\bigRat\bigRatState</Filter>
+    </ClCompile>
+    <ClCompile Include="bigRatDead.cpp">
+      <Filter>2DGameFramework\enemy\stage2\bigRat\bigRatState</Filter>
+    </ClCompile>
+    <ClCompile Include="bigRatFire.cpp">
+      <Filter>2DGameFramework\enemy\stage2\bigRat\bigRatState</Filter>
+    </ClCompile>
+    <ClCompile Include="bigRatIdle.cpp">
+      <Filter>2DGameFramework\enemy\stage2\bigRat\bigRatState</Filter>
+    </ClCompile>
+    <ClCompile Include="bigRatState.cpp">
+      <Filter>2DGameFramework\enemy\stage2\bigRat\bigRatState</Filter>
+    </ClCompile>
+    <ClCompile Include="bigRatWalk.cpp">
+      <Filter>2DGameFramework\enemy\stage2\bigRat\bigRatState</Filter>
+    </ClCompile>
+    <ClCompile Include="bigRat.cpp">
+      <Filter>2DGameFramework\enemy\stage2\bigRat</Filter>
+    </ClCompile>
+    <ClCompile Include="frogDead.cpp">
+      <Filter>2DGameFramework\enemy\stage2\frog\frogState</Filter>
+    </ClCompile>
+    <ClCompile Include="frogIdle.cpp">
+      <Filter>2DGameFramework\enemy\stage2\frog\frogState</Filter>
+    </ClCompile>
+    <ClCompile Include="frogState.cpp">
+      <Filter>2DGameFramework\enemy\stage2\frog\frogState</Filter>
+    </ClCompile>
+    <ClCompile Include="frogWalk.cpp">
+      <Filter>2DGameFramework\enemy\stage2\frog\frogState</Filter>
+    </ClCompile>
+    <ClCompile Include="frog.cpp">
+      <Filter>2DGameFramework\enemy\stage2\frog</Filter>
+    </ClCompile>
+    <ClCompile Include="gatorDead.cpp">
+      <Filter>2DGameFramework\enemy\stage2\gator\gatorState</Filter>
+    </ClCompile>
+    <ClCompile Include="gatorIdle.cpp">
+      <Filter>2DGameFramework\enemy\stage2\gator\gatorState</Filter>
+    </ClCompile>
+    <ClCompile Include="gatorState.cpp">
+      <Filter>2DGameFramework\enemy\stage2\gator\gatorState</Filter>
+    </ClCompile>
+    <ClCompile Include="gatorWalk.cpp">
+      <Filter>2DGameFramework\enemy\stage2\gator\gatorState</Filter>
+    </ClCompile>
+    <ClCompile Include="gator.cpp">
+      <Filter>2DGameFramework\enemy\stage2\gator</Filter>
+    </ClCompile>
+    <ClCompile Include="greenFrogDead.cpp">
+      <Filter>2DGameFramework\enemy\stage2\greenFrog\greenFrogState</Filter>
+    </ClCompile>
+    <ClCompile Include="greenFrogIdle.cpp">
+      <Filter>2DGameFramework\enemy\stage2\greenFrog\greenFrogState</Filter>
+    </ClCompile>
+    <ClCompile Include="greenFrogState.cpp">
+      <Filter>2DGameFramework\enemy\stage2\greenFrog\greenFrogState</Filter>
+    </ClCompile>
+    <ClCompile Include="greenFrogWalk.cpp">
+      <Filter>2DGameFramework\enemy\stage2\greenFrog\greenFrogState</Filter>
+    </ClCompile>
+    <ClCompile Include="greenFrog.cpp">
+      <Filter>2DGameFramework\enemy\stage2\greenFrog</Filter>
+    </ClCompile>
+    <ClCompile Include="greenRatDead.cpp">
+      <Filter>2DGameFramework\enemy\stage2\greenRat\greenRatState</Filter>
+    </ClCompile>
+    <ClCompile Include="greenRatIdle.cpp">
+      <Filter>2DGameFramework\enemy\stage2\greenRat\greenRatState</Filter>
+    </ClCompile>
+    <ClCompile Include="greenRatState.cpp">
+      <Filter>2DGameFramework\enemy\stage2\greenRat\greenRatState</Filter>
+    </ClCompile>
+    <ClCompile Include="greenRatWalk.cpp">
+      <Filter>2DGameFramework\enemy\stage2\greenRat\greenRatState</Filter>
+    </ClCompile>
+    <ClCompile Include="greenRat.cpp">
+      <Filter>2DGameFramework\enemy\stage2\greenRat</Filter>
+    </ClCompile>
+    <ClCompile Include="ratDead.cpp">
+      <Filter>2DGameFramework\enemy\stage2\rat\ratState</Filter>
+    </ClCompile>
+    <ClCompile Include="ratIdle.cpp">
+      <Filter>2DGameFramework\enemy\stage2\rat\ratState</Filter>
+    </ClCompile>
+    <ClCompile Include="ratState.cpp">
+      <Filter>2DGameFramework\enemy\stage2\rat\ratState</Filter>
+    </ClCompile>
+    <ClCompile Include="ratWalk.cpp">
+      <Filter>2DGameFramework\enemy\stage2\rat\ratState</Filter>
+    </ClCompile>
+    <ClCompile Include="rat.cpp">
+      <Filter>2DGameFramework\enemy\stage2\rat</Filter>
+    </ClCompile>
+    <ClCompile Include="assassinDead.cpp">
+      <Filter>2DGameFramework\enemy\stage3\assassin\assassinState</Filter>
+    </ClCompile>
+    <ClCompile Include="assassinIdle.cpp">
+      <Filter>2DGameFramework\enemy\stage3\assassin\assassinState</Filter>
+    </ClCompile>
+    <ClCompile Include="assassinState.cpp">
+      <Filter>2DGameFramework\enemy\stage3\assassin\assassinState</Filter>
+    </ClCompile>
+    <ClCompile Include="assassinWalk.cpp">
+      <Filter>2DGameFramework\enemy\stage3\assassin\assassinState</Filter>
+    </ClCompile>
+    <ClCompile Include="assassin.cpp">
+      <Filter>2DGameFramework\enemy\stage3\assassin</Filter>
+    </ClCompile>
+    <ClCompile Include="bigDogIdle.cpp">
+      <Filter>2DGameFramework\enemy\stage3\bigDog\bigDogState</Filter>
+    </ClCompile>
+    <ClCompile Include="bigDogSpin.cpp">
+      <Filter>2DGameFramework\enemy\stage3\bigDog\bigDogState</Filter>
+    </ClCompile>
+    <ClCompile Include="bigDogState.cpp">
+      <Filter>2DGameFramework\enemy\stage3\bigDog\bigDogState</Filter>
+    </ClCompile>
+    <ClCompile Include="bigDog.cpp">
+      <Filter>2DGameFramework\enemy\stage3\bigDog</Filter>
+    </ClCompile>
+    <ClCompile Include="sniperDead.cpp">
+      <Filter>2DGameFramework\enemy\stage3\sniper\sniperState</Filter>
+    </ClCompile>
+    <ClCompile Include="sniperIdle.cpp">
+      <Filter>2DGameFramework\enemy\stage3\sniper\sniperState</Filter>
+    </ClCompile>
+    <ClCompile Include="sniperState.cpp">
+      <Filter>2DGameFramework\enemy\stage3\sniper\sniperState</Filter>
+    </ClCompile>
+    <ClCompile Include="sniperWalk.cpp">
+      <Filter>2DGameFramework\enemy\stage3\sniper\sniperState</Filter>
+    </ClCompile>
+    <ClCompile Include="sniper.cpp">
+      <Filter>2DGameFramework\enemy\stage3\sniper</Filter>
+    </ClCompile>
+    <ClCompile Include="salamanderWalk.cpp">
+      <Filter>2DGameFramework\enemy\stage3\salamander\salamanderState</Filter>
+    </ClCompile>
+    <ClCompile Include="salamanderDead.cpp">
+      <Filter>2DGameFramework\enemy\stage3\salamander\salamanderState</Filter>
+    </ClCompile>
+    <ClCompile Include="salamanderFire.cpp">
+      <Filter>2DGameFramework\enemy\stage3\salamander\salamanderState</Filter>
+    </ClCompile>
+    <ClCompile Include="salamanderIdle.cpp">
+      <Filter>2DGameFramework\enemy\stage3\salamander\salamanderState</Filter>
+    </ClCompile>
+    <ClCompile Include="salamanderState.cpp">
+      <Filter>2DGameFramework\enemy\stage3\salamander\salamanderState</Filter>
+    </ClCompile>
+    <ClCompile Include="salamander.cpp">
+      <Filter>2DGameFramework\enemy\stage3\salamander</Filter>
+    </ClCompile>
+    <ClCompile Include="ravenWalk.cpp">
+      <Filter>2DGameFramework\enemy\stage3\raven\ravenState</Filter>
+    </ClCompile>
+    <ClCompile Include="ravenDead.cpp">
+      <Filter>2DGameFramework\enemy\stage3\raven\ravenState</Filter>
+    </ClCompile>
+    <ClCompile Include="ravenFly.cpp">
+      <Filter>2DGameFramework\enemy\stage3\raven\ravenState</Filter>
+    </ClCompile>
+    <ClCompile Include="ravenIdle.cpp">
+      <Filter>2DGameFramework\enemy\stage3\raven\ravenState</Filter>
+    </ClCompile>
+    <ClCompile Include="ravenState.cpp">
+      <Filter>2DGameFramework\enemy\stage3\raven\ravenState</Filter>
+    </ClCompile>
+    <ClCompile Include="raven.cpp">
+      <Filter>2DGameFramework\enemy\stage3\raven</Filter>
+    </ClCompile>
+    <ClCompile Include="maggotDead.cpp">
+      <Filter>2DGameFramework\enemy\stage1\maggot\maggotState</Filter>
+    </ClCompile>
+    <ClCompile Include="maggotIdle.cpp">
+      <Filter>2DGameFramework\enemy\stage1\maggot\maggotState</Filter>
+    </ClCompile>
+    <ClCompile Include="maggotState.cpp">
+      <Filter>2DGameFramework\enemy\stage1\maggot\maggotState</Filter>
+    </ClCompile>
+    <ClCompile Include="maggot.cpp">
+      <Filter>2DGameFramework\enemy\stage1\maggot</Filter>
+    </ClCompile>
+    <ClCompile Include="grenadeLauncher.cpp">
+      <Filter>2DGameFramework\weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="machineGun.cpp">
+      <Filter>2DGameFramework\weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="pistol.cpp">
+      <Filter>2DGameFramework\weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="razerRifle.cpp">
+      <Filter>2DGameFramework\weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="shotGun.cpp">
+      <Filter>2DGameFramework\weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="shovel.cpp">
+      <Filter>2DGameFramework\weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="sword.cpp">
+      <Filter>2DGameFramework\weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="triplemachinegun.cpp">
+      <Filter>2DGameFramework\weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="weapon.cpp">
+      <Filter>2DGameFramework\weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="weaponManager.cpp">
+      <Filter>2DGameFramework\weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="wrench.cpp">
+      <Filter>2DGameFramework\weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="assultRifle.cpp">
+      <Filter>2DGameFramework\weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="bullet.cpp">
+      <Filter>2DGameFramework\bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="bullet1.cpp">
+      <Filter>2DGameFramework\bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="bullet16.cpp">
+      <Filter>2DGameFramework\bullet</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="windowAPI.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="windowAPI.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

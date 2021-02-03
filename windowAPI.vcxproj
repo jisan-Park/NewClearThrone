@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{19D559FB-F5D0-4C3C-9B48-720C72E962E0}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>windowAPI</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="animation.h" />
+    <ClInclude Include="assassin.h" />
+    <ClInclude Include="assassinDead.h" />
+    <ClInclude Include="assassinIdle.h" />
+    <ClInclude Include="assassinState.h" />
+    <ClInclude Include="assassinWalk.h" />
+    <ClInclude Include="assultRifle.h" />
+    <ClInclude Include="bandit.h" />
+    <ClInclude Include="banditDead.h" />
+    <ClInclude Include="banditIdle.h" />
+    <ClInclude Include="banditState.h" />
+    <ClInclude Include="banditWalk.h" />
+    <ClInclude Include="bigBandit.h" />
+    <ClInclude Include="bigBanditDead.h" />
+    <ClInclude Include="bigBanditFire.h" />
+    <ClInclude Include="bigBanditIdle.h" />
+    <ClInclude Include="bigBanditState.h" />
+    <ClInclude Include="bigBanditWalk.h" />
+    <ClInclude Include="bigDog.h" />
+    <ClInclude Include="bigDogIdle.h" />
+    <ClInclude Include="bigDogSpin.h" />
+    <ClInclude Include="bigDogState.h" />
+    <ClInclude Include="bigMaggot.h" />
+    <ClInclude Include="bigMaggotBurrow.h" />
+    <ClInclude Include="bigMaggotDead.h" />
+    <ClInclude Include="bigMaggotIdle.h" />
+    <ClInclude Include="bigMaggotState.h" />
+    <ClInclude Include="bigRat.h" />
+    <ClInclude Include="bigRatAttack.h" />
+    <ClInclude Include="bigRatDead.h" />
+    <ClInclude Include="bigRatFire.h" />
+    <ClInclude Include="bigRatIdle.h" />
+    <ClInclude Include="bigRatState.h" />
+    <ClInclude Include="bigRatWalk.h" />
+    <ClInclude Include="bullet.h" />
+    <ClInclude Include="bullet1.h" />
+    <ClInclude Include="bullet16.h" />
+    <ClInclude Include="camera.h" />
+    <ClInclude Include="cameraManager.h" />
+    <ClInclude Include="commonMacroFunction.h" />
+    <ClInclude Include="Crystal.h" />
+    <ClInclude Include="customScene.h" />
+    <ClInclude Include="effect.h" />
+    <ClInclude Include="effectManager.h" />
+    <ClInclude Include="enemy.h" />
+    <ClInclude Include="enemyManager.h" />
+    <ClInclude Include="enemyState.h" />
+    <ClInclude Include="Eyes.h" />
+    <ClInclude Include="Fish.h" />
+    <ClInclude Include="frog.h" />
+    <ClInclude Include="frogDead.h" />
+    <ClInclude Include="frogIdle.h" />
+    <ClInclude Include="frogState.h" />
+    <ClInclude Include="frogWalk.h" />
+    <ClInclude Include="gameManager.h" />
+    <ClInclude Include="gameNode.h" />
+    <ClInclude Include="gameScene.h" />
+    <ClInclude Include="gator.h" />
+    <ClInclude Include="gatorDead.h" />
+    <ClInclude Include="gatorIdle.h" />
+    <ClInclude Include="gatorState.h" />
+    <ClInclude Include="gatorWalk.h" />
+    <ClInclude Include="greenFrog.h" />
+    <ClInclude Include="greenFrogDead.h" />
+    <ClInclude Include="greenFrogIdle.h" />
+    <ClInclude Include="greenFrogState.h" />
+    <ClInclude Include="greenFrogWalk.h" />
+    <ClInclude Include="greenMaggot.h" />
+    <ClInclude Include="greenMaggotDead.h" />
+    <ClInclude Include="greenMaggotIdle.h" />
+    <ClInclude Include="greenMaggotState.h" />
+    <ClInclude Include="greenRat.h" />
+    <ClInclude Include="greenRatDead.h" />
+    <ClInclude Include="greenRatIdle.h" />
+    <ClInclude Include="greenRatState.h" />
+    <ClInclude Include="greenRatWalk.h" />
+    <ClInclude Include="grenadeLauncher.h" />
+    <ClInclude Include="image.h" />
+    <ClInclude Include="imageManager.h" />
+    <ClInclude Include="iniDataManager.h" />
+    <ClInclude Include="keyAniManager.h" />
+    <ClInclude Include="keyManager.h" />
+    <ClInclude Include="machineGun.h" />
+    <ClInclude Include="maggot.h" />
+    <ClInclude Include="maggotDead.h" />
+    <ClInclude Include="maggotIdle.h" />
+    <ClInclude Include="maggotNest.h" />
+    <ClInclude Include="maggotNestDead.h" />
+    <ClInclude Include="maggotNestIdle.h" />
+    <ClInclude Include="maggotNestState.h" />
+    <ClInclude Include="maggotState.h" />
+    <ClInclude Include="mainmenuScene.h" />
+    <ClInclude Include="mapManager.h" />
+    <ClInclude Include="maptoolScene.h" />
+    <ClInclude Include="Meiting.h" />
+    <ClInclude Include="pistol.h" />
+    <ClInclude Include="Plant.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="playerManager.h" />
+    <ClInclude Include="playGround.h" />
+    <ClInclude Include="randomFunction.h" />
+    <ClInclude Include="rat.h" />
+    <ClInclude Include="ratDead.h" />
+    <ClInclude Include="ratIdle.h" />
+    <ClInclude Include="ratState.h" />
+    <ClInclude Include="ratWalk.h" />
+    <ClInclude Include="raven.h" />
+    <ClInclude Include="ravenDead.h" />
+    <ClInclude Include="ravenFly.h" />
+    <ClInclude Include="ravenIdle.h" />
+    <ClInclude Include="ravenState.h" />
+    <ClInclude Include="ravenWalk.h" />
+    <ClInclude Include="razerRifle.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="salamander.h" />
+    <ClInclude Include="salamanderDead.h" />
+    <ClInclude Include="salamanderFire.h" />
+    <ClInclude Include="salamanderIdle.h" />
+    <ClInclude Include="salamanderState.h" />
+    <ClInclude Include="salamanderWalk.h" />
+    <ClInclude Include="sceneManager.h" />
+    <ClInclude Include="scolpion.h" />
+    <ClInclude Include="scolpionDead.h" />
+    <ClInclude Include="scolpionFire.h" />
+    <ClInclude Include="scolpionIdle.h" />
+    <ClInclude Include="scolpionState.h" />
+    <ClInclude Include="scolpionWalk.h" />
+    <ClInclude Include="selectScene.h" />
+    <ClInclude Include="settingScene.h" />
+    <ClInclude Include="shotGun.h" />
+    <ClInclude Include="shovel.h" />
+    <ClInclude Include="singletonBase.h" />
+    <ClInclude Include="sniper.h" />
+    <ClInclude Include="sniperDead.h" />
+    <ClInclude Include="sniperIdle.h" />
+    <ClInclude Include="sniperState.h" />
+    <ClInclude Include="sniperWalk.h" />
+    <ClInclude Include="soundManager.h" />
+    <ClInclude Include="StartScene.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="sword.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="timeManager.h" />
+    <ClInclude Include="timer.h" />
+    <ClInclude Include="triplemachinegun.h" />
+    <ClInclude Include="utils.h" />
+    <ClInclude Include="weapon.h" />
+    <ClInclude Include="weaponManager.h" />
+    <ClInclude Include="windowAPI.h" />
+    <ClInclude Include="wrench.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="animation.cpp" />
+    <ClCompile Include="assassin.cpp" />
+    <ClCompile Include="assassinDead.cpp" />
+    <ClCompile Include="assassinIdle.cpp" />
+    <ClCompile Include="assassinState.cpp" />
+    <ClCompile Include="assassinWalk.cpp" />
+    <ClCompile Include="assultRifle.cpp" />
+    <ClCompile Include="bandit.cpp" />
+    <ClCompile Include="banditDead.cpp" />
+    <ClCompile Include="banditIdle.cpp" />
+    <ClCompile Include="banditState.cpp" />
+    <ClCompile Include="banditWalk.cpp" />
+    <ClCompile Include="bigBandit.cpp" />
+    <ClCompile Include="bigBanditDead.cpp" />
+    <ClCompile Include="bigBanditFire.cpp" />
+    <ClCompile Include="bigBanditIdle.cpp" />
+    <ClCompile Include="bigBanditState.cpp" />
+    <ClCompile Include="bigBanditWalk.cpp" />
+    <ClCompile Include="bigDog.cpp" />
+    <ClCompile Include="bigDogIdle.cpp" />
+    <ClCompile Include="bigDogSpin.cpp" />
+    <ClCompile Include="bigDogState.cpp" />
+    <ClCompile Include="bigMaggot.cpp" />
+    <ClCompile Include="bigMaggotBurrow.cpp" />
+    <ClCompile Include="bigMaggotDead.cpp" />
+    <ClCompile Include="bigMaggotIdle.cpp" />
+    <ClCompile Include="bigMaggotState.cpp" />
+    <ClCompile Include="bigRat.cpp" />
+    <ClCompile Include="bigRatAttack.cpp" />
+    <ClCompile Include="bigRatDead.cpp" />
+    <ClCompile Include="bigRatFire.cpp" />
+    <ClCompile Include="bigRatIdle.cpp" />
+    <ClCompile Include="bigRatState.cpp" />
+    <ClCompile Include="bigRatWalk.cpp" />
+    <ClCompile Include="bullet.cpp" />
+    <ClCompile Include="bullet1.cpp" />
+    <ClCompile Include="bullet16.cpp" />
+    <ClCompile Include="camera.cpp" />
+    <ClCompile Include="cameraManager.cpp" />
+    <ClCompile Include="Crystal.cpp" />
+    <ClCompile Include="customScene.cpp" />
+    <ClCompile Include="effect.cpp" />
+    <ClCompile Include="effectManager.cpp" />
+    <ClCompile Include="enemy.cpp" />
+    <ClCompile Include="enemyManager.cpp" />
+    <ClCompile Include="enemyState.cpp" />
+    <ClCompile Include="Eyes.cpp" />
+    <ClCompile Include="Fish.cpp" />
+    <ClCompile Include="frog.cpp" />
+    <ClCompile Include="frogDead.cpp" />
+    <ClCompile Include="frogIdle.cpp" />
+    <ClCompile Include="frogState.cpp" />
+    <ClCompile Include="frogWalk.cpp" />
+    <ClCompile Include="gameManager.cpp" />
+    <ClCompile Include="gameNode.cpp" />
+    <ClCompile Include="gameScene.cpp" />
+    <ClCompile Include="gator.cpp" />
+    <ClCompile Include="gatorDead.cpp" />
+    <ClCompile Include="gatorIdle.cpp" />
+    <ClCompile Include="gatorState.cpp" />
+    <ClCompile Include="gatorWalk.cpp" />
+    <ClCompile Include="greenFrog.cpp" />
+    <ClCompile Include="greenFrogDead.cpp" />
+    <ClCompile Include="greenFrogIdle.cpp" />
+    <ClCompile Include="greenFrogState.cpp" />
+    <ClCompile Include="greenFrogWalk.cpp" />
+    <ClCompile Include="greenMaggot.cpp" />
+    <ClCompile Include="greenMaggotDead.cpp" />
+    <ClCompile Include="greenMaggotIdle.cpp" />
+    <ClCompile Include="greenMaggotState.cpp" />
+    <ClCompile Include="greenRat.cpp" />
+    <ClCompile Include="greenRatDead.cpp" />
+    <ClCompile Include="greenRatIdle.cpp" />
+    <ClCompile Include="greenRatState.cpp" />
+    <ClCompile Include="greenRatWalk.cpp" />
+    <ClCompile Include="grenadeLauncher.cpp" />
+    <ClCompile Include="image.cpp" />
+    <ClCompile Include="imageManager.cpp" />
+    <ClCompile Include="iniDataManager.cpp" />
+    <ClCompile Include="keyAniManager.cpp" />
+    <ClCompile Include="keyManager.cpp" />
+    <ClCompile Include="machineGun.cpp" />
+    <ClCompile Include="maggot.cpp" />
+    <ClCompile Include="maggotDead.cpp" />
+    <ClCompile Include="maggotIdle.cpp" />
+    <ClCompile Include="maggotNest.cpp" />
+    <ClCompile Include="maggotNestDead.cpp" />
+    <ClCompile Include="maggotNestIdle.cpp" />
+    <ClCompile Include="maggotNestState.cpp" />
+    <ClCompile Include="maggotState.cpp" />
+    <ClCompile Include="mainmenuScene.cpp" />
+    <ClCompile Include="mapManager.cpp" />
+    <ClCompile Include="maptoolScene.cpp" />
+    <ClCompile Include="Meiting.cpp" />
+    <ClCompile Include="pistol.cpp" />
+    <ClCompile Include="Plant.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="playerManager.cpp" />
+    <ClCompile Include="playGround.cpp" />
+    <ClCompile Include="rat.cpp" />
+    <ClCompile Include="ratDead.cpp" />
+    <ClCompile Include="ratIdle.cpp" />
+    <ClCompile Include="ratState.cpp" />
+    <ClCompile Include="ratWalk.cpp" />
+    <ClCompile Include="raven.cpp" />
+    <ClCompile Include="ravenDead.cpp" />
+    <ClCompile Include="ravenFly.cpp" />
+    <ClCompile Include="ravenIdle.cpp" />
+    <ClCompile Include="ravenState.cpp" />
+    <ClCompile Include="ravenWalk.cpp" />
+    <ClCompile Include="razerRifle.cpp" />
+    <ClCompile Include="salamander.cpp" />
+    <ClCompile Include="salamanderDead.cpp" />
+    <ClCompile Include="salamanderFire.cpp" />
+    <ClCompile Include="salamanderIdle.cpp" />
+    <ClCompile Include="salamanderState.cpp" />
+    <ClCompile Include="salamanderWalk.cpp" />
+    <ClCompile Include="sceneManager.cpp" />
+    <ClCompile Include="scolpion.cpp" />
+    <ClCompile Include="scolpionDead.cpp" />
+    <ClCompile Include="scolpionFire.cpp" />
+    <ClCompile Include="scolpionIdle.cpp" />
+    <ClCompile Include="scolpionState.cpp" />
+    <ClCompile Include="scolpionWalk.cpp" />
+    <ClCompile Include="selectScene.cpp" />
+    <ClCompile Include="settingScene.cpp" />
+    <ClCompile Include="shotGun.cpp" />
+    <ClCompile Include="shovel.cpp" />
+    <ClCompile Include="sniper.cpp" />
+    <ClCompile Include="sniperDead.cpp" />
+    <ClCompile Include="sniperIdle.cpp" />
+    <ClCompile Include="sniperState.cpp" />
+    <ClCompile Include="sniperWalk.cpp" />
+    <ClCompile Include="soundManager.cpp" />
+    <ClCompile Include="StartScene.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="sword.cpp" />
+    <ClCompile Include="timeManager.cpp" />
+    <ClCompile Include="timer.cpp" />
+    <ClCompile Include="triplemachinegun.cpp" />
+    <ClCompile Include="utils.cpp" />
+    <ClCompile Include="weapon.cpp" />
+    <ClCompile Include="weaponManager.cpp" />
+    <ClCompile Include="winMain.cpp" />
+    <ClCompile Include="wrench.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="windowAPI.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico" />
+    <Image Include="windowAPI.ico" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
