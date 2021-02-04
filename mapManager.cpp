@@ -3001,4 +3001,37 @@ POINT mapManager::enemyMove(POINT pt)
 	return nextArea;
 }
 
+bool mapManager::isStraight(POINT player, POINT enemy)
+{
+	int startx, starty, endx, endy;
+	if (player.x <= enemy.x)
+	{
+		startx = player.x / 64;
+		endx = enemy.x / 64;
+	}
+	else
+	{
+		startx = enemy.x / 64;
+		endx = player.x / 64;
+	}
+	if (player.y <= enemy.y)
+	{
+		starty = player.y / 64;
+		endy = enemy.y / 64;
+	}
+	else
+	{
+		starty = enemy.y / 64;
+		endy = player.y / 64;
+	}
+	for (int i = startx; i <= endx; i++)
+	{
+		for (int j = starty; j <= endy; j++)
+		{
+			if (_tiles[i][j].wall == WALL_NONE) continue;
+			if (intersects(_tiles[i][j].rc, player, enemy)) return false;
+		}
+	}
+	return true;
+}
 

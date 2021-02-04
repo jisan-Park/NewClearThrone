@@ -648,6 +648,9 @@
     <ClInclude Include="banditGun.h">
       <Filter>2DGameFramework\weapon</Filter>
     </ClInclude>
+    <ClInclude Include="intersects.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -1093,6 +1096,9 @@
     </ClCompile>
     <ClCompile Include="banditGun.cpp">
       <Filter>2DGameFramework\weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="intersects.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

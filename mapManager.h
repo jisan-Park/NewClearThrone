@@ -1,5 +1,6 @@
 #pragma once
 #include "singletonBase.h"
+#include "intersects.h"
 
 //한 타일 사이즈 64
 #define TILESIZE 64
@@ -32,11 +33,11 @@ enum TERRAIN
 
 enum WALL
 {
-	W_B, W_L, W_LB, W_LT, W_R, W_RT, W_RB, W_ROOF, W_T										   ,W_3B, W_3T, W_3R,W_3L, W_4			,W_2BT, W_2RL
+	W_B, W_L, W_LB, W_LT, W_R, W_RT, W_RB, W_ROOF, W_T, W_3B, W_3T, W_3R, W_3L, W_4, W_2BT, W_2RL
 
 	, W2_B, W2_B1, W2_B2, W2_R, W2_R2, W2_R3
 
-	, W3_B, W3_L, W3_LB, W3_LT, W3_R, W3_RB, W3_RT, W3_C, W3_C1, W3_C2, W3_T,					W3_3B, W3_3T, W3_3R, W3_3L , W3_4 , W3_2BT, W3_2RL
+	, W3_B, W3_L, W3_LB, W3_LT, W3_R, W3_RB, W3_RT, W3_C, W3_C1, W3_C2, W3_T, W3_3B, W3_3T, W3_3R, W3_3L, W3_4, W3_2BT, W3_2RL
 
 	, WALL_NONE
 };
@@ -208,7 +209,7 @@ public:
 	void setImage();
 	void setTiles();
 	void setSampleTile();
-	
+
 	//update
 	void setMap();
 	void moveIndex();			//이동
@@ -246,5 +247,6 @@ public:
 
 	//enemy A* algorithm
 	POINT enemyMove(POINT pt);
+	bool isStraight(POINT player, POINT enemy);
 };
 

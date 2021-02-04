@@ -49,7 +49,11 @@ void bandit::update()
 			_info.nextState = E_IDLE;
 		}
 		_fireCnt++;
-		if (_fireCnt % 30 == 0) _weapon->fire();
+		if (_fireCnt % 30 == 0 && MAPMANAGER->isStraight(PLAYERMANAGER->getPlayer()->getPt(), _info.pt))
+		{
+			_weapon->fire();
+			_fireCnt = 0;
+		}
 	}
 	else _info.aimAngle = _info.moveAngle;
 	if (_info.nstate == UNNOTICED)
