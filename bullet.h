@@ -18,6 +18,7 @@ struct tagBullet
 	float speed;			//스피드
 	bool isFire;			//발사했누?
 	int count;				//프레임 이미지 카운트용
+	int damage;
 };
 class bullet : singletonBase<bullet>
 {
@@ -36,7 +37,7 @@ public:
 	void removeBullet(int arrnum);
 
 	virtual void fire(POINT pt, float speed, float angle, whoshot who);
-	virtual void fire(POINT pt, float speed, float angle, float turnangle, whoshot who);
+	virtual void fire(POINT pt, float speed, float angle, int damage, whoshot who);
 	virtual void move();
 
 	vector<tagBullet> getVbullet() { return _vBullet; }

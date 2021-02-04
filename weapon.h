@@ -32,9 +32,10 @@ protected:
 	weaponType _type;	// 무기타입입니다
 	bullet* _bullet;
 	RECT _rc;
+	float _bulletSpd;
 	float _radius;	// 이미지 
 	float _angle;		// 조준각도입니다
-	float _meleeAngle;	// 근접무기 보정 해 줄 각도입니다
+	float _meleeAngle = PI / 2;	// 근접무기 보정 해 줄 각도입니다
 	int _index;			// 각도 따라서 지정되는 프레임인덱스입니다
 	int _damage;		// 데미지입니다
 	int _coolDown;		// 연사속도(낮을수록 빠름)
@@ -47,11 +48,13 @@ public:
 	virtual void update();
 	virtual void fire();
 	void release();
-	void render(HDC hdc);
+	virtual void render(HDC hdc);
 	void setFrameIndex(float angle);
+	void setFrameIndex8(float angle);
 	void setAngle(float angle);
 	image* getImg() { return _img; };
 	bullet* getBullet() { return _bullet; }
 	void Position();
+	void setPt(POINT pt) { _pt = pt; };
 };
 

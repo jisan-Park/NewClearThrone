@@ -5,8 +5,6 @@ class bullet16 :
 {
 private:
 	int _index;	// 16방 이미지 프레임인덱스입니다
-	float _range;
-	float _turnangle;
 public:
 	HRESULT init();
 	virtual void release();
@@ -14,7 +12,7 @@ public:
 	virtual void render(HDC hdc);
 
 	virtual void fire(POINT pt, float speed, float angle, whoshot who);
-	virtual void fire(POINT pt, float speed, float angle, float turnangle, whoshot who);
+	virtual void fire(POINT pt, float speed, float angle, int damage, whoshot who);
 	virtual void setFrameIndex();
 
 	virtual void move();

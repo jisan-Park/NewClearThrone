@@ -156,6 +156,7 @@
     <ClInclude Include="assultRifle.h" />
     <ClInclude Include="bandit.h" />
     <ClInclude Include="banditDead.h" />
+    <ClInclude Include="banditGun.h" />
     <ClInclude Include="banditIdle.h" />
     <ClInclude Include="banditState.h" />
     <ClInclude Include="banditWalk.h" />
@@ -310,6 +311,7 @@
     <ClCompile Include="assultRifle.cpp" />
     <ClCompile Include="bandit.cpp" />
     <ClCompile Include="banditDead.cpp" />
+    <ClCompile Include="banditGun.cpp" />
     <ClCompile Include="banditIdle.cpp" />
     <ClCompile Include="banditState.cpp" />
     <ClCompile Include="banditWalk.cpp" />

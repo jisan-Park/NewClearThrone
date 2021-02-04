@@ -16,12 +16,14 @@ HRESULT bandit::init(float x, float y)
 	_info.direction = E_RIGHT;
 	_info.state = E_IDLE;
 	_info.nextState = E_IDLE;
-	_info.noticeRange = 1;
+	_info.noticeRange = 300;
 	_info.nstate = UNNOTICED;
 	_rndInterval = RND->getFromIntTo(70, 130);
 	_enemyType = BANDIT;
 	_enState = new banditWalk;
 	_enState->init(_info);
+	_weapon = new banditGun;
+	_weapon->init(_info.pt);
 	return S_OK;
 }
 
@@ -31,15 +33,25 @@ void bandit::update()
 	_enState->update(_info);
 	collision();
 	_rndMoveCnt++;
+	if (_info.state != E_DEAD)
+	{
+		_weapon->update();
+		_weapon->setPt(_info.pt);
+		_weapon->setAngle(_info.aimAngle);
+	}
 	if (inRange() == true)
 	{
+		_info.aimAngle = EtoPAngle();
 		_info.nstate == NOTICED;
 		if (_info.state == E_IDLE) _info.nextState == E_WALK;
 		_info.moveAngle = getAngle(_info.pt, MAPMANAGER->enemyMove(_info.pt));
 		if (_info.pt.x == MAPMANAGER->enemyMove(_info.pt).x && _info.pt.y == MAPMANAGER->enemyMove(_info.pt).y) {
 			_info.nextState = E_IDLE;
 		}
+		_fireCnt++;
+		if (_fireCnt % 30 == 0) _weapon->fire();
 	}
+	else _info.aimAngle = _info.moveAngle;
 	if (_info.nstate == UNNOTICED)
 	{
 		if (_rndMoveCnt % _rndInterval == 0)
@@ -66,6 +78,7 @@ void bandit::update()
 void bandit::render(HDC hdc)
 {
 	_enState->render(hdc);
+	_weapon->render(hdc);
 }
 
 void bandit::setState(ENEMYSTATE state)

@@ -9,6 +9,7 @@ protected:
 	ENEMYTYPE _enemyType;
 	int _rndMoveCnt = 0;
 	int _rndInterval;
+	int _fireCnt = 0;
 public:
 	enemy();
 	~enemy();
@@ -29,7 +30,6 @@ public:
 	virtual enemyinfo getInfo() { return _info; };
 	bool inRange();
 	float EtoPAngle();
-	float EtoPDistance();
 
 };
 

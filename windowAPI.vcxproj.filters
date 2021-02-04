@@ -645,6 +645,9 @@
     <ClInclude Include="loadingScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
+    <ClInclude Include="banditGun.h">
+      <Filter>2DGameFramework\weapon</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -1087,6 +1090,9 @@
     </ClCompile>
     <ClCompile Include="loadingScene.cpp">
       <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="banditGun.cpp">
+      <Filter>2DGameFramework\weapon</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

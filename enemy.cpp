@@ -52,12 +52,7 @@ bool enemy::inRange()
 
 float enemy::EtoPAngle()
 {
-	return getAngle(PLAYERMANAGER->getPlayer()->getPt(), _info.pt);
-}
-
-float enemy::EtoPDistance()
-{
-	return getDistance(PLAYERMANAGER->getPlayer()->getPt(), _info.pt);
+	return getAngle(_info.pt, PLAYERMANAGER->getPlayer()->getPt());
 }
 
 void enemy::collision()

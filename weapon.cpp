@@ -50,6 +50,18 @@ void weapon::setFrameIndex(float angle)
 
 }
 
+void weapon::setFrameIndex8(float angle)
+{
+	if ((_angle < PI8 * 1 && _angle >= 0) || (_angle > PI - PI8 && _angle < PI * 2)) _index = 0;
+	if (_angle > PI8 * 1 && _angle <= PI8 * 3) _index = 1;
+	if (_angle > PI8 * 3 && _angle <= PI8 * 5) _index = 2;
+	if (_angle > PI8 * 5 && _angle <= PI8 * 7) _index = 3;
+	if (_angle > PI8 * 7 && _angle <= PI8 * 9) _index = 4;
+	if (_angle > PI8 * 9 && _angle <= PI8 * 11) _index = 5;
+	if (_angle > PI8 * 11 && _angle <= PI8 * 13) _index = 6;
+	if (_angle > PI8 * 13 && _angle <= PI8 * 15) _index = 7;
+}
+
 void weapon::setAngle(float angle)
 {
 	switch (_type)

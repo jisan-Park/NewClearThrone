@@ -6,6 +6,7 @@
 
 class bandit : public enemy
 {
+	weapon* _weapon;
 public:
 	virtual HRESULT init(float x, float y);
 

@@ -49,9 +49,10 @@ void bullet::fire(POINT pt, float speed, float angle, whoshot who)
 {
 }
 
-void bullet::fire(POINT pt, float speed, float angle, float turnangle, whoshot who)
+void bullet::fire(POINT pt, float speed, float angle, int damage, whoshot who)
 {
 }
+
 
 void bullet::move()
 {
