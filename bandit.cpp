@@ -15,10 +15,12 @@ HRESULT bandit::init(float x, float y)
 	_info.rc = RectMakeCenter(_info.pt.x, _info.pt.y, _info.width, _info.height);
 	_info.direction = E_RIGHT;
 	_info.state = E_IDLE;
-	_info.noticeRange = 500;
+	_info.nextState = E_IDLE;
+	_info.noticeRange = 1;
 	_info.nstate = UNNOTICED;
+	_rndInterval = RND->getFromIntTo(70, 130);
 	_enemyType = BANDIT;
-	_enState = new banditIdle;
+	_enState = new banditWalk;
 	_enState->init(_info);
 	return S_OK;
 }
@@ -29,59 +31,34 @@ void bandit::update()
 	_enState->update(_info);
 	collision();
 	_rndMoveCnt++;
-
-	_info.moveAngle = getAngle(_info.pt, MAPMANAGER->enemyMove(_info.pt));
-	if (_info.pt.x == MAPMANAGER->enemyMove(_info.pt).x && _info.pt.y == MAPMANAGER->enemyMove(_info.pt).y) {
-		_info.nextState = E_IDLE;
-	}
-
-	if (_rndMoveCnt % 70 == 0)
+	if (inRange() == true)
 	{
-		if (_info.state == E_IDLE)
-		{
-			
-			_info.nextState = E_WALK;
-			_rndMoveCnt = 0;
-		}
-		if (_info.state == E_WALK)
-		{
+		_info.nstate == NOTICED;
+		if (_info.state == E_IDLE) _info.nextState == E_WALK;
+		_info.moveAngle = getAngle(_info.pt, MAPMANAGER->enemyMove(_info.pt));
+		if (_info.pt.x == MAPMANAGER->enemyMove(_info.pt).x && _info.pt.y == MAPMANAGER->enemyMove(_info.pt).y) {
 			_info.nextState = E_IDLE;
-			_rndMoveCnt == 0;
 		}
 	}
-	//if (inRange() == true)
-	//{
-	//	_info.nextState = E_WALK;
-	//	_info.moveAngle = EtoPAngle();
-	//}
-	//if (KEYMANAGER->isOnceKeyDown(VK_LEFT)) {
-	//	_info.direction = E_LEFT;
-	//	_info.nextState = E_WALK;
-	//}
-	//if (KEYMANAGER->isOnceKeyDown(VK_RIGHT)) {
-	//	_info.direction = E_RIGHT;
-	//	_info.nextState = E_WALK;
-	//}
-	//if (KEYMANAGER->isStayKeyDown(VK_UP)) {
-	//	_info.nextState = E_WALK;
-	//	_info.pt.y -= 5;
-	//}
-	//if (KEYMANAGER->isStayKeyDown(VK_DOWN)) {
-	//	_info.nextState = E_WALK;
-	//	_info.pt.y += 5;
-	//}
-	//if (KEYMANAGER->isOnceKeyUp(VK_LEFT) || KEYMANAGER->isOnceKeyUp(VK_RIGHT)) {
-	//	_info.nextState = E_IDLE;
-	//}
-	//if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
-	//{
-	//	if (PtInRect(&_info.rc, _ptMouse))
-	//	{
-	//		_info.isHurt = true;
-	//		_info.hp -= 5;
-	//	}
-	//}
-
+	if (_info.nstate == UNNOTICED)
+	{
+		if (_rndMoveCnt % _rndInterval == 0)
+		{
+			if (_info.state == E_IDLE)
+			{
+				_info.nextState = E_WALK;
+				_info.moveAngle = RND->getFloat(PI2);
+				_rndInterval = RND->getFromIntTo(70, 130);
+				_rndMoveCnt = 0;
+			}
+			if (_info.state == E_WALK)
+			{
+				_info.nextState = E_IDLE;
+				_rndInterval = RND->getFromIntTo(70, 130);
+				_rndMoveCnt == 0;
+			}
+		}
+	}
 	setState(_info.nextState);
 
 }

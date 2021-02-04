@@ -27,11 +27,11 @@ HRESULT banditWalk::init(enemyinfo info)
 	bandithurtleft->setFPS(10);
 
 	_img = IMAGEMANAGER->findImage("bandit_walk");
-	_motion = banditwalkright;
-	_motion->start();
-	_pt = info.pt;
 	if (info.direction == E_LEFT)	_motion = banditwalkleft;
 	if (info.direction == E_RIGHT)	_motion = banditwalkright;
+	_motion->start();
+	_pt = info.pt;
+
 	return S_OK;
 }
 
@@ -51,25 +51,25 @@ void banditWalk::update(enemyinfo &info)
 	}
 	else
 	{
-		/*info.pt.x += cosf(info.moveAngle)* info.speed;
-		info.pt.y += -sinf(info.moveAngle)* info.speed;*/
+		info.pt.x += cosf(info.moveAngle)* info.speed;
+		info.pt.y += -sinf(info.moveAngle)* info.speed;
 
-		if (info.pt.x != MAPMANAGER->enemyMove(info.pt).x || info.pt.y != MAPMANAGER->enemyMove(info.pt).y) {
-			if (info.pt.x < MAPMANAGER->enemyMove(info.pt).x) {
-				info.pt.x++;
-			}
-			else {
-				info.pt.x--;
-			}
+		//if (info.pt.x != MAPMANAGER->enemyMove(info.pt).x || info.pt.y != MAPMANAGER->enemyMove(info.pt).y) {
+		//	if (info.pt.x < MAPMANAGER->enemyMove(info.pt).x) {
+		//		info.pt.x++;
+		//	}
+		//	else {
+		//		info.pt.x--;
+		//	}
+		//
+		//	if (info.pt.y < MAPMANAGER->enemyMove(info.pt).y) {
+		//		info.pt.y++;
+		//	}
+		//	else {
+		//		info.pt.y--;
+		//	}
 
-			if (info.pt.y < MAPMANAGER->enemyMove(info.pt).y) {
-				info.pt.y++;
-			}
-			else {
-				info.pt.y--;
-			}
-			
-		}
+
 
 		_img = IMAGEMANAGER->findImage("bandit_walk");
 		if (info.direction == E_LEFT)

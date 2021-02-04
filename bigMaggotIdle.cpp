@@ -24,22 +24,24 @@ HRESULT bigMaggotIdle::init(enemyinfo info)
 	bigmaggothurtleft->setFPS(10);
 
 	_img = IMAGEMANAGER->findImage("bigmaggot_idle");
+
 	if (info.direction == E_LEFT) _motion = bigmaggotidleleft;
 	if (info.direction == E_RIGHT) _motion = bigmaggotidleright;
 	_motion->start();
 	_pt = info.pt;
+
 	return S_OK;
 }
 
 void bigMaggotIdle::update(enemyinfo & info)
 {
-	_pt = info.pt;
 
 	if (info.isHurt == true)
 	{
 		isHurt = true;
 		info.isHurt = false;
 	}
+	_pt = info.pt;
 	if (isHurt == true)
 	{
 		_img = IMAGEMANAGER->findImage("bigmaggot_hurt");
@@ -48,9 +50,11 @@ void bigMaggotIdle::update(enemyinfo & info)
 	}
 	else
 	{
+
+		info.pt.x += cosf(info.moveAngle)* info.speed;
+		info.pt.y += -sinf(info.moveAngle)* info.speed;
+
 		_img = IMAGEMANAGER->findImage("bigmaggot_idle");
-		info.pt.x -= cosf(info.moveAngle)*info.speed;
-		info.pt.y -= -sinf(info.moveAngle)*info.speed;
 		if (info.direction == E_LEFT) _motion = bigmaggotidleleft;
 		if (info.direction == E_RIGHT) _motion = bigmaggotidleright;
 	}

@@ -23,7 +23,7 @@ HRESULT banditIdle::init(enemyinfo info)
 	bandithurtleft->init("bandit_hurt");
 	bandithurtleft->setPlayFrame(5, 3, false, false, hurtFinish, this);
 	bandithurtleft->setFPS(10);
-	
+
 	_pt = info.pt;
 	_img = IMAGEMANAGER->findImage("bandit_idle");
 	if (info.direction == E_LEFT) _motion = banditidleleft;

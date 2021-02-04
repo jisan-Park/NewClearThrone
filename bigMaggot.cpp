@@ -5,15 +5,18 @@ HRESULT bigMaggot::init(float x, float y)
 {
 	_info.pt.x = x;
 	_info.pt.y = y;
-	_info.width = 60;
-	_info.height = 35;
-	_info.hp = 60;
-	_info.speed = 1;
+	_info.width = 30;
+	_info.height = 30;
+	_info.hp = 20;
+	_info.speed = 2;
 	_info.moveAngle = 0;
 	_info.rc = RectMakeCenter(_info.pt.x, _info.pt.y, _info.width, _info.height);
 	_info.direction = E_RIGHT;
-	_info.noticeRange = 500;
+	_info.state = E_IDLE;
+	_info.nextState = E_IDLE;
+	_info.noticeRange = 300;
 	_info.nstate = UNNOTICED;
+	_rndInterval = RND->getFromIntTo(70, 130);
 	_enemyType = BIGMAGGOT;
 	_enState = new bigMaggotIdle;
 	_enState->init(_info);
@@ -22,24 +25,35 @@ HRESULT bigMaggot::init(float x, float y)
 
 void bigMaggot::update()
 {
-	collision();
 	_info.rc = RectMakeCenter(_info.pt.x, _info.pt.y, _info.width, _info.height);
 	_enState->update(_info);
+	collision();
 	_rndMoveCnt++;
-	if (_rndMoveCnt % 70 == 0)
+	if (inRange() == true)
 	{
-		if (_info.state == E_IDLE)
+		_info.nstate = NOTICED;
+		_info.moveAngle = getAngle(_info.pt, MAPMANAGER->enemyMove(_info.pt));
+	}
+
+
+	if (_rndMoveCnt % _rndInterval == 0)
+	{
+		if (_info.speed < 2)
 		{
-			_info.moveAngle = RND->getFloat(PI2);
-			_info.nextState = E_WALK;
+			if (_info.nstate == UNNOTICED)_info.moveAngle = RND->getFloat(PI2);
+			_info.speed = 2;
+			_rndInterval = RND->getFromIntTo(70, 130);
 			_rndMoveCnt = 0;
 		}
-		if (_info.state == E_WALK)
+		else if (_info.speed <= 2)
 		{
-			_info.nextState = E_IDLE;
-			_rndMoveCnt == 0;
+			if (_info.nstate == UNNOTICED)_info.moveAngle = RND->getFloat(PI2);
+			_info.speed = 1;
+			_rndInterval = RND->getFromIntTo(70, 130);
+			_rndMoveCnt = 0;
 		}
 	}
+
 	setState(_info.nextState);
 
 }

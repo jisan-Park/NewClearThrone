@@ -8,6 +8,7 @@ protected:
 	enemyState* _enState;
 	ENEMYTYPE _enemyType;
 	int _rndMoveCnt = 0;
+	int _rndInterval;
 public:
 	enemy();
 	~enemy();
