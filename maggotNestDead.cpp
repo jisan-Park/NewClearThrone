@@ -19,6 +19,8 @@ HRESULT maggotNestDead::init(enemyinfo info)
 	_motion->start();
 	_pt = info.pt;
 
+	deadEffect();
+
 	return S_OK;
 }
 
@@ -26,4 +28,9 @@ void maggotNestDead::update(enemyinfo & info)
 {
 	_pt = info.pt;
 	_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);
+}
+
+void maggotNestDead::deadEffect()
+{
+	ENEMYMANAGER->createGreenMaggot(_pt);
 }

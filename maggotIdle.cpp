@@ -18,11 +18,28 @@ HRESULT maggotIdle::init(enemyinfo info)
 	if (info.direction == E_RIGHT) _motion = maggotidleright;
 	_motion->start();
 	_pt = info.pt;
-	return E_NOTIMPL;
+	return S_OK;
 }
 
 void maggotIdle::update(enemyinfo & info)
 {
 	_pt = info.pt;
+	info.pt.x += cosf(info.moveAngle)* info.speed;
+	info.pt.y += -sinf(info.moveAngle)* info.speed;
+
+	_img = IMAGEMANAGER->findImage("maggot_idle");
+
+	if (PLAYERMANAGER->getPlayer()->getPt().x < info.pt.x)
+	{
+		info.direction == E_LEFT;
+		_motion = maggotidleleft;
+		_motion->start();
+	}
+	if (PLAYERMANAGER->getPlayer()->getPt().x > info.pt.x)
+	{
+		info.direction == E_RIGHT;
+		_motion = maggotidleright;
+		_motion->start();
+	}
 	_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);
 }

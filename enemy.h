@@ -29,6 +29,7 @@ public:
 	virtual enemyinfo getInfo() { return _info; };
 	bool inRange();
 	float EtoPAngle();
+	float EtoPDistance();
 
 };
 

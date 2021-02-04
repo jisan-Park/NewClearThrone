@@ -77,5 +77,14 @@ public:
 	void addEnemys(string strKey, ENEMYTYPE enemyType, int x, int y);
 	void deleteEnemys(string strKey, int x, int y);
 	vector<enemy*> getEnemys(string strKey);
+
+	//create
+	void createMaggot(POINT pt);
+	void createGreenMaggot(POINT pt);
+	//setter
+	void setShowEnemyVector(string strKey);
+
+	//getter
+	vEnemy getShowEnemyVector() { return _showEnemy; };
 };
 

@@ -59,11 +59,11 @@ void enemyManager::setimage()
 	IMAGEMANAGER->addFrameImage("greenmaggot_hurt", "image/enemy/stage1/greenmaggot_hurt.bmp", 96, 64, 3, 2, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("greenmaggot_idle", "image/enemy/stage1/greenmaggot_idle.bmp", 128, 64, 4, 2, true, RGB(255, 0, 255));
 
-	IMAGEMANAGER->addFrameImage("maggotnest_dead", "image/enemy/stage1/maggotnest_dead.bmp", 192, 64, 6, 2, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addFrameImage("maggotnest_hurt", "image/enemy/stage1/maggotnest_hurt.bmp", 96, 64, 3, 2, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addFrameImage("maggotnest_idle", "image/enemy/stage1/maggotnest_idle.bmp", 128, 64, 4, 2, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addFrameImage("maggot_dead", "image/enemy/stage1/maggot_dead.bmp", 128, 128, 2, 2, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addFrameImage("maggot_hurt", "image/enemy/stage1/maggot_hurt.bmp", 192, 128, 3, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("maggotnest_dead", "image/enemy/stage1/maggotnest_dead.bmp", 128, 128, 2, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("maggotnest_hurt", "image/enemy/stage1/maggotnest_hurt.bmp", 192, 128, 3, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("maggotnest_idle", "image/enemy/stage1/maggotnest_idle.bmp", 256, 128, 4, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("maggot_dead", "image/enemy/stage1/maggot_dead.bmp", 192, 64, 2, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("maggot_hurt", "image/enemy/stage1/maggot_hurt.bmp", 96, 64, 3, 2, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("maggot_idle", "image/enemy/stage1/maggot_idle.bmp", 128, 64, 4, 2, true, RGB(255, 0, 255));
 
 	IMAGEMANAGER->addFrameImage("scolpion_bullet", "image/enemy/stage1/scolpion_bullet.bmp", 512, 32, 16, 1, true, RGB(255, 0, 255));
@@ -265,4 +265,34 @@ vector<enemy*> enemyManager::getEnemys(string strKey)
 		}
 	}
 	return _vtemp;
+}
+
+void enemyManager::createMaggot(POINT pt)
+{
+	for (int i = 0; i < 6; i++)
+	{
+		enemy* temp;
+		temp = new maggot;
+		temp->init(pt.x + RND->getFromFloatTo(-30, 30), pt.y + RND->getFromFloatTo(-30, 30));
+		_showEnemy.push_back(temp);
+	}
+	//cout << "showenemyVector size = " << _showEnemy.size() << endl;
+}
+
+void enemyManager::createGreenMaggot(POINT pt)
+{
+	for (int i = 0; i < 6; i++)
+	{
+		enemy* temp;
+		temp = new greenMaggot;
+		temp->init(pt.x + RND->getFromFloatTo(-30, 30), pt.y + RND->getFromFloatTo(-30, 30));
+		_showEnemy.push_back(temp);
+	}
+	//cout << "showenemyVector size = " << _showEnemy.size() << endl;
+}
+
+
+void enemyManager::setShowEnemyVector(string strKey)
+{
+	_showEnemy = getEnemys(strKey);
 }

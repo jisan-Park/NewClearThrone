@@ -96,6 +96,9 @@ public:
 	POINT getPt() { return _pt; }
 	void setPT(POINT pt) { _pt = pt; }
 
+	RECT getRect() { return _rc; };
+
+
 	weapon* getWeapon() { return _currentWeapon; }
 
 };

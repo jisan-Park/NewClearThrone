@@ -5,6 +5,8 @@ HRESULT customScene::init()
 {
 	//maptool set
 	MAPMANAGER->load("saveMap1.bmp");
+	ENEMYMANAGER->setShowEnemyVector("custom");
+
 	return S_OK;
 }
 
@@ -31,7 +33,7 @@ void customScene::update()
 		}
 	}
 	else {
-		for (enemy* e : ENEMYMANAGER->getEnemys("custom")) {
+		for (enemy* e : ENEMYMANAGER->getShowEnemyVector()) {
 			//각 에너미의 update
 			e->update();
 		}
@@ -66,7 +68,7 @@ void customScene::render()
 	PLAYERMANAGER->render(getMapDC());
 
 	//enemy render
-	for (enemy* e : ENEMYMANAGER->getEnemys("custom")) {
+	for (enemy* e : ENEMYMANAGER->getShowEnemyVector()) {
 		//각 에너미의 update
 		e->render(getMapDC());
 	}

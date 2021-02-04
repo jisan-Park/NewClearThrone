@@ -55,6 +55,11 @@ float enemy::EtoPAngle()
 	return getAngle(PLAYERMANAGER->getPlayer()->getPt(), _info.pt);
 }
 
+float enemy::EtoPDistance()
+{
+	return getDistance(PLAYERMANAGER->getPlayer()->getPt(), _info.pt);
+}
+
 void enemy::collision()
 {
 	for (int i = 0; i < PLAYERMANAGER->getPlayer()->getWeapon()->getBullet()->getVbullet().size(); ++i)

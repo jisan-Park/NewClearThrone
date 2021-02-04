@@ -17,6 +17,8 @@ HRESULT bigMaggotDead::init(enemyinfo info)
 	if (info.direction == E_RIGHT) _motion = bigmaggotdeadright;
 	_motion->start();
 	_pt = info.pt;
+
+	deadEffect();
 	return S_OK;
 }
 
@@ -24,4 +26,9 @@ void bigMaggotDead::update(enemyinfo & info)
 {
 	_pt = info.pt;
 	_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);
+}
+
+void bigMaggotDead::deadEffect()
+{
+	ENEMYMANAGER->createMaggot(_pt);
 }

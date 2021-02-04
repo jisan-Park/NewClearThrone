@@ -33,7 +33,7 @@ HRESULT maggotNestIdle::init(enemyinfo info)
 
 void maggotNestIdle::update(enemyinfo & info)
 {
-	_pt = info.pt;
+	//_pt = info.pt;
 	if (info.isHurt == true)
 	{
 		isHurt = true;
@@ -53,4 +53,11 @@ void maggotNestIdle::update(enemyinfo & info)
 	}
 	if (_motion->isPlay() == false) _motion->start();
 	_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);
+
+
+	if (getDistance(PLAYERMANAGER->getPlayer()->getPt(), info.pt) < 100)
+	{
+		info.nextState = E_DEAD;
+	}
+
 }

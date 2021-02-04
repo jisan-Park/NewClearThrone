@@ -24,5 +24,25 @@ HRESULT greenMaggotIdle::init(enemyinfo info)
 void greenMaggotIdle::update(enemyinfo & info)
 {
 	_pt = info.pt;
+
+	info.pt.x += cosf(info.moveAngle)* info.speed;
+	info.pt.y += -sinf(info.moveAngle)* info.speed;
+
+	_img = IMAGEMANAGER->findImage("greenmaggot_idle");
+
+	if (PLAYERMANAGER->getPlayer()->getPt().x < info.pt.x)
+	{
+		info.direction == E_LEFT;
+		_motion = greenmaggotidleleft;
+		_motion->start();
+	}
+	if (PLAYERMANAGER->getPlayer()->getPt().x > info.pt.x)
+	{
+		info.direction == E_RIGHT;
+		_motion = greenmaggotidleright;
+		_motion->start();
+	}
+
+
 	_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);
 }

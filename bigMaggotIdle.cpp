@@ -55,9 +55,30 @@ void bigMaggotIdle::update(enemyinfo & info)
 		info.pt.y += -sinf(info.moveAngle)* info.speed;
 
 		_img = IMAGEMANAGER->findImage("bigmaggot_idle");
-		if (info.direction == E_LEFT) _motion = bigmaggotidleleft;
-		if (info.direction == E_RIGHT) _motion = bigmaggotidleright;
+
+		if (PLAYERMANAGER->getPlayer()->getPt().x < info.pt.x)
+		{
+			info.direction == E_LEFT;
+			_motion = bigmaggotidleleft;
+			_motion->start();
+		}
+		if (PLAYERMANAGER->getPlayer()->getPt().x > info.pt.x)
+		{
+			info.direction == E_RIGHT;
+			_motion = bigmaggotidleright;
+			_motion->start();
+		}
+		//if (info.direction == E_LEFT) _motion = bigmaggotidleleft;
+		//if (info.direction == E_RIGHT) _motion = bigmaggotidleright;
 	}
 	if (_motion->isPlay() == false) _motion->start();
 	_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);
+
+
+	//플레이어와 충돌 시 죽도록 설정
+	RECT temp;
+	if (IntersectRect(&temp, &info.rc, &PLAYERMANAGER->getPlayer()->getRect())) {
+		info.nextState = E_DEAD;
+	}
+
 }
