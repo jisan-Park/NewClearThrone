@@ -60,11 +60,6 @@ void mainmenuScene::render()
 	for (int i = 0; i < 5; i++) {
 		selectMenu[i].info.img->alphaRender(getMemDC(), selectMenu[i].info.rc.left, selectMenu[i].info.rc.top, selectMenu[i].alpha);
 	}
-	if (KEYMANAGER->isToggleKey(VK_TAB)) {
-		for (int i = 0; i < 5; i++) {
-			Rectangle(getMemDC(), selectMenu[i].info.rc);
-		}
-	}
 	//마우스 포인터 render
 	RECT _mouse = RectMakeCenter(_ptMouse.x, _ptMouse.y, 40, 40);
 	IMAGEMANAGER->findImage("mouse_aim")->render(getMemDC(), _mouse.left, _mouse.top);
@@ -75,7 +70,7 @@ void mainmenuScene::setImage()
 	IMAGEMANAGER->addImage("gameplay", "image/scene/mainmenu/gameplay.bmp", 237, 42, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("customplay", "image/scene/mainmenu/customplay.bmp", 295, 42, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("maptool", "image/scene/mainmenu/maptool.bmp", 209, 42, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addImage("setting", "image/scene/mainmenu/setting.bmp", 184, 42, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("settingBtn", "image/scene/mainmenu/setting.bmp", 184, 42, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("quit", "image/scene/mainmenu/quit.bmp", 99, 38, true, RGB(255, 0, 255));
 
 	selectMenu[0].info.img = IMAGEMANAGER->findImage("gameplay");
@@ -93,7 +88,7 @@ void mainmenuScene::setImage()
 	selectMenu[2].info.y = WINSIZEY / 2 - selectMenu[2].info.img->getHeight() / 2;
 	selectMenu[2].alpha = 100;
 
-	selectMenu[3].info.img = IMAGEMANAGER->findImage("setting");
+	selectMenu[3].info.img = IMAGEMANAGER->findImage("settingBtn");
 	selectMenu[3].info.x = WINSIZEX / 2;
 	selectMenu[3].info.y = WINSIZEY / 2 - selectMenu[3].info.img->getHeight() / 2 + 100;
 	selectMenu[3].alpha = 100;

@@ -50,7 +50,7 @@ void playGround::render()
 
 	SCENEMANAGER->render();
 
-	if (KEYMANAGER->isToggleKey(VK_TAB)) {
+	if (KEYMANAGER->isToggleKey(VK_F1)) {
 		TIMEMANAGER->render(getMemDC());
 	}
 	//================= 아래도 건들지 마라 ==============================

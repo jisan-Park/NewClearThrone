@@ -56,7 +56,6 @@ void maptoolScene::render()
 
 void maptoolScene::setImage()
 {
-	IMAGEMANAGER->addImage("black","image/Scene/black.bmp",1280,720,true,RGB(255,0,255));
 
 	IMAGEMANAGER->addImage("tile","image/Scene/maptool/tile.bmp",80,40,true,RGB(255,0,255));
 	IMAGEMANAGER->addImage("wall", "image/Scene/maptool/wall.bmp", 80, 40, true, RGB(255, 0, 255));
