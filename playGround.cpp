@@ -22,6 +22,7 @@ HRESULT playGround::init()
 	SCENEMANAGER->addScene("∏ ≈¯æ¿", new maptoolScene);
 	SCENEMANAGER->addScene("º¬∆√æ¿", new settingScene);
 	SCENEMANAGER->addScene("ºø∑∫∆Ææ¿", new selectScene);
+	SCENEMANAGER->addScene("ƒ´µÂº±≈√æ¿", new cardselectScene);
 
 
 	SCENEMANAGER->changeScene("Ω√¿€æ¿");

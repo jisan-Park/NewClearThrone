@@ -1132,227 +1132,227 @@ void mapManager::random()
 			//stage3
 			else if (_rnd == 2)
 			{
-				_objtemp = RND->getInt(60);
-				_tiles[_xtemp][_ytemp].terrain = T3R_C;
-				_tiles[_xtemp][_ytemp].terrainFrameX = 2;
-				_tiles[_xtemp][_ytemp].terrainFrameY = 4;
+			_objtemp = RND->getInt(60);
+			_tiles[_xtemp][_ytemp].terrain = T3R_C;
+			_tiles[_xtemp][_ytemp].terrainFrameX = 2;
+			_tiles[_xtemp][_ytemp].terrainFrameY = 4;
 
-				_tiles[_x2temp][_y2temp].terrain = T3R_C2;
-				_tiles[_x2temp][_y2temp].terrainFrameX = 3;
-				_tiles[_x2temp][_y2temp].terrainFrameY = 4;
-				_tiles[_x2temp + 10][_y2temp + 10].terrain = T3R_C2;
-				_tiles[_x2temp + 10][_y2temp + 10].terrainFrameX = 3;
-				_tiles[_x2temp + 10][_y2temp + 10].terrainFrameY = 4;
-				_tiles[_x2temp + 15][_y2temp + 15].terrain = T3R_C2;
-				_tiles[_x2temp + 15][_y2temp + 15].terrainFrameX = 3;
-				_tiles[_x2temp + 15][_y2temp + 15].terrainFrameY = 4;
+			_tiles[_x2temp][_y2temp].terrain = T3R_C2;
+			_tiles[_x2temp][_y2temp].terrainFrameX = 3;
+			_tiles[_x2temp][_y2temp].terrainFrameY = 4;
+			_tiles[_x2temp + 10][_y2temp + 10].terrain = T3R_C2;
+			_tiles[_x2temp + 10][_y2temp + 10].terrainFrameX = 3;
+			_tiles[_x2temp + 10][_y2temp + 10].terrainFrameY = 4;
+			_tiles[_x2temp + 15][_y2temp + 15].terrain = T3R_C2;
+			_tiles[_x2temp + 15][_y2temp + 15].terrainFrameX = 3;
+			_tiles[_x2temp + 15][_y2temp + 15].terrainFrameY = 4;
 
+			if (_tiles[i][j].wall == WALL_NONE)
+			{
+
+				_walltemp = RND->getInt(40);
+
+				if (_walltemp < 5)
+				{
+					if (_tiles[i - 1][j].wall != WALL_NONE)
+					{
+						_tiles[i - 1][j].wallFrameX = NULL;
+						_tiles[i - 1][j].wallFrameY = NULL;
+						_tiles[i - 1][j].wall = WALL_NONE;
+
+						_tiles[i - 1][j].terrain = T3R_C;
+						_tiles[i - 1][j].terrainFrameX = 2;
+						_tiles[i - 1][j].terrainFrameY = 4;
+					}
+					if (_tiles[i + 1][j].wall != WALL_NONE)
+					{
+						_tiles[i + 1][j].wallFrameX = NULL;
+						_tiles[i + 1][j].wallFrameY = NULL;
+						_tiles[i + 1][j].wall = WALL_NONE;
+
+						_tiles[i + 1][j].terrain = T3R_C;
+						_tiles[i + 1][j].terrainFrameX = 2;
+						_tiles[i + 1][j].terrainFrameY = 4;
+					}
+					if (_tiles[i][j - 1].wall != WALL_NONE)
+					{
+						_tiles[i][j - 1].wallFrameX = NULL;
+						_tiles[i][j - 1].wallFrameY = NULL;
+						_tiles[i][j - 1].wall = WALL_NONE;
+
+						_tiles[i][j - 1].terrain = T3R_C;
+						_tiles[i][j - 1].terrainFrameX = 2;
+						_tiles[i][j - 1].terrainFrameY = 4;
+					}
+					if (_tiles[i][j + 1].wall != WALL_NONE)
+					{
+						_tiles[i][j + 1].wallFrameX = NULL;
+						_tiles[i][j + 1].wallFrameY = NULL;
+						_tiles[i][j + 1].wall = WALL_NONE;
+
+						_tiles[i][j + 1].terrain = T3R_C;
+						_tiles[i][j + 1].terrainFrameX = 2;
+						_tiles[i][j + 1].terrainFrameY = 4;
+					}
+				}
+				else if (_walltemp < 11)
+				{
+					if (_tiles[i - 1][j].wall != WALL_NONE)
+					{
+						_tiles[i - 1][j].wallFrameX = NULL;
+						_tiles[i - 1][j].wallFrameY = NULL;
+						_tiles[i - 1][j].wall = WALL_NONE;
+
+						_tiles[i - 1][j].terrain = T3R_C;
+						_tiles[i - 1][j].terrainFrameX = 2;
+						_tiles[i - 1][j].terrainFrameY = 4;
+					}
+					if (_tiles[i + 1][j].wall != WALL_NONE)
+					{
+						_tiles[i + 1][j].wallFrameX = NULL;
+						_tiles[i + 1][j].wallFrameY = NULL;
+						_tiles[i + 1][j].wall = WALL_NONE;
+
+						_tiles[i + 1][j].terrain = T3R_C;
+						_tiles[i + 1][j].terrainFrameX = 2;
+						_tiles[i + 1][j].terrainFrameY = 4;
+					}
+				}
+				else if (_walltemp < 17)
+				{
+					if (_tiles[i][j - 1].wall != WALL_NONE)
+					{
+						_tiles[i][j - 1].wallFrameX = NULL;
+						_tiles[i][j - 1].wallFrameY = NULL;
+						_tiles[i][j - 1].wall = WALL_NONE;
+
+						_tiles[i][j - 1].terrain = T3R_C;
+						_tiles[i][j - 1].terrainFrameX = 2;
+						_tiles[i][j - 1].terrainFrameY = 4;
+					}
+					if (_tiles[i][j + 1].wall != WALL_NONE)
+					{
+						_tiles[i][j + 1].wallFrameX = NULL;
+						_tiles[i][j + 1].wallFrameY = NULL;
+						_tiles[i][j + 1].wall = WALL_NONE;
+
+						_tiles[i][j + 1].terrain = T3R_C;
+						_tiles[i][j + 1].terrainFrameX = 2;
+						_tiles[i][j + 1].terrainFrameY = 4;
+					}
+				}
+				else if (_walltemp < 23)
+				{
+					if (_tiles[i - 1][j].wall != WALL_NONE)
+					{
+						_tiles[i - 1][j].wallFrameX = NULL;
+						_tiles[i - 1][j].wallFrameY = NULL;
+						_tiles[i - 1][j].wall = WALL_NONE;
+
+						_tiles[i - 1][j].terrain = T3R_C;
+						_tiles[i - 1][j].terrainFrameX = 2;
+						_tiles[i - 1][j].terrainFrameY = 4;
+					}
+					if (_tiles[i][j + 1].wall != WALL_NONE)
+					{
+						_tiles[i][j + 1].wallFrameX = NULL;
+						_tiles[i][j + 1].wallFrameY = NULL;
+						_tiles[i][j + 1].wall = WALL_NONE;
+
+						_tiles[i][j + 1].terrain = T3R_C;
+						_tiles[i][j + 1].terrainFrameX = 2;
+						_tiles[i][j + 1].terrainFrameY = 4;
+					}
+
+				}
+				else if (_walltemp < 31)
+				{
+					if (_tiles[i + 1][j].wall != WALL_NONE)
+					{
+						_tiles[i + 1][j].wallFrameX = NULL;
+						_tiles[i + 1][j].wallFrameY = NULL;
+						_tiles[i + 1][j].wall = WALL_NONE;
+
+						_tiles[i + 1][j].terrain = T3R_C;
+						_tiles[i + 1][j].terrainFrameX = 2;
+						_tiles[i + 1][j].terrainFrameY = 4;
+					}
+					if (_tiles[i][j - 1].wall != WALL_NONE)
+					{
+						_tiles[i][j - 1].wallFrameX = NULL;
+						_tiles[i][j - 1].wallFrameY = NULL;
+						_tiles[i][j - 1].wall = WALL_NONE;
+
+						_tiles[i][j - 1].terrain = T3R_C;
+						_tiles[i][j - 1].terrainFrameX = 2;
+						_tiles[i][j - 1].terrainFrameY = 4;
+					}
+				}
+				else if (_walltemp < 40)
+				{
+					if (_tiles[i + 1][j].wall != WALL_NONE)
+					{
+						_tiles[i + 1][j].wallFrameX = NULL;
+						_tiles[i + 1][j].wallFrameY = NULL;
+						_tiles[i + 1][j].wall = WALL_NONE;
+
+						_tiles[i + 1][j].terrain = T3R_C;
+						_tiles[i + 1][j].terrainFrameX = 2;
+						_tiles[i + 1][j].terrainFrameY = 4;
+					}
+					if (_tiles[i][j + 1].wall != WALL_NONE)
+					{
+						_tiles[i][j + 1].wallFrameX = NULL;
+						_tiles[i][j + 1].wallFrameY = NULL;
+						_tiles[i][j + 1].wall = WALL_NONE;
+
+						_tiles[i][j + 1].terrain = T3R_C;
+						_tiles[i][j + 1].terrainFrameX = 2;
+						_tiles[i][j + 1].terrainFrameY = 4;
+					}
+				}
+			}
+			//OBJ
+			if (_objtemp < 30)
+			{
 				if (_tiles[i][j].wall == WALL_NONE)
 				{
-
-					_walltemp = RND->getInt(40);
-
-					if (_walltemp < 5)
+					if (_objtemp == 26)
 					{
-						if (_tiles[i - 1][j].wall != WALL_NONE)
-						{
-							_tiles[i - 1][j].wallFrameX = NULL;
-							_tiles[i - 1][j].wallFrameY = NULL;
-							_tiles[i - 1][j].wall = WALL_NONE;
-
-							_tiles[_xtemp][_ytemp].terrain = T3R_C;
-							_tiles[_xtemp][_ytemp].terrainFrameX = 2;
-							_tiles[_xtemp][_ytemp].terrainFrameY = 4;
-						}
-						if (_tiles[i + 1][j].wall != WALL_NONE)
-						{
-							_tiles[i + 1][j].wallFrameX = NULL;
-							_tiles[i + 1][j].wallFrameY = NULL;
-							_tiles[i + 1][j].wall = WALL_NONE;
-
-							_tiles[_xtemp][_ytemp].terrain = T3R_C;
-							_tiles[_xtemp][_ytemp].terrainFrameX = 2;
-							_tiles[_xtemp][_ytemp].terrainFrameY = 4;
-						}
-						if (_tiles[i][j - 1].wall != WALL_NONE)
-						{
-							_tiles[i][j - 1].wallFrameX = NULL;
-							_tiles[i][j - 1].wallFrameY = NULL;
-							_tiles[i][j - 1].wall = WALL_NONE;
-
-							_tiles[_xtemp][_ytemp].terrain = T3R_C;
-							_tiles[_xtemp][_ytemp].terrainFrameX = 2;
-							_tiles[_xtemp][_ytemp].terrainFrameY = 4;
-						}
-						if (_tiles[i][j + 1].wall != WALL_NONE)
-						{
-							_tiles[i][j + 1].wallFrameX = NULL;
-							_tiles[i][j + 1].wallFrameY = NULL;
-							_tiles[i][j + 1].wall = WALL_NONE;
-
-							_tiles[_xtemp][_ytemp].terrain = T3R_C;
-							_tiles[_xtemp][_ytemp].terrainFrameX = 2;
-							_tiles[_xtemp][_ytemp].terrainFrameY = 4;
-						}
+						_tiles[i][j].obj = OBJ3_BLOCK1;
+						_tiles[i][j].objFrameX = 0;
+						_tiles[i][j].objFrameY = 3;
 					}
-					else if (_walltemp < 11)
+					else if (_objtemp == 27)
 					{
-						if (_tiles[i - 1][j].wall != WALL_NONE)
-						{
-							_tiles[i - 1][j].wallFrameX = NULL;
-							_tiles[i - 1][j].wallFrameY = NULL;
-							_tiles[i - 1][j].wall = WALL_NONE;
-
-							_tiles[_xtemp][_ytemp].terrain = T3R_C;
-							_tiles[_xtemp][_ytemp].terrainFrameX = 2;
-							_tiles[_xtemp][_ytemp].terrainFrameY = 4;
-						}
-						if (_tiles[i + 1][j].wall != WALL_NONE)
-						{
-							_tiles[i + 1][j].wallFrameX = NULL;
-							_tiles[i + 1][j].wallFrameY = NULL;
-							_tiles[i + 1][j].wall = WALL_NONE;
-
-							_tiles[_xtemp][_ytemp].terrain = T3R_C;
-							_tiles[_xtemp][_ytemp].terrainFrameX = 2;
-							_tiles[_xtemp][_ytemp].terrainFrameY = 4;
-						}
+						_tiles[i][j].obj = OBJ3_BLOCK3;
+						_tiles[i][j].objFrameX = 2;
+						_tiles[i][j].objFrameY = 3;
 					}
-					else if (_walltemp < 17)
+					else
 					{
-						if (_tiles[i][j - 1].wall != WALL_NONE)
-						{
-							_tiles[i][j - 1].wallFrameX = NULL;
-							_tiles[i][j - 1].wallFrameY = NULL;
-							_tiles[i][j - 1].wall = WALL_NONE;
-
-							_tiles[_xtemp][_ytemp].terrain = T3R_C;
-							_tiles[_xtemp][_ytemp].terrainFrameX = 2;
-							_tiles[_xtemp][_ytemp].terrainFrameY = 4;
-						}
-						if (_tiles[i][j + 1].wall != WALL_NONE)
-						{
-							_tiles[i][j + 1].wallFrameX = NULL;
-							_tiles[i][j + 1].wallFrameY = NULL;
-							_tiles[i][j + 1].wall = WALL_NONE;
-
-							_tiles[_xtemp][_ytemp].terrain = T3R_C;
-							_tiles[_xtemp][_ytemp].terrainFrameX = 2;
-							_tiles[_xtemp][_ytemp].terrainFrameY = 4;
-						}
-					}
-					else if (_walltemp < 23)
-					{
-						if (_tiles[i - 1][j].wall != WALL_NONE)
-						{
-							_tiles[i - 1][j].wallFrameX = NULL;
-							_tiles[i - 1][j].wallFrameY = NULL;
-							_tiles[i - 1][j].wall = WALL_NONE;
-
-							_tiles[_xtemp][_ytemp].terrain = T3R_C;
-							_tiles[_xtemp][_ytemp].terrainFrameX = 2;
-							_tiles[_xtemp][_ytemp].terrainFrameY = 4;
-						}
-						if (_tiles[i][j + 1].wall != WALL_NONE)
-						{
-							_tiles[i][j + 1].wallFrameX = NULL;
-							_tiles[i][j + 1].wallFrameY = NULL;
-							_tiles[i][j + 1].wall = WALL_NONE;
-
-							_tiles[_xtemp][_ytemp].terrain = T3R_C;
-							_tiles[_xtemp][_ytemp].terrainFrameX = 2;
-							_tiles[_xtemp][_ytemp].terrainFrameY = 4;
-						}
-
-					}
-					else if (_walltemp < 31)
-					{
-						if (_tiles[i + 1][j].wall != WALL_NONE)
-						{
-							_tiles[i + 1][j].wallFrameX = NULL;
-							_tiles[i + 1][j].wallFrameY = NULL;
-							_tiles[i + 1][j].wall = WALL_NONE;
-
-							_tiles[_xtemp][_ytemp].terrain = T3R_C;
-							_tiles[_xtemp][_ytemp].terrainFrameX = 2;
-							_tiles[_xtemp][_ytemp].terrainFrameY = 4;
-						}
-						if (_tiles[i][j - 1].wall != WALL_NONE)
-						{
-							_tiles[i][j - 1].wallFrameX = NULL;
-							_tiles[i][j - 1].wallFrameY = NULL;
-							_tiles[i][j - 1].wall = WALL_NONE;
-
-							_tiles[_xtemp][_ytemp].terrain = T3R_C;
-							_tiles[_xtemp][_ytemp].terrainFrameX = 2;
-							_tiles[_xtemp][_ytemp].terrainFrameY = 4;
-						}
-					}
-					else if (_walltemp < 40)
-					{
-						if (_tiles[i + 1][j].wall != WALL_NONE)
-						{
-							_tiles[i + 1][j].wallFrameX = NULL;
-							_tiles[i + 1][j].wallFrameY = NULL;
-							_tiles[i + 1][j].wall = WALL_NONE;
-
-							_tiles[_xtemp][_ytemp].terrain = T3R_C;
-							_tiles[_xtemp][_ytemp].terrainFrameX = 2;
-							_tiles[_xtemp][_ytemp].terrainFrameY = 4;
-						}
-						if (_tiles[i][j + 1].wall != WALL_NONE)
-						{
-							_tiles[i][j + 1].wallFrameX = NULL;
-							_tiles[i][j + 1].wallFrameY = NULL;
-							_tiles[i][j + 1].wall = WALL_NONE;
-
-							_tiles[_xtemp][_ytemp].terrain = T3R_C;
-							_tiles[_xtemp][_ytemp].terrainFrameX = 2;
-							_tiles[_xtemp][_ytemp].terrainFrameY = 4;
-						}
+						_tiles[i][j].objFrameX = NULL;
+						_tiles[i][j].objFrameY = NULL;
+						_tiles[i][j].obj = OBJ_NONE;
 					}
 				}
-				//OBJ
-				if (_objtemp < 30)
+				else if (_tiles[i][j].wall != WALL_NONE)
 				{
-					if (_tiles[i][j].wall == WALL_NONE)
+					if (_objtemp < 3 && _tiles[i][j].wall != W3_2BT && _tiles[i][j].wall != W3_3B && _tiles[i][j].wall != W3_3L &&
+						_tiles[i][j].wall != W3_3R && _tiles[i][j].wall != W3_B && _tiles[i][j].wall != W3_LB && _tiles[i][j].wall != W3_RB && _tiles[i][j].wall != W3_4)
 					{
-						if (_objtemp == 26)
-						{
-							_tiles[i][j].obj = OBJ3_BLOCK1;
-							_tiles[i][j].objFrameX = 0;
-							_tiles[i][j].objFrameY = 3;
-						}
-						else if (_objtemp == 27)
-						{
-							_tiles[i][j].obj = OBJ3_BLOCK3;
-							_tiles[i][j].objFrameX = 2;
-							_tiles[i][j].objFrameY = 3;
-						}
-						else
-						{
-							_tiles[i][j].objFrameX = NULL;
-							_tiles[i][j].objFrameY = NULL;
-							_tiles[i][j].obj = OBJ_NONE;
-						}
+						_tiles[i][j].obj = OBJ2_BLOCK6;
+						_tiles[i][j].objFrameX = 5;
+						_tiles[i][j].objFrameY = 2;
 					}
-					else if (_tiles[i][j].wall != WALL_NONE)
+					else
 					{
-						if (_objtemp < 3 && _tiles[i][j].wall != W3_2BT && _tiles[i][j].wall != W3_3B && _tiles[i][j].wall != W3_3L &&
-							_tiles[i][j].wall != W3_3R && _tiles[i][j].wall != W3_B && _tiles[i][j].wall != W3_LB && _tiles[i][j].wall != W3_RB && _tiles[i][j].wall != W3_4)
-						{
-							_tiles[i][j].obj = OBJ2_BLOCK6;
-							_tiles[i][j].objFrameX = 5;
-							_tiles[i][j].objFrameY = 2;
-						}
-						else
-						{
-							_tiles[i][j].objFrameX = NULL;
-							_tiles[i][j].objFrameY = NULL;
-							_tiles[i][j].obj = OBJ_NONE;
-						}
+						_tiles[i][j].objFrameX = NULL;
+						_tiles[i][j].objFrameY = NULL;
+						_tiles[i][j].obj = OBJ_NONE;
 					}
 				}
+			}
 
 
 			}

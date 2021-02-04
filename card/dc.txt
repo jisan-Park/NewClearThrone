@@ -1,0 +1,12 @@
+Increase ammunition retention maximum
+On hit, a certain chance of recovery.
+Increased accuracy of the gun
+Decrease enemy projectile speed
+Increase movement speed
+Can destroy walls
+HP full recovery and a certain amount of ammunition charge
+Ammunition recovery with a certain probability on hit
+Increase by up to HP 4
+Enemies HP Reduction
+Lower HP increases launch speed
+Revive to HP 1 on activation
