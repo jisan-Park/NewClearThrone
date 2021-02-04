@@ -3,6 +3,8 @@
 class gameManager : public singletonBase<gameManager>
 {
 private:
+	
+
 	////////////////////[ volume ]///////////////////////////
 	//back Scene
 	tagAlphaImage back;
@@ -27,7 +29,8 @@ public:
 	void update();
 	void release();
 	void render(HDC hdc);
-
+	
+	
 	////////////////////[ volume ]///////////////////////////
 
 	//getter

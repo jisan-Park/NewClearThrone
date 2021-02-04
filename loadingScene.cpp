@@ -1,10 +1,7 @@
 #include "stdafx.h"
 #include "loadingScene.h"
-#include "progressBar.h"
 
 loadingScene::loadingScene()
-	: _background(nullptr), _loadingBar(nullptr),
-	_currentCount(0)
 {
 }
 
@@ -15,11 +12,7 @@ loadingScene::~loadingScene()
 
 HRESULT loadingScene::init()
 {
-	_background = IMAGEMANAGER->addImage("로딩배경", "리그오브레전드로딩.bmp", WINSIZEX, WINSIZEY, true, RGB(255, 0, 255));
-
-	_loadingBar = new progressBar;
-	_loadingBar->init(0, WINSIZEY - 50, WINSIZEX, 50);
-	_loadingBar->setGauge(0, 0);
+	_currentCount = 0;
 
 	//쓰레드를 사용해보자
 	CreateThread(
@@ -36,28 +29,20 @@ HRESULT loadingScene::init()
 
 void loadingScene::release()
 {
-	SAFE_DELETE(_loadingBar);
 }
 
 void loadingScene::update()
 {
-	_loadingBar->update();
-	_loadingBar->setGauge(_currentCount, LOADINGMAX);
-
 	//로딩이 다 되면
 	if (_currentCount == LOADINGMAX)
 	{
-		SCENEMANAGER->changeScene("협곡씬");
+		SCENEMANAGER->changeScene("게임씬");
 	}
 }
 
 void loadingScene::render()
 {
-	//그림파일 이미지 경로를 텍스트로 보여줘도 되고
 	
-
-	_background->render(getMemDC());
-	_loadingBar->render();
 }
 
 DWORD CALLBACK threadFunction(LPVOID lpParameter)

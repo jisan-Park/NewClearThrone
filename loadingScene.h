@@ -8,8 +8,6 @@ class progressBar;
 class loadingScene : public gameNode
 {
 private:
-	progressBar* _loadingBar;
-	image* _background;
 
 
 public:
@@ -23,5 +21,4 @@ public:
 	void update();
 	void render();
 };
-
 static DWORD CALLBACK threadFunction(LPVOID lpParameter);

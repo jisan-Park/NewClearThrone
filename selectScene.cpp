@@ -90,12 +90,13 @@ void selectScene::setImage()
 	_go.info.img = new image;
 	_back.info.img = new image;
 
-	chr_info[0].info.img = IMAGEMANAGER->findImage("random_character_card");
-	chr_info[1].info.img = IMAGEMANAGER->findImage("fish_character_card");
-	chr_info[2].info.img = IMAGEMANAGER->findImage("crystal_character_card");
-	chr_info[3].info.img = IMAGEMANAGER->findImage("eyes_character_card");
+	
+	chr_info[0].info.img = IMAGEMANAGER->findImage("fish_character_card");
+	chr_info[1].info.img = IMAGEMANAGER->findImage("crystal_character_card");
+	chr_info[2].info.img = IMAGEMANAGER->findImage("eyes_character_card");
+	chr_info[3].info.img = IMAGEMANAGER->findImage("plant_character_card");
 	chr_info[4].info.img = IMAGEMANAGER->findImage("melting_character_card");
-	chr_info[5].info.img = IMAGEMANAGER->findImage("plant_character_card");
+	chr_info[5].info.img = IMAGEMANAGER->findImage("random_character_card");
 
 	_go.info.img = IMAGEMANAGER->findImage("go");
 	_back.info.img = IMAGEMANAGER->findImage("back");
@@ -132,22 +133,22 @@ void selectScene::selectImage()
 	switch (selectNum)
 	{
 	case 1:
-		selectedImage = IMAGEMANAGER->findImage("random_selected");
-		break;
-	case 2:
 		selectedImage = IMAGEMANAGER->findImage("fish_selected");
 		break;
-	case 3:
+	case 2:
 		selectedImage = IMAGEMANAGER->findImage("crystal_selected");
 		break;
-	case 4:
+	case 3:
 		selectedImage = IMAGEMANAGER->findImage("eyes_selected");
+		break;
+	case 4:
+		selectedImage = IMAGEMANAGER->findImage("plant_selected"); 
 		break;
 	case 5:
 		selectedImage = IMAGEMANAGER->findImage("melting_selected");
 		break;
 	case 6:
-		selectedImage = IMAGEMANAGER->findImage("plant_selected");
+		selectedImage = IMAGEMANAGER->findImage("random_selected");
 		break;
 	default:
 		break;
@@ -158,6 +159,8 @@ void selectScene::BtnUpdate()
 {
 	if (PtInRect(&_go.info.rc, _ptMouse)) {
 		if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON)) {
+			//player type set
+			PLAYERMANAGER->setplayer((PLAYERTYPE)(selectNum - 1), 0, 0);
 			SCENEMANAGER->changeScene("∞‘¿”æ¿");
 		}
 		_go.alpha = 255;

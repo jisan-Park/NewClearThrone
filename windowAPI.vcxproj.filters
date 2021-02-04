@@ -642,6 +642,9 @@
     <ClInclude Include="cardselectScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
+    <ClInclude Include="loadingScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -1080,6 +1083,9 @@
       <Filter>2DGameFramework\bullet</Filter>
     </ClCompile>
     <ClCompile Include="cardselectScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="loadingScene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
   </ItemGroup>

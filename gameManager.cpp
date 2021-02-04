@@ -12,7 +12,6 @@ HRESULT gameManager::init()
 
 	isPaused = false;
 	isSetting = false;
-
 	return S_OK;
 }
 

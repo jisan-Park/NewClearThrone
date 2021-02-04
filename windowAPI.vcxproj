@@ -230,6 +230,7 @@
     <ClInclude Include="iniDataManager.h" />
     <ClInclude Include="keyAniManager.h" />
     <ClInclude Include="keyManager.h" />
+    <ClInclude Include="loadingScene.h" />
     <ClInclude Include="machineGun.h" />
     <ClInclude Include="maggot.h" />
     <ClInclude Include="maggotDead.h" />
@@ -382,6 +383,7 @@
     <ClCompile Include="iniDataManager.cpp" />
     <ClCompile Include="keyAniManager.cpp" />
     <ClCompile Include="keyManager.cpp" />
+    <ClCompile Include="loadingScene.cpp" />
     <ClCompile Include="machineGun.cpp" />
     <ClCompile Include="maggot.cpp" />
     <ClCompile Include="maggotDead.cpp" />

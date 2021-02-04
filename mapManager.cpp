@@ -26,7 +26,14 @@ HRESULT mapManager::init()
 	//player set
 	player_pt.x = 0, player_pt.y = 0;
 	player_type = 0;
+	////////////////////[ stage ]///////////////////////////
+	stage_first = 1;
+	stage_second = 1;
 
+	enemyCount = 10;
+	bulletBoxCount = 5;
+	weaponBoxCount = 2;
+	medikitBoxCount = 2;
 	return S_OK;
 }
 
@@ -36,6 +43,12 @@ void mapManager::update()
 
 void mapManager::release()
 {
+}
+
+void mapManager::setRandomMap()
+{
+	setRandomStage(stage_first);
+	random();
 }
 
 void mapManager::render(HDC hdc)
@@ -2607,6 +2620,24 @@ void mapManager::setHeightCount(int i)
 	if (height_count >= TILEY) {
 		height_count = TILEY;
 	}
+}
+
+vector<POINT> mapManager::getOpenTiles()
+{
+	vector<POINT> temp;
+	for (int i = 0; i < TILEX; ++i) {
+		for (int j = 0; j < TILEY; ++j) {
+			//벽이 없으면 오픈타일이니, 이것의 point를 사용한다.
+			if (_tiles[i][j].wall == WALL_NONE) {
+				POINT temp_pt = PointMake(
+					_tiles[i][j].rc.left + (_tiles[i][j].rc.right - _tiles[i][j].rc.left),
+					_tiles[i][j].rc.top + (_tiles[i][j].rc.bottom - _tiles[i][j].rc.top));
+				temp.push_back(temp_pt);
+			}
+		}
+	}
+
+	return temp;
 }
 
 tagCurrentTile mapManager::getEnemyTileset(int type)

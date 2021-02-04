@@ -35,7 +35,7 @@ public:
 	void setimage();
 	
 	//setter
-
+	void setPlayerPosition(POINT pt) { _player->setPT(pt); };
 	//getter
 	Player* getPlayer() { return _player; };
 	PLAYERTYPE getPlayerType() { return _playertype; };

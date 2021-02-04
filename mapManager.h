@@ -112,7 +112,18 @@ struct showTile {
 class mapManager : public singletonBase<mapManager>
 {
 private:
+	////////////////////[ stage ]///////////////////////////
+	//stage first(메인 스테이지 번호) - second(서브 스테이지 번호);
+	int stage_first;
+	int stage_second;
+
+	int enemyCount;
+	int bulletBoxCount;
+	int weaponBoxCount;
+	int medikitBoxCount;
+
 	//////////////////////////[위치저장 용 set]///////////////////////
+
 	POINT player_pt;
 	int player_type;
 
@@ -156,6 +167,25 @@ public:
 	HRESULT init();
 	void update();
 	void release();
+	////////////////////[ stage ]///////////////////////////
+	//setter
+	void setStage_first(int i) { stage_first = i; };
+	void setStage_second(int i) { stage_second = i; };
+	void setEnemyCount(int i) { enemyCount = i; };
+	void setBulletBoxCount(int i) { bulletBoxCount = i; };
+	void setWeaponBoxCount(int i) { weaponBoxCount = i; };
+	void setMedikitBoxCount(int i) { medikitBoxCount = i; };
+	//getter
+	POINT getStartPoint() { return PointMake(_xtemp * TILESIZE, _ytemp * TILESIZE); };
+	int getStage_first() { return stage_first; };
+	int getStage_second() { return stage_second; };
+	int getEnemyCount() { return enemyCount; };
+	int getBulletBoxCount() { return bulletBoxCount; };
+	int getWeaponBoxCount() { return weaponBoxCount; };
+	int getMedikitBoxCount() { return medikitBoxCount; };
+	//random map create
+	void setRandomMap();
+	////////////////////[ map ]///////////////////////////
 
 	void render(HDC hdc);
 	void RectRender(HDC hdc);
@@ -198,6 +228,7 @@ public:
 	//random
 	void setRandomStage(int num) { _rnd = num; };
 	//getter
+	vector<POINT> getOpenTiles();
 	tagCurrentTile getEnemyTileset(int type);
 	int getEnemyType(int x, int y);
 	int getPlayerType() { return player_type; };

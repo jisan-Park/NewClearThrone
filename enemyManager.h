@@ -83,7 +83,8 @@ public:
 	void createGreenMaggot(POINT pt);
 	//setter
 	void setShowEnemyVector(string strKey);
-
+	void clearShowEnemyVector() { _showEnemy.clear(); };
+	void createRandomEnemyVector();
 	//getter
 	vEnemy getShowEnemyVector() { return _showEnemy; };
 };

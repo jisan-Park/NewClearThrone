@@ -296,3 +296,97 @@ void enemyManager::setShowEnemyVector(string strKey)
 {
 	_showEnemy = getEnemys(strKey);
 }
+
+void enemyManager::createRandomEnemyVector()
+{
+	//보여주기용 에너미 벡터를 모두 비운다.
+	clearShowEnemyVector();
+
+	ENEMYTYPE rndEnemy;
+	enemy* temp;
+	//정해진 enemy count 만큼 에너미를 만든다
+	for (int i = 0; i < MAPMANAGER->getEnemyCount();++i) {
+		//현재 스테이지를 받아와서 해당 스테이지에 맞는 에너미를 생성한다.
+		switch (MAPMANAGER->getStage_first())
+		{
+		case 1:
+			rndEnemy = (ENEMYTYPE)RND->getFromIntTo(0, 8);
+			break;
+		case 2:
+			rndEnemy = (ENEMYTYPE)RND->getFromIntTo(8, 13);
+			break;
+		case 3:
+			rndEnemy = (ENEMYTYPE)RND->getFromIntTo(13, 18);
+			break;
+		default:
+			break;
+		}
+
+		//들어온 enemyType으로 enemy 생성
+		switch (rndEnemy)
+		{
+		case BIGBANDIT:
+			temp = new bigBandit;
+			break;
+		case BANDIT:
+			temp = new bandit;
+			break;
+		case BIGMAGGOT:
+			temp = new bigMaggot;
+			break;
+		case MAGGOT:
+			temp = new maggot;
+			break;
+		case GREENMAGGOT:
+			temp = new greenMaggot;
+			break;
+		case SCOLPION:
+			temp = new scolpion;
+			break;
+		case MAGGOTNEST:
+			temp = new maggotNest;
+			break;
+		case BIGRAT:
+			temp = new bigRat;
+			break;
+		case RAT:
+			temp = new rat;
+			break;
+		case GREENRAT:
+			temp = new greenRat;
+			break;
+		case FROG:
+			temp = new frog;
+			break;
+		case GREENFROG:
+			temp = new greenFrog;
+			break;
+		case GATOR:
+			temp = new gator;
+			break;
+		case BIGDOG:
+			temp = new bigDog;
+			break;
+		case ASSASSIN:
+			temp = new assassin;
+			break;
+		case RAVEN:
+			temp = new raven;
+			break;
+		case SALAMADER:
+			temp = new salamander;
+			break;
+		case SNIPER:
+			temp = new sniper;
+			break;
+		default:
+			temp = new bandit;
+			break;
+		}
+		//open tile 중, random으로 index를 참조하여 타일의 중간값으로 에너미의 좌표를 지정해준다.
+		temp->init(
+			MAPMANAGER->getOpenTiles()[RND->getInt(MAPMANAGER->getOpenTiles().size())].x,
+			MAPMANAGER->getOpenTiles()[RND->getInt(MAPMANAGER->getOpenTiles().size())].y);
+		_showEnemy.push_back(temp);
+	}
+}
