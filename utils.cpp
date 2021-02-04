@@ -36,7 +36,7 @@ namespace TFIVE_UTIL
 	{
 		float x = pt2.x - pt1.x;
 		float y = pt2.y - pt1.y;
-
+		float distance = sqrtf(x * x + y * y);
 		float angle = -atan2f(y, x);
 
 

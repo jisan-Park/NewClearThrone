@@ -2897,4 +2897,77 @@ WALL mapManager::wallSelect(int frameX, int frameY)
 	return W3_B;
 }
 
+POINT mapManager::enemyMove(POINT pt)
+{
+	//현재 point의 타일 index 위치 
+	//(전체 탐색 후, 현재 위치의 타일index를 저장하기 위함)
+	int index_x = 0;
+	int index_y = 0;
+
+	//다음 움직일 해당 타일의 index
+	int next_x = 0;
+	int next_y = 0;
+
+	//최소값 찾기 위한 변수
+	int min = 1000000;
+
+	//다음 타일의 중점
+	POINT nextArea;
+	
+
+	//절대경로 (타일 한개의 크기로 나눠서 index를 찾음
+	index_x = pt.x / 64;
+	index_y = pt.y / 64;
+
+	//전체탐색
+	//for (int i = 0; i < TILEX; ++i) {
+	//	for (int j = 0; j < TILEY; ++j) {
+	//		
+	//		//WALL_NONE = 벽이 없다는 것
+	//		if (PtInRect(&_tiles[i][j].rc, pt) ) {
+	//			//해당 타일 위치 찾음
+	//			index_x = i;
+	//			index_y = j;
+	//			break;
+	//		}
+	//	}
+	//}
+
+	//최솟값 탐색
+	for (int i = index_x - 1; i <= index_x + 1; ++i) {
+		for (int j = index_y - 1; j <= index_y + 1; ++j) {
+			if (_tiles[i][j].wall != WALL_NONE) {
+				continue;
+			}
+			if (i == index_x && j == index_y) {
+				continue;
+			}
+			//h(x)
+			int distance = (int)getDistance(
+				PLAYERMANAGER->getPlayer()->getPt().x,
+				PLAYERMANAGER->getPlayer()->getPt().y,
+				_tiles[i][j].rc.left + (_tiles[i][j].rc.right - _tiles[i][j].rc.left)/2,
+				_tiles[i][j].rc.top + (_tiles[i][j].rc.bottom - _tiles[i][j].rc.top)/2
+			);
+			//f(X) = g(x)+h(x) 비교해서 f(x)가 가장 작은 것으로 index
+			if (distance < min) {
+				min = distance;
+				next_x = i;
+				next_y = j;
+			}
+		}
+	}
+	nextArea = PointMake(next_x * TILESIZE, next_y * TILESIZE);
+
+	/*cout << "player index x : " << PLAYERMANAGER->getPlayer()->getPt().x/64 << ", index y : " << PLAYERMANAGER->getPlayer()->getPt().y/64 << endl;
+	cout << "enemy index x : " << index_x << ", index y : " << index_y << endl;
+	cout << "이동할 index x : " << next_x << ", index y : " << next_y << endl<<endl;*/
+
+	
+
+	/*cout << "현재위치 index x : " << pt.x << ", index y :" << pt.y << endl;
+	cout << "이동할위치 next x : " << nextArea.x << ", next y :" << nextArea.y << endl;*/
+	return nextArea;
+}
+
 

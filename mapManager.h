@@ -212,5 +212,8 @@ public:
 	TERRAIN terrainSelect(int frameX, int frameY);
 	OBJECT objSelect(int frameX, int frameY);
 	WALL wallSelect(int frameX, int frameY);
+
+	//enemy A* algorithm
+	POINT enemyMove(POINT pt);
 };
 

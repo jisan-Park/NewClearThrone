@@ -29,11 +29,17 @@ void bandit::update()
 	_enState->update(_info);
 	collision();
 	_rndMoveCnt++;
+
+	_info.moveAngle = getAngle(_info.pt, MAPMANAGER->enemyMove(_info.pt));
+	if (_info.pt.x == MAPMANAGER->enemyMove(_info.pt).x && _info.pt.y == MAPMANAGER->enemyMove(_info.pt).y) {
+		_info.nextState = E_IDLE;
+	}
+
 	if (_rndMoveCnt % 70 == 0)
 	{
 		if (_info.state == E_IDLE)
 		{
-			_info.moveAngle = RND->getFloat(PI2);
+			
 			_info.nextState = E_WALK;
 			_rndMoveCnt = 0;
 		}

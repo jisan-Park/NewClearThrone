@@ -52,7 +52,7 @@ void customScene::render()
 	}
 
 	Rectangle(getMapDC(), mouse);
-	//MAPMANAGER->RectRender(getMapDC());
+	MAPMANAGER->RectRender(getMapDC());
 
 	_mapBuffer->stretchRender(getMemDC(), 0, 0, WINSIZEX, WINSIZEY, CAMERAMANAGER->getCameraPoint().x, CAMERAMANAGER->getCameraPoint().y, CAMERAMANAGER->getSizeX(), CAMERAMANAGER->getSizeY());
 }
