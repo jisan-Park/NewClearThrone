@@ -30,7 +30,6 @@ protected:
 	float _imgx, _imgy;	// 이미지 뿌릴 좌표(빙빙돌아갈거임)
 	weaponState _state;	// 상태입니다
 	weaponType _type;	// 무기타입입니다
-	bullet* _bullet;
 	RECT _rc;
 	float _bulletSpd;
 	float _radius;	// 이미지 
@@ -53,8 +52,9 @@ public:
 	void setFrameIndex8(float angle);
 	void setAngle(float angle);
 	image* getImg() { return _img; };
-	bullet* getBullet() { return _bullet; }
 	void Position();
 	void setPt(POINT pt) { _pt = pt; };
+	weaponType getType() { return _type; };
+	POINT getPt() { return _pt; };
 };
 

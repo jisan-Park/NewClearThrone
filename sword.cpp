@@ -1,12 +1,12 @@
 #include "stdafx.h"
 #include "sword.h"
 
-HRESULT sword::init(POINT pt)
+HRESULT sword::init(POINT pt, weaponState state)
 {
 	_img = IMAGEMANAGER->findImage("sword");
 	_pt = pt;
 	_radius = 20;
-	_state = NOWUSING;
+	_state = state;
 	_type = ASSULTRIFLE;
 	_damage = 5;
 	_coolDown = 3;

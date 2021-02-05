@@ -6,6 +6,7 @@ HRESULT customScene::init()
 	//maptool set
 	MAPMANAGER->load("saveMap1.bmp");
 	ENEMYMANAGER->setShowEnemyVector("custom");
+	BULLETMANAGER->init();
 
 	return S_OK;
 }
@@ -13,6 +14,7 @@ HRESULT customScene::init()
 void customScene::update()
 {
 	//pause
+	BULLETMANAGER->update();
 	if (KEYMANAGER->isOnceKeyDown(VK_TAB)) {
 		if (GAMEMANAGER->getIsPaused()) {
 			GAMEMANAGER->setIsPaused(false);
@@ -65,6 +67,7 @@ void customScene::render()
 {
 
 	//map tile render
+
 	MAPMANAGER->strectchSceneRender(getMapDC());
 
 	//item render
@@ -78,17 +81,17 @@ void customScene::render()
 		//각 에너미의 update
 		e->render(getMapDC());
 	}
-	
+
 	//map wall rect render
 	if (KEYMANAGER->isToggleKey(VK_F2)) {
 		MAPMANAGER->RectRender(getMapDC());
 	}
 
-	
+
 	//마우스 포인터 render
 	RECT _mouse = RectMakeCenter(CAMERAMANAGER->getMousePoint().x, CAMERAMANAGER->getMousePoint().y, 40, 40);
 	IMAGEMANAGER->findImage("mouse_aim")->render(getMapDC(), _mouse.left, _mouse.top);
-
+	BULLETMANAGER->render(getMapDC());
 	//mapBuffer 에 그려져 있는 내용들을 memDC에 옮김
 	_mapBuffer->stretchRender(getMemDC(), 0, 0, WINSIZEX, WINSIZEY, CAMERAMANAGER->getCameraPoint().x, CAMERAMANAGER->getCameraPoint().y, CAMERAMANAGER->getSizeX(), CAMERAMANAGER->getSizeY());
 

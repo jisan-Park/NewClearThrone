@@ -6,8 +6,12 @@ HRESULT Fish::init(float x, float y)
 	setAnimation();
 	_pt.x = x;
 	_pt.y = y;
-	_currentWeapon = new pistol;
+	_currentWeapon = new assultRifle;
 	_currentWeapon->init(_pt, NOWUSING);
+	//////////////등에매는거 볼거에용////////////
+	_readyWeapon = new shovel;
+	_readyWeapon->init(_pt, READYTOUSE);
+	//////////////////////////////////////
 	_width = 30;
 	_height = 30;
 	_speed = 5;
@@ -36,12 +40,15 @@ void Fish::update()
 	contral();
 	_rc = RectMakeCenter(_pt.x, _pt.y, _width, _height);
 	_currentWeapon->update();
+	_readyWeapon->update();
 	_currentWeapon->setAngle(getAngle(_pt.x, _pt.y, CAMERAMANAGER->getMousePoint().x, CAMERAMANAGER->getMousePoint().y));
+	_readyWeapon->setAngle(0);
 	_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);
 }
 
 void Fish::render(HDC hdc)
 {
+	_readyWeapon->render(hdc);
 	_img->aniRender(hdc, _pt.x - _img->getFrameWidth() / 2, _pt.y - _img->getFrameHeight() / 2, _motion);
 	_currentWeapon->render(hdc);
 }
@@ -192,8 +199,12 @@ void Fish::contral()
 	//================================================= 
 	if (KEYMANAGER->isOnceKeyDown('E'))
 	{
-
-		_ishit = true;
+		//_ishit = true;
+		playerWeaponSwap();
+	}
+	if (KEYMANAGER->isOnceKeyDown(VK_SPACE))
+	{
+		ITEMMANAGER->weaponSwap();
 	}
 	if (_ishit)
 	{

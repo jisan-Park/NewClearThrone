@@ -187,6 +187,7 @@
     <ClInclude Include="bullet16.h" />
     <ClInclude Include="bulletBox.h" />
     <ClInclude Include="bulletitem.h" />
+    <ClInclude Include="bulletManager.h" />
     <ClInclude Include="camera.h" />
     <ClInclude Include="cameraManager.h" />
     <ClInclude Include="cardselectScene.h" />
@@ -351,6 +352,7 @@
     <ClCompile Include="bullet16.cpp" />
     <ClCompile Include="bulletBox.cpp" />
     <ClCompile Include="bulletitem.cpp" />
+    <ClCompile Include="bulletManager.cpp" />
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="cameraManager.cpp" />
     <ClCompile Include="cardselectScene.cpp" />

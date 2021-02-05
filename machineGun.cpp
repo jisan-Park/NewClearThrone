@@ -1,12 +1,12 @@
 #include "stdafx.h"
 #include "machineGun.h"
 
-HRESULT machineGun::init(POINT pt)
+HRESULT machineGun::init(POINT pt, weaponState state)
 {
 	_img = IMAGEMANAGER->findImage("machinegun");
 	_pt = pt;
 	_radius = 20;
-	_state = NOWUSING;
+	_state = state;
 	_type = MACHINEGUN;
 	_damage = 5;
 	_coolDown = 3;

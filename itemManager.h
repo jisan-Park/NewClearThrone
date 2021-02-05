@@ -44,6 +44,7 @@ public:
 	virtual void release();
 	virtual void update();
 	virtual void render(HDC hdc);
+	virtual void weaponSwap();
 	virtual void setimage();
 	virtual void setItembox();
 	virtual void collsion();

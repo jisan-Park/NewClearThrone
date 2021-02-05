@@ -78,6 +78,8 @@ public:
 	virtual void attack();
 	virtual void move();
 	virtual void setAnimation();
+	virtual void playerWeaponSwap();
+	virtual void groundWeaponSwap(weaponType type);
 	//콜백을 위한 겟터,셋터
 	//=========================================
 	DIRECTION getDirection() { return _direction; }

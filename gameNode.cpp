@@ -43,6 +43,7 @@ HRESULT gameNode::init(bool managerInit)
 		ENEMYMANAGER->init();
 		WEAPONMANAGER->init();
 		ITEMMANAGER->init();
+		BULLETMANAGER->init();
 	}
 
 	return S_OK;
@@ -82,6 +83,8 @@ void gameNode::release()
 		WEAPONMANAGER->releaseSingleton();
 		ITEMMANAGER->release();
 		ITEMMANAGER->releaseSingleton();
+		BULLETMANAGER->release();
+		BULLETMANAGER->releaseSingleton();
 	}
 	ReleaseDC(_hWnd, _hdc);
 }
@@ -100,44 +103,44 @@ void gameNode::render()
 
 LRESULT gameNode::MainProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 {
-	
+
 	PAINTSTRUCT ps;
 	HDC			hdc;	//<-- æÍ ¡¯¬• ¡ﬂø‰«‘
 
 	switch (iMessage)
 	{
-		case WM_MOUSEMOVE:
-			_ptMouse.x = static_cast<float>(LOWORD(lParam));
-			_ptMouse.y = static_cast<float>(HIWORD(lParam));	
+	case WM_MOUSEMOVE:
+		_ptMouse.x = static_cast<float>(LOWORD(lParam));
+		_ptMouse.y = static_cast<float>(HIWORD(lParam));
 		break;
-		case WM_KEYDOWN:
-			switch (wParam)
-			{
-
-				case VK_ESCAPE:
-					PostQuitMessage(0);
-				break;
-			}
-		break;
-		case WM_MOUSEWHEEL:
+	case WM_KEYDOWN:
+		switch (wParam)
 		{
-			short delta = HIWORD(wParam);
 
-			delta = (delta / WHEEL_DELTA); // WHEEL_DELTA : 120
-			//»Ÿ ø√∏∞∞≈
-			if (delta > 0) {
-				MAPMANAGER->setWidthCount(MAPMANAGER->getWidthCount() + 1);
-				MAPMANAGER->setHeightCount(MAPMANAGER->getHeightCount() + 1);
-			}
-			//»Ÿ ≥ª∏∞∞≈
-			else if (delta < 0) {
-				MAPMANAGER->setWidthCount(MAPMANAGER->getWidthCount() - 1);
-				MAPMANAGER->setHeightCount(MAPMANAGER->getHeightCount() - 1);
-			}
+		case VK_ESCAPE:
+			PostQuitMessage(0);
+			break;
 		}
 		break;
-		case WM_DESTROY:
-			PostQuitMessage(0);
+	case WM_MOUSEWHEEL:
+	{
+		short delta = HIWORD(wParam);
+
+		delta = (delta / WHEEL_DELTA); // WHEEL_DELTA : 120
+		//»Ÿ ø√∏∞∞≈
+		if (delta > 0) {
+			MAPMANAGER->setWidthCount(MAPMANAGER->getWidthCount() + 1);
+			MAPMANAGER->setHeightCount(MAPMANAGER->getHeightCount() + 1);
+		}
+		//»Ÿ ≥ª∏∞∞≈
+		else if (delta < 0) {
+			MAPMANAGER->setWidthCount(MAPMANAGER->getWidthCount() - 1);
+			MAPMANAGER->setHeightCount(MAPMANAGER->getHeightCount() - 1);
+		}
+	}
+	break;
+	case WM_DESTROY:
+		PostQuitMessage(0);
 		break;
 	}
 

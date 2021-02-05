@@ -1,16 +1,24 @@
 #include "stdafx.h"
 #include "shovel.h"
 
-HRESULT shovel::init(POINT pt)
+
+HRESULT shovel::init(POINT pt, weaponState state)
 {
 	_img = IMAGEMANAGER->findImage("shovel");
 	_pt = pt;
 	_radius = 20;
-	_state = NOWUSING;
+	_state = state;
+	if (_state == NOWUSING) Position();
+	else if (_state == ONGROUND)
+	{
+		_imgx = _pt.x;
+		_imgy = _pt.y;
+	}
 	_type = SHOVEL;
 	_radius = 20;
 	_damage = 20;
 	_coolDown = 15;
+	_bulletSpd = 15;
 	_angle = 0;
 	return S_OK;
 }
@@ -24,8 +32,17 @@ void shovel::update()
 {
 
 	setFrameIndex(_angle);
-	Position();
-	_pt = PLAYERMANAGER->getPlayer()->getPt();
+	if (_state != ONGROUND)
+	{
+
+		_pt = PLAYERMANAGER->getPlayer()->getPt();
+		if (_state == NOWUSING) Position();
+		if (_state == READYTOUSE)
+		{
+			_imgx = _pt.x;
+			_imgy = _pt.y;
+		}
+	}
 }
 
 void shovel::fire()

@@ -42,6 +42,108 @@ void itemManager::render(HDC hdc)
 	}
 }
 
+void itemManager::weaponSwap()
+{
+	for (int i = 0; i < _vWeapon.size(); i++)
+	{
+		RECT temp4;
+		RECT tempWrc = RectMakeCenter(_vWeapon[i]->getPt().x, _vWeapon[i]->getPt().y, 40, 40);
+		if (IntersectRect(&temp4, &PLAYERMANAGER->getPlayer()->getRect(), &tempWrc))
+		{
+			weaponType temptype;
+			temptype = PLAYERMANAGER->getPlayer()->getWeapon()->getType();
+			PLAYERMANAGER->getPlayer()->groundWeaponSwap(_vWeapon[i]->getType());
+			_vWeapon.erase(_vWeapon.begin() + i);
+			switch (temptype)
+			{
+			case ASSULTRIFLE:
+			{
+				weapon* tempWp;
+				tempWp = new assultRifle;
+				tempWp->init(PLAYERMANAGER->getPlayer()->getPt(), ONGROUND);
+				_vWeapon.push_back(tempWp);
+			}
+			break;
+			case GRENADELAUNCHER:
+			{
+				weapon* tempWp;
+				tempWp = new grenadeLauncher;
+				tempWp->init(PLAYERMANAGER->getPlayer()->getPt(), ONGROUND);
+				_vWeapon.push_back(tempWp);
+			}
+			break;
+			case MACHINEGUN:
+			{
+				weapon* tempWp;
+				tempWp = new machineGun;
+				tempWp->init(PLAYERMANAGER->getPlayer()->getPt(), ONGROUND);
+				_vWeapon.push_back(tempWp);
+			}
+			break;
+			case PISTOL:
+			{
+				weapon* tempWp;
+				tempWp = new pistol;
+				tempWp->init(PLAYERMANAGER->getPlayer()->getPt(), ONGROUND);
+				_vWeapon.push_back(tempWp);
+			}
+			break;
+			case RAZERRIFLE:
+			{
+				weapon* tempWp;
+				tempWp = new razerRifle;
+				tempWp->init(PLAYERMANAGER->getPlayer()->getPt(), ONGROUND);
+				_vWeapon.push_back(tempWp);
+			}
+			break;
+			case SHOTGUN:
+			{
+				weapon* tempWp;
+				tempWp = new shotGun;
+				tempWp->init(PLAYERMANAGER->getPlayer()->getPt(), ONGROUND);
+				_vWeapon.push_back(tempWp);
+			}
+			break;
+			case SHOVEL:
+			{
+				weapon* tempWp;
+				tempWp = new shovel;
+				tempWp->init(PLAYERMANAGER->getPlayer()->getPt(), ONGROUND);
+				_vWeapon.push_back(tempWp);
+			}
+			break;
+			case SWORD:
+			{
+				weapon* tempWp;
+				tempWp = new sword;
+				tempWp->init(PLAYERMANAGER->getPlayer()->getPt(), ONGROUND);
+				_vWeapon.push_back(tempWp);
+			}
+			break;
+			case TRIPLEMACHINEGUN:
+			{
+				weapon* tempWp;
+				tempWp = new sword;
+				tempWp->init(PLAYERMANAGER->getPlayer()->getPt(), ONGROUND);
+				_vWeapon.push_back(tempWp);
+			}
+			break;
+			case WRENCH:
+			{
+				weapon* tempWp;
+				tempWp = new wrench;
+				tempWp->init(PLAYERMANAGER->getPlayer()->getPt(), ONGROUND);
+				_vWeapon.push_back(tempWp);
+			}
+			break;
+			default:
+				break;
+			}
+
+		}
+	}
+}
+
 void itemManager::setimage()
 {
 	IMAGEMANAGER->addFrameImage("bullet_box", "image/item/bullet_box.bmp", 256, 30, 8, 1, true, RGB(255, 0, 255));
@@ -99,7 +201,7 @@ void itemManager::collsion()
 			{
 				createWeapon(_vItembox[i]->getItemPt());
 			}
-			if(_vItembox[i]->getBoxtype() == BULLETBOX)
+			if (_vItembox[i]->getBoxtype() == BULLETBOX)
 			{
 				item* temp;
 				temp = new bulletitem;
@@ -118,16 +220,16 @@ void itemManager::collsion()
 		}
 
 	}
-	
+
 	for (int i = 0; i < _vItem.size(); i++)
-	{		
+	{
 		RECT temp3;
 		if (IntersectRect(&temp3, &PLAYERMANAGER->getPlayer()->getRect(), &_vItem[i]->getItemRc()))
 		{
 			if (_vItem[i]->getItemtype() == BULLETITEM)
 			{
 				PLAYERMANAGER->getPlayer()->setPlayerbullet(PLAYERMANAGER->getPlayer()->getPlayerbullet() + 30);
-				
+
 			}
 			if (_vItem[i]->getItemtype() == MEDKETITEM && PLAYERMANAGER->getPlayer()->getHp() < PLAYERMANAGER->getPlayer()->getMaxhp())
 			{
@@ -136,7 +238,7 @@ void itemManager::collsion()
 			_vItem.erase(_vItem.begin() + i);
 			break;
 		}
-		
+
 
 	}
 }

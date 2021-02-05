@@ -1,12 +1,12 @@
 #include "stdafx.h"
 #include "triplemachinegun.h"
 
-HRESULT triplemachinegun::init(POINT pt)
+HRESULT triplemachinegun::init(POINT pt, weaponState state)
 {
 	_img = IMAGEMANAGER->findImage("triplemachinegun");
 	_pt = pt;
 	_radius = 20;
-	_state = NOWUSING;
+	_state = state;
 	_type = ASSULTRIFLE;
 	_damage = 5;
 	_coolDown = 3;

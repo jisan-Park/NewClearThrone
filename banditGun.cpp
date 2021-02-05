@@ -11,8 +11,6 @@ HRESULT banditGun::init(POINT pt, weaponState state)
 	_coolDown = 50;
 	_angle = 0;
 	_bulletSpd = 15;
-	_bullet = new bullet1;
-	_bullet->init();
 	return S_OK;
 }
 
@@ -20,10 +18,9 @@ void banditGun::update()
 {
 	Position();
 	setFrameIndex8(_angle);
-	_bullet->update();
 }
 
 void banditGun::fire()
 {
-	_bullet->fire(_pt, _bulletSpd, _angle, ENEMY);
+	BULLETMANAGER->fire(ANGLE1, _pt, _bulletSpd, _angle, _damage, ENEMY);
 }

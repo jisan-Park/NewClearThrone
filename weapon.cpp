@@ -21,7 +21,6 @@ void weapon::release()
 void weapon::render(HDC hdc)
 {
 	_img->frameRender(hdc, _imgx - _img->getFrameWidth() / 2, _imgy - _img->getFrameHeight() / 2, _index, 0);
-	_bullet->render(hdc);
 }
 
 void weapon::setFrameIndex(float angle)
@@ -64,21 +63,29 @@ void weapon::setFrameIndex8(float angle)
 
 void weapon::setAngle(float angle)
 {
-	switch (_type)
+	if (_state == NOWUSING)
 	{
-	case ASSULTRIFLE:	case GRENADELAUNCHER:	case MACHINEGUN:
-	case PISTOL:		case RAZERRIFLE:		case SHOTGUN:
-	case TRIPLEMACHINEGUN:
-		_angle = angle;
-		break;
-	case SHOVEL:		case SWORD:				case WRENCH:
-		_angle = angle - _meleeAngle;
-		break;
-	default:
-		break;
+		switch (_type)
+		{
+		case ASSULTRIFLE:	case GRENADELAUNCHER:	case MACHINEGUN:
+		case PISTOL:		case RAZERRIFLE:		case SHOTGUN:
+		case TRIPLEMACHINEGUN:
+			_angle = angle;
+			break;
+		case SHOVEL:		case SWORD:				case WRENCH:
+			_angle = angle - _meleeAngle;
+			break;
+		default:
+			break;
+		}
+		if (_angle >= PI2) _angle -= PI2;
+		if (_angle <= 0) _angle += PI2;
 	}
-	if (_angle >= PI2) _angle -= PI2;
-	if (_angle <= 0) _angle += PI2;
+	if (_state == READYTOUSE)
+	{
+		if (PLAYERMANAGER->getPlayer()->getDirection() == LEFT) _angle = PI16 * 2;
+		if (PLAYERMANAGER->getPlayer()->getDirection() == RIGHT) _angle = PI16 * 15;
+	}
 }
 
 

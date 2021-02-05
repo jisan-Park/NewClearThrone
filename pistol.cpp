@@ -15,11 +15,9 @@ HRESULT pistol::init(POINT pt, weaponState state)
 	_type = PISTOL;
 	_radius = 15;
 	_damage = 5;
-	_coolDown = 3;
+	_coolDown = 5;
 	_angle = 0;
 	_bulletSpd = 15;
-	_bullet = new bullet1;
-	_bullet->init();
 	return S_OK;
 }
 
@@ -31,10 +29,9 @@ void pistol::update()
 		_pt = PLAYERMANAGER->getPlayer()->getPt();
 		Position();
 	}
-	_bullet->update();
 }
 
 void pistol::fire()
 {
-	_bullet->fire(_pt, _bulletSpd, _angle, PLAYER);
+	BULLETMANAGER->fire(ANGLE1, _pt, _bulletSpd, _angle, _damage, PLAYER);
 }

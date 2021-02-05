@@ -639,9 +639,6 @@
     <ClInclude Include="assultRifle.h">
       <Filter>2DGameFramework\weapon</Filter>
     </ClInclude>
-    <ClInclude Include="bullet.h">
-      <Filter>2DGameFramework\bullet</Filter>
-    </ClInclude>
     <ClInclude Include="bullet1.h">
       <Filter>2DGameFramework\bullet</Filter>
     </ClInclude>
@@ -683,6 +680,12 @@
     </ClInclude>
     <ClInclude Include="medkititem.h">
       <Filter>2DGameFramework\item\item</Filter>
+    </ClInclude>
+    <ClInclude Include="bullet.h">
+      <Filter>2DGameFramework\bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="bulletManager.h">
+      <Filter>2DGameFramework\bullet</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1112,9 +1115,6 @@
     <ClCompile Include="assultRifle.cpp">
       <Filter>2DGameFramework\weapon</Filter>
     </ClCompile>
-    <ClCompile Include="bullet.cpp">
-      <Filter>2DGameFramework\bullet</Filter>
-    </ClCompile>
     <ClCompile Include="bullet1.cpp">
       <Filter>2DGameFramework\bullet</Filter>
     </ClCompile>
@@ -1156,6 +1156,12 @@
     </ClCompile>
     <ClCompile Include="medkititem.cpp">
       <Filter>2DGameFramework\item\item</Filter>
+    </ClCompile>
+    <ClCompile Include="bullet.cpp">
+      <Filter>2DGameFramework\bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="bulletManager.cpp">
+      <Filter>2DGameFramework\bullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

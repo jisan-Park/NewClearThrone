@@ -9,7 +9,7 @@ public:
 	virtual void update();
 	virtual void render(HDC hdc);
 
-	virtual void fire(POINT pt, float speed, float angle, whoshot who);
+	virtual void fire(POINT pt, float speed, float angle, int damage, whoshot who);
 	virtual void setFrameIndex();
 
 	virtual void move();

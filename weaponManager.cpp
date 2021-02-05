@@ -4,8 +4,8 @@
 void weaponManager::init()
 {
 	setImage();
-	test = new razerRifle;
-	test->init(PointMake(WINSIZEX / 2, WINSIZEY / 2));
+	//test = new razerRifle;
+	//test->init(PointMake(WINSIZEX / 2, WINSIZEY / 2));
 
 }
 
@@ -15,13 +15,13 @@ void weaponManager::release()
 
 void weaponManager::update()
 {
-	test->setAngle(getAngle(WINSIZEX / 2, WINSIZEY / 2, _ptMouse.x, _ptMouse.y));
-	test->update();
+	//test->setAngle(getAngle(WINSIZEX / 2, WINSIZEY / 2, _ptMouse.x, _ptMouse.y));
+	//test->update();
 }
 
 void weaponManager::render(HDC hdc)
 {
-	test->render(hdc);
+	//test->render(hdc);
 }
 
 void weaponManager::setImage()

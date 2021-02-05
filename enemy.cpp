@@ -57,17 +57,15 @@ float enemy::EtoPAngle()
 
 void enemy::collision()
 {
-	for (int i = 0; i < PLAYERMANAGER->getPlayer()->getWeapon()->getBullet()->getVbullet().size(); ++i)
+	for (int i = 0; i < BULLETMANAGER->getvBullet().size(); ++i)
 	{
 		RECT temp;
-		if (IntersectRect(&temp, &PLAYERMANAGER->getPlayer()->getWeapon()->getBullet()->getVbullet()[i].rc, &_info.rc))
+		if (IntersectRect(&temp, &BULLETMANAGER->getvBullet()[i]->getRect(), &_info.rc)&& BULLETMANAGER->getvBullet()[i]->getWho()==PLAYER)
 		{
 			_info.isHurt = true;
-			_info.pt.x += cosf(PLAYERMANAGER->getPlayer()->getWeapon()->getBullet()->getVbullet()[i].angle) * 10;
-			_info.pt.y += -sinf(PLAYERMANAGER->getPlayer()->getWeapon()->getBullet()->getVbullet()[i].angle) * 10;
-			PLAYERMANAGER->getPlayer()->getWeapon()->getBullet()->removeBullet(i);
-
-
+			_info.pt.x += cosf(BULLETMANAGER->getvBullet()[i]->getAngle()) * 10;
+			_info.pt.y += -sinf(BULLETMANAGER->getvBullet()[i]->getAngle()) * 10;
+			BULLETMANAGER->removeBullet(i);
 			break;
 		}
 	}
