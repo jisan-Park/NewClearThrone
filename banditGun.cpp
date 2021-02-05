@@ -1,11 +1,11 @@
 #include "stdafx.h"
 #include "banditGun.h"
 
-HRESULT banditGun::init(POINT pt)
+HRESULT banditGun::init(POINT pt, weaponState state)
 {
 	_img = IMAGEMANAGER->findImage("bandit_gun");
 	_pt = pt;
-	_state = NOWUSING;
+	_state = state;
 	_radius = 15;
 	_damage = 5;
 	_coolDown = 50;
