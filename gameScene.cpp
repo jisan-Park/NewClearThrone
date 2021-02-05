@@ -47,6 +47,9 @@ void gameScene::update()
 		//player update
 		PLAYERMANAGER->update();
 
+		//map update
+		MAPMANAGER->autoTile();
+
 		//player 기준으로 camera set
 		CAMERAMANAGER->setCameraPoint(
 			PLAYERMANAGER->getPlayer()->getPt().x,
