@@ -27,7 +27,7 @@ HRESULT mapManager::init()
 	player_pt.x = 0, player_pt.y = 0;
 	player_type = 0;
 	////////////////////[ stage ]///////////////////////////
-	stage_first = 1;
+	stage_first = 2;
 	stage_second = 1;
 
 	enemyCount = 10;
@@ -1630,6 +1630,57 @@ void mapManager::random()
 
 		}
 
+
+	//º¸½º
+	_x2temp = 10 + RND->getInt(10);
+	_y2temp = 10 + RND->getInt(10);
+
+	
+	while (_tiles[_x2temp][_y2temp].wall != WALL_NONE || _tiles[_x2temp][_y2temp].obj != OBJ_NONE)
+	{
+		_x2temp = 10 + RND->getInt(10);
+		_y2temp = 10 + RND->getInt(10);
+	}
+
+	if (_rnd == 0)
+	{
+		if (stage_first == 0 && stage_second == 1) // ºò¹êµ÷
+		{
+			ENEMYMANAGER->addEnemys("custom", BIGBANDIT, _tiles[_x2temp][_y2temp].rc.right - 64, _tiles[_x2temp][_y2temp].rc.top);
+
+			for (int i = 0; i < 3; i++) {
+				for (int j = 0; j < 3; j++)
+				{
+					_tiles[_x2temp - 1 + i][_y2temp - 1 + j].objFrameX = NULL;
+					_tiles[_x2temp - 1 + i][_y2temp - 1 + j].objFrameY = NULL;
+					_tiles[_x2temp - 1 + i][_y2temp - 1 + j].wallFrameX = NULL;
+					_tiles[_x2temp - 1 + i][_y2temp - 1 + j].wallFrameY = NULL;
+					_tiles[_x2temp - 1 + i][_y2temp - 1 + j].obj = OBJ_NONE;
+					_tiles[_x2temp - 1 + i][_y2temp - 1 + j].wall = WALL_NONE;
+				}
+			}
+		}
+	}
+	else if (_rnd == 2)
+	{
+		if (stage_first == 2 && stage_second == 1) //ºòµ¶
+		{
+			ENEMYMANAGER->addEnemys("custom", BIGDOG, _tiles[_x2temp][_y2temp].rc.right - 128, _tiles[_x2temp][_y2temp].rc.top);
+
+			for (int i = 0; i < 3; i++) {
+				for (int j = 0; j < 3; j++)
+				{
+					_tiles[_x2temp - 1 + i][_y2temp - 1 + j].objFrameX = NULL;
+					_tiles[_x2temp - 1 + i][_y2temp - 1 + j].objFrameY = NULL;
+					_tiles[_x2temp - 1 + i][_y2temp - 1 + j].wallFrameX = NULL;
+					_tiles[_x2temp - 1 + i][_y2temp - 1 + j].wallFrameY = NULL;
+					_tiles[_x2temp - 1 + i][_y2temp - 1 + j].obj = OBJ_NONE;
+					_tiles[_x2temp - 1 + i][_y2temp - 1 + j].wall = WALL_NONE;
+				}
+			}
+		}
+
+	}
 
 	_rnd = 3;
 }

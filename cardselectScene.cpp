@@ -141,6 +141,58 @@ void cardselectScene::ptInCard()
 			_textTitle[i] = _text[_aCard[i].cardNum].title;
 			_textDis[i] = _text[_aCard[i].cardNum].dc;
 			_show = true;
+
+			if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
+			{
+				if (_aCard[i].cardNum == 0)
+				{
+
+				}
+				else if (_aCard[i].cardNum == 1)
+				{
+
+				}
+				else if (_aCard[i].cardNum == 2)
+				{
+
+				}
+				else if (_aCard[i].cardNum == 3)
+				{
+
+				}
+				else if (_aCard[i].cardNum == 4)
+				{
+
+				}
+				else if (_aCard[i].cardNum == 5)
+				{
+
+				}
+				else if (_aCard[i].cardNum == 6)
+				{
+
+				}
+				else if (_aCard[i].cardNum == 7)
+				{
+
+				}
+				else if (_aCard[i].cardNum == 8)
+				{
+
+				}
+				else if (_aCard[i].cardNum == 9)
+				{
+
+				}
+				else if (_aCard[i].cardNum == 10)
+				{
+
+				}
+				else if (_aCard[i].cardNum == 11)
+				{
+
+				}
+			}
 		}
 		else
 		{
