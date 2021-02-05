@@ -187,6 +187,15 @@
     <Filter Include="2DGameFramework\weapon">
       <UniqueIdentifier>{64a96864-fbab-4e32-86b3-fb5bf5cae452}</UniqueIdentifier>
     </Filter>
+    <Filter Include="2DGameFramework\item">
+      <UniqueIdentifier>{a12a73c8-cba1-40c6-9f01-19810ba741f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\item\itembox">
+      <UniqueIdentifier>{c717e9c7-6622-42e8-b78e-3f40d6691e07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="2DGameFramework\item\item">
+      <UniqueIdentifier>{f1adc926-eb73-445a-8684-ed0442e2ceec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -651,6 +660,30 @@
     <ClInclude Include="intersects.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="itemManager.h">
+      <Filter>2DGameFramework\item</Filter>
+    </ClInclude>
+    <ClInclude Include="itemBox.h">
+      <Filter>2DGameFramework\item\itembox</Filter>
+    </ClInclude>
+    <ClInclude Include="item.h">
+      <Filter>2DGameFramework\item\item</Filter>
+    </ClInclude>
+    <ClInclude Include="bulletBox.h">
+      <Filter>2DGameFramework\item\itembox</Filter>
+    </ClInclude>
+    <ClInclude Include="weaponBox.h">
+      <Filter>2DGameFramework\item\itembox</Filter>
+    </ClInclude>
+    <ClInclude Include="medkitBox.h">
+      <Filter>2DGameFramework\item\itembox</Filter>
+    </ClInclude>
+    <ClInclude Include="bulletitem.h">
+      <Filter>2DGameFramework\item\item</Filter>
+    </ClInclude>
+    <ClInclude Include="medkititem.h">
+      <Filter>2DGameFramework\item\item</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -1099,6 +1132,30 @@
     </ClCompile>
     <ClCompile Include="intersects.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="itemManager.cpp">
+      <Filter>2DGameFramework\item</Filter>
+    </ClCompile>
+    <ClCompile Include="itemBox.cpp">
+      <Filter>2DGameFramework\item\itembox</Filter>
+    </ClCompile>
+    <ClCompile Include="item.cpp">
+      <Filter>2DGameFramework\item\item</Filter>
+    </ClCompile>
+    <ClCompile Include="bulletBox.cpp">
+      <Filter>2DGameFramework\item\itembox</Filter>
+    </ClCompile>
+    <ClCompile Include="weaponBox.cpp">
+      <Filter>2DGameFramework\item\itembox</Filter>
+    </ClCompile>
+    <ClCompile Include="medkitBox.cpp">
+      <Filter>2DGameFramework\item\itembox</Filter>
+    </ClCompile>
+    <ClCompile Include="bulletitem.cpp">
+      <Filter>2DGameFramework\item\item</Filter>
+    </ClCompile>
+    <ClCompile Include="medkititem.cpp">
+      <Filter>2DGameFramework\item\item</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

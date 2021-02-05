@@ -6,9 +6,15 @@ HRESULT Meiting::init(float x, float y)
 	setAnimation();
 	_pt.x = x;
 	_pt.y = y;
+	_currentWeapon = new pistol;
+	_currentWeapon->init(_pt, NOWUSING);
 	_width = 30;
 	_height = 30;
 	_speed = 5;
+	_playerbullet = 30;
+	_playerbulletMax = 150;
+	_hp = 6;
+	_maxhp = 8;
 	_moveAngle = 0;
 	_rc = RectMakeCenter(_pt.x, _pt.y, _width, _height);
 	_direction = RIGHT;
@@ -22,14 +28,18 @@ HRESULT Meiting::init(float x, float y)
 
 void Meiting::update()
 {
+
 	contral();
+	_currentWeapon->update();
+	_currentWeapon->setAngle(getAngle(_pt.x, _pt.y, CAMERAMANAGER->getMousePoint().x, CAMERAMANAGER->getMousePoint().y));
 	_rc = RectMakeCenter(_pt.x, _pt.y, _width, _height);
 	_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);
 }
 
 void Meiting::render(HDC hdc)
 {
-	_img->aniRender(hdc, _pt.x, _pt.y, _motion);
+	_img->aniRender(hdc, _pt.x - _img->getFrameWidth() / 2, _pt.y - _img->getFrameHeight() / 2, _motion);
+	_currentWeapon->render(hdc);
 }
 
 void Meiting::setAnimation()
@@ -198,6 +208,15 @@ void Meiting::contral()
 		if (!_motion->isPlay())
 		{
 			_motion->start();
+		}
+	}
+	if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON) && _playerbullet > 0)
+	{
+		_currentWeapon->fire();
+		_playerbullet -= 1;
+		if (_playerbullet < 0)
+		{
+			_playerbullet = 0;
 		}
 	}
 }

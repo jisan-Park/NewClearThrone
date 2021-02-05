@@ -7,10 +7,14 @@ HRESULT Fish::init(float x, float y)
 	_pt.x = x;
 	_pt.y = y;
 	_currentWeapon = new pistol;
-	_currentWeapon->init(_pt);
+	_currentWeapon->init(_pt, NOWUSING);
 	_width = 30;
 	_height = 30;
 	_speed = 5;
+	_playerbullet = 30;
+	_playerbulletMax = 150;
+	_hp = 6;
+	_maxhp = 8;
 	_moveAngle = 0;
 	_rc = RectMakeCenter(_pt.x, _pt.y, _width, _height);
 	_direction = RIGHT;
@@ -25,6 +29,10 @@ HRESULT Fish::init(float x, float y)
 
 void Fish::update()
 {
+	if (_hp > _maxhp)
+	{
+		_hp = _maxhp;
+	}
 	contral();
 	_rc = RectMakeCenter(_pt.x, _pt.y, _width, _height);
 	_currentWeapon->update();
@@ -223,9 +231,14 @@ void Fish::contral()
 	{
 		_isdash = true;
 	}
-	if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
+	if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON) && _playerbullet > 0)
 	{
 		_currentWeapon->fire();
+		_playerbullet -= 1;
+		if (_playerbullet < 0)
+		{
+			_playerbullet = 0;
+		}
 	}
 	if (_isdash)
 	{

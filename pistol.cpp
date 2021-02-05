@@ -1,11 +1,17 @@
 #include "stdafx.h"
 #include "pistol.h"
 
-HRESULT pistol::init(POINT pt)
+HRESULT pistol::init(POINT pt, weaponState state)
 {
 	_img = IMAGEMANAGER->findImage("pistol");
 	_pt = pt;
-	_state = NOWUSING;
+	_state = state;
+	if (_state == NOWUSING) Position();
+	else if (_state == ONGROUND)
+	{
+		_imgx = _pt.x;
+		_imgy = _pt.y;
+	}
 	_type = PISTOL;
 	_radius = 15;
 	_damage = 5;
@@ -19,9 +25,12 @@ HRESULT pistol::init(POINT pt)
 
 void pistol::update()
 {
-	Position();
 	setFrameIndex(_angle);
-	_pt = PLAYERMANAGER->getPlayer()->getPt();
+	if (_state == NOWUSING)
+	{
+		_pt = PLAYERMANAGER->getPlayer()->getPt();
+		Position();
+	}
 	_bullet->update();
 }
 

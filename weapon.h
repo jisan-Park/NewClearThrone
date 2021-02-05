@@ -44,7 +44,7 @@ protected:
 public:
 	weapon() {};
 	~weapon() {};
-	virtual HRESULT init(POINT pt);
+	virtual HRESULT init(POINT pt, weaponState state);
 	virtual void update();
 	virtual void fire();
 	void release();

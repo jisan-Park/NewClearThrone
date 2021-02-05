@@ -50,11 +50,14 @@ protected:
 	bool _ishit;			//ÇÈ°ÝÈ®ÀÎ
 	int _maxhp;				//ÃÑHP
 	int _hp;				//HP
-	bool _isdead;
+	bool _isdead;			//Á×´Â Á¶°Ç
+	int _playerbullet;		//ÇöÁ¦ ÃÑ¾Ë °¹¼ö
+	int _playerbulletMax;	//ÃÖ´ë ÃÑ¾Ë °¹¼ö
 
-	bool _isdash;
-	float _pushp;
-
+	//=========================================
+	bool _isdash;//fish ½ºÅ³ Æ®¸®°Å
+	float _pushp;//fish ½ºÅ³ ¹Ì´Â Èû
+	//=========================================
 	PLAYERSTATE _playerstate;
 	DIRECTION _direction;
 	MOVEDIRCTION _movedirctionx;
@@ -98,8 +101,16 @@ public:
 
 	RECT getRect() { return _rc; };
 
+	int getPlayerbullet() { return _playerbullet; }
+	void setPlayerbullet(int playerbullet) { _playerbullet = playerbullet; }
+
+	int getHp() { return _hp; }
+	void setHp(int hp) { _hp = hp; }
+
+	int getMaxhp() { return _maxhp; }
+	void setMaxhp(int maxhp) { _maxhp = maxhp; }
+
 
 	weapon* getWeapon() { return _currentWeapon; }
 
 };
-

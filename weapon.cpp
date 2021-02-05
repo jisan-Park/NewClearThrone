@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "weapon.h"
 
-HRESULT weapon::init(POINT pt)
+HRESULT weapon::init(POINT pt, weaponState state)
 {
 	return S_OK;
 }

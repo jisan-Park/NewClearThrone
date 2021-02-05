@@ -23,7 +23,7 @@ HRESULT bandit::init(float x, float y)
 	_enState = new banditWalk;
 	_enState->init(_info);
 	_weapon = new banditGun;
-	_weapon->init(_info.pt);
+	_weapon->init(_info.pt, NOWUSING);
 	return S_OK;
 }
 

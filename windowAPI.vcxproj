@@ -185,6 +185,8 @@
     <ClInclude Include="bullet.h" />
     <ClInclude Include="bullet1.h" />
     <ClInclude Include="bullet16.h" />
+    <ClInclude Include="bulletBox.h" />
+    <ClInclude Include="bulletitem.h" />
     <ClInclude Include="camera.h" />
     <ClInclude Include="cameraManager.h" />
     <ClInclude Include="cardselectScene.h" />
@@ -230,6 +232,9 @@
     <ClInclude Include="imageManager.h" />
     <ClInclude Include="iniDataManager.h" />
     <ClInclude Include="intersects.h" />
+    <ClInclude Include="item.h" />
+    <ClInclude Include="itemBox.h" />
+    <ClInclude Include="itemManager.h" />
     <ClInclude Include="keyAniManager.h" />
     <ClInclude Include="keyManager.h" />
     <ClInclude Include="loadingScene.h" />
@@ -245,6 +250,8 @@
     <ClInclude Include="mainmenuScene.h" />
     <ClInclude Include="mapManager.h" />
     <ClInclude Include="maptoolScene.h" />
+    <ClInclude Include="medkitBox.h" />
+    <ClInclude Include="medkititem.h" />
     <ClInclude Include="Meiting.h" />
     <ClInclude Include="pistol.h" />
     <ClInclude Include="Plant.h" />
@@ -298,6 +305,7 @@
     <ClInclude Include="triplemachinegun.h" />
     <ClInclude Include="utils.h" />
     <ClInclude Include="weapon.h" />
+    <ClInclude Include="weaponBox.h" />
     <ClInclude Include="weaponManager.h" />
     <ClInclude Include="windowAPI.h" />
     <ClInclude Include="wrench.h" />
@@ -341,6 +349,8 @@
     <ClCompile Include="bullet.cpp" />
     <ClCompile Include="bullet1.cpp" />
     <ClCompile Include="bullet16.cpp" />
+    <ClCompile Include="bulletBox.cpp" />
+    <ClCompile Include="bulletitem.cpp" />
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="cameraManager.cpp" />
     <ClCompile Include="cardselectScene.cpp" />
@@ -385,6 +395,9 @@
     <ClCompile Include="imageManager.cpp" />
     <ClCompile Include="iniDataManager.cpp" />
     <ClCompile Include="intersects.cpp" />
+    <ClCompile Include="item.cpp" />
+    <ClCompile Include="itemBox.cpp" />
+    <ClCompile Include="itemManager.cpp" />
     <ClCompile Include="keyAniManager.cpp" />
     <ClCompile Include="keyManager.cpp" />
     <ClCompile Include="loadingScene.cpp" />
@@ -400,6 +413,8 @@
     <ClCompile Include="mainmenuScene.cpp" />
     <ClCompile Include="mapManager.cpp" />
     <ClCompile Include="maptoolScene.cpp" />
+    <ClCompile Include="medkitBox.cpp" />
+    <ClCompile Include="medkititem.cpp" />
     <ClCompile Include="Meiting.cpp" />
     <ClCompile Include="pistol.cpp" />
     <ClCompile Include="Plant.cpp" />
@@ -454,6 +469,7 @@
     <ClCompile Include="triplemachinegun.cpp" />
     <ClCompile Include="utils.cpp" />
     <ClCompile Include="weapon.cpp" />
+    <ClCompile Include="weaponBox.cpp" />
     <ClCompile Include="weaponManager.cpp" />
     <ClCompile Include="winMain.cpp" />
     <ClCompile Include="wrench.cpp" />

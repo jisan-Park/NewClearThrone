@@ -42,6 +42,7 @@ HRESULT gameNode::init(bool managerInit)
 		PLAYERMANAGER->setimage();
 		ENEMYMANAGER->init();
 		WEAPONMANAGER->init();
+		ITEMMANAGER->init();
 	}
 
 	return S_OK;
@@ -79,6 +80,8 @@ void gameNode::release()
 		ENEMYMANAGER->releaseSingleton();
 		WEAPONMANAGER->release();
 		WEAPONMANAGER->releaseSingleton();
+		ITEMMANAGER->release();
+		ITEMMANAGER->releaseSingleton();
 	}
 	ReleaseDC(_hWnd, _hdc);
 }

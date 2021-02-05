@@ -45,6 +45,9 @@ void customScene::update()
 		//player update
 		PLAYERMANAGER->update();
 
+		//item update
+		ITEMMANAGER->update();
+
 		//player 기준으로 camera set
 		CAMERAMANAGER->setCameraPoint(
 			PLAYERMANAGER->getPlayer()->getPt().x,
@@ -63,6 +66,9 @@ void customScene::render()
 
 	//map tile render
 	MAPMANAGER->strectchSceneRender(getMapDC());
+
+	//item render
+	ITEMMANAGER->render(getMapDC());
 
 	//player render
 	PLAYERMANAGER->render(getMapDC());
