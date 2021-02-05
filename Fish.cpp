@@ -197,12 +197,12 @@ void Fish::contral()
 		}
 	}
 	//================================================= 
-	if (KEYMANAGER->isOnceKeyDown('E'))
+	if (KEYMANAGER->isOnceKeyDown(VK_SPACE))
 	{
 		//_ishit = true;
 		playerWeaponSwap();
 	}
-	if (KEYMANAGER->isOnceKeyDown(VK_SPACE))
+	if (KEYMANAGER->isOnceKeyDown('E'))
 	{
 		ITEMMANAGER->weaponSwap();
 	}

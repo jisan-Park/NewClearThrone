@@ -175,10 +175,14 @@ void Eyes::contral()
 		}
 	}
 
+	if (KEYMANAGER->isOnceKeyDown(VK_SPACE))
+	{
+		//_ishit = true;
+		playerWeaponSwap();
+	}
 	if (KEYMANAGER->isOnceKeyDown('E'))
 	{
-
-		_ishit = true;
+		ITEMMANAGER->weaponSwap();
 	}
 	if (_ishit)
 	{

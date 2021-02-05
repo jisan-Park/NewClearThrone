@@ -123,7 +123,7 @@ void itemManager::weaponSwap()
 			case TRIPLEMACHINEGUN:
 			{
 				weapon* tempWp;
-				tempWp = new sword;
+				tempWp = new triplemachinegun;
 				tempWp->init(PLAYERMANAGER->getPlayer()->getPt(), ONGROUND);
 				_vWeapon.push_back(tempWp);
 			}
@@ -166,7 +166,7 @@ void itemManager::setItembox()
 	for (int i = 0; i < 3; i++)
 	{
 		itemBox* temp;
-		temp = new bulletBox;
+		temp = new weaponBox;
 		temp->init(500 * (i + 1), 500);
 		_vItembox.push_back(temp);
 	}
@@ -180,7 +180,7 @@ void itemManager::setItembox()
 	for (int i = 0; i < 3; i++)
 	{
 		itemBox* temp2;
-		temp2 = new medkitBox;
+		temp2 = new weaponBox;
 		temp2->init(500 * (i + 1), 800);
 		_vItembox.push_back(temp2);
 	}
@@ -246,33 +246,89 @@ void itemManager::collsion()
 void itemManager::createWeapon(POINT pt)
 {
 	//random
-	//_weaponType = (weaponType)(int)RND->getFromIntTo(0, 9);
-	_weaponType = PISTOL;
+	_weaponType = (weaponType)(int)RND->getFromIntTo(0, 9);
+	//_weaponType = PISTOL;
 	switch (_weaponType)
 	{
 	case ASSULTRIFLE:
+	{
+		weapon* tempwp2;
+		tempwp2 = new assultRifle;
+		tempwp2->init(pt, ONGROUND);
+		_vWeapon.push_back(tempwp2);
+	}
 		break;
 	case GRENADELAUNCHER:
+	{
+		weapon* tempwp2;
+		tempwp2 = new grenadeLauncher;
+		tempwp2->init(pt, ONGROUND);
+		_vWeapon.push_back(tempwp2);
+	}
 		break;
 	case MACHINEGUN:
+	{
+		weapon* tempwp2;
+		tempwp2 = new machineGun;
+		tempwp2->init(pt, ONGROUND);
+		_vWeapon.push_back(tempwp2); 
+	}
 		break;
 	case PISTOL:
-		weapon* temp;
-		temp = new pistol;
-		temp->init(pt, ONGROUND);
-		_vWeapon.push_back(temp);
+	{
+		weapon* tempwp2;
+		tempwp2 = new pistol;
+		tempwp2->init(pt, ONGROUND);
+		_vWeapon.push_back(tempwp2);
+	}
 		break;
 	case RAZERRIFLE:
+	{
+		weapon* tempwp2;
+		tempwp2 = new razerRifle;
+		tempwp2->init(pt, ONGROUND);
+		_vWeapon.push_back(tempwp2);
+	}
 		break;
 	case SHOTGUN:
+	{
+		weapon* tempwp2;
+		tempwp2 = new shotGun;
+		tempwp2->init(pt, ONGROUND);
+		_vWeapon.push_back(tempwp2);
+	}
 		break;
 	case SHOVEL:
+	{
+		weapon* tempwp2;
+		tempwp2 = new pistol;
+		tempwp2->init(pt, ONGROUND);
+		_vWeapon.push_back(tempwp2);
+	}
 		break;
 	case SWORD:
+	{
+		weapon* tempwp2;
+		tempwp2 = new sword;
+		tempwp2->init(pt, ONGROUND);
+		_vWeapon.push_back(tempwp2);
+	}
 		break;
 	case TRIPLEMACHINEGUN:
+	{
+		weapon* tempwp2;
+		tempwp2 = new triplemachinegun;
+		tempwp2->init(pt, ONGROUND);
+		_vWeapon.push_back(tempwp2);
+	}
 		break;
 	case WRENCH:
+	{
+		weapon* tempwp2;
+		tempwp2 = new wrench;
+		tempwp2->init(pt, ONGROUND);
+		_vWeapon.push_back(tempwp2);
+	}
 		break;
 	default:
 		break;
