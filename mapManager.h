@@ -163,7 +163,7 @@ private:
 	int _objtemp;
 	int _tiletemp;
 	int _walltemp;
-
+	int _enemytemp;
 public:
 	HRESULT init();
 	void update();

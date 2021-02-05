@@ -394,7 +394,7 @@ void mapManager::emptymap()
 
 			_tiles[i][j].wall = WALL_NONE;
 			_tiles[i][j].obj = OBJ_NONE;
-
+			ENEMYMANAGER->deleteEnemys("custom", i*TILESIZE, j*TILESIZE);
 		}
 	}
 }
@@ -567,7 +567,7 @@ void mapManager::random()
 				_tiles[_xtemp][_ytemp].terrain = TR_C;
 				_tiles[_xtemp][_ytemp].terrainFrameX = 0;
 				_tiles[_xtemp][_ytemp].terrainFrameY = 0;
-				_objtemp = RND->getInt(60);
+				_objtemp = RND->getInt(100);
 
 				_tiles[_x2temp][_y2temp].terrain = TR2_C;
 				_tiles[_x2temp][_y2temp].terrainFrameX = 2;
@@ -818,7 +818,7 @@ void mapManager::random()
 				_tiles[_xtemp][_ytemp].terrain = T2R_C;
 				_tiles[_xtemp][_ytemp].terrainFrameX = 0;
 				_tiles[_xtemp][_ytemp].terrainFrameY = 2;
-				_objtemp = RND->getInt(60);
+				_objtemp = RND->getInt(100);
 				if (_tiles[i][j].wall == WALL_NONE)
 				{
 					_tiletemp = RND->getInt(25);
@@ -1145,7 +1145,7 @@ void mapManager::random()
 			//stage3
 			else if (_rnd == 2)
 			{
-			_objtemp = RND->getInt(60);
+			_objtemp = RND->getInt(100);
 			_tiles[_xtemp][_ytemp].terrain = T3R_C;
 			_tiles[_xtemp][_ytemp].terrainFrameX = 2;
 			_tiles[_xtemp][_ytemp].terrainFrameY = 4;
@@ -1496,6 +1496,140 @@ void mapManager::random()
 			}
 		}
 	}
+
+	//플레이어초기 위치
+	_walltemp = RND->getInt(4);
+
+	if (_walltemp == 0 || _walltemp == 1) // 좌상 탐색
+	{
+		_x2temp = RND->getInt(3);
+		_y2temp = RND->getInt(3);
+
+		while (_tiles[_x2temp][_y2temp].wall != WALL_NONE || _tiles[_x2temp][_y2temp].obj != OBJ_NONE)
+		{
+			_x2temp++;
+			_y2temp++;
+		}
+
+		if (PLAYERMANAGER->getPlayerType() == NULL)
+		{
+			PLAYERMANAGER->setplayer(FISH, _tiles[_x2temp][_y2temp].rc.right - 64, _tiles[_x2temp][_y2temp].rc.top);
+		}
+		else
+		{
+			PLAYERMANAGER->setplayer(PLAYERMANAGER->getPlayerType(), _tiles[_x2temp][_y2temp].rc.right - 64, _tiles[_x2temp][_y2temp].rc.top);
+		}
+
+	}
+	else if (_walltemp == 2 || _walltemp == 3)// 우하 탐색
+	{
+		_x2temp = 27 + RND->getInt(2);
+		_y2temp = 26 + RND->getInt(3);
+
+		while (_tiles[_x2temp][_y2temp].wall != WALL_NONE || _tiles[_x2temp][_y2temp].obj != OBJ_NONE)
+		{
+			_x2temp--;
+			_y2temp--;
+		}
+
+		if (PLAYERMANAGER->getPlayerType() == NULL)
+		{
+			PLAYERMANAGER->setplayer(FISH, _tiles[_x2temp][_y2temp].rc.right - 64, _tiles[_x2temp][_y2temp].rc.top);
+		}
+		else
+		{
+			PLAYERMANAGER->setplayer(PLAYERMANAGER->getPlayerType(), _tiles[_x2temp][_y2temp].rc.right - 64, _tiles[_x2temp][_y2temp].rc.top);
+		}
+	}
+
+
+	//에너미
+	for (int i = 3; i < TILEX - 3; i++)
+		for (int j = 3; j < TILEY - 3; j++)
+		{
+			if (_walltemp <= 1)
+			{
+				if (i < 10 && j < 10) continue;
+			}
+			else if (_walltemp <= 3)
+			{
+				if (i > 20 && j > 20) continue;
+			}
+			_tiletemp = RND->getInt(100);
+			_enemytemp = RND->getInt(100);
+
+			if (_tiles[i][j].wall == WALL_NONE && _tiles[i][j].obj == OBJ_NONE && _tiletemp < 8)
+			{
+				if (_rnd == 0)
+				{
+					if (_enemytemp > 60)
+					{
+						ENEMYMANAGER->addEnemys("custom", BANDIT, _tiles[i][j].rc.right - 64, _tiles[i][j].rc.top);
+					}
+					else if (_enemytemp > 40)
+					{
+						ENEMYMANAGER->addEnemys("custom", BIGMAGGOT, _tiles[i][j].rc.right - 64, _tiles[i][j].rc.top);
+					}
+					else if (_enemytemp > 20)
+					{
+						ENEMYMANAGER->addEnemys("custom", SCOLPION, _tiles[i][j].rc.right - 64, _tiles[i][j].rc.top);
+					}
+					else if (_enemytemp > 0)
+					{
+						ENEMYMANAGER->addEnemys("custom", MAGGOTNEST, _tiles[i][j].rc.right - 64, _tiles[i][j].rc.top);
+					}
+				}
+				else if (_rnd == 1)
+				{
+					if (_enemytemp > 60)
+					{
+						ENEMYMANAGER->addEnemys("custom", RAT, _tiles[i][j].rc.right - 64, _tiles[i][j].rc.top);
+					}
+					else if (_enemytemp > 40)
+					{
+						ENEMYMANAGER->addEnemys("custom", BIGRAT, _tiles[i][j].rc.right - 64, _tiles[i][j].rc.top);
+					}
+					else if (_enemytemp > 20)
+					{
+						ENEMYMANAGER->addEnemys("custom", GREENRAT, _tiles[i][j].rc.right - 64, _tiles[i][j].rc.top);
+					}
+					else if (_enemytemp > 10)
+					{
+						ENEMYMANAGER->addEnemys("custom", GREENFROG, _tiles[i][j].rc.right - 64, _tiles[i][j].rc.top);
+					}
+					else if (_enemytemp > 0)
+					{
+						ENEMYMANAGER->addEnemys("custom", GATOR, _tiles[i][j].rc.right - 64, _tiles[i][j].rc.top);
+					}
+				}
+				else if (_rnd == 2)
+				{
+					if (_enemytemp > 60)
+					{
+						ENEMYMANAGER->addEnemys("custom", RAVEN, _tiles[i][j].rc.right - 64, _tiles[i][j].rc.top);
+					}
+					else if (_enemytemp > 20)
+					{
+						ENEMYMANAGER->addEnemys("custom", SNIPER, _tiles[i][j].rc.right - 64, _tiles[i][j].rc.top);
+					}
+					else if (_enemytemp > 10)
+					{
+						ENEMYMANAGER->addEnemys("custom", SALAMADER, _tiles[i][j].rc.right - 64, _tiles[i][j].rc.top);
+					}
+					else if (_enemytemp > 0)
+					{
+						ENEMYMANAGER->addEnemys("custom", ASSASSIN, _tiles[i][j].rc.right - 64, _tiles[i][j].rc.top);
+					}
+				}
+			}
+			else
+			{
+
+			}
+
+
+		}
+
 
 	_rnd = 3;
 }
