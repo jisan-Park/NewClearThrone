@@ -7,6 +7,7 @@
 #include "razerRifle.h"
 #include "shotGun.h"
 #include "banditGun.h"
+#include "bigBanditGun.h"
 #include "wrench.h"
 class weaponManager : public singletonBase <weaponManager>
 {

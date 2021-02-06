@@ -3,13 +3,18 @@
 #include "bullet16.h"
 #include "bullet1.h"
 #include "grenade.h"
+#include "enemyBullet16_1.h"
+#include "enemyBullet16_2.h"
 #include <vector>
 enum BULLETTYPE
 {
 	ANGLE16,
 	ANGLE1,
 	FLAME,
-	GRENADE
+	GRENADE,
+
+	E_ANGLE16_1,
+	E_ANGLE16_2
 };
 class bulletManager : public singletonBase<bulletManager>
 {

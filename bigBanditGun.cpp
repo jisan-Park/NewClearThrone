@@ -1,9 +1,9 @@
 #include "stdafx.h"
-#include "banditGun.h"
+#include "bigBanditGun.h"
 
-HRESULT banditGun::init(POINT pt, weaponState state)
+HRESULT bigBanditGun::init(POINT pt, weaponState state)
 {
-	_img = IMAGEMANAGER->findImage("bandit_gun");
+	_img = IMAGEMANAGER->findImage("bigbandit_gun");
 	_pt = pt;
 	_state = state;
 	_radius = 15;
@@ -14,13 +14,13 @@ HRESULT banditGun::init(POINT pt, weaponState state)
 	return S_OK;
 }
 
-void banditGun::update()
+void bigBanditGun::update()
 {
 	Position();
 	setFrameIndex8(_angle);
 }
 
-void banditGun::fire()
+void bigBanditGun::fire()
 {
 	BULLETMANAGER->EnemyFire(E_ANGLE16_1, _pt, _bulletSpd, _angle, _damage);
 }

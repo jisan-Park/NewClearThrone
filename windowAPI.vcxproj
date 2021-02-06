@@ -161,8 +161,10 @@
     <ClInclude Include="banditState.h" />
     <ClInclude Include="banditWalk.h" />
     <ClInclude Include="bigBandit.h" />
+    <ClInclude Include="bigBanditDash.h" />
     <ClInclude Include="bigBanditDead.h" />
     <ClInclude Include="bigBanditFire.h" />
+    <ClInclude Include="bigBanditGun.h" />
     <ClInclude Include="bigBanditIdle.h" />
     <ClInclude Include="bigBanditState.h" />
     <ClInclude Include="bigBanditWalk.h" />
@@ -198,6 +200,8 @@
     <ClInclude Include="effect.h" />
     <ClInclude Include="effectManager.h" />
     <ClInclude Include="enemy.h" />
+    <ClInclude Include="enemyBullet16_1.h" />
+    <ClInclude Include="enemyBullet16_2.h" />
     <ClInclude Include="enemyManager.h" />
     <ClInclude Include="enemyState.h" />
     <ClInclude Include="Eyes.h" />
@@ -331,8 +335,10 @@
     <ClCompile Include="banditState.cpp" />
     <ClCompile Include="banditWalk.cpp" />
     <ClCompile Include="bigBandit.cpp" />
+    <ClCompile Include="bigBanditDash.cpp" />
     <ClCompile Include="bigBanditDead.cpp" />
     <ClCompile Include="bigBanditFire.cpp" />
+    <ClCompile Include="bigBanditGun.cpp" />
     <ClCompile Include="bigBanditIdle.cpp" />
     <ClCompile Include="bigBanditState.cpp" />
     <ClCompile Include="bigBanditWalk.cpp" />
@@ -367,6 +373,8 @@
     <ClCompile Include="effect.cpp" />
     <ClCompile Include="effectManager.cpp" />
     <ClCompile Include="enemy.cpp" />
+    <ClCompile Include="enemyBullet16_1.cpp" />
+    <ClCompile Include="enemyBullet16_2.cpp" />
     <ClCompile Include="enemyManager.cpp" />
     <ClCompile Include="enemyState.cpp" />
     <ClCompile Include="Eyes.cpp" />

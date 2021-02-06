@@ -702,6 +702,18 @@
     <ClInclude Include="grenade.h">
       <Filter>2DGameFramework\bullet</Filter>
     </ClInclude>
+    <ClInclude Include="enemyBullet16_1.h">
+      <Filter>2DGameFramework\bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="enemyBullet16_2.h">
+      <Filter>2DGameFramework\bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="bigBanditGun.h">
+      <Filter>2DGameFramework\weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="bigBanditDash.h">
+      <Filter>2DGameFramework\enemy\stage1\big_Bandit\bigBanditState</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -1192,6 +1204,18 @@
     </ClCompile>
     <ClCompile Include="grenade.cpp">
       <Filter>2DGameFramework\bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="enemyBullet16_1.cpp">
+      <Filter>2DGameFramework\bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="enemyBullet16_2.cpp">
+      <Filter>2DGameFramework\bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="bigBanditGun.cpp">
+      <Filter>2DGameFramework\weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="bigBanditDash.cpp">
+      <Filter>2DGameFramework\enemy\stage1\big_Bandit\bigBanditState</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

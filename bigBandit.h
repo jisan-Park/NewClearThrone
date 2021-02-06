@@ -1,6 +1,7 @@
 #pragma once
 #include "enemy.h"
 #include "bigBanditDead.h"
+//#include "bigBanditDash.h"
 #include "bigBanditFire.h"
 #include "bigBanditIdle.h"
 #include "bigBanditWalk.h"
@@ -9,19 +10,7 @@ class bigBandit :
 {
 
 private:
-	animation* bigbanditidleright;
-	animation* bigbanditwalkright;
-	animation* bigbanditdashright;
-	animation* bigbandithurtright;
-	animation* bigbanditfireright;
-	animation* bigbanditdeadright;
-
-	animation* bigbanditidleleft;
-	animation* bigbanditwalkleft;
-	animation* bigbanditdashleft;
-	animation* bigbandithurtleft;
-	animation* bigbanditfireleft;
-	animation* bigbanditdeadleft;
+	weapon* _weapon;
 
 public:
 	virtual HRESULT init(float x, float y);

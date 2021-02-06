@@ -8,11 +8,18 @@ HRESULT rat::init(float x, float y)
 	_info.width = 30;
 	_info.height = 30;
 	_info.hp = 15;
-	_info.speed = 15;
+	_info.speed = 4;
 	_info.moveAngle = 0;
 	_info.rc = RectMakeCenter(_info.pt.x, _info.pt.y, _info.width, _info.height);
 	_info.direction = E_RIGHT;
 	_enemyType = RAT;
+
+	_info.state = E_IDLE;
+	_info.nextState = E_IDLE;
+	_info.noticeRange = 300;
+	_info.nstate = UNNOTICED;
+	_rndInterval = RND->getFromIntTo(70, 130);
+
 	_enState = new ratIdle;
 	_enState->init(_info);
 	return S_OK;
@@ -23,7 +30,47 @@ void rat::update()
 {
 	_info.rc = RectMakeCenter(_info.pt.x, _info.pt.y, _info.width, _info.height);
 	_enState->update(_info);
-	setState(_info.nextState);
+	collision();
+	_rndMoveCnt++;
+
+	if (_info.state != E_DEAD)
+	{
+
+		if (inRange() == true)
+		{
+			_info.nstate == NOTICED;
+			_info.moveAngle = getAngle(_info.pt, MAPMANAGER->enemyMove(_info.pt));
+			
+			_info.nextState == E_WALK;
+			
+			if (128<getDistance(_info.pt, PLAYERMANAGER->getPlayer()->getPt()))
+			{
+				_info.nextState = E_IDLE;
+			}
+
+		}
+
+		if (_info.nstate == UNNOTICED)
+		{
+			if (_rndMoveCnt % _rndInterval == 0)
+			{
+				if (_info.state == E_IDLE)
+				{
+					_info.nextState = E_WALK;
+					_info.moveAngle = RND->getFloat(PI2);
+					_rndInterval = RND->getFromIntTo(70, 130);
+					_rndMoveCnt = 0;
+				}
+				if (_info.state == E_WALK)
+				{
+					_info.nextState = E_IDLE;
+					_rndInterval = RND->getFromIntTo(70, 130);
+					_rndMoveCnt == 0;
+				}
+			}
+		}
+		setState(_info.nextState);
+	}
 }
 
 void rat::render(HDC hdc)

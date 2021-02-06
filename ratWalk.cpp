@@ -50,6 +50,9 @@ void ratWalk::update(enemyinfo & info)
 	}
 	else
 	{
+		info.pt.x += cosf(info.moveAngle)* info.speed;
+		info.pt.y += -sinf(info.moveAngle)* info.speed;
+		
 		_img = IMAGEMANAGER->findImage("rat_walk");
 		if (info.direction == E_LEFT) _motion = ratwalkleft;
 		if (info.direction == E_RIGHT)_motion = ratwalkright;

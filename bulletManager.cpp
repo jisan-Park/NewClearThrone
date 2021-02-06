@@ -108,6 +108,18 @@ void bulletManager::EnemyFire(BULLETTYPE type, POINT pt, float speed, float angl
 		temp->fire(pt, speed, angle, damage);
 	}
 	break;
+	case E_ANGLE16_1:
+	{
+		temp = new enemyBullet16_1;
+		temp->fire(pt, speed, angle, damage);
+	}
+	break;
+	case E_ANGLE16_2:
+	{
+		temp = new enemyBullet16_2;
+		temp->fire(pt, speed, angle, damage);
+	}
+	break;
 	}
 	_vEnemyBullet.push_back(temp);
 }

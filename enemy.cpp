@@ -55,6 +55,28 @@ float enemy::EtoPAngle()
 	return getAngle(_info.pt, PLAYERMANAGER->getPlayer()->getPt());
 }
 
+float enemy::EtoPAngleRnd()
+{
+	float rndAngle;
+	int rnd;
+
+	rnd = RND->getFromIntTo(1, 8);
+	if (rnd < 3)
+	{
+		rndAngle = getAngle(_info.pt, PLAYERMANAGER->getPlayer()->getPt()) + 0.15f;
+	}
+	else if (3 <= rnd && rnd < 6)
+	{
+		rndAngle = getAngle(_info.pt, PLAYERMANAGER->getPlayer()->getPt());
+	}
+	else
+	{
+		rndAngle = getAngle(_info.pt, PLAYERMANAGER->getPlayer()->getPt()) - 0.15f;
+	}
+
+	return rndAngle;
+}
+
 void enemy::eyeSkill(int x, int y)
 {
 	if (_info.pt.x < x) _info.pt.x += 1;
