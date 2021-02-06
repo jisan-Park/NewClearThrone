@@ -39,5 +39,4 @@ void pistol::update()
 void pistol::fire()
 {
 	BULLETMANAGER->fire(ANGLE1, _pt, _bulletSpd, _angle, _damage, PLAYER);
-	SOUNDMANAGER->play("±ÇÃÑ", GAMEMANAGER->getSfxVolume());
 }

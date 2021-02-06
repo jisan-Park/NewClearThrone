@@ -341,3 +341,10 @@ void itemManager::createWeapon(POINT pt)
 		break;
 	}
 }
+
+void itemManager::remove()
+{
+
+	_vItembox.clear();
+
+}

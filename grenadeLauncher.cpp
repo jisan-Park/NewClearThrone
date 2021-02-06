@@ -39,5 +39,4 @@ void grenadeLauncher::update()
 void grenadeLauncher::fire()
 {
 	BULLETMANAGER->fire(ANGLE1, _pt, _bulletSpd, _angle, _damage, PLAYER);
-	SOUNDMANAGER->play("ÀçÀåÀü", GAMEMANAGER->getSfxVolume());
 }

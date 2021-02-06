@@ -50,6 +50,7 @@ public:
 	virtual void setItembox(ITEMBOXTYPE itemboxtype, float x, float y);
 	virtual void collsion();
 	void createWeapon(POINT pt);
+	virtual void remove();
 
 };
 

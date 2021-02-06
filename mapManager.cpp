@@ -397,6 +397,7 @@ void mapManager::emptymap()
 			_tiles[i][j].wall = WALL_NONE;
 			_tiles[i][j].obj = OBJ_NONE;
 			ENEMYMANAGER->deleteEnemys("custom", i*TILESIZE, j*TILESIZE);
+			ITEMMANAGER->remove();
 		}
 	}
 }
@@ -1690,8 +1691,8 @@ void mapManager::random()
 
 	while (_tiles[_x2temp][_y2temp].wall != WALL_NONE || _tiles[_x2temp][_y2temp].obj != OBJ_NONE)
 	{
-		_x2temp++;
-		_y2temp++;
+		_x2temp = RND->getInt(10) + 5;
+		_y2temp = RND->getInt(10) + 5;
 	}
 
 	ITEMMANAGER->setItembox(BULLETITEMBOX, _tiles[_x2temp][_y2temp].rc.right - 32, _tiles[_x2temp][_y2temp].rc.top);
@@ -1702,8 +1703,8 @@ void mapManager::random()
 
 	while (_tiles[_x2temp][_y2temp].wall != WALL_NONE || _tiles[_x2temp][_y2temp].obj != OBJ_NONE)
 	{
-		_x2temp++;
-		_y2temp++;
+		_x2temp = RND->getInt(15) + 5;
+		_y2temp = RND->getInt(15) + 5;
 	}
 
 	ITEMMANAGER->setItembox(WEAPOMITEMBOX, _tiles[_x2temp][_y2temp].rc.right - 32, _tiles[_x2temp][_y2temp].rc.top);
@@ -1715,8 +1716,8 @@ void mapManager::random()
 
 	while (_tiles[_x2temp][_y2temp].wall != WALL_NONE || _tiles[_x2temp][_y2temp].obj != OBJ_NONE)
 	{
-		_x2temp++;
-		_y2temp++;
+		_x2temp = RND->getInt(20) + 5;
+		_y2temp = RND->getInt(20) + 5;
 	}
 
 	ITEMMANAGER->setItembox(MEDKITITEMBOX, _tiles[_x2temp][_y2temp].rc.right - 32, _tiles[_x2temp][_y2temp].rc.top);

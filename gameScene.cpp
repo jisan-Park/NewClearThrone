@@ -66,17 +66,35 @@ void gameScene::update()
 
 		if (MAPMANAGER->getStage_first() == 0 && _sound1 == 0)
 		{
+			SOUNDMANAGER->stop("스테이지1");
+			SOUNDMANAGER->stop("스테이지2");
+			SOUNDMANAGER->stop("스테이지3");
+			SOUNDMANAGER->stop("메인메뉴");
+			SOUNDMANAGER->stop("캐릭터선택");
+		
 			SOUNDMANAGER->play("스테이지1", GAMEMANAGER->getMusicVolume() * GAMEMANAGER->getMasterVolume());
 			_sound1++;
 		}
 		else if (MAPMANAGER->getStage_first() == 1 && _sound2 == 0 )
 		{
+			SOUNDMANAGER->stop("스테이지1");
+			SOUNDMANAGER->stop("스테이지2");
+			SOUNDMANAGER->stop("스테이지3");
+			SOUNDMANAGER->stop("메인메뉴");
+			SOUNDMANAGER->stop("캐릭터선택");
+
 			SOUNDMANAGER->play("스테이지2", GAMEMANAGER->getMusicVolume() * GAMEMANAGER->getMasterVolume());
 			_sound2++;
 		}
 		else if (MAPMANAGER->getStage_first() == 2 && _sound3 == 0)
 		{
-			SOUNDMANAGER->play("스테이지2", GAMEMANAGER->getMusicVolume() * GAMEMANAGER->getMasterVolume());
+			SOUNDMANAGER->stop("스테이지1");
+			SOUNDMANAGER->stop("스테이지2");
+			SOUNDMANAGER->stop("스테이지3");
+			SOUNDMANAGER->stop("메인메뉴");
+			SOUNDMANAGER->stop("캐릭터선택");
+
+			SOUNDMANAGER->play("스테이지3", GAMEMANAGER->getMusicVolume() * GAMEMANAGER->getMasterVolume());
 			_sound3++;
 		}
 

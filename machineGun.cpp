@@ -40,5 +40,4 @@ void machineGun::update()
 void machineGun::fire()
 {
 	BULLETMANAGER->fire(ANGLE16, _pt, _bulletSpd, _angle, _damage, PLAYER);
-	SOUNDMANAGER->play("¾àÇÑÃÑ", GAMEMANAGER->getSfxVolume());
 }

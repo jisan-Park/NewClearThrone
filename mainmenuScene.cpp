@@ -4,6 +4,13 @@
 HRESULT mainmenuScene::init()
 {
 	setImage();
+
+	SOUNDMANAGER->stop("스테이지1");
+	SOUNDMANAGER->stop("스테이지2");
+	SOUNDMANAGER->stop("스테이지3");
+	SOUNDMANAGER->stop("메인메뉴");
+	SOUNDMANAGER->stop("캐릭터선택");
+
 	SOUNDMANAGER->play("메인메뉴", GAMEMANAGER->getMusicVolume() * GAMEMANAGER->getMasterVolume());
 
 	return S_OK;
@@ -17,7 +24,6 @@ void mainmenuScene::update()
 		if (PtInRect(&selectMenu[i].info.rc, _ptMouse)) {
 			selectMenu[i].alpha = 255;
 			if (KEYMANAGER->isOnceKeyUp(VK_LBUTTON)) {
-				SOUNDMANAGER->play("클릭소리", GAMEMANAGER->getSfxVolume());
 				switch (i)
 				{
 				case 0:

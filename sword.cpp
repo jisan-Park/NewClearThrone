@@ -38,6 +38,5 @@ void sword::update()
 
 void sword::fire()
 {
-	SOUNDMANAGER->play("칼", GAMEMANAGER->getSfxVolume());
 	_meleeAngle *= (-1);
 }

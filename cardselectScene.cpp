@@ -14,6 +14,13 @@ cardselectScene::~cardselectScene()
 
 HRESULT cardselectScene::init()
 {
+	SOUNDMANAGER->stop("스테이지1");
+	SOUNDMANAGER->stop("스테이지2");
+	SOUNDMANAGER->stop("스테이지3");
+	SOUNDMANAGER->stop("메인메뉴");
+	SOUNDMANAGER->stop("캐릭터선택");
+	SOUNDMANAGER->play("캐릭터선택", GAMEMANAGER->getMusicVolume() * GAMEMANAGER->getMasterVolume());
+
 	setImage();
 	randomCard();
 
@@ -144,7 +151,6 @@ void cardselectScene::ptInCard()
 
 			if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
 			{
-				SOUNDMANAGER->play("클릭소리", GAMEMANAGER->getSfxVolume());
 
 				if (_aCard[i].cardNum == 0)
 				{

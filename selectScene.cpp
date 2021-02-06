@@ -7,7 +7,6 @@ HRESULT selectScene::init()
 	selectNum = 0;
 	selectedImage = new image;
 
-	SOUNDMANAGER->play("캐릭터선택", GAMEMANAGER->getMusicVolume());
 	return S_OK;
 }
 
@@ -21,30 +20,30 @@ void selectScene::update()
 	for (int i = 0; i < 6; ++i) {
 		if (PtInRect(&chr_info[i].info.rc,_ptMouse)) {
 			if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON)) {
-
+				//나중에 소리추가
 				if (i == 0)
 				{
-					SOUNDMANAGER->play("피쉬선택", GAMEMANAGER->getSfxVolume());
+				
 				}
 				else if (i == 1)
 				{
-					SOUNDMANAGER->play("크리스탈선택", GAMEMANAGER->getSfxVolume());
+					
 				}
 				else if (i == 2)
 				{
-					SOUNDMANAGER->play("아이즈선택", GAMEMANAGER->getSfxVolume());
+					
 				}
 				else if (i == 3)
 				{
-					SOUNDMANAGER->play("플랜트선택", GAMEMANAGER->getSfxVolume());
+					
 				}
 				else if (i == 4)
 				{
-					SOUNDMANAGER->play("멜팅선택", GAMEMANAGER->getSfxVolume());
+					
 				}
 				else
 				{
-					SOUNDMANAGER->play("클릭소리", GAMEMANAGER->getSfxVolume());
+					
 				}
 				selectNum = i+1;
 			}

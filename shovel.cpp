@@ -47,6 +47,5 @@ void shovel::update()
 
 void shovel::fire()
 {
-	SOUNDMANAGER->play("µÐ±â", GAMEMANAGER->getSfxVolume());
 	_meleeAngle *= (-1);
 }

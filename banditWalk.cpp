@@ -40,7 +40,6 @@ void banditWalk::update(enemyinfo &info)
 	if (info.isHurt == true)
 	{
 		isHurt = true;
-		SOUNDMANAGER->play("Àâ¸÷ Á×À»¶§1", GAMEMANAGER->getSfxVolume());
 		info.isHurt = false;
 	}
 	_pt = info.pt;
