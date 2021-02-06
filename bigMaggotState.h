@@ -3,5 +3,7 @@
 class bigMaggotState :
 	public enemyState
 {
+protected:
+	bool isBurrowEnd;
 };
 

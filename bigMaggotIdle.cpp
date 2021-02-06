@@ -60,13 +60,13 @@ void bigMaggotIdle::update(enemyinfo & info)
 		{
 			info.direction == E_LEFT;
 			_motion = bigmaggotidleleft;
-			_motion->start();
+	
 		}
 		if (PLAYERMANAGER->getPlayer()->getPt().x > info.pt.x)
 		{
 			info.direction == E_RIGHT;
 			_motion = bigmaggotidleright;
-			_motion->start();
+		
 		}
 		//if (info.direction == E_LEFT) _motion = bigmaggotidleleft;
 		//if (info.direction == E_RIGHT) _motion = bigmaggotidleright;

@@ -171,6 +171,7 @@
     <ClInclude Include="bigDogSpin.h" />
     <ClInclude Include="bigDogState.h" />
     <ClInclude Include="bigMaggot.h" />
+    <ClInclude Include="bigMaggotAppear.h" />
     <ClInclude Include="bigMaggotBurrow.h" />
     <ClInclude Include="bigMaggotDead.h" />
     <ClInclude Include="bigMaggotIdle.h" />
@@ -266,6 +267,8 @@
     <ClInclude Include="ratState.h" />
     <ClInclude Include="ratWalk.h" />
     <ClInclude Include="raven.h" />
+    <ClInclude Include="ravenAppear.h" />
+    <ClInclude Include="ravenBurrow.h" />
     <ClInclude Include="ravenDead.h" />
     <ClInclude Include="ravenFly.h" />
     <ClInclude Include="ravenIdle.h" />
@@ -336,6 +339,7 @@
     <ClCompile Include="bigDogSpin.cpp" />
     <ClCompile Include="bigDogState.cpp" />
     <ClCompile Include="bigMaggot.cpp" />
+    <ClCompile Include="bigMaggotAppear.cpp" />
     <ClCompile Include="bigMaggotBurrow.cpp" />
     <ClCompile Include="bigMaggotDead.cpp" />
     <ClCompile Include="bigMaggotIdle.cpp" />
@@ -429,6 +433,8 @@
     <ClCompile Include="ratState.cpp" />
     <ClCompile Include="ratWalk.cpp" />
     <ClCompile Include="raven.cpp" />
+    <ClCompile Include="ravenAppear.cpp" />
+    <ClCompile Include="ravenBurrow.cpp" />
     <ClCompile Include="ravenDead.cpp" />
     <ClCompile Include="ravenFly.cpp" />
     <ClCompile Include="ravenIdle.cpp" />

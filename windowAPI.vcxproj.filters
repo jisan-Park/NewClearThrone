@@ -687,6 +687,15 @@
     <ClInclude Include="bulletManager.h">
       <Filter>2DGameFramework\bullet</Filter>
     </ClInclude>
+    <ClInclude Include="bigMaggotAppear.h">
+      <Filter>2DGameFramework\enemy\stage1\bigMaggot\bigMaggotState</Filter>
+    </ClInclude>
+    <ClInclude Include="ravenBurrow.h">
+      <Filter>2DGameFramework\enemy\stage3\raven\ravenState</Filter>
+    </ClInclude>
+    <ClInclude Include="ravenAppear.h">
+      <Filter>2DGameFramework\enemy\stage3\raven\ravenState</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -1162,6 +1171,15 @@
     </ClCompile>
     <ClCompile Include="bulletManager.cpp">
       <Filter>2DGameFramework\bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="bigMaggotAppear.cpp">
+      <Filter>2DGameFramework\enemy\stage1\bigMaggot\bigMaggotState</Filter>
+    </ClCompile>
+    <ClCompile Include="ravenBurrow.cpp">
+      <Filter>2DGameFramework\enemy\stage3\raven\ravenState</Filter>
+    </ClCompile>
+    <ClCompile Include="ravenAppear.cpp">
+      <Filter>2DGameFramework\enemy\stage3\raven\ravenState</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

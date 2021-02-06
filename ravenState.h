@@ -3,5 +3,7 @@
 class ravenState :
 	public enemyState
 {
+protected:
+	bool isBurrowEnd;
 };
 

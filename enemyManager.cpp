@@ -52,8 +52,8 @@ void enemyManager::setimage()
 	IMAGEMANAGER->addFrameImage("bigmaggot_dead", "image/enemy/stage1/bigmaggot_dead.bmp", 448, 128, 7, 2, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("bigmaggot_hurt", "image/enemy/stage1/bigmaggot_hurt.bmp", 192, 128, 3, 2, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("bigmaggot_idle", "image/enemy/stage1/bigmaggot_idle.bmp", 384, 128, 6, 2, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addFrameImage("bigmaggot_burrow", "image/enemy/stage1/bigmaggot_burrow.bmp", 448, 128, 7, 2, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addFrameImage("bigmaggot_appear", "image/enemy/stage1/bigmaggot_appear.bmp", 768, 128, 12, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("bigmaggot_burrow", "image/enemy/stage1/bigmaggot_burrow.bmp", 768, 128, 12, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("bigmaggot_appear", "image/enemy/stage1/bigmaggot_appear.bmp", 448, 128, 7, 2, true, RGB(255, 0, 255));
 
 	IMAGEMANAGER->addFrameImage("greenmaggot_dead", "image/enemy/stage1/greenmaggot_dead.bmp", 192, 64, 6, 2, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("greenmaggot_hurt", "image/enemy/stage1/greenmaggot_hurt.bmp", 96, 64, 3, 2, true, RGB(255, 0, 255));

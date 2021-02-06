@@ -3,6 +3,7 @@
 #include "bigMaggotBurrow.h"
 #include "bigMaggotDead.h"
 #include "bigMaggotIdle.h"
+#include "bigMaggotAppear.h"
 
 class bigMaggot : public enemy
 {

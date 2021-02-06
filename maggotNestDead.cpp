@@ -5,7 +5,7 @@ HRESULT maggotNestDead::init(enemyinfo info)
 {
 	maggotnestdeadright = new animation;
 	maggotnestdeadright->init("maggotnest_dead");
-	maggotnestdeadright->setPlayFrame(0, 1, false, false);
+	maggotnestdeadright->setPlayFrame(0, 3, false, false);
 	maggotnestdeadright->setFPS(10);
 
 	maggotnestdeadleft = new animation;

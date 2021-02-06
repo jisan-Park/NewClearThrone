@@ -15,12 +15,12 @@ HRESULT ravenIdle::init(enemyinfo info)
 
 	ravenhurtright = new animation;
 	ravenhurtright->init("raven_hurt");
-	ravenhurtright->setPlayFrame(0, 2, false, false);
+	ravenhurtright->setPlayFrame(0, 2, false, false, hurtFinish,this);
 	ravenhurtright->setFPS(10);
 
 	ravenhurtleft = new animation;
 	ravenhurtleft->init("raven_hurt");
-	ravenhurtleft->setPlayFrame(5, 3, false, false);
+	ravenhurtleft->setPlayFrame(5, 3, false, false, hurtFinish,this);
 	ravenhurtleft->setFPS(10);
 
 
@@ -35,5 +35,37 @@ HRESULT ravenIdle::init(enemyinfo info)
 void ravenIdle::update(enemyinfo & info)
 {
 	_pt = info.pt;
+
+	if (info.isHurt == true)
+	{
+		isHurt = true;
+		info.isHurt = false;
+	}
+	_pt = info.pt;
+	if (isHurt == true)
+	{
+		_img = IMAGEMANAGER->findImage("raven_hurt");
+		if (info.direction == E_LEFT) _motion = ravenhurtleft;
+		if (info.direction == E_RIGHT) _motion = ravenhurtright;
+	}
+	else
+	{
+		_img = IMAGEMANAGER->findImage("raven_idle");
+
+		if (PLAYERMANAGER->getPlayer()->getPt().x < info.pt.x)
+		{
+			info.direction == E_LEFT;
+			_motion = ravenidleleft;
+
+		}
+		if (PLAYERMANAGER->getPlayer()->getPt().x > info.pt.x)
+		{
+			info.direction == E_RIGHT;
+			_motion = ravenidleright;
+
+		}
+
+	}
+	if (_motion->isPlay() == false) _motion->start();
 	_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);
 }
