@@ -1695,7 +1695,7 @@ void mapManager::random()
 		_y2temp = RND->getInt(10) + 5;
 	}
 
-	ITEMMANAGER->setItembox(BULLETITEMBOX, _tiles[_x2temp][_y2temp].rc.right - 32, _tiles[_x2temp][_y2temp].rc.top-32);
+	ITEMMANAGER->setItembox(BULLETITEMBOX, _tiles[_x2temp][_y2temp].rc.right - 32, _tiles[_x2temp][_y2temp].rc.top+32);
 
 
 	_x2temp = RND->getInt(15) + 5;
@@ -1707,7 +1707,7 @@ void mapManager::random()
 		_y2temp = RND->getInt(15) + 5;
 	}
 
-	ITEMMANAGER->setItembox(WEAPOMITEMBOX, _tiles[_x2temp][_y2temp].rc.right - 32, _tiles[_x2temp][_y2temp].rc.top-32);
+	ITEMMANAGER->setItembox(WEAPOMITEMBOX, _tiles[_x2temp][_y2temp].rc.right - 32, _tiles[_x2temp][_y2temp].rc.top+32);
 
 
 
@@ -1720,7 +1720,7 @@ void mapManager::random()
 		_y2temp = RND->getInt(20) + 5;
 	}
 
-	ITEMMANAGER->setItembox(MEDKITITEMBOX, _tiles[_x2temp][_y2temp].rc.right - 32, _tiles[_x2temp][_y2temp].rc.top-32);
+	ITEMMANAGER->setItembox(MEDKITITEMBOX, _tiles[_x2temp][_y2temp].rc.right - 32, _tiles[_x2temp][_y2temp].rc.top+32);
 
 	_rnd = 3;
 }
