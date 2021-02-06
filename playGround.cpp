@@ -24,13 +24,14 @@ HRESULT playGround::init()
 	SCENEMANAGER->addScene("셀렉트씬", new selectScene);
 	SCENEMANAGER->addScene("카드선택씬", new cardselectScene);
 
-
+	//배경음
 	SOUNDMANAGER->addSound("메인메뉴", "sound/배경/메인메뉴.mp3", true, true);
 	SOUNDMANAGER->addSound("캐릭터선택", "sound/배경/캐릭터선택.mp3", true, true);
 	SOUNDMANAGER->addSound("스테이지1", "sound/배경/스테이지1.mp3", true, true);
 	SOUNDMANAGER->addSound("스테이지2", "sound/배경/스테이지2.mp3", true, true);
 	SOUNDMANAGER->addSound("스테이지3", "sound/배경/스테이지3.mp3", true, true);
 
+	//효과음
 	SOUNDMANAGER->addSound("멜팅죽을떄", "sound/플레이어 사망/멜팅죽을때.mp3", false, false);
 	SOUNDMANAGER->addSound("아이즈죽을때", "sound/플레이어 사망/아이즈죽을때.mp3", false, false);
 	SOUNDMANAGER->addSound("크리스탈죽을때", "sound/플레이어 사망/크리스탈죽을때.mp3", false, false);
@@ -45,11 +46,11 @@ HRESULT playGround::init()
 	SOUNDMANAGER->addSound("클릭소리", "sound/효과음/클릭소리.mp3", false, false);
 	SOUNDMANAGER->addSound("폭발사운드", "sound/효과음/폭빌사운드.mp3", false, false);
 	
-	SOUNDMANAGER->addSound("멜팅 선택", "sound/효과음/캐릭터 선택/멜팅 선택.mp3", false, false);
+	SOUNDMANAGER->addSound("멜팅선택", "sound/효과음/캐릭터 선택/멜팅 선택.mp3", false, false);
 	SOUNDMANAGER->addSound("플랜트선택", "sound/효과음/캐릭터 선택/플랜트 선택.mp3", false, false);
 	SOUNDMANAGER->addSound("아이즈선택", "sound/효과음/캐릭터 선택/아이즈 선택.mp3", false, false);
-	SOUNDMANAGER->addSound("크리스탈 선택", "sound/효과음/캐릭터 선택/크리스탈선택.mp3", false, false);
-	SOUNDMANAGER->addSound("피쉬 선택", "sound/효과음/캐릭터 선택/피쉬 선택.mp3", false, false);
+	SOUNDMANAGER->addSound("크리스탈선택", "sound/효과음/캐릭터 선택/크리스탈선택.mp3", false, false);
+	SOUNDMANAGER->addSound("피쉬선택", "sound/효과음/캐릭터 선택/피쉬 선택.mp3", false, false);
 
 	SOUNDMANAGER->addSound("까마귀 맞았을때", "sound/효과음/에너미/까마귀/까마귀 맞았을때.mp3", false, false);
 	SOUNDMANAGER->addSound("까마귀1", "sound/효과음/에너미/까마귀/까마귀1.mp3", false, false);

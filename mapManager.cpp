@@ -12,7 +12,7 @@ HRESULT mapManager::init()
 	setTiles();
 	setSampleTile();
 	setTileRect();
-
+	
 	//left, top tile index
 	//가로, 세로 개수
 	_pt.x = _pt.y = 0;
@@ -27,13 +27,15 @@ HRESULT mapManager::init()
 	player_pt.x = 0, player_pt.y = 0;
 	player_type = 0;
 	////////////////////[ stage ]///////////////////////////
-	stage_first = 2;
-	stage_second = 1;
+	stage_first = 0;
+	stage_second = 0;
 
 	enemyCount = 10;
 	bulletBoxCount = 5;
 	weaponBoxCount = 2;
 	medikitBoxCount = 2;
+
+
 	return S_OK;
 }
 

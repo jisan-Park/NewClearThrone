@@ -144,6 +144,8 @@ void cardselectScene::ptInCard()
 
 			if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
 			{
+				SOUNDMANAGER->play("클릭소리", (GAMEMANAGER->getSfxVolume() / 100.0f)*1.0f);
+
 				if (_aCard[i].cardNum == 0)
 				{
 

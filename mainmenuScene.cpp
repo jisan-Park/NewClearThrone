@@ -4,6 +4,8 @@
 HRESULT mainmenuScene::init()
 {
 	setImage();
+	SOUNDMANAGER->play("메인메뉴", (GAMEMANAGER->getMusicVolume() / 100.0f)*1.0f);
+
 	return S_OK;
 }
 
@@ -15,6 +17,7 @@ void mainmenuScene::update()
 		if (PtInRect(&selectMenu[i].info.rc, _ptMouse)) {
 			selectMenu[i].alpha = 255;
 			if (KEYMANAGER->isOnceKeyUp(VK_LBUTTON)) {
+				SOUNDMANAGER->play("클릭소리", (GAMEMANAGER->getSfxVolume() / 100.0f)*1.0f);
 				switch (i)
 				{
 				case 0:

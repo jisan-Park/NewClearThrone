@@ -9,6 +9,12 @@ HRESULT gameScene::init()
 	PLAYERMANAGER->setPlayerPosition(MAPMANAGER->getStartPoint());
 	//random enemy set
 	ENEMYMANAGER->createRandomEnemyVector();
+
+	//sound
+	_sound1 = 0;
+	_sound2 = 0;
+	_sound3 = 0;
+
 	return S_OK;
 }
 
@@ -48,7 +54,7 @@ void gameScene::update()
 		PLAYERMANAGER->update();
 
 		//map update
-		MAPMANAGER->autoTile();
+		//MAPMANAGER->autoTile();
 
 		//player 기준으로 camera set
 		CAMERAMANAGER->setCameraPoint(
@@ -56,6 +62,23 @@ void gameScene::update()
 			PLAYERMANAGER->getPlayer()->getPt().y);
 		//mouse update
 		CAMERAMANAGER->update();
+
+		if (MAPMANAGER->getStage_first() == 0 && _sound1 == 0)
+		{
+			SOUNDMANAGER->play("스테이지1", (GAMEMANAGER->getSfxVolume() / 100.0f)*1.0f);
+			_sound1++;
+		}
+		else if (MAPMANAGER->getStage_first() == 1 && _sound2 == 0 )
+		{
+			SOUNDMANAGER->play("스테이지2", (GAMEMANAGER->getSfxVolume() / 100.0f)*1.0f);
+			_sound2++;
+		}
+		else if (MAPMANAGER->getStage_first() == 2 && _sound3 == 0)
+		{
+			SOUNDMANAGER->play("스테이지2", (GAMEMANAGER->getSfxVolume() / 100.0f)*1.0f);
+			_sound3++;
+		}
+
 	}
 }
 
