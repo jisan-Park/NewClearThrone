@@ -15,7 +15,8 @@ HRESULT sword::init(POINT pt, weaponState state)
 	}
 	_type = SWORD;
 	_damage = 10;
-	_coolDown = 3;
+	_coolDown = 10;
+	_coolCnt = _coolDown + PLAYERMANAGER->getPlayer()->getInterval();
 	_angle = 0;
 
 	return S_OK;
@@ -24,6 +25,7 @@ HRESULT sword::init(POINT pt, weaponState state)
 void sword::update()
 {
 	setFrameIndex(_angle);
+	if (_coolCnt <= _coolDown + PLAYERMANAGER->getPlayer()->getInterval()) _coolCnt++;
 	if (_state != ONGROUND)
 	{
 		_pt = PLAYERMANAGER->getPlayer()->getPt();
@@ -38,5 +40,9 @@ void sword::update()
 
 void sword::fire()
 {
-	_meleeAngle *= (-1);
+	if (_coolCnt >= _coolDown + PLAYERMANAGER->getPlayer()->getInterval())
+	{
+		_coolCnt = 0;
+		_meleeAngle *= (-1);
+	}
 }

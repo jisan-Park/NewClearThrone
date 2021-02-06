@@ -17,6 +17,7 @@ HRESULT machineGun::init(POINT pt, weaponState state)
 	_damage = 5;
 	_bulletSpd = 15;
 	_coolDown = 3;
+	_coolCnt = _coolDown + PLAYERMANAGER->getPlayer()->getInterval();
 	_angle = 0;
 
 	return S_OK;
@@ -25,6 +26,7 @@ HRESULT machineGun::init(POINT pt, weaponState state)
 void machineGun::update()
 {
 	setFrameIndex(_angle);
+	if (_coolCnt <= _coolDown + PLAYERMANAGER->getPlayer()->getInterval()) _coolCnt++;
 	if (_state != ONGROUND)
 	{
 		_pt = PLAYERMANAGER->getPlayer()->getPt();
@@ -39,5 +41,10 @@ void machineGun::update()
 
 void machineGun::fire()
 {
-	BULLETMANAGER->PlayerFire(ANGLE16, _pt, _bulletSpd, _angle, _damage);
+	if (_coolCnt >= _coolDown + PLAYERMANAGER->getPlayer()->getInterval() && PLAYERMANAGER->getPlayer()->getPlayerbullet() > 0)
+	{
+		BULLETMANAGER->PlayerFire(ANGLE16, _pt, _bulletSpd, _angle + RND->getFromFloatTo(-(_rndSpreadAngle - 0.01 * PLAYERMANAGER->getPlayer()->getAngleCard()), (_rndSpreadAngle - 0.01 * PLAYERMANAGER->getPlayer()->getAngleCard())), _damage);
+		PLAYERMANAGER->getPlayer()->setPlayerbullet(PLAYERMANAGER->getPlayer()->getPlayerbullet() - 1);
+		_coolCnt = 0;
+	}
 }

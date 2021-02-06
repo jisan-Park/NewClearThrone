@@ -17,7 +17,8 @@ HRESULT shovel::init(POINT pt, weaponState state)
 	_type = SHOVEL;
 	_radius = 20;
 	_damage = 20;
-	_coolDown = 15;
+	_coolDown = 25;
+	_coolCnt = _coolDown + PLAYERMANAGER->getPlayer()->getInterval();
 	_bulletSpd = 1;
 	_angle = 0;
 	return S_OK;
@@ -32,6 +33,7 @@ void shovel::update()
 {
 
 	setFrameIndex(_angle);
+	if (_coolCnt <= _coolDown + PLAYERMANAGER->getPlayer()->getInterval()) _coolCnt++; // = TIMEMANAGER->getElapsedTime();
 	if (_state != ONGROUND)
 	{
 
@@ -47,5 +49,9 @@ void shovel::update()
 
 void shovel::fire()
 {
-	_meleeAngle *= (-1);
+	if (_coolCnt >= _coolDown + PLAYERMANAGER->getPlayer()->getInterval())
+	{
+		_meleeAngle *= (-1);
+		_coolCnt = 0;
+	}
 }

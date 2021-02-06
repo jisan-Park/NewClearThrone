@@ -413,3 +413,8 @@ void enemyManager::createRandomEnemyVector()
 		_showEnemy.push_back(temp);
 	}
 }
+
+void enemyManager::removeEnemy(int i)
+{
+	_showEnemy.erase(_showEnemy.begin() + i);
+}

@@ -230,101 +230,135 @@ void Meiting::contral()
 			_motion->start();
 		}
 	}
+	if (KEYMANAGER->isOnceKeyDown(VK_RBUTTON))
+	{
+		for (int i = 0; i < ENEMYMANAGER->getShowEnemyVector().size(); ++i)
+		{
+			if (ENEMYMANAGER->getShowEnemyVector()[i]->getInfo().state != DEAD) continue;
+			for (int j = 0; j < ENEMYMANAGER->getShowEnemyVector().size(); ++j)
+			{
+				ENEMYMANAGER->getShowEnemyVector()[j]->explosion(ENEMYMANAGER->getShowEnemyVector()[i]->getInfo().pt, 300, 20);
+			}
+			ENEMYMANAGER->removeEnemy(i);
+		}
+	}
 	if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
 	{
-		if (_currentWeapon->getType() == ASSULTRIFLE && !_assfire)
+		switch (_currentWeapon->getType())
 		{
-			_assfire = true;
-
-		}
-		if (_currentWeapon->getType() == PISTOL && _playerbullet > 0)
-		{
+		case ASSULTRIFLE:	case GRENADELAUNCHER:		case PISTOL:	case RAZERRIFLE:	case SHOTGUN:	case SHOVEL:	case SWORD:		case WRENCH:
 			_currentWeapon->fire();
-			_playerbullet -= 1;
-			if (_playerbullet < 0)
-			{
-				_playerbullet = 0;
-			}
-		}
-		if (_currentWeapon->getType() == SHOVEL || _currentWeapon->getType() == SWORD || _currentWeapon->getType() == WRENCH)
-		{
-			_currentWeapon->fire();
-		}
-		if (_currentWeapon->getType() == SHOTGUN && !_shotfire)
-		{
-			_shotfire = true;
+			break;
+		default:
+			break;
 		}
 	}
 	if (KEYMANAGER->isStayKeyDown(VK_LBUTTON))
 	{
-		_countt++;
-
-		if (_currentWeapon->getType() == TRIPLEMACHINEGUN)
+		switch (_currentWeapon->getType())
 		{
-
-			if (_countt % 3 == 0 && _playerbullet > 0)
-			{
-
-				_currentWeapon->fire();
-				_playerbullet -= 3;
-				if (_playerbullet < 0)
-				{
-					_playerbullet = 0;
-				}
-				_countt = 0;
-			}
-		}
-		if (_currentWeapon->getType() == MACHINEGUN)
-		{
-			if (_countt % 3 == 0 && _playerbullet > 0)
-			{
-				_currentWeapon->fire();
-				_playerbullet -= 1;
-				if (_playerbullet < 0)
-				{
-					_playerbullet = 0;
-				}
-				_countt = 0;
-			}
-		}
-	}
-	if (_shotfire)
-	{
-		_counttt++;
-		if (_playershellb > 0 && _counttt % 6 == 0)
-		{
+		case MACHINEGUN:	case TRIPLEMACHINEGUN:
 			_currentWeapon->fire();
-			_playershellb -= 5;
-			if (_playershellb < 0)
-			{
-				_playershellb = 0;
-			}
-		}
-		if (_counttt >= 7)
-		{
-			_shotfire = false;
-			_counttt = 0;
+			break;
+		default:
+			break;
 		}
 	}
-
-	if (_assfire)
-	{
-		_count++;
-		if (_playerbullet > 0 && _count % 2 == 0)
-		{
-			_currentWeapon->fire();
-			_playerbullet -= 1;
-			if (_playerbullet < 0)
-			{
-				_playerbullet = 0;
-			}
-		}
-		if (_count >= 7)
-		{
-			_assfire = false;
-			_count = 0;
-		}
-	}
+	//if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
+	//{
+	//	if (_currentWeapon->getType() == ASSULTRIFLE && !_assfire)
+	//	{
+	//		_assfire = true;
+	//
+	//	}
+	//	if (_currentWeapon->getType() == PISTOL && _playerbullet > 0)
+	//	{
+	//		_currentWeapon->fire();
+	//		_playerbullet -= 1;
+	//		if (_playerbullet < 0)
+	//		{
+	//			_playerbullet = 0;
+	//		}
+	//	}
+	//	if (_currentWeapon->getType() == SHOVEL || _currentWeapon->getType() == SWORD || _currentWeapon->getType() == WRENCH)
+	//	{
+	//		_currentWeapon->fire();
+	//	}
+	//	if (_currentWeapon->getType() == SHOTGUN && !_shotfire)
+	//	{
+	//		_shotfire = true;
+	//	}
+	//}
+	//if (KEYMANAGER->isStayKeyDown(VK_LBUTTON))
+	//{
+	//	_countt++;
+	//
+	//	if (_currentWeapon->getType() == TRIPLEMACHINEGUN)
+	//	{
+	//
+	//		if (_countt % 3 == 0 && _playerbullet > 0)
+	//		{
+	//
+	//			_currentWeapon->fire();
+	//			_playerbullet -= 3;
+	//			if (_playerbullet < 0)
+	//			{
+	//				_playerbullet = 0;
+	//			}
+	//			_countt = 0;
+	//		}
+	//	}
+	//	if (_currentWeapon->getType() == MACHINEGUN)
+	//	{
+	//		if (_countt % 3 == 0 && _playerbullet > 0)
+	//		{
+	//			_currentWeapon->fire();
+	//			_playerbullet -= 1;
+	//			if (_playerbullet < 0)
+	//			{
+	//				_playerbullet = 0;
+	//			}
+	//			_countt = 0;
+	//		}
+	//	}
+	//}
+	//if (_shotfire)
+	//{
+	//	_counttt++;
+	//	if (_playershellb > 0 && _counttt % 6 == 0)
+	//	{
+	//		_currentWeapon->fire();
+	//		_playershellb -= 5;
+	//		if (_playershellb < 0)
+	//		{
+	//			_playershellb = 0;
+	//		}
+	//	}
+	//	if (_counttt >= 7)
+	//	{
+	//		_shotfire = false;
+	//		_counttt = 0;
+	//	}
+	//}
+	//
+	//if (_assfire)
+	//{
+	//	_count++;
+	//	if (_playerbullet > 0 && _count % 2 == 0)
+	//	{
+	//		_currentWeapon->fire();
+	//		_playerbullet -= 1;
+	//		if (_playerbullet < 0)
+	//		{
+	//			_playerbullet = 0;
+	//		}
+	//	}
+	//	if (_count >= 7)
+	//	{
+	//		_assfire = false;
+	//		_count = 0;
+	//	}
+	//}
 }
 
 void Meiting::righthurt(void * obj)

@@ -15,7 +15,7 @@ HRESULT razerRifle::init(POINT pt, weaponState state)
 	}
 	_type = RAZERRIFLE;
 	_damage = 5;
-	_coolDown = 3;
+	_coolDown = 15;
 	_bulletSpd = 30;
 	_angle = 0;
 
@@ -25,6 +25,7 @@ HRESULT razerRifle::init(POINT pt, weaponState state)
 void razerRifle::update()
 {
 	setFrameIndex(_angle);
+	if (_coolCnt <= _coolDown + PLAYERMANAGER->getPlayer()->getInterval()) _coolCnt++; // = TIMEMANAGER->getElapsedTime();
 	if (_state != ONGROUND)
 	{
 		_pt = PLAYERMANAGER->getPlayer()->getPt();
@@ -39,5 +40,11 @@ void razerRifle::update()
 
 void razerRifle::fire()
 {
-	BULLETMANAGER->PlayerFire(ANGLE16, _pt, _bulletSpd, _angle, _damage);
+	if (_coolCnt >= _coolDown + PLAYERMANAGER->getPlayer()->getInterval() && PLAYERMANAGER->getPlayer()->getPlayerenergyb() > 0)
+	{
+		BULLETMANAGER->PlayerFire(ANGLE16, _pt, _bulletSpd, _angle, _damage);
+
+		PLAYERMANAGER->getPlayer()->setPlayerenergyb(PLAYERMANAGER->getPlayer()->getPlayerenergyb() - 1);
+		_coolCnt = 0;
+	}
 }

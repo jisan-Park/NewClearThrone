@@ -15,7 +15,8 @@ HRESULT pistol::init(POINT pt, weaponState state)
 	_type = PISTOL;
 	_radius = 15;
 	_damage = 5;
-	_coolDown = 5;
+	_coolDown = 10;
+	_coolCnt = _coolDown + PLAYERMANAGER->getPlayer()->getInterval();
 	_angle = 0;
 	_bulletSpd = 15;
 	return S_OK;
@@ -24,6 +25,7 @@ HRESULT pistol::init(POINT pt, weaponState state)
 void pistol::update()
 {
 	setFrameIndex(_angle);
+	if (_coolCnt <= _coolDown + PLAYERMANAGER->getPlayer()->getInterval()) _coolCnt++; // = TIMEMANAGER->getElapsedTime();
 	if (_state != ONGROUND)
 	{
 		_pt = PLAYERMANAGER->getPlayer()->getPt();
@@ -38,5 +40,10 @@ void pistol::update()
 
 void pistol::fire()
 {
-	BULLETMANAGER->PlayerFire(ANGLE1, _pt, _bulletSpd, _angle, _damage);
+	if (_coolCnt >= _coolDown + PLAYERMANAGER->getPlayer()->getInterval() && PLAYERMANAGER->getPlayer()->getPlayerbullet() > 0)
+	{
+		BULLETMANAGER->PlayerFire(ANGLE1, _pt, _bulletSpd, _angle, _damage);
+		PLAYERMANAGER->getPlayer()->setPlayerbullet(PLAYERMANAGER->getPlayer()->getPlayerbullet() - 1);
+		_coolCnt = 0;
+	}
 }

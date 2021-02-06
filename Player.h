@@ -59,12 +59,11 @@ protected:
 	int _playerenergubMax;
 	int _playerexplodeb;
 	int _playerecplodbeMax;
+	int _angleCard;
 	bool _weaponReady;
 	bool _assfire;
 	bool _shotfire;
-	int _count;
-	int _countt;
-	int _counttt;
+	int _interval = 10;
 
 
 	//=========================================
@@ -117,16 +116,32 @@ public:
 
 	RECT getRect() { return _rc; };
 
-	int getPlayerbullet() { return _playerbullet; }
-	void setPlayerbullet(int playerbullet) { _playerbullet = playerbullet; }
+	//int getPlayerbullet() { return _playerbullet; }
+	//void setPlayerbullet(int playerbullet) { _playerbullet = playerbullet; }
 
 	int getHp() { return _hp; }
 	void setHp(int hp) { _hp = hp; }
+
+	int getInterval() { return _interval; }
 
 	int getMaxhp() { return _maxhp; }
 	void setMaxhp(int maxhp) { _maxhp = maxhp; }
 
 	void setWeaponReady(bool ready) { _weaponReady = ready; }
+
+	int getAngleCard() { return _angleCard; }
+
+	int getPlayerbullet() { return _playerbullet; }
+	void setPlayerbullet(int playerbullet) { _playerbullet = playerbullet; }
+
+	int getPlayershellb() { return _playershellb; }
+	void setPlayershellb(int playershellb) { _playershellb = playershellb; }
+
+	int getPlayerenergyb() { return _playerenergyb; }
+	void setPlayerenergyb(int playerenergyb) { _playerenergyb = playerenergyb; }
+
+	int getPlayerexplodeb() { return _playerexplodeb; }
+	void setPlayerexplodeb(int playerexplodeb) { _playerexplodeb = playerexplodeb; }
 
 	weapon* getWeapon() { return _currentWeapon; }
 

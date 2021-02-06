@@ -85,6 +85,7 @@ public:
 	void setShowEnemyVector(string strKey);
 	void clearShowEnemyVector() { _showEnemy.clear(); };
 	void createRandomEnemyVector();
+	void removeEnemy(int i);
 	//getter
 	vEnemy getShowEnemyVector() { return _showEnemy; };
 };

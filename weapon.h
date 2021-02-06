@@ -34,10 +34,12 @@ protected:
 	float _bulletSpd;
 	float _radius;	// 이미지 
 	float _angle;		// 조준각도입니다
+	float _rndSpreadAngle = 0.1f;
 	float _meleeAngle = PI / 2;	// 근접무기 보정 해 줄 각도입니다
 	int _index;			// 각도 따라서 지정되는 프레임인덱스입니다
 	int _damage;		// 데미지입니다
 	int _coolDown;		// 연사속도(낮을수록 빠름)
+	int _coolCnt;		// 연사타이머
 	float _range;		// 근접무기일 때 후리는 범위입니다
 
 public:

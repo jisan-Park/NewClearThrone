@@ -6,7 +6,7 @@ HRESULT Fish::init(float x, float y)
 	setAnimation();
 	_pt.x = x;
 	_pt.y = y;
-	_currentWeapon = new pistol;
+	_currentWeapon = new triplemachinegun;
 	_currentWeapon->init(_pt, NOWUSING);
 	_width = 30;
 	_height = 30;
@@ -249,97 +249,41 @@ void Fish::contral()
 	}
 	if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
 	{
-		if (_currentWeapon->getType() == ASSULTRIFLE && !_assfire)
+		switch (_currentWeapon->getType())
 		{
-			_assfire = true;
-
-		}
-		if (_currentWeapon->getType() == PISTOL && _playerbullet > 0)
-		{
+		case ASSULTRIFLE:	case GRENADELAUNCHER:		case PISTOL:	case RAZERRIFLE:	case SHOTGUN:	case SHOVEL:	case SWORD:		case WRENCH:
 			_currentWeapon->fire();
-			_playerbullet -= 1;
-			if (_playerbullet < 0)
-			{
-				_playerbullet = 0;
-			}
+			break;
+		default:
+			break;
 		}
-		if (_currentWeapon->getType() == SHOVEL || _currentWeapon->getType() == SWORD || _currentWeapon->getType() == WRENCH)
-		{
-			_currentWeapon->fire();
-		}
-		if (_currentWeapon->getType() == SHOTGUN && !_shotfire)
-		{
-			_shotfire = true;
-		}
+		//if (_currentWeapon->getType() == PISTOL && _playerbullet > 0)
+		//{
+		//	_currentWeapon->fire();
+		//	_playerbullet -= 1;
+		//	if (_playerbullet < 0)
+		//	{
+		//		_playerbullet = 0;
+		//	}
+		//}
+		//if (_currentWeapon->getType() == SHOVEL || _currentWeapon->getType() == SWORD || _currentWeapon->getType() == WRENCH)
+		//{
+		//	_currentWeapon->fire();
+		//}
+		//if (_currentWeapon->getType() == SHOTGUN && !_shotfire)
+		//{
+		//	_shotfire = true;
+		//}
 	}
 	if (KEYMANAGER->isStayKeyDown(VK_LBUTTON))
 	{
-		_countt++;
-
-		if (_currentWeapon->getType() == TRIPLEMACHINEGUN)
+		switch (_currentWeapon->getType())
 		{
-
-			if (_countt % 3 == 0 && _playerbullet > 0)
-			{
-
-				_currentWeapon->fire();
-				_playerbullet -= 3;
-				if (_playerbullet < 0)
-				{
-					_playerbullet = 0;
-				}
-				_countt = 0;
-			}
-		}
-		if (_currentWeapon->getType() == MACHINEGUN)
-		{
-			if (_countt % 3 == 0 && _playerbullet > 0)
-			{
-				_currentWeapon->fire();
-				_playerbullet -= 1;
-				if (_playerbullet < 0)
-				{
-					_playerbullet = 0;
-				}
-				_countt = 0;
-			}
-		}
-	}
-	if (_shotfire)
-	{
-		_counttt++;
-		if (_playershellb > 0 && _counttt % 6 == 0)
-		{
+		case MACHINEGUN:	case TRIPLEMACHINEGUN:
 			_currentWeapon->fire();
-			_playershellb -= 5;
-			if (_playershellb < 0)
-			{
-				_playershellb = 0;
-			}
-		}
-		if (_counttt >= 7)
-		{
-			_shotfire = false;
-			_counttt = 0;
-		}
-	}
-
-	if (_assfire)
-	{
-		_count++;
-		if (_playerbullet > 0 && _count % 2 == 0)
-		{
-			_currentWeapon->fire();
-			_playerbullet -= 1;
-			if (_playerbullet < 0)
-			{
-				_playerbullet = 0;
-			}
-		}
-		if (_count >= 7)
-		{
-			_assfire = false;
-			_count = 0;
+			break;
+		default:
+			break;
 		}
 	}
 	if (_isdash)

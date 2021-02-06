@@ -15,7 +15,8 @@ HRESULT triplemachinegun::init(POINT pt, weaponState state)
 	}
 	_type = TRIPLEMACHINEGUN;
 	_damage = 5;
-	_coolDown = 3;
+	_coolDown = 5;
+	_coolCnt = _coolDown + PLAYERMANAGER->getPlayer()->getInterval();
 	_bulletSpd = 15;
 	_angle = 0;
 
@@ -25,6 +26,8 @@ HRESULT triplemachinegun::init(POINT pt, weaponState state)
 void triplemachinegun::update()
 {
 	setFrameIndex(_angle);
+
+	if (_coolCnt <= _coolDown + PLAYERMANAGER->getPlayer()->getInterval()) _coolCnt++;
 	if (_state != ONGROUND)
 	{
 		_pt = PLAYERMANAGER->getPlayer()->getPt();
@@ -39,5 +42,14 @@ void triplemachinegun::update()
 
 void triplemachinegun::fire()
 {
-	BULLETMANAGER->PlayerFire(ANGLE16, _pt, _bulletSpd, _angle, _damage);
+	if (_coolCnt >= _coolDown + PLAYERMANAGER->getPlayer()->getInterval() && PLAYERMANAGER->getPlayer()->getPlayerbullet() > 0)
+	{
+		for (int i = 0; i < 3; i++)
+		{
+			if (PLAYERMANAGER->getPlayer()->getPlayerbullet() <= 0) break;
+			BULLETMANAGER->PlayerFire(ANGLE16, _pt, _bulletSpd, _angle + RND->getFromFloatTo(-(_rndSpreadAngle - 0.01 * PLAYERMANAGER->getPlayer()->getAngleCard()), (_rndSpreadAngle - 0.01 * PLAYERMANAGER->getPlayer()->getAngleCard())) - 0.05f + 0.05f * i, _damage);
+			PLAYERMANAGER->getPlayer()->setPlayerbullet(PLAYERMANAGER->getPlayer()->getPlayerbullet() - 1);
+		}
+		_coolCnt = 0;
+	}
 }

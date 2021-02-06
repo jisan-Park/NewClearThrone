@@ -15,8 +15,9 @@ HRESULT shotGun::init(POINT pt, weaponState state)
 		_imgy = _pt.y;
 	}
 	_damage = 5;
-	_coolDown = 3;
-	_bulletSpd = 17;
+	_coolDown = 20;
+	_coolCnt = _coolDown + PLAYERMANAGER->getPlayer()->getInterval();
+	_bulletSpd = 20;
 	_angle = 0;
 
 	return S_OK;
@@ -25,6 +26,7 @@ HRESULT shotGun::init(POINT pt, weaponState state)
 void shotGun::update()
 {
 	setFrameIndex(_angle);
+	if (_coolCnt <= _coolDown + PLAYERMANAGER->getPlayer()->getInterval()) _coolCnt++; // = TIMEMANAGER->getElapsedTime();
 	if (_state != ONGROUND)
 	{
 		_pt = PLAYERMANAGER->getPlayer()->getPt();
@@ -39,5 +41,14 @@ void shotGun::update()
 
 void shotGun::fire()
 {
-	BULLETMANAGER->PlayerFire(ANGLE16, _pt, _bulletSpd, _angle, _damage);
+	if (_coolCnt >= _coolDown + PLAYERMANAGER->getPlayer()->getInterval() && PLAYERMANAGER->getPlayer()->getPlayershellb() > 0)
+	{
+		for (int i = 0; i < 5; i++)
+		{
+			if (PLAYERMANAGER->getPlayer()->getPlayershellb() <= 0) break;
+			BULLETMANAGER->PlayerFire(ANGLE16, _pt, _bulletSpd - 0.2f + 0.1f * i, _angle, _damage);
+			PLAYERMANAGER->getPlayer()->setPlayershellb(PLAYERMANAGER->getPlayer()->getPlayershellb() - 1);
+		}
+		_coolCnt = 0;
+	}
 }

@@ -15,7 +15,8 @@ HRESULT wrench::init(POINT pt, weaponState state)
 	}
 	_type = WRENCH;
 	_damage = 5;
-	_coolDown = 3;
+	_coolDown = 5;
+	_coolCnt = _coolDown + PLAYERMANAGER->getPlayer()->getInterval();
 	_angle = 0;
 	_bulletSpd = 1;
 
@@ -25,6 +26,7 @@ HRESULT wrench::init(POINT pt, weaponState state)
 void wrench::update()
 {
 	setFrameIndex(_angle);
+	if (_coolCnt <= _coolDown + PLAYERMANAGER->getPlayer()->getInterval()) _coolCnt++;
 	if (_state != ONGROUND)
 	{
 		_pt = PLAYERMANAGER->getPlayer()->getPt();
@@ -39,5 +41,9 @@ void wrench::update()
 
 void wrench::fire()
 {
-	_meleeAngle *= (-1);
+	if (_coolCnt >= _coolDown + PLAYERMANAGER->getPlayer()->getInterval())
+	{
+		_meleeAngle *= (-1);
+		_coolCnt = 0;
+	}
 }
