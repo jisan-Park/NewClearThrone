@@ -3192,12 +3192,21 @@ POINT mapManager::enemyMove(POINT pt)
 	//최솟값 탐색
 	for (int i = index_x - 1; i <= index_x + 1; ++i) {
 		for (int j = index_y - 1; j <= index_y + 1; ++j) {
+			//첫번째, 세번째는 가운데만 = 가로세로만 검색
+			if (i == index_x - 1 || i == index_x + 1) {
+				if (j != index_y) {
+					continue;
+				}
+			}
+			//타일에 벽이 존재하면 continue;
 			if (_tiles[i][j].wall != WALL_NONE) {
 				continue;
 			}
+			//현재 자기위치는 continue;
 			if (i == index_x && j == index_y) {
 				continue;
 			}
+
 			//h(x)
 			int distance = (int)getDistance(
 				PLAYERMANAGER->getPlayer()->getPt().x,
@@ -3218,8 +3227,6 @@ POINT mapManager::enemyMove(POINT pt)
 	/*cout << "player index x : " << PLAYERMANAGER->getPlayer()->getPt().x/64 << ", index y : " << PLAYERMANAGER->getPlayer()->getPt().y/64 << endl;
 	cout << "enemy index x : " << index_x << ", index y : " << index_y << endl;
 	cout << "이동할 index x : " << next_x << ", index y : " << next_y << endl<<endl;*/
-
-	
 
 	/*cout << "현재위치 index x : " << pt.x << ", index y :" << pt.y << endl;
 	cout << "이동할위치 next x : " << nextArea.x << ", next y :" << nextArea.y << endl;*/
