@@ -22,5 +22,5 @@ void banditGun::update()
 
 void banditGun::fire()
 {
-	BULLETMANAGER->fire(ANGLE1, _pt, _bulletSpd, _angle, _damage, ENEMY);
+	BULLETMANAGER->EnemyFire(ANGLE1, _pt, _bulletSpd, _angle, _damage);
 }

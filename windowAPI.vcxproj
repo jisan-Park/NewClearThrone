@@ -229,6 +229,7 @@
     <ClInclude Include="greenRatIdle.h" />
     <ClInclude Include="greenRatState.h" />
     <ClInclude Include="greenRatWalk.h" />
+    <ClInclude Include="grenade.h" />
     <ClInclude Include="grenadeLauncher.h" />
     <ClInclude Include="image.h" />
     <ClInclude Include="imageManager.h" />
@@ -397,6 +398,7 @@
     <ClCompile Include="greenRatIdle.cpp" />
     <ClCompile Include="greenRatState.cpp" />
     <ClCompile Include="greenRatWalk.cpp" />
+    <ClCompile Include="grenade.cpp" />
     <ClCompile Include="grenadeLauncher.cpp" />
     <ClCompile Include="image.cpp" />
     <ClCompile Include="imageManager.cpp" />

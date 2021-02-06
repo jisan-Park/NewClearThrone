@@ -699,6 +699,9 @@
     <ClInclude Include="plantbullet.h">
       <Filter>2DGameFramework\bullet</Filter>
     </ClInclude>
+    <ClInclude Include="grenade.h">
+      <Filter>2DGameFramework\bullet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -1185,6 +1188,9 @@
       <Filter>2DGameFramework\enemy\stage3\raven\ravenState</Filter>
     </ClCompile>
     <ClCompile Include="plantbullet.cpp">
+      <Filter>2DGameFramework\bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="grenade.cpp">
       <Filter>2DGameFramework\bullet</Filter>
     </ClCompile>
   </ItemGroup>

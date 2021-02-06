@@ -17,7 +17,7 @@ HRESULT grenadeLauncher::init(POINT pt, weaponState state)
 	_damage = 5;
 	_coolDown = 3;
 	_angle = 0;
-	_bulletSpd = 5;
+	_bulletSpd = 20;
 	return S_OK;
 }
 
@@ -38,5 +38,5 @@ void grenadeLauncher::update()
 
 void grenadeLauncher::fire()
 {
-	BULLETMANAGER->fire(ANGLE1, _pt, _bulletSpd, _angle, _damage, PLAYER);
+	BULLETMANAGER->PlayerFire(GRENADE, _pt, _bulletSpd, _angle, _damage);
 }

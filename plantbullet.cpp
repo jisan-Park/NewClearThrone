@@ -53,6 +53,7 @@ void plantbullet::fire(POINT pt, float speed, float angle)
 
 }
 
+
 void plantbullet::move()
 {
 	_pt.x += cosf(_angle) * _speed;

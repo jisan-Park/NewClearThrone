@@ -3,7 +3,7 @@
 
 HRESULT bullet16::init()
 {
-	_range = 2000;
+
 	return S_OK;
 }
 
@@ -14,6 +14,8 @@ void bullet16::release()
 void bullet16::update()
 {
 	move();
+
+	if (getDistance(_firept.x, _firept.y, _pt.x, _pt.y) > _range) _gone = true;
 }
 
 void bullet16::render(HDC hdc)
@@ -21,12 +23,12 @@ void bullet16::render(HDC hdc)
 	_img->frameRender(hdc, _rc.left, _rc.top, _count, 0);
 }
 
-void bullet16::fire(POINT pt, float speed, float angle, int damage, whoshot who)
+void bullet16::fire(POINT pt, float speed, float angle, int damage)
 {
-	_who = who;
 	_img = IMAGEMANAGER->findImage("bullet16");
 	_speed = speed;
 	_damage = damage;
+	_range = 2000;
 	_radius = _img->getFrameWidth() / 2;
 	_pt.x = _firept.x = pt.x;
 	_pt.y = _firept.y = pt.y;

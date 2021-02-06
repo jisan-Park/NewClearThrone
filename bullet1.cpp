@@ -14,6 +14,7 @@ void bullet1::release()
 void bullet1::update()
 {
 	move();
+	if (getDistance(_firept.x, _firept.y, _pt.x, _pt.y) > _range) _gone = true;
 }
 
 void bullet1::render(HDC hdc)
@@ -21,9 +22,9 @@ void bullet1::render(HDC hdc)
 	_img->render(hdc, _rc.left, _rc.top);
 }
 
-void bullet1::fire(POINT pt, float speed, float angle, int damage, whoshot who)
+void bullet1::fire(POINT pt, float speed, float angle, int damage)
 {
-	_who = who;
+	_range = 2000;
 	_img = IMAGEMANAGER->findImage("bullet1");
 	_speed = speed;
 	_radius = _img->getWidth() / 2;

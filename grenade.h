@@ -1,8 +1,10 @@
 #pragma once
 #include "bullet.h"
-class bullet1 :
+class grenade :
 	public bullet
 {
+private:
+	int _cnt;
 public:
 	HRESULT init();
 	virtual void release();

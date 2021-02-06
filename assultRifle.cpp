@@ -38,5 +38,5 @@ void assultRifle::update()
 
 void assultRifle::fire()
 {
-	BULLETMANAGER->fire(ANGLE16, _pt, _bulletSpd, _angle, _damage, PLAYER);
+	BULLETMANAGER->PlayerFire(ANGLE16, _pt, _bulletSpd, _angle, _damage);
 }

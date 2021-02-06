@@ -24,6 +24,9 @@ public:
 	virtual void move();
 	virtual void setAnimation();
 	void collision();
+	void explosion(POINT pt, float range, int damage);
+	void meleecollision(POINT pt, float range, int damage);
+	void eyeSkill(int x, int y);
 
 	virtual void setState(ENEMYSTATE state);
 	virtual ENEMYTYPE getEnemyType() { return _enemyType; };
@@ -31,7 +34,6 @@ public:
 	void decreaseHP(int i) { _info.hp -= i; };
 	bool inRange();
 	float EtoPAngle();
-	void eyeSkill(int x, int y);
 
 };
 

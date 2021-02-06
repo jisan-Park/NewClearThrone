@@ -55,32 +55,68 @@ float enemy::EtoPAngle()
 	return getAngle(_info.pt, PLAYERMANAGER->getPlayer()->getPt());
 }
 
-
-
-void enemy::collision()
-{
-	if (_info.state != E_DEAD)
-	{
-		for (int i = 0; i < BULLETMANAGER->getvBullet().size(); ++i)
-		{
-			RECT temp;
-			if (IntersectRect(&temp, &BULLETMANAGER->getvBullet()[i]->getRect(), &_info.rc) && BULLETMANAGER->getvBullet()[i]->getWho() == PLAYER)
-			{
-				_info.isHurt = true;
-				_info.hp -= BULLETMANAGER->getvBullet()[i]->getDamage();
-				_info.pt.x += cosf(BULLETMANAGER->getvBullet()[i]->getAngle()) * 10;
-				_info.pt.y += -sinf(BULLETMANAGER->getvBullet()[i]->getAngle()) * 10;
-				BULLETMANAGER->removeBullet(i);
-				break;
-			}
-		}
-	}
-}
-
 void enemy::eyeSkill(int x, int y)
 {
 	if (_info.pt.x < x) _info.pt.x += 1;
 	if (_info.pt.x > x) _info.pt.x -= 1;
 	if (_info.pt.y < y) _info.pt.y += 1;
 	if (_info.pt.y > y) _info.pt.y -= 1;
+}
+
+void enemy::collision()
+{
+	if (_info.state != E_DEAD)
+	{
+		for (int i = 0; i < BULLETMANAGER->getvPlayerBullet().size(); ++i)
+		{
+			RECT temp;
+			if (IntersectRect(&temp, &BULLETMANAGER->getvPlayerBullet()[i]->getRect(), &_info.rc))
+			{
+				_info.isHurt = true;
+				_info.hp -= BULLETMANAGER->getvPlayerBullet()[i]->getDamage();
+				_info.pt.x += cosf(BULLETMANAGER->getvPlayerBullet()[i]->getAngle()) * 10;
+				_info.pt.y += -sinf(BULLETMANAGER->getvPlayerBullet()[i]->getAngle()) * 10;
+				BULLETMANAGER->removePlayerBullet(i);
+				break;
+			}
+		}
+	}
+	//for (PLAYERMANAGER->getPlayer()->getWeapon()->getBullet()->getViBullet() = PLAYERMANAGER->getPlayer()->getWeapon()->getBullet()->getVbullet().begin();
+	//	PLAYERMANAGER->getPlayer()->getWeapon()->getBullet()->getViBullet() != PLAYERMANAGER->getPlayer()->getWeapon()->getBullet()->getVbullet().end();)
+	//{
+	//	RECT temp;
+	//	if (IntersectRect(&temp, &PLAYERMANAGER->getPlayer()->getWeapon()->getBullet()->getViBullet()->rc, &_info.rc))
+	//	{
+	//		PLAYERMANAGER->getPlayer()->getWeapon()->getBullet()->getVbullet().erase;
+	//		_info.nextState = E_HURT;
+	//	}
+	//}
+}
+
+void enemy::explosion(POINT pt, float range, int damage)
+{
+	if (_info.state != E_DEAD)
+	{
+		if (getDistance(_info.pt, pt) < range)
+		{
+			_info.isHurt = true;
+			_info.hp -= damage;
+			_info.pt.x += cosf(getAngle(_info.pt, pt)) * 20;
+			_info.pt.y += -sinf(getAngle(_info.pt, pt)) * 20;
+		}
+	}
+}
+
+void enemy::meleecollision(POINT pt, float range, int damage)
+{
+	if (_info.state != E_DEAD)
+	{
+		if (getDistance(_info.pt, pt) < range)
+		{
+			_info.isHurt = true;
+			_info.hp -= damage;
+			_info.pt.x += cosf(getAngle(_info.pt, pt)) * 10;
+			_info.pt.y += -sinf(getAngle(_info.pt, pt)) * 10;
+		}
+	}
 }

@@ -20,14 +20,14 @@ void bullet::render(HDC hdc)
 }
 
 
-void bullet::fire(POINT pt, float speed, float angle, int damage, whoshot who)
+void bullet::fire(POINT pt, float speed, float angle, int damage)
 {
 }
 
 
 void bullet::move()
 {
-	
+
 }
 
 
