@@ -18,7 +18,7 @@ HRESULT shovel::init(POINT pt, weaponState state)
 	_radius = 20;
 	_damage = 20;
 	_coolDown = 15;
-	_bulletSpd = 15;
+	_bulletSpd = 1;
 	_angle = 0;
 	return S_OK;
 }

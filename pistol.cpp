@@ -24,10 +24,15 @@ HRESULT pistol::init(POINT pt, weaponState state)
 void pistol::update()
 {
 	setFrameIndex(_angle);
-	if (_state == NOWUSING)
+	if (_state != ONGROUND)
 	{
 		_pt = PLAYERMANAGER->getPlayer()->getPt();
-		Position();
+		if (_state == NOWUSING) Position();
+		if (_state == READYTOUSE)
+		{
+			_imgx = _pt.x;
+			_imgy = _pt.y;
+		}
 	}
 }
 
