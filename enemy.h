@@ -31,6 +31,7 @@ public:
 	void decreaseHP(int i) { _info.hp -= i; };
 	bool inRange();
 	float EtoPAngle();
+	void eyeSkill(int x, int y);
 
 };
 

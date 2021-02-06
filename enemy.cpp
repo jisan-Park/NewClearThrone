@@ -55,6 +55,8 @@ float enemy::EtoPAngle()
 	return getAngle(_info.pt, PLAYERMANAGER->getPlayer()->getPt());
 }
 
+
+
 void enemy::collision()
 {
 	if (_info.state != E_DEAD)
@@ -73,14 +75,12 @@ void enemy::collision()
 			}
 		}
 	}
-	//for (PLAYERMANAGER->getPlayer()->getWeapon()->getBullet()->getViBullet() = PLAYERMANAGER->getPlayer()->getWeapon()->getBullet()->getVbullet().begin();
-	//	PLAYERMANAGER->getPlayer()->getWeapon()->getBullet()->getViBullet() != PLAYERMANAGER->getPlayer()->getWeapon()->getBullet()->getVbullet().end();)
-	//{
-	//	RECT temp;
-	//	if (IntersectRect(&temp, &PLAYERMANAGER->getPlayer()->getWeapon()->getBullet()->getViBullet()->rc, &_info.rc))
-	//	{
-	//		PLAYERMANAGER->getPlayer()->getWeapon()->getBullet()->getVbullet().erase;
-	//		_info.nextState = E_HURT;
-	//	}
-	//}
+}
+
+void enemy::eyeSkill(int x, int y)
+{
+	if (_info.pt.x < x) _info.pt.x += 1;
+	if (_info.pt.x > x) _info.pt.x -= 1;
+	if (_info.pt.y < y) _info.pt.y += 1;
+	if (_info.pt.y > y) _info.pt.y -= 1;
 }
