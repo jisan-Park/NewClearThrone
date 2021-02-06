@@ -51,6 +51,7 @@ public:
 	bool isPauseSound(string keyName);
 
 	void setVolume(string keyName, float volume);
+	void setSound();
 
 	//GETTER
 	unsigned int getPosition(string keyName);
