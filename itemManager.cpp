@@ -4,7 +4,7 @@
 HRESULT itemManager::init()
 {
 	setimage();
-	setItembox();
+	
 	return S_OK;
 }
 
@@ -161,28 +161,38 @@ void itemManager::setimage()
 	IMAGEMANAGER->addFrameImage("maggot_canister_dead", "image/item/maggot_canister_dead.bmp", 144, 38, 4, 1, true, RGB(255, 0, 255));
 }
 
-void itemManager::setItembox()
+void itemManager::setItembox(ITEMBOXTYPE itemboxtype, POINT PT)
 {
-	for (int i = 0; i < 3; i++)
+	_itemboxtype = itemboxtype;
+
+	switch (_itemboxtype)
+	{
+	case BULLETITEMBOX:
 	{
 		itemBox* temp;
-		temp = new weaponBox;
-		temp->init(500 * (i + 1), 500);
+		temp = new bulletBox;
+		temp->init(PT.x, PT.y);
 		_vItembox.push_back(temp);
 	}
-	for (int i = 0; i < 3; i++)
+	break;
+	case WEAPOMITEMBOX:
 	{
 		itemBox* temp1;
 		temp1 = new weaponBox;
-		temp1->init(500 * (i + 1), 700);
+		temp1->init(PT.x, PT.y);
 		_vItembox.push_back(temp1);
 	}
-	for (int i = 0; i < 3; i++)
+	break;
+	case MEDKITITEMBOX:
 	{
 		itemBox* temp2;
-		temp2 = new weaponBox;
-		temp2->init(500 * (i + 1), 800);
+		temp2 = new medkitBox;
+		temp2->init(PT.x, PT.y);
 		_vItembox.push_back(temp2);
+	}
+	break;
+	default:
+		break;
 	}
 }
 

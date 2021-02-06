@@ -8,7 +8,12 @@
 #include "item.h"
 #include "bulletitem.h"
 #include "medkititem.h"
-
+enum ITEMBOXTYPE
+{
+	BULLETITEMBOX,
+	WEAPOMITEMBOX,
+	MEDKITITEMBOX
+};
 
 class itemManager : public singletonBase<itemManager>
 {
@@ -33,6 +38,8 @@ private:
 
 	weaponType _weaponType;
 
+	ITEMBOXTYPE _itemboxtype;
+
 public:
 	virtual HRESULT init();
 	virtual void release();
@@ -40,7 +47,7 @@ public:
 	virtual void render(HDC hdc);
 	virtual void weaponSwap();
 	virtual void setimage();
-	virtual void setItembox();
+	virtual void setItembox(ITEMBOXTYPE itemboxtype, POINT PT);
 	virtual void collsion();
 	void createWeapon(POINT pt);
 
