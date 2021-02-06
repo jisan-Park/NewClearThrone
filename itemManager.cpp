@@ -161,7 +161,7 @@ void itemManager::setimage()
 	IMAGEMANAGER->addFrameImage("maggot_canister_dead", "image/item/maggot_canister_dead.bmp", 144, 38, 4, 1, true, RGB(255, 0, 255));
 }
 
-void itemManager::setItembox(ITEMBOXTYPE itemboxtype, POINT PT)
+void itemManager::setItembox(ITEMBOXTYPE itemboxtype, float x, float y)
 {
 	_itemboxtype = itemboxtype;
 
@@ -171,7 +171,7 @@ void itemManager::setItembox(ITEMBOXTYPE itemboxtype, POINT PT)
 	{
 		itemBox* temp;
 		temp = new bulletBox;
-		temp->init(PT.x, PT.y);
+		temp->init(x, y);
 		_vItembox.push_back(temp);
 	}
 	break;
@@ -179,7 +179,7 @@ void itemManager::setItembox(ITEMBOXTYPE itemboxtype, POINT PT)
 	{
 		itemBox* temp1;
 		temp1 = new weaponBox;
-		temp1->init(PT.x, PT.y);
+		temp1->init(x, y);
 		_vItembox.push_back(temp1);
 	}
 	break;
@@ -187,7 +187,7 @@ void itemManager::setItembox(ITEMBOXTYPE itemboxtype, POINT PT)
 	{
 		itemBox* temp2;
 		temp2 = new medkitBox;
-		temp2->init(PT.x, PT.y);
+		temp2->init(x, y);
 		_vItembox.push_back(temp2);
 	}
 	break;

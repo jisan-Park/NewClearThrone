@@ -47,7 +47,7 @@ public:
 	virtual void render(HDC hdc);
 	virtual void weaponSwap();
 	virtual void setimage();
-	virtual void setItembox(ITEMBOXTYPE itemboxtype, POINT PT);
+	virtual void setItembox(ITEMBOXTYPE itemboxtype, float x, float y);
 	virtual void collsion();
 	void createWeapon(POINT pt);
 

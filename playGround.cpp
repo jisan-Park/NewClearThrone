@@ -75,6 +75,14 @@ HRESULT playGround::init()
 	SOUNDMANAGER->addSound("재장전", "sound/효과음/무기/재장전.mp3", false, false);
 	SOUNDMANAGER->addSound("칼", "sound/효과음/무기/칼.mp3", false, false);
 
+	//이펙트 추가
+	EFFECTMANAGER->addEffect("explosion", "image/effect/explosion_effect.bmp", 252, 34, 36, 34, 1.0f, 0.1f, 1000);
+	EFFECTMANAGER->addEffect("posin", "image/effect/red_explision_effect.bmp", 252, 34, 36, 34, 1.0f, 0.1f, 1000);
+	EFFECTMANAGER->addEffect("longhit", "image/effect/긴근접 8방향.bmp", 530, 848, 106, 106, 1.0f, 0.1f, 1000);
+	EFFECTMANAGER->addEffect("먼지구름", "image/effect/먼지구름.bmp", 133, 19, 19, 19, 1.0f, 0.1f, 1000);
+	EFFECTMANAGER->addEffect("shorthit", "image/effect/짧은접 8방향.bmp", 255, 408, 51, 51, 1.0f, 0.1f, 1000);
+	EFFECTMANAGER->addEffect("총 피격시", "image/effect/총알 터질때 이펙트.bmp", 180, 36, 36, 36, 1.0f, 0.1f, 1000);
+	EFFECTMANAGER->addEffect("폭발 이미지", "image/effect/폭발 이펙트.bmp", 800, 200, 100, 100, 1.0f, 0.1f, 1000);
 
 
 

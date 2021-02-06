@@ -1684,6 +1684,43 @@ void mapManager::random()
 
 	}
 
+	//아이템 박스 추가
+	_x2temp = RND->getInt(15) + 5;
+	_y2temp = RND->getInt(15) + 5;
+
+	while (_tiles[_x2temp][_y2temp].wall != WALL_NONE || _tiles[_x2temp][_y2temp].obj != OBJ_NONE)
+	{
+		_x2temp++;
+		_y2temp++;
+	}
+
+	ITEMMANAGER->setItembox(BULLETITEMBOX, _tiles[_x2temp][_y2temp].rc.right - 32, _tiles[_x2temp][_y2temp].rc.top);
+
+
+	_x2temp = RND->getInt(15) + 5;
+	_y2temp = RND->getInt(15) + 5;
+
+	while (_tiles[_x2temp][_y2temp].wall != WALL_NONE || _tiles[_x2temp][_y2temp].obj != OBJ_NONE)
+	{
+		_x2temp++;
+		_y2temp++;
+	}
+
+	ITEMMANAGER->setItembox(WEAPOMITEMBOX, _tiles[_x2temp][_y2temp].rc.right - 32, _tiles[_x2temp][_y2temp].rc.top);
+
+
+
+	_x2temp = RND->getInt(15) + 5;
+	_y2temp = RND->getInt(15) + 5;
+
+	while (_tiles[_x2temp][_y2temp].wall != WALL_NONE || _tiles[_x2temp][_y2temp].obj != OBJ_NONE)
+	{
+		_x2temp++;
+		_y2temp++;
+	}
+
+	ITEMMANAGER->setItembox(MEDKITITEMBOX, _tiles[_x2temp][_y2temp].rc.right - 32, _tiles[_x2temp][_y2temp].rc.top);
+
 	_rnd = 3;
 }
 

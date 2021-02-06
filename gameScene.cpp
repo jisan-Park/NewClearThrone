@@ -80,6 +80,8 @@ void gameScene::update()
 		}
 
 	}
+
+	EFFECTMANAGER->update();
 }
 
 void gameScene::release()
