@@ -17,6 +17,7 @@ private:
 	int _bulletmax;
 	animation* _motion;
 	animation* _plantbullet;
+	bool _ison;
 
 public:
 	plantbullet() {};
@@ -31,6 +32,8 @@ public:
 	virtual void setAni();
 
 	bool getIsfire() { return _isFire; }
+	void setISfire(bool isfire) { _isFire = isfire; };
+	RECT getRC() { return _rc; }
 };
 
 

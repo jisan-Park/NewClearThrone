@@ -257,23 +257,7 @@ void Fish::contral()
 		default:
 			break;
 		}
-		//if (_currentWeapon->getType() == PISTOL && _playerbullet > 0)
-		//{
-		//	_currentWeapon->fire();
-		//	_playerbullet -= 1;
-		//	if (_playerbullet < 0)
-		//	{
-		//		_playerbullet = 0;
-		//	}
-		//}
-		//if (_currentWeapon->getType() == SHOVEL || _currentWeapon->getType() == SWORD || _currentWeapon->getType() == WRENCH)
-		//{
-		//	_currentWeapon->fire();
-		//}
-		//if (_currentWeapon->getType() == SHOTGUN && !_shotfire)
-		//{
-		//	_shotfire = true;
-		//}
+		
 	}
 	if (KEYMANAGER->isStayKeyDown(VK_LBUTTON))
 	{

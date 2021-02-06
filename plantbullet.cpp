@@ -6,6 +6,7 @@ HRESULT plantbullet::init()
 	_range = 300;
 	setAni();
 
+
 	return S_OK;
 }
 
@@ -17,8 +18,8 @@ void plantbullet::release()
 void plantbullet::update()
 {
 	move();
-	if (_range < getDistance(_pt.x, _pt.y, _firept.x, _firept.y))
-	{
+	if(!_isFire&&_img != NULL)
+	{ 
 		_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);
 		_rc = RectMakeCenter(_pt.x, _pt.y, 80, 60);
 	}
@@ -27,15 +28,17 @@ void plantbullet::update()
 
 void plantbullet::render(HDC hdc)
 {
-	if (_isFire)
+	if (_img != NULL)
 	{
-		_img->render(hdc, _rc.left, _rc.top);
+		if (!_isFire)
+		{
+			_img->aniRender(hdc, _rc.left, _rc.top, _motion);
+		}
+		else
+		{
+			_img->render(hdc, _rc.left, _rc.top);
+		}
 	}
-	if (_range < getDistance(_pt.x, _pt.y, _firept.x, _firept.y))
-	{
-		_img->aniRender(hdc, _rc.left, _rc.top, _motion);
-	}
-	Rectangle(hdc, _rc);
 }
 
 void plantbullet::fire(POINT pt, float speed, float angle)
@@ -60,6 +63,8 @@ void plantbullet::move()
 	_pt.y += -sinf(_angle) * _speed;
 
 	_rc = RectMakeCenter(_pt.x, _pt.y, 20, 20);
+	RECT temp;
+	
 	if (_range < getDistance(_pt.x, _pt.y, _firept.x, _firept.y) && _isFire)
 	{
 		_isFire = false;
@@ -71,10 +76,12 @@ void plantbullet::move()
 			{
 				_motion->start();
 			}
+			_speed = 0;
 
 		}
-		_speed = 0;
 	}
+	
+	
 }
 
 void plantbullet::setAni()
