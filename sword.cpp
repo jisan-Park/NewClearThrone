@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "sword.h"
 
 HRESULT sword::init(POINT pt, weaponState state)
@@ -34,4 +34,10 @@ void sword::update()
 			_imgy = _pt.y;
 		}
 	}
+}
+
+void sword::fire()
+{
+	SOUNDMANAGER->play("Į", (GAMEMANAGER->getSfxVolume() / 100.0f)*1.0f);
+	_meleeAngle *= (-1);
 }

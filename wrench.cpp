@@ -36,3 +36,9 @@ void wrench::update()
 		}
 	}
 }
+
+void wrench::fire()
+{
+	SOUNDMANAGER->play("·»Ä¡", (GAMEMANAGER->getSfxVolume() / 100.0f)*1.0f);
+	_meleeAngle *= (-1);
+}

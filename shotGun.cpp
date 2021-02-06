@@ -36,3 +36,9 @@ void shotGun::update()
 		}
 	}
 }
+
+void shotGun::fire()
+{
+	BULLETMANAGER->fire(ANGLE16, _pt, _bulletSpd, _angle, _damage, ENEMY);
+	SOUNDMANAGER->play("´Ü¹ß ½ë°Å", (GAMEMANAGER->getSfxVolume() / 100.0f)*1.0f);
+}

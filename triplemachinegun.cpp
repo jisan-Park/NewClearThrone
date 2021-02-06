@@ -36,3 +36,9 @@ void triplemachinegun::update()
 		}
 	}
 }
+
+void triplemachinegun::fire()
+{
+	BULLETMANAGER->fire(ANGLE16, _pt, _bulletSpd, _angle, _damage, ENEMY);
+	SOUNDMANAGER->play("¾àÇÑÃÑ", (GAMEMANAGER->getSfxVolume() / 100.0f)*1.0f);
+}

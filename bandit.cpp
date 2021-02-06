@@ -38,40 +38,42 @@ void bandit::update()
 		_weapon->update();
 		_weapon->setPt(_info.pt);
 		_weapon->setAngle(_info.aimAngle);
-	}
-	if (inRange() == true)
-	{
-		_info.aimAngle = EtoPAngle();
-		_info.nstate == NOTICED;
-		if (_info.state == E_IDLE) _info.nextState == E_WALK;
-		_info.moveAngle = getAngle(_info.pt, MAPMANAGER->enemyMove(_info.pt));
-		if (_info.pt.x == MAPMANAGER->enemyMove(_info.pt).x && _info.pt.y == MAPMANAGER->enemyMove(_info.pt).y) {
-			_info.nextState = E_IDLE;
-		}
-		_fireCnt++;
-		if (_fireCnt % 30 == 0 && MAPMANAGER->isStraight(PLAYERMANAGER->getPlayer()->getPt(), _info.pt))
+		if (_info.hp <= 0) _info.nextState = E_DEAD;
+
+		if (inRange() == true)
 		{
-			_weapon->fire();
-			_fireCnt = 0;
-		}
-	}
-	else _info.aimAngle = _info.moveAngle;
-	if (_info.nstate == UNNOTICED)
-	{
-		if (_rndMoveCnt % _rndInterval == 0)
-		{
-			if (_info.state == E_IDLE)
-			{
-				_info.nextState = E_WALK;
-				_info.moveAngle = RND->getFloat(PI2);
-				_rndInterval = RND->getFromIntTo(70, 130);
-				_rndMoveCnt = 0;
-			}
-			if (_info.state == E_WALK)
-			{
+			_info.aimAngle = EtoPAngle();
+			_info.nstate == NOTICED;
+			if (_info.state == E_IDLE) _info.nextState == E_WALK;
+			_info.moveAngle = getAngle(_info.pt, MAPMANAGER->enemyMove(_info.pt));
+			if (_info.pt.x == MAPMANAGER->enemyMove(_info.pt).x && _info.pt.y == MAPMANAGER->enemyMove(_info.pt).y) {
 				_info.nextState = E_IDLE;
-				_rndInterval = RND->getFromIntTo(70, 130);
-				_rndMoveCnt == 0;
+			}
+			_fireCnt++;
+			if (_fireCnt % 30 == 0 && MAPMANAGER->isStraight(PLAYERMANAGER->getPlayer()->getPt(), _info.pt))
+			{
+				_weapon->fire();
+				_fireCnt = 0;
+			}
+		}
+		else _info.aimAngle = _info.moveAngle;
+		if (_info.nstate == UNNOTICED)
+		{
+			if (_rndMoveCnt % _rndInterval == 0)
+			{
+				if (_info.state == E_IDLE)
+				{
+					_info.nextState = E_WALK;
+					_info.moveAngle = RND->getFloat(PI2);
+					_rndInterval = RND->getFromIntTo(70, 130);
+					_rndMoveCnt = 0;
+				}
+				if (_info.state == E_WALK)
+				{
+					_info.nextState = E_IDLE;
+					_rndInterval = RND->getFromIntTo(70, 130);
+					_rndMoveCnt == 0;
+				}
 			}
 		}
 	}

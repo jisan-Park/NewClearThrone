@@ -38,5 +38,6 @@ void assultRifle::update()
 
 void assultRifle::fire()
 {
+	SOUNDMANAGER->play("¾àÇÑÃÑ", (GAMEMANAGER->getSfxVolume() / 100.0f)*1.0f);
 	BULLETMANAGER->fire(ANGLE16, _pt, _bulletSpd, _angle, _damage, PLAYER);
 }

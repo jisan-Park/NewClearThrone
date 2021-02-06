@@ -57,16 +57,20 @@ float enemy::EtoPAngle()
 
 void enemy::collision()
 {
-	for (int i = 0; i < BULLETMANAGER->getvBullet().size(); ++i)
+	if (_info.state != E_DEAD)
 	{
-		RECT temp;
-		if (IntersectRect(&temp, &BULLETMANAGER->getvBullet()[i]->getRect(), &_info.rc)&& BULLETMANAGER->getvBullet()[i]->getWho()==PLAYER)
+		for (int i = 0; i < BULLETMANAGER->getvBullet().size(); ++i)
 		{
-			_info.isHurt = true;
-			_info.pt.x += cosf(BULLETMANAGER->getvBullet()[i]->getAngle()) * 10;
-			_info.pt.y += -sinf(BULLETMANAGER->getvBullet()[i]->getAngle()) * 10;
-			BULLETMANAGER->removeBullet(i);
-			break;
+			RECT temp;
+			if (IntersectRect(&temp, &BULLETMANAGER->getvBullet()[i]->getRect(), &_info.rc) && BULLETMANAGER->getvBullet()[i]->getWho() == PLAYER)
+			{
+				_info.isHurt = true;
+				_info.hp -= BULLETMANAGER->getvBullet()[i]->getDamage();
+				_info.pt.x += cosf(BULLETMANAGER->getvBullet()[i]->getAngle()) * 10;
+				_info.pt.y += -sinf(BULLETMANAGER->getvBullet()[i]->getAngle()) * 10;
+				BULLETMANAGER->removeBullet(i);
+				break;
+			}
 		}
 	}
 	//for (PLAYERMANAGER->getPlayer()->getWeapon()->getBullet()->getViBullet() = PLAYERMANAGER->getPlayer()->getWeapon()->getBullet()->getVbullet().begin();

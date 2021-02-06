@@ -28,6 +28,7 @@ public:
 	virtual void setState(ENEMYSTATE state);
 	virtual ENEMYTYPE getEnemyType() { return _enemyType; };
 	virtual enemyinfo getInfo() { return _info; };
+	void decreaseHP(int i) { _info.hp -= i; };
 	bool inRange();
 	float EtoPAngle();
 

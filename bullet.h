@@ -50,6 +50,7 @@ public:
 	RECT getRect() { return _rc; }
 	float getAngle() { return _angle; }
 	whoshot getWho() { return _who; }
+	int getDamage() { return _damage; }
 
 };
 
