@@ -6,12 +6,12 @@ HRESULT bigMaggotBurrow::init(enemyinfo info)
 
 	bigmaggotburrowright = new animation;
 	bigmaggotburrowright->init("bigmaggot_burrow");
-	bigmaggotburrowright->setPlayFrame(0, 11, false, false);
+	bigmaggotburrowright->setPlayFrame(0, 11, false, false, immune, this);
 	bigmaggotburrowright->setFPS(10);
 
 	bigmaggotburrowleft = new animation;
 	bigmaggotburrowleft->init("bigmaggot_burrow");
-	bigmaggotburrowleft->setPlayFrame(23, 12, false, false);
+	bigmaggotburrowleft->setPlayFrame(23, 12, false, false, immune, this);
 	bigmaggotburrowleft->setFPS(10);
 
 	bigmaggotinvisible = new animation;

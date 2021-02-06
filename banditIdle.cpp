@@ -39,7 +39,7 @@ void banditIdle::update(enemyinfo &info)
 	if (info.isHurt == true)
 	{
 		isHurt = true;
-		SOUNDMANAGER->play("Àâ¸÷ Á×À»¶§1", (GAMEMANAGER->getSfxVolume() / 100.0f)*1.0f);
+		SOUNDMANAGER->play("Àâ¸÷ Á×À»¶§1", GAMEMANAGER->getSfxVolume());
 		info.isHurt = false;
 	}
 	if (isHurt == true)

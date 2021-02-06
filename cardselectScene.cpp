@@ -144,7 +144,7 @@ void cardselectScene::ptInCard()
 
 			if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
 			{
-				SOUNDMANAGER->play("努腐家府", (GAMEMANAGER->getSfxVolume() / 100.0f)*1.0f);
+				SOUNDMANAGER->play("努腐家府", GAMEMANAGER->getSfxVolume());
 
 				if (_aCard[i].cardNum == 0)
 				{

@@ -48,9 +48,12 @@ protected:
 	image* _img;			//이미지 입니다
 	animation* _motion;		//애니메이션 모션
 	bool _ishit;			//픽격확인
+
 	int _maxhp;				//총HP
 	int _hp;				//HP
+
 	bool _isdead;			//죽는 조건
+
 	int _playerbullet;		//현제 총알 갯수
 	int _playerbulletMax;	//최대 총알 갯수
 

@@ -20,6 +20,7 @@ HRESULT gameScene::init()
 
 void gameScene::update()
 {
+
 	//pause
 	if (KEYMANAGER->isOnceKeyDown(VK_TAB)) {
 		if (GAMEMANAGER->getIsPaused()) {
@@ -65,17 +66,17 @@ void gameScene::update()
 
 		if (MAPMANAGER->getStage_first() == 0 && _sound1 == 0)
 		{
-			SOUNDMANAGER->play("스테이지1", (GAMEMANAGER->getSfxVolume() / 100.0f)*1.0f);
+			SOUNDMANAGER->play("스테이지1", GAMEMANAGER->getMusicVolume() * GAMEMANAGER->getMasterVolume());
 			_sound1++;
 		}
 		else if (MAPMANAGER->getStage_first() == 1 && _sound2 == 0 )
 		{
-			SOUNDMANAGER->play("스테이지2", (GAMEMANAGER->getSfxVolume() / 100.0f)*1.0f);
+			SOUNDMANAGER->play("스테이지2", GAMEMANAGER->getMusicVolume() * GAMEMANAGER->getMasterVolume());
 			_sound2++;
 		}
 		else if (MAPMANAGER->getStage_first() == 2 && _sound3 == 0)
 		{
-			SOUNDMANAGER->play("스테이지2", (GAMEMANAGER->getSfxVolume() / 100.0f)*1.0f);
+			SOUNDMANAGER->play("스테이지2", GAMEMANAGER->getMusicVolume() * GAMEMANAGER->getMasterVolume());
 			_sound3++;
 		}
 

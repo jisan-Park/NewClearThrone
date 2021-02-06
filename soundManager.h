@@ -49,5 +49,13 @@ public:
 	//È£¿Á½ÃÀÌ ¸ô¶ó¼­ ¸¸µé¾îµÒ
 	bool isPlaySound(string keyName);
 	bool isPauseSound(string keyName);
+
+	void setVolume(string keyName, float volume);
+
+	//GETTER
+	unsigned int getPosition(string keyName);
+	unsigned int getLength(string keyName);
+
+	void setPosition(string keyName, int position);
 };
 

@@ -7,7 +7,6 @@ HRESULT customScene::init()
 	MAPMANAGER->load("saveMap1.bmp");
 	ENEMYMANAGER->setShowEnemyVector("custom");
 	BULLETMANAGER->init();
-
 	return S_OK;
 }
 

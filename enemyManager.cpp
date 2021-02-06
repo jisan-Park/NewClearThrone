@@ -302,23 +302,46 @@ void enemyManager::createRandomEnemyVector()
 	//보여주기용 에너미 벡터를 모두 비운다.
 	clearShowEnemyVector();
 
-	ENEMYTYPE rndEnemy;
-	enemy* temp;
+	//해당 라운드를 받아, Boss 를 1마리 만들어 준다.
+	//0 : BigBandit
+	//13: BigDog
+
+	if (MAPMANAGER->getStage_first() == 0 && MAPMANAGER->getStage_second() == 1) {
+		enemy* boss_temp = new bigBandit;
+		boss_temp->init(
+			MAPMANAGER->getOpenTiles()[RND->getInt(MAPMANAGER->getOpenTiles().size())].x,
+			MAPMANAGER->getOpenTiles()[RND->getInt(MAPMANAGER->getOpenTiles().size())].y);
+		_showEnemy.push_back(boss_temp);
+	}
+	else if (MAPMANAGER->getStage_first() == 2 && MAPMANAGER->getStage_second() == 1) {
+		enemy* boss_temp = new bigDog;
+		boss_temp->init(
+			MAPMANAGER->getOpenTiles()[RND->getInt(MAPMANAGER->getOpenTiles().size())].x,
+			MAPMANAGER->getOpenTiles()[RND->getInt(MAPMANAGER->getOpenTiles().size())].y);
+		_showEnemy.push_back(boss_temp);
+	}
+
+	
 	//정해진 enemy count 만큼 에너미를 만든다
 	for (int i = 0; i < MAPMANAGER->getEnemyCount();++i) {
+		enemy* temp;
+		ENEMYTYPE rndEnemy;
+		
 		//현재 스테이지를 받아와서 해당 스테이지에 맞는 에너미를 생성한다.
 		switch (MAPMANAGER->getStage_first())
 		{
+		case 0:
+			rndEnemy = (ENEMYTYPE)RND->getFromIntTo(1, 7);
+			break;
 		case 1:
-			rndEnemy = (ENEMYTYPE)RND->getFromIntTo(0, 8);
+			rndEnemy = (ENEMYTYPE)RND->getFromIntTo(7, 13);
 			break;
 		case 2:
-			rndEnemy = (ENEMYTYPE)RND->getFromIntTo(8, 13);
-			break;
-		case 3:
-			rndEnemy = (ENEMYTYPE)RND->getFromIntTo(13, 18);
+			rndEnemy = (ENEMYTYPE)RND->getFromIntTo(14, 18);
 			break;
 		default:
+			//예외 상태
+			rndEnemy = (ENEMYTYPE)RND->getFromIntTo(0, 18);
 			break;
 		}
 

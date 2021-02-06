@@ -32,7 +32,8 @@ public:
 	
 	
 	////////////////////[ volume ]///////////////////////////
-
+	void volumeCheck();
+	
 	//getter
 	float getMasterVolume() { return master_volume; };
 	float getMusicVolume() { return music_volume; };

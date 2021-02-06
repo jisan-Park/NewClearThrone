@@ -15,11 +15,14 @@ struct tagAlphaImage {
 
 struct tagVolume {
 	RECT rc;
+	//bar 위치
 	int x, y;
+	//frontBar 길이
 	int width;
 	image* backBar;
 	image* frontBar;
 	image* button;
+	POINT center;
 };
 
 class gameNode;

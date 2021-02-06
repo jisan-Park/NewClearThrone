@@ -15,7 +15,7 @@ HRESULT banditDead::init(enemyinfo info)
 	banditdeadleft->setFPS(10);
 	_img = IMAGEMANAGER->findImage("bandit_dead");
 	if (info.direction == E_LEFT) _motion = banditdeadleft;
-	if (info.direction == E_LEFT)_motion = banditdeadright;
+	if (info.direction == E_RIGHT)_motion = banditdeadright;
 	_motion->start();
 
 	return S_OK;

@@ -1,14 +1,18 @@
 #include "stdafx.h"
 #include "gameManager.h"
-
+#include <iostream>
+#pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console")
+using namespace std;
 HRESULT gameManager::init()
 {
+	master_volume = 1.0f;
+	music_volume = 0.5f;
+	sfx_volume = 0.5f;
+
 	IMAGEMANAGER->addImage("black", "image/Scene/black.bmp", 1280, 720, true, RGB(255, 0, 255));
 	setVolumeImage();
 	setPauseImage();
-	master_volume = 100.0f;
-	music_volume = 50.0f;
-	sfx_volume = 50.0f;
+	
 
 	isPaused = false;
 	isSetting = false;
@@ -25,6 +29,35 @@ void gameManager::release()
 
 void gameManager::render(HDC hdc)
 {
+}
+
+void gameManager::volumeCheck()
+{
+	//마우스 설정에 따른 볼륨조절
+	if (KEYMANAGER->isStayKeyDown(VK_LBUTTON))
+	{
+		if (PtInRect(&master.rc, _ptMouse))
+		{
+			master_volume = ((float)(_ptMouse.x - master.rc.left) / (float)(master.rc.right - master.rc.left));
+		}
+		if (PtInRect(&music.rc, _ptMouse))
+		{
+			music_volume = ((float)(_ptMouse.x - music.rc.left) / (float)(music.rc.right - music.rc.left));
+		}
+		if (PtInRect(&sfx.rc, _ptMouse))
+		{
+			sfx_volume = ((float)(_ptMouse.x - sfx.rc.left) / (float)(sfx.rc.right - sfx.rc.left));
+		}
+	}
+	//volume 조절에 따른 render 변화를 위한 변수들 set
+	master.width = (int)((master_volume / 1.0f) * master.backBar->getWidth());
+	master.center.x = master.rc.left + master.width;
+
+	music.width = (int)((music_volume / 1.0f) * music.backBar->getWidth());
+	music.center.x = music.rc.left + music.width;
+
+	sfx.width = (int)((sfx_volume / 1.0f) * sfx.backBar->getWidth());
+	sfx.center.x = sfx.rc.left + sfx.width;
 }
 
 void gameManager::setVolumeImage()
@@ -55,7 +88,9 @@ void gameManager::setVolumeImage()
 	master.x = 3 * WINSIZEX / 4;
 	master.y = WINSIZEY / 2 - 100;
 	master.rc = RectMakeCenter(master.x, master.y, master.backBar->getWidth(), master.backBar->getHeight());
-	master.width = GAMEMANAGER->getMasterVolume();
+	master.width = (int)((master_volume/1.0f) * master.backBar->getWidth());
+	master.center.x = master.rc.left + master.width;
+	master.center.y = master.rc.top;
 
 	music.backBar = new image;
 	music.frontBar = new image;
@@ -66,7 +101,9 @@ void gameManager::setVolumeImage()
 	music.x = 3 * WINSIZEX / 4;
 	music.y = WINSIZEY / 2;
 	music.rc = RectMakeCenter(music.x, music.y, music.backBar->getWidth(), music.backBar->getHeight());
-	music.width = GAMEMANAGER->getMusicVolume();
+	music.width = (int)((music_volume / 1.0f) * music.backBar->getWidth());
+	music.center.x = music.rc.left + music.width;
+	music.center.y = music.rc.top;
 
 	sfx.backBar = new image;
 	sfx.frontBar = new image;
@@ -77,11 +114,19 @@ void gameManager::setVolumeImage()
 	sfx.x = 3 * WINSIZEX / 4;
 	sfx.y = WINSIZEY / 2 + 100;
 	sfx.rc = RectMakeCenter(sfx.x, sfx.y, sfx.backBar->getWidth(), sfx.backBar->getHeight());
-	sfx.width = GAMEMANAGER->getSfxVolume();
+	sfx.width = (int)((sfx_volume / 1.0f) * sfx.backBar->getWidth());
+	sfx.center.x = sfx.rc.left + sfx.width;
+	sfx.center.y = sfx.rc.top;
+
+	cout << "master width = " << master.width << endl;
+	cout << "music width = " << music.width << endl;
+	cout << "sfx width = " << sfx.width << endl;
 }
 
 void gameManager::volumeUpdate()
 {
+	volumeCheck();
+
 	if (PtInRect(&back.info.rc, _ptMouse)) {
 		back.alpha = 255;
 		
@@ -108,9 +153,9 @@ void gameManager::volumeRender(HDC hdc)
 	IMAGEMANAGER->findImage("sfx_volume")->render(hdc, WINSIZEX / 8, WINSIZEY / 2 + 100);
 
 	//volume front Bar
-	master.frontBar->render(hdc, master.rc.left, master.rc.top, 0, 0, ((master.width / 100.0f) * master.backBar->getWidth()), master.backBar->getHeight());
-	music.frontBar->render(hdc, music.rc.left, music.rc.top, 0, 0, ((music.width / 100.0f) * music.backBar->getWidth()), music.backBar->getHeight());
-	sfx.frontBar->render(hdc, sfx.rc.left, sfx.rc.top, 0, 0, ((sfx.width / 100.0f) * sfx.backBar->getWidth()), sfx.backBar->getHeight());
+	master.frontBar->render(hdc, master.rc.left, master.rc.top, 0, 0, master.width, master.backBar->getHeight());
+	music.frontBar->render(hdc, music.rc.left, music.rc.top, 0, 0, music.width, music.backBar->getHeight());
+	sfx.frontBar->render(hdc, sfx.rc.left, sfx.rc.top, 0, 0, sfx.width, sfx.backBar->getHeight());
 
 	//volume back Bar
 	master.backBar->render(hdc, master.rc.left, master.rc.top);
@@ -118,9 +163,9 @@ void gameManager::volumeRender(HDC hdc)
 	sfx.backBar->render(hdc, sfx.rc.left, sfx.rc.top);
 
 	//volume button
-	master.button->render(hdc, master.rc.left + ((master.width / 100.0f) * master.backBar->getWidth()), master.rc.top);
-	music.button->render(hdc, music.rc.left + ((music.width / 100.0f) * music.backBar->getWidth()), music.rc.top);
-	sfx.button->render(hdc, sfx.rc.left + ((sfx.width / 100.0f) * sfx.backBar->getWidth()), sfx.rc.top);
+	master.button->render(hdc, master.center.x, master.center.y);
+	music.button->render(hdc, music.center.x, music.center.y);
+	sfx.button->render(hdc, sfx.center.x, sfx.center.y);
 
 	//back button
 	back.info.img->alphaRender(hdc, back.info.rc.left, back.info.rc.top, back.alpha);

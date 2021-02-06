@@ -164,36 +164,33 @@ void itemManager::setimage()
 void itemManager::setItembox(ITEMBOXTYPE itemboxtype, float x, float y)
 {
 	_itemboxtype = itemboxtype;
+	itemBox* temp;
 
 	switch (_itemboxtype)
 	{
 	case BULLETITEMBOX:
 	{
-		itemBox* temp;
 		temp = new bulletBox;
 		temp->init(x, y);
-		_vItembox.push_back(temp);
 	}
 	break;
 	case WEAPOMITEMBOX:
 	{
-		itemBox* temp1;
-		temp1 = new weaponBox;
-		temp1->init(x, y);
-		_vItembox.push_back(temp1);
+		temp = new weaponBox;
+		temp->init(x, y);
 	}
 	break;
 	case MEDKITITEMBOX:
 	{
-		itemBox* temp2;
-		temp2 = new medkitBox;
-		temp2->init(x, y);
-		_vItembox.push_back(temp2);
+		temp = new medkitBox;
+		temp->init(x, y);
 	}
 	break;
 	default:
 		break;
 	}
+
+	_vItembox.push_back(temp);
 }
 
 void itemManager::collsion()

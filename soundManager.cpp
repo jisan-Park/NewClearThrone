@@ -2,7 +2,7 @@
 #include "soundManager.h"
 
 soundManager::soundManager()
-	: _system(nullptr), 
+	: _system(nullptr),
 	_channel(nullptr),
 	_sound(nullptr)
 {
@@ -178,4 +178,79 @@ bool soundManager::isPauseSound(string keyName)
 	}
 
 	return isPause;
+}
+
+
+
+void soundManager::setVolume(string keyName, float volume)
+{
+	arrSoundsIter iter = _mTotalSounds.begin();
+
+	int count = 0;
+
+	for (iter; iter != _mTotalSounds.end(); ++iter, count++)
+	{
+		if (keyName == iter->first)
+		{
+			_channel[count]->setVolume(volume);
+			break;
+		}
+	}
+
+}
+
+unsigned int soundManager::getPosition(string keyName)
+{
+	unsigned int position;
+
+	arrSoundsIter iter = _mTotalSounds.begin();
+
+	int count = 0;
+
+	for (iter; iter != _mTotalSounds.end(); ++iter, count++)
+	{
+		if (keyName == iter->first)
+		{
+			_channel[count]->getPosition(&position, FMOD_TIMEUNIT_MS);
+			break;
+		}
+	}
+
+	return position;
+}
+
+unsigned int soundManager::getLength(string keyName)
+{
+	unsigned int total;
+	arrSoundsIter iter = _mTotalSounds.begin();
+
+	int count = 0;
+
+	for (iter; iter != _mTotalSounds.end(); ++iter, count++)
+	{
+		if (keyName == iter->first)
+		{
+			(*iter->second)->getLength(&total, FMOD_TIMEUNIT_MS);
+			//_sound[count]->getLength(&total, FMOD_TIMEUNIT_MS);
+			break;
+		}
+	}
+
+	return total;
+}
+
+void soundManager::setPosition(string keyName, int position)
+{
+	arrSoundsIter iter = _mTotalSounds.begin();
+
+	int count = 0;
+
+	for (iter; iter != _mTotalSounds.end(); ++iter, count++)
+	{
+		if (keyName == iter->first)
+		{
+			_channel[count]->setPosition(position, FMOD_TIMEUNIT_MS);
+			break;
+		}
+	}
 }
