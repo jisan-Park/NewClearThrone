@@ -48,14 +48,24 @@ protected:
 	image* _img;			//이미지 입니다
 	animation* _motion;		//애니메이션 모션
 	bool _ishit;			//픽격확인
-
 	int _maxhp;				//총HP
 	int _hp;				//HP
-
 	bool _isdead;			//죽는 조건
-
 	int _playerbullet;		//현제 총알 갯수
 	int _playerbulletMax;	//최대 총알 갯수
+	int _playershellb;
+	int _playershellbMax;
+	int _playerenergyb;
+	int _playerenergubMax;
+	int _playerexplodeb;
+	int _playerecplodbeMax;
+	bool _weaponReady;
+	bool _assfire;
+	bool _shotfire;
+	int _count;
+	int _countt;
+	int _counttt;
+
 
 	//=========================================
 	bool _isdash;//fish 스킬 트리거
@@ -83,6 +93,7 @@ public:
 	virtual void setAnimation();
 	virtual void playerWeaponSwap();
 	virtual void groundWeaponSwap(weaponType type);
+	virtual void groundWeaponGet(weaponType type);
 	//콜백을 위한 겟터,셋터
 	//=========================================
 	DIRECTION getDirection() { return _direction; }
@@ -115,6 +126,7 @@ public:
 	int getMaxhp() { return _maxhp; }
 	void setMaxhp(int maxhp) { _maxhp = maxhp; }
 
+	void setWeaponReady(bool ready) { _weaponReady = ready; }
 
 	weapon* getWeapon() { return _currentWeapon; }
 

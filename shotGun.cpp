@@ -39,5 +39,8 @@ void shotGun::update()
 
 void shotGun::fire()
 {
-	BULLETMANAGER->fire(ANGLE16, _pt, _bulletSpd, _angle, _damage, ENEMY);
+	for (int i = 0; i < 5; i++)
+	{
+		BULLETMANAGER->fire(ANGLE16, _pt, _bulletSpd, _angle - 0.15f + 0.15f * i, _damage, ENEMY);
+	}
 }

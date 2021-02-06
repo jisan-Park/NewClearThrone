@@ -4,7 +4,7 @@
 HRESULT itemManager::init()
 {
 	setimage();
-	
+
 	return S_OK;
 }
 
@@ -144,6 +144,97 @@ void itemManager::weaponSwap()
 	}
 }
 
+void itemManager::grabWeapon()
+{
+	for (int i = 0; i < _vWeapon.size(); i++)
+	{
+		RECT temp5;
+		RECT tempWrc2 = RectMakeCenter(_vWeapon[i]->getPt().x, _vWeapon[i]->getPt().y, 40, 40);
+		if (IntersectRect(&temp5, &PLAYERMANAGER->getPlayer()->getRect(), &tempWrc2))
+		{
+			PLAYERMANAGER->getPlayer()->setWeaponReady(true);
+			PLAYERMANAGER->getPlayer()->groundWeaponGet(_vWeapon[i]->getType());
+			_vWeapon.erase(_vWeapon.begin() + i);
+			//switch (tempType)
+			//{
+			//case ASSULTRIFLE:
+			//{
+			//	weapon* tempWp2;
+			//	tempWp2 = new assultRifle;
+			//	tempWp2->init(PLAYERMANAGER->getPlayer()->getPt(), ONGROUND);
+			//}
+			//break;
+			//case GRENADELAUNCHER:
+			//{
+			//	weapon* tempWp2;
+			//	tempWp2 = new grenadeLauncher;
+			//	tempWp2->init(PLAYERMANAGER->getPlayer()->getPt(), ONGROUND);
+			//}
+			//break;
+			//case MACHINEGUN:
+			//{
+			//	weapon* tempWp2;
+			//	tempWp2 = new machineGun;
+			//	tempWp2->init(PLAYERMANAGER->getPlayer()->getPt(), ONGROUND);
+			//}
+			//break;
+			//case PISTOL:
+			//{
+			//	weapon* tempWp2;
+			//	tempWp2 = new pistol;
+			//	tempWp2->init(PLAYERMANAGER->getPlayer()->getPt(), ONGROUND);
+			//}
+			//break;
+			//case RAZERRIFLE:
+			//{
+			//	weapon* tempWp2;
+			//	tempWp2 = new razerRifle;
+			//	tempWp2->init(PLAYERMANAGER->getPlayer()->getPt(), ONGROUND);
+			//}
+			//break;
+			//case SHOTGUN:
+			//{
+			//	weapon* tempWp2;
+			//	tempWp2 = new shotGun;
+			//	tempWp2->init(PLAYERMANAGER->getPlayer()->getPt(), ONGROUND);
+			//}
+			//break;
+			//case SHOVEL:
+			//{
+			//	weapon* tempWp2;
+			//	tempWp2 = new shovel;
+			//	tempWp2->init(PLAYERMANAGER->getPlayer()->getPt(), ONGROUND);
+			//}
+			//break;
+			//case SWORD:
+			//{
+			//	weapon* tempWp2;
+			//	tempWp2 = new sword;
+			//	tempWp2->init(PLAYERMANAGER->getPlayer()->getPt(), ONGROUND);
+			//}
+			//break;
+			//case TRIPLEMACHINEGUN:
+			//{
+			//	weapon* tempWp2;
+			//	tempWp2 = new triplemachinegun;
+			//	tempWp2->init(PLAYERMANAGER->getPlayer()->getPt(), ONGROUND);
+			//}
+			//break;
+			//case WRENCH:
+			//{
+			//	weapon* tempWp2;
+			//	tempWp2 = new wrench;
+			//	tempWp2->init(PLAYERMANAGER->getPlayer()->getPt(), ONGROUND);
+			//}
+			//break;
+			//default:
+			//	break;
+			//}
+
+		}
+	}
+}
+
 void itemManager::setimage()
 {
 	IMAGEMANAGER->addFrameImage("bullet_box", "image/item/bullet_box.bmp", 256, 30, 8, 1, true, RGB(255, 0, 255));
@@ -264,7 +355,7 @@ void itemManager::createWeapon(POINT pt)
 		tempwp2->init(pt, ONGROUND);
 		_vWeapon.push_back(tempwp2);
 	}
-		break;
+	break;
 	case GRENADELAUNCHER:
 	{
 		weapon* tempwp2;
@@ -272,15 +363,15 @@ void itemManager::createWeapon(POINT pt)
 		tempwp2->init(pt, ONGROUND);
 		_vWeapon.push_back(tempwp2);
 	}
-		break;
+	break;
 	case MACHINEGUN:
 	{
 		weapon* tempwp2;
 		tempwp2 = new machineGun;
 		tempwp2->init(pt, ONGROUND);
-		_vWeapon.push_back(tempwp2); 
+		_vWeapon.push_back(tempwp2);
 	}
-		break;
+	break;
 	case PISTOL:
 	{
 		weapon* tempwp2;
@@ -288,7 +379,7 @@ void itemManager::createWeapon(POINT pt)
 		tempwp2->init(pt, ONGROUND);
 		_vWeapon.push_back(tempwp2);
 	}
-		break;
+	break;
 	case RAZERRIFLE:
 	{
 		weapon* tempwp2;
@@ -296,7 +387,7 @@ void itemManager::createWeapon(POINT pt)
 		tempwp2->init(pt, ONGROUND);
 		_vWeapon.push_back(tempwp2);
 	}
-		break;
+	break;
 	case SHOTGUN:
 	{
 		weapon* tempwp2;
@@ -304,7 +395,7 @@ void itemManager::createWeapon(POINT pt)
 		tempwp2->init(pt, ONGROUND);
 		_vWeapon.push_back(tempwp2);
 	}
-		break;
+	break;
 	case SHOVEL:
 	{
 		weapon* tempwp2;
@@ -312,7 +403,7 @@ void itemManager::createWeapon(POINT pt)
 		tempwp2->init(pt, ONGROUND);
 		_vWeapon.push_back(tempwp2);
 	}
-		break;
+	break;
 	case SWORD:
 	{
 		weapon* tempwp2;
@@ -320,7 +411,7 @@ void itemManager::createWeapon(POINT pt)
 		tempwp2->init(pt, ONGROUND);
 		_vWeapon.push_back(tempwp2);
 	}
-		break;
+	break;
 	case TRIPLEMACHINEGUN:
 	{
 		weapon* tempwp2;
@@ -328,7 +419,7 @@ void itemManager::createWeapon(POINT pt)
 		tempwp2->init(pt, ONGROUND);
 		_vWeapon.push_back(tempwp2);
 	}
-		break;
+	break;
 	case WRENCH:
 	{
 		weapon* tempwp2;
@@ -336,7 +427,7 @@ void itemManager::createWeapon(POINT pt)
 		tempwp2->init(pt, ONGROUND);
 		_vWeapon.push_back(tempwp2);
 	}
-		break;
+	break;
 	default:
 		break;
 	}

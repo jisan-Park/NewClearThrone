@@ -257,6 +257,7 @@
     <ClInclude Include="Meiting.h" />
     <ClInclude Include="pistol.h" />
     <ClInclude Include="Plant.h" />
+    <ClInclude Include="plantbullet.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="playerManager.h" />
     <ClInclude Include="playGround.h" />
@@ -424,6 +425,7 @@
     <ClCompile Include="Meiting.cpp" />
     <ClCompile Include="pistol.cpp" />
     <ClCompile Include="Plant.cpp" />
+    <ClCompile Include="plantbullet.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="playerManager.cpp" />
     <ClCompile Include="playGround.cpp" />

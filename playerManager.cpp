@@ -97,4 +97,5 @@ void playerManager::setimage()
 	IMAGEMANAGER->addFrameImage("plant_dead", "image/player/plant/plant_dead.bmp", 144, 96, 3, 2, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("plant_skill", "image/player/plant/plant_skill.bmp", 360, 74, 4, 1, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("plant_menuidle", "image/player/plant/plant_menuidle.bmp", 704, 128, 11, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("plant_bullet", "image/bullet/plant_bullet.bmp", 21, 21, true, RGB(255, 0, 255));
 }

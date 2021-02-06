@@ -39,5 +39,8 @@ void triplemachinegun::update()
 
 void triplemachinegun::fire()
 {
-	BULLETMANAGER->fire(ANGLE16, _pt, _bulletSpd, _angle, _damage, ENEMY);
+	for (float i = 0; i < 3; i++)
+	{
+		BULLETMANAGER->fire(ANGLE16, _pt, _bulletSpd, _angle - 0.15f + 0.15f * i, _damage, ENEMY);
+	}
 }

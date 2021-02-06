@@ -11,8 +11,14 @@ HRESULT Plant::init(float x, float y)
 	_width = 30;
 	_height = 30;
 	_speed = 5;
-	_playerbullet = 30;
+	_playerbullet = 60;
 	_playerbulletMax = 150;
+	_playershellb = 60;
+	_playershellbMax = 150;
+	_playerenergyb = 20;
+	_playerenergubMax = 50;
+	_playerexplodeb = 20;
+	_playerecplodbeMax = 50;
 	_hp = 6;
 	_maxhp = 8;
 	_moveAngle = 0;
@@ -28,18 +34,30 @@ HRESULT Plant::init(float x, float y)
 
 void Plant::update()
 {
-
+	if (_hp > _maxhp)
+	{
+		_hp = _maxhp;
+	}
 	contral();
+	_rc = RectMakeCenter(_pt.x, _pt.y, _width, _height);
 	_currentWeapon->update();
 	_currentWeapon->setAngle(getAngle(_pt.x, _pt.y, CAMERAMANAGER->getMousePoint().x, CAMERAMANAGER->getMousePoint().y));
-	_rc = RectMakeCenter(_pt.x, _pt.y, _width, _height);
+	if (_weaponReady == true)
+	{
+		_readyWeapon->update();
+		_readyWeapon->setAngle(0);
+	}
 	_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);
+	PLANTBULLET->update();
 }
 
 void Plant::render(HDC hdc)
 {
+	if (_weaponReady == true)_readyWeapon->render(hdc);
 	_img->aniRender(hdc, _pt.x - _img->getFrameWidth() / 2, _pt.y - _img->getFrameHeight() / 2, _motion);
 	_currentWeapon->render(hdc);
+	PLANTBULLET->render(hdc);
+
 }
 
 void Plant::setAnimation()
@@ -177,11 +195,12 @@ void Plant::contral()
 	if (KEYMANAGER->isOnceKeyDown(VK_SPACE))
 	{
 		//_ishit = true;
-		playerWeaponSwap();
+		if (_weaponReady) playerWeaponSwap();
 	}
 	if (KEYMANAGER->isOnceKeyDown('E'))
 	{
-		ITEMMANAGER->weaponSwap();
+		if (_weaponReady == true) ITEMMANAGER->weaponSwap();
+		if (_weaponReady == false) ITEMMANAGER->grabWeapon();
 	}
 	if (_ishit)
 	{
@@ -214,14 +233,104 @@ void Plant::contral()
 			_motion->start();
 		}
 	}
-	if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON) && _playerbullet > 0)
+	if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
 	{
-		_currentWeapon->fire();
-		_playerbullet -= 1;
-		if (_playerbullet < 0)
+		if (_currentWeapon->getType() == ASSULTRIFLE && !_assfire)
 		{
-			_playerbullet = 0;
+			_assfire = true;
+
 		}
+		if (_currentWeapon->getType() == PISTOL && _playerbullet > 0)
+		{
+			_currentWeapon->fire();
+			_playerbullet -= 1;
+			if (_playerbullet < 0)
+			{
+				_playerbullet = 0;
+			}
+		}
+		if (_currentWeapon->getType() == SHOVEL || _currentWeapon->getType() == SWORD || _currentWeapon->getType() == WRENCH)
+		{
+			_currentWeapon->fire();
+		}
+		if (_currentWeapon->getType() == SHOTGUN && !_shotfire)
+		{
+			_shotfire = true;
+		}
+	}
+	if (KEYMANAGER->isStayKeyDown(VK_LBUTTON))
+	{
+		_countt++;
+
+		if (_currentWeapon->getType() == TRIPLEMACHINEGUN)
+		{
+
+			if (_countt % 3 == 0 && _playerbullet > 0)
+			{
+
+				_currentWeapon->fire();
+				_playerbullet -= 3;
+				if (_playerbullet < 0)
+				{
+					_playerbullet = 0;
+				}
+				_countt = 0;
+			}
+		}
+		if (_currentWeapon->getType() == MACHINEGUN)
+		{
+			if (_countt % 3 == 0 && _playerbullet > 0)
+			{
+				_currentWeapon->fire();
+				_playerbullet -= 1;
+				if (_playerbullet < 0)
+				{
+					_playerbullet = 0;
+				}
+				_countt = 0;
+			}
+		}
+	}
+	if (_shotfire)
+	{
+		_counttt++;
+		if (_playershellb > 0 && _counttt % 6 == 0)
+		{
+			_currentWeapon->fire();
+			_playershellb -= 5;
+			if (_playershellb < 0)
+			{
+				_playershellb = 0;
+			}
+		}
+		if (_counttt >= 7)
+		{
+			_shotfire = false;
+			_counttt = 0;
+		}
+	}
+
+	if (_assfire)
+	{
+		_count++;
+		if (_playerbullet > 0 && _count % 2 == 0)
+		{
+			_currentWeapon->fire();
+			_playerbullet -= 1;
+			if (_playerbullet < 0)
+			{
+				_playerbullet = 0;
+			}
+		}
+		if (_count >= 7)
+		{
+			_assfire = false;
+			_count = 0;
+		}
+	}
+	if (KEYMANAGER->isOnceKeyDown(VK_RBUTTON) && !PLANTBULLET->getIsfire())
+	{
+		PLANTBULLET->fire(_pt, 10, getAngle(_pt.x, _pt.y, CAMERAMANAGER->getMousePoint().x, CAMERAMANAGER->getMousePoint().y));
 	}
 }
 

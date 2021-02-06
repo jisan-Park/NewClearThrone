@@ -44,6 +44,7 @@ HRESULT gameNode::init(bool managerInit)
 		WEAPONMANAGER->init();
 		ITEMMANAGER->init();
 		BULLETMANAGER->init();
+		PLANTBULLET->init();
 	}
 
 	return S_OK;
@@ -85,6 +86,8 @@ void gameNode::release()
 		ITEMMANAGER->releaseSingleton();
 		BULLETMANAGER->release();
 		BULLETMANAGER->releaseSingleton();
+		PLANTBULLET->release();
+		PLANTBULLET->releaseSingleton();
 	}
 	ReleaseDC(_hWnd, _hdc);
 }
