@@ -43,6 +43,12 @@ void wrench::fire()
 {
 	if (_coolCnt >= _coolDown + PLAYERMANAGER->getPlayer()->getInterval())
 	{
+		POINT temppt;
+		temppt = PointMake(_pt.x + cosf(_angle + _meleeAngle / 2) * _radius, _pt.y + -sinf(_angle + _meleeAngle / 2) * _radius);
+		for (int i = 0; i < ENEMYMANAGER->getShowEnemyVector().size(); ++i)
+		{
+			ENEMYMANAGER->getShowEnemyVector()[i]->explosion(temppt, 20, _damage);
+		}
 		_meleeAngle *= (-1);
 		_coolCnt = 0;
 	}
