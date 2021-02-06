@@ -37,10 +37,10 @@ HRESULT playGround::init()
 	SOUNDMANAGER->addSound("플랜트죽을때", "sound/플레이어 사망/플랜트죽을대.mp3", false, false);
 	SOUNDMANAGER->addSound("피쉬죽을때", "sound/플레이어 사망/피쉬죽을때.mp3", false, false);
 
-	SOUNDMANAGER->addSound("멜팅죽을떄", "sound/아이즈 스킬.mp3", false, false);
-	SOUNDMANAGER->addSound("크리스탈죽을때", "sound/크리스탈스킬.mp3", false, false);
-	SOUNDMANAGER->addSound("플랜트죽을때", "sound/플레이어 사망/플랜트죽을대.mp3", false, false);
-	SOUNDMANAGER->addSound("피쉬죽을때", "sound/플레이어 사망/피쉬죽을때.mp3", false, false);
+	SOUNDMANAGER->addSound("아이즈 스킬", "sound/아이즈 스킬.mp3", false, false);
+	SOUNDMANAGER->addSound("크리스탈 스킬", "sound/크리스탈스킬.mp3", false, false);
+	SOUNDMANAGER->addSound("플랜트 스킬", "sound/플레이어 사망/플랜트 스킬.mp3", false, false);
+	SOUNDMANAGER->addSound("피쉬 스킬", "sound/플레이어 사망/피쉬 스킬.mp3", false, false);
 
 	SOUNDMANAGER->addSound("클릭소리", "sound/효과음/클릭소리.mp3", false, false);
 	SOUNDMANAGER->addSound("폭발사운드", "sound/효과음/폭빌사운드.mp3", false, false);
@@ -64,6 +64,19 @@ HRESULT playGround::init()
 	SOUNDMANAGER->addSound("빅독 등장", "sound/효과음/에너미/빅독등장.mp3", false, false);
 	SOUNDMANAGER->addSound("빅밴딧 등장", "sound/효과음/에너미/빅밴딧등장1.mp3", false, false);
 	
+	SOUNDMANAGER->addSound("권총", "sound/효과음/무기/권총.mp3", false, false);
+	SOUNDMANAGER->addSound("단발 쎈거", "sound/효과음/무기/단발 쎈거.mp3", false, false);
+	SOUNDMANAGER->addSound("둔기", "sound/효과음/무기/둔기.mp3", false, false);
+	SOUNDMANAGER->addSound("레이저", "sound/효과음/무기/레이저.mp3", false, false);
+	SOUNDMANAGER->addSound("렌치", "sound/효과음/무기/렌치.mp3", false, false);
+	SOUNDMANAGER->addSound("쇠소리", "sound/효과음/무기/쇠소리.mp3", false, false);
+	SOUNDMANAGER->addSound("약한총", "sound/효과음/무기/약한총.mp3", false, false);
+	SOUNDMANAGER->addSound("재장전", "sound/효과음/무기/재장전.mp3", false, false);
+	SOUNDMANAGER->addSound("칼", "sound/효과음/무기/칼.mp3", false, false);
+
+
+
+
 	SCENEMANAGER->changeScene("시작씬");
 
 	return S_OK;
