@@ -6,6 +6,8 @@ struct tagImage {
 	image* img;
 	RECT rc;
 	int x, y;
+	int currentFrameX;
+	int currentFrameY;
 };
 
 struct tagAlphaImage {

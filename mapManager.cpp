@@ -95,6 +95,17 @@ void mapManager::collision(RECT rc)
 	
 }
 
+void mapManager::stageClearCheck()
+{
+	bool isClear = true;
+	for (vector<enemy*>::iterator iter = ENEMYMANAGER->getShowEnemyVector().begin(); iter != ENEMYMANAGER->getShowEnemyVector().end();++iter) {
+		//죽지 않은 것이 있으면 false
+		if ((*iter)->getInfo().state != E_DEAD) {
+			isClear = false;
+		}
+	}
+}
+
 void mapManager::setRandomMap()
 {
 	setRandomStage(stage_first);

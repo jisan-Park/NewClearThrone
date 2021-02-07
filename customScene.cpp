@@ -7,11 +7,13 @@ HRESULT customScene::init()
 	MAPMANAGER->load("saveMap1.bmp");
 	ENEMYMANAGER->setShowEnemyVector("custom");
 	BULLETMANAGER->init();
+	GAMEMANAGER->setUIImage();
 	return S_OK;
 }
 
 void customScene::update()
 {
+	
 	//pause
 	BULLETMANAGER->update();
 	if (KEYMANAGER->isOnceKeyDown(VK_TAB)) {
@@ -45,7 +47,7 @@ void customScene::update()
 
 		//player update
 		PLAYERMANAGER->update();
-
+		GAMEMANAGER->updateUI();
 		//item update
 		ITEMMANAGER->update();
 
@@ -64,7 +66,6 @@ void customScene::release()
 
 void customScene::render()
 {
-
 	//map tile render
 
 	MAPMANAGER->strectchSceneRender(getMapDC());
@@ -97,5 +98,6 @@ void customScene::render()
 
 	//pause render
 	GAMEMANAGER->pauseRender(getMemDC());
-
+	//ui render
+	GAMEMANAGER->UIRender(getMemDC());
 }

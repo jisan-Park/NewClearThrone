@@ -74,7 +74,7 @@ protected:
 	bool _isRecycleGland;
 	bool _isStrongSpirit;
 
-
+	vector<image*> mutation;
 
 	//=========================================
 	bool _isdash;//fish 스킬 트리거
@@ -145,7 +145,8 @@ public:
 
 	//int getPlayerbullet() { return _playerbullet; }
 	//void setPlayerbullet(int playerbullet) { _playerbullet = playerbullet; }
-
+	weapon* getCurrentWeapon() { return _currentWeapon; };
+	weapon* getReadyWeapon() { return _readyWeapon; };
 	int getHp() { return _hp; }
 	void setHp(int hp) { _hp = hp; }
 
@@ -155,18 +156,26 @@ public:
 	void setMaxhp(int maxhp) { _maxhp = maxhp; }
 
 	void setWeaponReady(bool ready) { _weaponReady = ready; }
-
+	bool getWeaponReady() { return _weaponReady; };
 	int getAngleCard() { return _angleCard; }
 
+	int getPlayerMaxBullet() { return _playerbulletMax; };
+	void setPlayerMaxBullet(int i) { _playerbulletMax = i; };
 	int getPlayerbullet() { return _playerbullet; }
 	void setPlayerbullet(int playerbullet) { _playerbullet = playerbullet; }
 
+	int getPlayerMaxShell() { return _playershellbMax; };
+	void setPlayerMaxShell(int i) { _playershellbMax = i; };
 	int getPlayershellb() { return _playershellb; }
 	void setPlayershellb(int playershellb) { _playershellb = playershellb; }
 
+	int getPlayerMaxEnergy() { return _playerenergubMax; };
+	void setPlayerMaxEnergy(int i) { _playerenergubMax = i; };
 	int getPlayerenergyb() { return _playerenergyb; }
 	void setPlayerenergyb(int playerenergyb) { _playerenergyb = playerenergyb; }
 
+	int getPlayerMaxExplosive() { return _playerecplodbeMax; };
+	void setPlayerMaxExplosive(int i) { _playerecplodbeMax = i; };
 	int getPlayerexplodeb() { return _playerexplodeb; }
 	void setPlayerexplodeb(int playerexplodeb) { _playerexplodeb = playerexplodeb; }
 

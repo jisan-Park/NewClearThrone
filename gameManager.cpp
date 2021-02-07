@@ -12,7 +12,7 @@ HRESULT gameManager::init()
 	IMAGEMANAGER->addImage("black", "image/Scene/black.bmp", 1280, 720, true, RGB(255, 0, 255));
 	setVolumeImage();
 	setPauseImage();
-	
+	//setUIImage();
 
 	isPaused = false;
 	isSetting = false;
@@ -29,6 +29,262 @@ void gameManager::release()
 
 void gameManager::render(HDC hdc)
 {
+}
+
+void gameManager::setUIImage()
+{
+	//stage
+	IMAGEMANAGER->addImage("stage", "image/ui/stage.bmp", 66, 14, true, RGB(255, 0, 255));
+	//number
+	IMAGEMANAGER->addFrameImage("number","image/ui/number.bmp",140,15,10,1,true,RGB(255,0,255));
+	//hp
+	IMAGEMANAGER->addImage("hp_slash","image/ui/hp/slash.bmp",11,15,true,RGB(255,0,255));
+	IMAGEMANAGER->addImage("hpbar_back", "image/ui/hp/hpbar_back.bmp", 250, 35, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("hpbar_front", "image/ui/hp/hpbar_front.bmp", 250, 35, true, RGB(255, 0, 255));
+	//bulletCount
+	IMAGEMANAGER->addImage("bullet_back", "image/ui/bulletCount/bullet_back.bmp", 21, 26, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("bullet_front", "image/ui/bulletCount/bullet_front.bmp", 21, 26, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("shell_back", "image/ui/bulletCount/shell_back.bmp", 16, 26, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("shell_front", "image/ui/bulletCount/shell_front.bmp", 16, 26, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("energy_back", "image/ui/bulletCount/energy_back.bmp", 18, 26, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("energy_front", "image/ui/bulletCount/energy_front.bmp", 18, 26, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("explosive_back", "image/ui/bulletCount/explosive_back.bmp", 21, 26, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("explosive_front", "image/ui/bulletCount/explosive_front.bmp", 21, 26, true, RGB(255, 0, 255));
+	//weaponIcon
+	IMAGEMANAGER->addImage("assultrifle_icon", "image/ui/weaponIcon/assultrifle_icon.bmp", 50, 20, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("grenadelauncher_icon", "image/ui/weaponIcon/grenadelauncher_icon.bmp", 57, 17, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("machinegun_icon", "image/ui/weaponIcon/machinegun_icon.bmp", 67, 15, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("pistol_icon", "image/ui/weaponIcon/pistol_icon.bmp", 36, 18, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("razerrifle_icon", "image/ui/weaponIcon/razerrifle_icon.bmp", 57, 22, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("shotgun_icon", "image/ui/weaponIcon/shotgun_icon.bmp", 47, 17, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("shovel_icon", "image/ui/weaponIcon/shovel_icon.bmp", 58, 15, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("sword_icon", "image/ui/weaponIcon/sword_icon.bmp", 46, 8, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("triplemachinegun_icon", "image/ui/weaponIcon/triplemachinegun_icon.bmp", 49, 21, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("wrench_icon", "image/ui/weaponIcon/wrench_icon.bmp", 33, 11, true, RGB(255, 0, 255));
+
+	stage.img = new image;
+	stage.img = IMAGEMANAGER->findImage("stage");
+	stage.x = 0;
+	stage.y = 0;
+	
+	round[0].img = new image;
+	round[1].img = new image;
+	round_slash.img = new image;
+
+	round[0].img = IMAGEMANAGER->findImage("number");
+	round[1].img = IMAGEMANAGER->findImage("number");
+	round_slash.img = IMAGEMANAGER->findImage("hp_slash");
+
+	round[0].x = 64 + 10;
+	round[1].x = 64 + 40;
+	round_slash.x = 64 + 25;
+
+	round[0].currentFrameX = MAPMANAGER->getStage_first() + 1;
+	round[1].currentFrameX = MAPMANAGER->getStage_second() + 1;
+	round[0].currentFrameY = 0;
+	round[1].currentFrameY = 0;
+	
+	round[0].y = round[1].y = round_slash.y = 0;
+
+
+	//new image
+	//체력바
+	HP.backBar = new image;
+	HP.frontBar = new image;
+	hpSlash.img = new image;
+
+	HP.backBar = IMAGEMANAGER->findImage("hpbar_back");
+	HP.frontBar = IMAGEMANAGER->findImage("hpbar_front");
+	HP.x = 0;
+	HP.y = 20;
+	HP.width = (int)(((float)PLAYERMANAGER->getPlayer()->getHp() / (float)PLAYERMANAGER->getPlayer()->getMaxhp()) * (float)HP.backBar->getWidth());
+	hpSlash.img = IMAGEMANAGER->findImage("hp_slash");
+	hpSlash.x = HP.backBar->getWidth() / 2;
+	hpSlash.y = HP.y+10;
+
+	//체력 숫자
+	for (int i = 0; i < 2; ++i) {
+		currentHP[i].img = new image;
+		maxHP[i].img = new image;
+
+		currentHP[i].img = IMAGEMANAGER->findImage("number");
+		maxHP[i].img = IMAGEMANAGER->findImage("number");
+
+		currentHP[1 - i].x = HP.backBar->getWidth() / 2 - 24 - (19 * i);
+		maxHP[i].x = HP.backBar->getWidth() / 2 + 24 + (19 * i);
+
+		currentHP[i].y = HP.y + 10;
+		maxHP[i].y = HP.y + 10;
+
+		currentHP[i].currentFrameY = 0;
+		maxHP[i].currentFrameY = 0;
+	}
+
+	maxHP[0].currentFrameX = PLAYERMANAGER->getPlayer()->getMaxhp() / 10;
+	maxHP[1].currentFrameX = PLAYERMANAGER->getPlayer()->getMaxhp() % 10;
+
+	currentHP[0].currentFrameX = PLAYERMANAGER->getPlayer()->getHp() / 10;
+	currentHP[1].currentFrameX = PLAYERMANAGER->getPlayer()->getHp() % 10;
+	
+	//현재, 서브 무기이미지 + 총알 개수
+	for (int i = 0; i < 4; ++i) {
+		for (int j = 0; j < 3; ++j) {
+			bulletCountNumber[i][j].img = new image;
+			bulletCountNumber[i][j].img = IMAGEMANAGER->findImage("number");
+			bulletCountNumber[i][j].x = 50 + (j * 20);
+			bulletCountNumber[i][j].y = 70 + (i * 30);
+			bulletCountNumber[i][j].currentFrameY = 0;
+			
+		}
+	}
+	bulletCountNumber[0][0].currentFrameX = PLAYERMANAGER->getPlayer()->getPlayerbullet() / 100;
+	bulletCountNumber[0][1].currentFrameX = PLAYERMANAGER->getPlayer()->getPlayerbullet() % 100 / 10;
+	bulletCountNumber[0][2].currentFrameX = PLAYERMANAGER->getPlayer()->getPlayerbullet() % 10;
+
+	bulletCountNumber[1][0].currentFrameX = PLAYERMANAGER->getPlayer()->getPlayershellb() / 100;
+	bulletCountNumber[1][1].currentFrameX = PLAYERMANAGER->getPlayer()->getPlayershellb() % 100 / 10;
+	bulletCountNumber[1][2].currentFrameX = PLAYERMANAGER->getPlayer()->getPlayershellb() % 10;
+
+	bulletCountNumber[2][0].currentFrameX = PLAYERMANAGER->getPlayer()->getPlayerenergyb() / 100;
+	bulletCountNumber[2][1].currentFrameX = PLAYERMANAGER->getPlayer()->getPlayerenergyb() % 100 / 10;
+	bulletCountNumber[2][2].currentFrameX = PLAYERMANAGER->getPlayer()->getPlayerenergyb() % 10;
+
+	bulletCountNumber[3][0].currentFrameX = PLAYERMANAGER->getPlayer()->getPlayerexplodeb() / 100;
+	bulletCountNumber[3][1].currentFrameX = PLAYERMANAGER->getPlayer()->getPlayerexplodeb() % 100 / 10;
+	bulletCountNumber[3][2].currentFrameX = PLAYERMANAGER->getPlayer()->getPlayerexplodeb() % 10;
+	
+	//bulletCount set
+	for (int i = 0; i < 4; ++i) {
+		bulletCount[i].backBar = new image;
+		bulletCount[i].frontBar = new image;
+		bulletCount[i].x = 25;
+		bulletCount[i].y = 70 + (i * 30);
+	}
+	bulletCount[0].backBar = IMAGEMANAGER->findImage("bullet_back");
+	bulletCount[0].frontBar = IMAGEMANAGER->findImage("bullet_front");
+	bulletCount[1].backBar = IMAGEMANAGER->findImage("shell_back");
+	bulletCount[1].frontBar = IMAGEMANAGER->findImage("shell_front");
+	bulletCount[2].backBar = IMAGEMANAGER->findImage("energy_back");
+	bulletCount[2].frontBar = IMAGEMANAGER->findImage("energy_front");
+	bulletCount[3].backBar = IMAGEMANAGER->findImage("explosive_back");
+	bulletCount[3].frontBar = IMAGEMANAGER->findImage("explosive_front");
+
+	bulletCount[0].width = (int)(((float)PLAYERMANAGER->getPlayer()->getPlayerbullet() / (float)PLAYERMANAGER->getPlayer()->getPlayerMaxBullet()) * (float)bulletCount[0].backBar->getWidth());
+	bulletCount[1].width = (int)(((float)PLAYERMANAGER->getPlayer()->getPlayershellb() / (float)PLAYERMANAGER->getPlayer()->getPlayerMaxShell()) * (float)bulletCount[1].backBar->getWidth());
+	bulletCount[2].width = (int)(((float)PLAYERMANAGER->getPlayer()->getPlayerenergyb() / (float)PLAYERMANAGER->getPlayer()->getPlayerMaxEnergy()) * (float)bulletCount[2].backBar->getWidth());
+	bulletCount[3].width = (int)(((float)PLAYERMANAGER->getPlayer()->getPlayerexplodeb() / (float)PLAYERMANAGER->getPlayer()->getPlayerMaxExplosive()) * (float)bulletCount[3].backBar->getWidth());
+}
+
+void gameManager::updateUI()
+{
+	//라운드 숫자 변화
+	round[0].currentFrameX = MAPMANAGER->getStage_first() + 1;
+	round[1].currentFrameX = MAPMANAGER->getStage_second() + 1;
+
+	//bullet count 변화
+	bulletCountNumber[0][0].currentFrameX = PLAYERMANAGER->getPlayer()->getPlayerbullet() / 100;
+	bulletCountNumber[0][1].currentFrameX = PLAYERMANAGER->getPlayer()->getPlayerbullet() % 100 / 10;
+	bulletCountNumber[0][2].currentFrameX = PLAYERMANAGER->getPlayer()->getPlayerbullet() % 10;
+
+	bulletCountNumber[1][0].currentFrameX = PLAYERMANAGER->getPlayer()->getPlayershellb() / 100;
+	bulletCountNumber[1][1].currentFrameX = PLAYERMANAGER->getPlayer()->getPlayershellb() % 100 / 10;
+	bulletCountNumber[1][2].currentFrameX = PLAYERMANAGER->getPlayer()->getPlayershellb() % 10;
+
+	bulletCountNumber[2][0].currentFrameX = PLAYERMANAGER->getPlayer()->getPlayerenergyb() / 100;
+	bulletCountNumber[2][1].currentFrameX = PLAYERMANAGER->getPlayer()->getPlayerenergyb() % 100 / 10;
+	bulletCountNumber[2][2].currentFrameX = PLAYERMANAGER->getPlayer()->getPlayerenergyb() % 10;
+
+	bulletCountNumber[3][0].currentFrameX = PLAYERMANAGER->getPlayer()->getPlayerexplodeb() / 100;
+	bulletCountNumber[3][1].currentFrameX = PLAYERMANAGER->getPlayer()->getPlayerexplodeb() % 100 / 10;
+	bulletCountNumber[3][2].currentFrameX = PLAYERMANAGER->getPlayer()->getPlayerexplodeb() % 10;
+
+	//bullet count 변화에 따른 이미지 render width 변경
+	bulletCount[0].width = (int)(((float)PLAYERMANAGER->getPlayer()->getPlayerbullet() / (float)PLAYERMANAGER->getPlayer()->getPlayerMaxBullet()) * (float)bulletCount[0].backBar->getWidth());
+	bulletCount[1].width = (int)(((float)PLAYERMANAGER->getPlayer()->getPlayershellb() / (float)PLAYERMANAGER->getPlayer()->getPlayerMaxShell()) * (float)bulletCount[1].backBar->getWidth());
+	bulletCount[2].width = (int)(((float)PLAYERMANAGER->getPlayer()->getPlayerenergyb() / (float)PLAYERMANAGER->getPlayer()->getPlayerMaxEnergy()) * (float)bulletCount[2].backBar->getWidth());
+	bulletCount[3].width = (int)(((float)PLAYERMANAGER->getPlayer()->getPlayerexplodeb() / (float)PLAYERMANAGER->getPlayer()->getPlayerMaxExplosive()) * (float)bulletCount[3].backBar->getWidth());
+	//hp변화에 따른 숫자 변경
+	maxHP[0].currentFrameX = PLAYERMANAGER->getPlayer()->getMaxhp() / 10;
+	maxHP[1].currentFrameX = PLAYERMANAGER->getPlayer()->getMaxhp() % 10;
+	currentHP[0].currentFrameX = PLAYERMANAGER->getPlayer()->getHp() / 10;
+	currentHP[1].currentFrameX = PLAYERMANAGER->getPlayer()->getHp() % 10;
+	//hp변화에 따른 색 width 변경
+	HP.width = (int)(((float)PLAYERMANAGER->getPlayer()->getHp() / (float)PLAYERMANAGER->getPlayer()->getMaxhp()) * (float)HP.backBar->getWidth());
+}
+
+void gameManager::UIRender(HDC hdc)
+{
+	stage.img->render(hdc,stage.x,stage.y);
+	round[0].img->frameRender(hdc, round[0].x, round[0].y, round[0].currentFrameX, round[0].currentFrameY);
+	round[1].img->frameRender(hdc, round[1].x, round[1].y, round[1].currentFrameX, round[1].currentFrameY);
+	round_slash.img->render(hdc,round_slash.x, round_slash.y);
+
+	//체력바
+	HP.frontBar->render(hdc, HP.x, HP.y, 0, 0, HP.width, HP.backBar->getHeight());
+	HP.backBar->render(hdc, HP.x, HP.y);
+	hpSlash.img->render(hdc,hpSlash.x, hpSlash.y);
+
+	//체력 숫자
+	for (int i = 0; i < 2; ++i) {
+		currentHP[i].img->frameRender(hdc,currentHP[i].x, currentHP[i].y, currentHP[i].currentFrameX, currentHP[i].currentFrameY);
+		maxHP[i].img->frameRender(hdc, maxHP[i].x, maxHP[i].y, maxHP[i].currentFrameX, maxHP[i].currentFrameY);
+	}
+	////bullet render
+	for (int i = 0; i < 4; ++i) {
+		for (int j = 0; j < 3; ++j) {
+			bulletCountNumber[i][j].img->frameRender(
+				hdc,
+				bulletCountNumber[i][j].x,
+				bulletCountNumber[i][j].y,
+				bulletCountNumber[i][j].currentFrameX,
+				bulletCountNumber[i][j].currentFrameY);
+		}
+	}
+
+	//총알 이미지로 보여주기 //0:bullet, 1:shell, 2:energy, 3:explosive
+	for (int i = 0; i < 4; ++i) {
+		bulletCount[i].backBar->render(hdc, bulletCount[i].x, bulletCount[i].y);
+		bulletCount[i].frontBar->render(hdc, bulletCount[i].x, bulletCount[i].y,0,0, bulletCount[i].width, bulletCount[i].backBar->getHeight());
+	}
+}
+
+void gameManager::getWeaponIcon(image* img, weaponType t)
+{
+	switch (t)
+	{
+	case ASSULTRIFLE:
+		img = IMAGEMANAGER->findImage("assultrifle_icon");
+		break;
+	case GRENADELAUNCHER:
+		img = IMAGEMANAGER->findImage("grenadelauncher_icon");
+		break;
+	case MACHINEGUN:
+		img = IMAGEMANAGER->findImage("machinegun_icon");
+		break;
+	case PISTOL:
+		img = IMAGEMANAGER->findImage("pistol_icon");
+		break;
+	case RAZERRIFLE:
+		img = IMAGEMANAGER->findImage("razerrifle_icon");
+		break;
+	case SHOTGUN:
+		img = IMAGEMANAGER->findImage("shotgun_icon");
+		break;
+	case SHOVEL:
+		img = IMAGEMANAGER->findImage("shovel_icon");
+		break;
+	case SWORD:
+		img = IMAGEMANAGER->findImage("sword_icon");
+		break;
+	case TRIPLEMACHINEGUN:
+		img = IMAGEMANAGER->findImage("triplemachinegun_icon");
+		break;
+	case WRENCH:
+		img = IMAGEMANAGER->findImage("wrench_icon");
+		break;
+	default:
+		break;
+	}
 }
 
 void gameManager::volumeCheck()

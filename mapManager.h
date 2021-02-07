@@ -174,6 +174,7 @@ public:
 	//setter
 	void setStage_first(int i) { stage_first = i; };
 	void setStage_second(int i) { stage_second = i; };
+	void stageClearCheck();
 	void setEnemyCount(int i) { enemyCount = i; };
 	void setBulletBoxCount(int i) { bulletBoxCount = i; };
 	void setWeaponBoxCount(int i) { weaponBoxCount = i; };

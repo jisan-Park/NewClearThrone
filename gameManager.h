@@ -1,10 +1,27 @@
 #pragma once
 #include "singletonBase.h"
+enum weaponType;
 class gameManager : public singletonBase<gameManager>
 {
 private:
-	
+	////////////////////[ UI ]///////////////////////////
+	//현재 라운드
+	tagImage stage;
+	tagImage round[2];
+	tagImage round_slash;
+	//체력 숫자
+	tagImage currentHP[2];
+	tagImage maxHP[2];
 
+	//체력바
+	tagVolume HP;
+	tagImage hpSlash;
+
+	//현재, 서브 무기이미지 + 총알 개수
+	tagImage bulletCountNumber[4][3];
+
+	//총알 이미지로 보여주기 //0:bullet, 1:shell, 2:energy, 3:explosive
+	tagVolume bulletCount[4];
 	////////////////////[ volume ]///////////////////////////
 	//back Scene
 	tagAlphaImage back;
@@ -29,8 +46,11 @@ public:
 	void update();
 	void release();
 	void render(HDC hdc);
-	
-	
+	////////////////////[ UI ]///////////////////////////
+	void setUIImage();
+	void updateUI();
+	void UIRender(HDC hdc);
+	void getWeaponIcon(image* img, weaponType t);
 	////////////////////[ volume ]///////////////////////////
 	void volumeCheck();
 	
