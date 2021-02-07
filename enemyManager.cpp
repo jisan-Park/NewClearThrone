@@ -430,3 +430,16 @@ void enemyManager::plantSkill()
 		_showEnemy[i]->plantBulletCollision();
 	}
 }
+
+bool enemyManager::checkShowEnemyVector()
+{
+	bool isAllDead = true;
+
+	for (int i = 0; i < _showEnemy.size();++i) {
+		if (_showEnemy[i]->getState() != E_DEAD) {
+			isAllDead = false;
+		}
+	}
+
+	return isAllDead;
+}

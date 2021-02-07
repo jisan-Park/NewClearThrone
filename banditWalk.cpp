@@ -51,8 +51,13 @@ void banditWalk::update(enemyinfo &info)
 	}
 	else
 	{
-		info.pt.x += cosf(info.moveAngle)* info.speed;
-		info.pt.y += -sinf(info.moveAngle)* info.speed;
+		if (!MAPMANAGER->isCollisionTile(info.pt,info.width, info.height)) {
+			info.pt.x += cosf(info.moveAngle)* info.speed;
+			info.pt.y += -sinf(info.moveAngle)* info.speed;
+		}
+		
+		/*info.pt.x += cosf(info.moveAngle)* info.speed;
+		info.pt.y += -sinf(info.moveAngle)* info.speed;*/
 
 		//if (info.pt.x != MAPMANAGER->enemyMove(info.pt).x || info.pt.y != MAPMANAGER->enemyMove(info.pt).y) {
 		//	if (info.pt.x < MAPMANAGER->enemyMove(info.pt).x) {

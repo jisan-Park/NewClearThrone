@@ -15,7 +15,6 @@ void customScene::update()
 {
 	
 	//pause
-	BULLETMANAGER->update();
 	if (KEYMANAGER->isOnceKeyDown(VK_TAB)) {
 		if (GAMEMANAGER->getIsPaused()) {
 			GAMEMANAGER->setIsPaused(false);
@@ -36,6 +35,15 @@ void customScene::update()
 		}
 	}
 	else {
+		BULLETMANAGER->update();
+
+		//만약 enemyVector가 비어있다면
+		if (ENEMYMANAGER->checkShowEnemyVector()) {
+			MAPMANAGER->createPortal();
+		}
+		//포탈과 충돌이 일어나면 카드선택씬으로 이동
+		MAPMANAGER->collisionPortal();
+
 		for (enemy* e : ENEMYMANAGER->getShowEnemyVector()) {
 			//각 에너미의 update
 			e->update();
@@ -57,6 +65,7 @@ void customScene::update()
 			PLAYERMANAGER->getPlayer()->getPt().y);
 		//mouse update
 		CAMERAMANAGER->update();
+		MAPMANAGER->autoTile();
 	}
 }
 
@@ -87,7 +96,10 @@ void customScene::render()
 		MAPMANAGER->RectRender(getMapDC());
 		Rectangle(getMapDC(),PLAYERMANAGER->getPlayer()->getRect().left, PLAYERMANAGER->getPlayer()->getRect().top, PLAYERMANAGER->getPlayer()->getRect().right, PLAYERMANAGER->getPlayer()->getRect().bottom);
 	}
-
+	//만약 enemyVector가 비어있다면
+	if (ENEMYMANAGER->checkShowEnemyVector()) {
+		MAPMANAGER->renderPortal(getMapDC());
+	}
 
 	//마우스 포인터 render
 	RECT _mouse = RectMakeCenter(CAMERAMANAGER->getMousePoint().x, CAMERAMANAGER->getMousePoint().y, 40, 40);

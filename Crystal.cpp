@@ -164,7 +164,7 @@ void Crystal::contral()
 
 	if (_playerstate == WALK)
 	{
-		if (!MAPMANAGER->isCollisionTile(_pt)) {
+		if (!MAPMANAGER->isCollisionTile(_pt,_width,_height)) {
 			if (KEYMANAGER->isStayKeyDown('A'))
 			{
 				_pt.x -= 5;

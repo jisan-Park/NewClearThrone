@@ -46,6 +46,7 @@ public:
 	void update();
 	void release();
 	void render(HDC hdc);
+
 	////////////////////[ UI ]///////////////////////////
 	void setUIImage();
 	void updateUI();

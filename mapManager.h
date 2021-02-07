@@ -123,6 +123,8 @@ private:
 	int weaponBoxCount;
 	int medikitBoxCount;
 
+	tagImage portal;
+	animation* portal_animation;
 	//////////////////////////[위치저장 용 set]///////////////////////
 
 	POINT player_pt;
@@ -169,7 +171,7 @@ public:
 	void update();
 	void release();
 	////////////////////[ stage ]///////////////////////////
-	bool isCollisionTile(POINT& pt);
+	bool isCollisionTile(POINT& pt, int width, int height);
 	void collision(RECT rc);
 	//setter
 	void setStage_first(int i) { stage_first = i; };
@@ -250,7 +252,13 @@ public:
 
 	//enemy A* algorithm
 	POINT enemyMove(POINT pt);
+	POINT enemyRandomMove(POINT pt);
 	bool isStraight(POINT player, POINT enemy);
 	bool ptIntersect(POINT pt);
+
+	//go to next stage
+	void createPortal();
+	void renderPortal(HDC hdc);
+	void collisionPortal();
 };
 

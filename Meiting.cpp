@@ -50,7 +50,6 @@ void Meiting::update()
 		_readyWeapon->setAngle(0);
 	}
 	_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);
-	MAPMANAGER->isCollisionTile(_pt);
 }
 
 void Meiting::render(HDC hdc)
@@ -151,7 +150,7 @@ void Meiting::contral()
 
 	if (_playerstate == WALK)
 	{
-		if (!MAPMANAGER->isCollisionTile(_pt)) {
+		if (!MAPMANAGER->isCollisionTile(_pt, _width, _height)) {
 			if (KEYMANAGER->isStayKeyDown('A'))
 			{
 				_pt.x -= 5;

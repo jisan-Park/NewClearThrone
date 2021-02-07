@@ -89,5 +89,8 @@ public:
 	void plantSkill();
 	//getter
 	vEnemy getShowEnemyVector() { return _showEnemy; };
+
+	//stage
+	bool checkShowEnemyVector();
 };
 

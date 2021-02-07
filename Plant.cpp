@@ -50,7 +50,6 @@ void Plant::update()
 	}
 	_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);
 	PLANTBULLET->update();
-	MAPMANAGER->isCollisionTile(_pt);
 }
 
 void Plant::render(HDC hdc)
@@ -154,7 +153,7 @@ void Plant::contral()
 
 	if (_playerstate == WALK)
 	{
-		if (!MAPMANAGER->isCollisionTile(_pt)) {
+		if (!MAPMANAGER->isCollisionTile(_pt, _width, _height)) {
 			if (KEYMANAGER->isStayKeyDown('A'))
 			{
 				_pt.x -= 5;

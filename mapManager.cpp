@@ -35,6 +35,14 @@ HRESULT mapManager::init()
 	weaponBoxCount = 2;
 	medikitBoxCount = 2;
 
+	IMAGEMANAGER->addFrameImage("portal","image/effect/portal.bmp",312,78,4,1,true,RGB(255,0,255));
+
+	portal.img = new image;
+	portal.img = IMAGEMANAGER->findImage("portal");
+	portal_animation = new animation;
+	portal_animation->init("portal");
+	portal_animation->setPlayFrame(0,3,false,true);
+	portal_animation->setFPS(10);
 
 	return S_OK;
 }
@@ -47,9 +55,9 @@ void mapManager::release()
 {
 }
 
-bool mapManager::isCollisionTile(POINT& pt)
+bool mapManager::isCollisionTile(POINT& pt, int width, int height)
 {
-	RECT playerRect = RectMakeCenter(pt.x,pt.y,30,30);
+	RECT playerRect = RectMakeCenter(pt.x,pt.y, width, height);
 	RECT temp;
 	for (int i = 0; i < TILEX; ++i) {
 		for (int j = 0; j < TILEY; ++j) {
@@ -3292,6 +3300,82 @@ POINT mapManager::enemyMove(POINT pt)
 	return nextArea;
 }
 
+POINT mapManager::enemyRandomMove(POINT pt)
+{
+	POINT nextArea;
+	//절대경로 (타일 한개의 크기로 나눠서 index를 찾음
+	int index_x = pt.x / 64;
+	int index_y = pt.y / 64;
+	int rnd = RND->getInt(4);
+	cout << "현재 enemy 위치 x : "<<index_x<<", y : "<<index_y << endl<<endl;
+	while (true) {
+		int i;
+		int j;	
+		//3보다 커지면 0 으로 초기화
+		if (rnd > 3) {
+			rnd = 0;
+		}
+		//랜덤으로 상, 하, 좌, 우 의 타일로 이동한다.
+		switch (rnd)
+		{
+		case 0://상
+			i = index_x;
+			j = index_y - 1;
+			break;
+		case 1://하
+			i = index_x;
+			j = index_y + 1;
+			break;
+		case 2://좌
+			i = index_x - 1;
+			j = index_y;
+			break;
+		case 3://우
+			i = index_x + 1;
+			j = index_y;
+			break;
+		default:
+			break;
+		}
+		//다음 위치에 해당하는 타일이 wall이 있으면 다시
+		if (_tiles[i][j].wall != WALL_NONE) {
+			rnd++;
+			continue;
+		}
+		else {
+			break;
+		}
+	}
+
+	cout << "선택된 rnd : " << rnd << endl << endl;
+	cout << "index_x : " << index_x << "index_y : "<<index_y << endl<<endl;
+
+	//랜덤으로 상, 하, 좌, 우 의 타일로 이동한다.
+	switch (rnd)
+	{
+	case 0://상
+		nextArea.x = index_x * 64;
+		nextArea.y = (index_y - 1) * 64;
+		break;
+	case 1://하
+		nextArea.x = index_x * 64;
+		nextArea.y = (index_y + 1) * 64;
+		break;
+	case 2://좌
+		nextArea.x = (index_x - 1) * 64;
+		nextArea.y = index_y * 64;
+		break;
+	case 3://우
+		nextArea.x = (index_x + 1) * 64;
+		nextArea.y = index_y * 64;
+		break;
+	default:
+		break;
+	}
+	cout << "nextArea.x : " << nextArea.x << "nextArea.y : " << nextArea.y << endl << endl;
+	return nextArea;
+}
+
 bool mapManager::isStraight(POINT player, POINT enemy)
 {
 	int startx, starty, endx, endy;
@@ -3335,3 +3419,22 @@ bool mapManager::ptIntersect(POINT pt)
 	if (_tiles[x][y].wall != WALL_NONE) return true;
 }
 
+void mapManager::createPortal()
+{
+	portal.rc = RectMakeCenter(getStartPoint().x, getStartPoint().y, portal.img->getWidth(), portal.img->getHeight());
+}
+
+void mapManager::renderPortal(HDC hdc)
+{
+	portal.img->aniRender(hdc,portal.rc.left, portal.rc.top, portal_animation);
+}
+
+void mapManager::collisionPortal()
+{
+	RECT temp;
+	//플레이어가 portalRect와 충돌하면, 카드선택씬으로 이동
+	if (IntersectRect(&temp, &PLAYERMANAGER->getPlayer()->getRect(), &portal.rc)) {
+		SCENEMANAGER->changeScene("카드선택씬");
+	}
+
+}
