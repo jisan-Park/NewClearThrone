@@ -59,7 +59,7 @@ protected:
 	int _playerenergubMax;
 	int _playerexplodeb;
 	int _playerecplodbeMax;
-	int _angleCard;
+	int _angleCard = 0;
 	bool _weaponReady;
 	bool _assfire;
 	bool _shotfire;
@@ -93,6 +93,16 @@ public:
 	virtual void playerWeaponSwap();
 	virtual void groundWeaponSwap(weaponType type);
 	virtual void groundWeaponGet(weaponType type);
+
+	virtual void BackMuscle();		//탄약 보유수 최대치 증가
+	virtual void Bloodlust();		//적 명중시 1/13(확률은 바꿔도 될듯) 로 피1 채워줌
+	virtual void EagleEyes();		//탄 정확도 증가 ( 산탄총도 산탄 줄어듬)
+	virtual void ExtraFeet();		//이동속도 증가
+	virtual void LastWish();		//체력 풀로 채워주고 탄약 일정량 채워줌
+	virtual void RecycleGland();	//적 명중시 60% 확률로 탄약 회복됨 (1다는 무기면 1만큼 5다는 무기면 5만큼)
+	virtual void Rhinoskin();		//피 최대치 4 증가, 피 4 채워줌
+	virtual void Stress();			//피가 적을수록 총알속도 빨라짐
+	virtual void Strongspirit();	//활성화시 머리위에 링 생기고 << 안생겨도 될듯 5초동안 트린궁 피1로 고정
 	//콜백을 위한 겟터,셋터
 	//=========================================
 	DIRECTION getDirection() { return _direction; }

@@ -182,3 +182,55 @@ void Player::groundWeaponGet(weaponType type)
 	}
 	_currentWeapon->init(_pt, NOWUSING);
 }
+
+void Player::BackMuscle()
+{
+	_playerbulletMax += 50;
+	_playerecplodbeMax += 50;
+	_playerenergubMax += 50;
+	_playershellbMax += 50;
+}
+
+void Player::Bloodlust()
+{
+}
+
+void Player::EagleEyes()
+{
+	_angleCard += 1;
+}
+
+void Player::ExtraFeet()
+{
+	_speed += 2;
+}
+
+void Player::LastWish()
+{
+	_hp = _maxhp;
+	_playerbullet = _playerbulletMax;
+	_playerexplodeb = _playerecplodbeMax;
+	_playerenergyb = _playerenergubMax;
+	_playershellb = _playershellbMax;
+
+
+}
+
+void Player::RecycleGland()
+{
+}
+
+void Player::Rhinoskin()
+{
+	_maxhp += 4;
+	_hp += 4;
+}
+
+void Player::Stress()
+{
+	_interval -= 3;
+}
+
+void Player::Strongspirit()
+{
+}
