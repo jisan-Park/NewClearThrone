@@ -714,6 +714,15 @@
     <ClInclude Include="bigBanditDash.h">
       <Filter>2DGameFramework\enemy\stage1\big_Bandit\bigBanditState</Filter>
     </ClInclude>
+    <ClInclude Include="enemyShotGun.h">
+      <Filter>2DGameFramework\bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="enemyShotGun2.h">
+      <Filter>2DGameFramework\bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="gatorGun.h">
+      <Filter>2DGameFramework\weapon</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -1216,6 +1225,15 @@
     </ClCompile>
     <ClCompile Include="bigBanditDash.cpp">
       <Filter>2DGameFramework\enemy\stage1\big_Bandit\bigBanditState</Filter>
+    </ClCompile>
+    <ClCompile Include="enemyShotGun.cpp">
+      <Filter>2DGameFramework\bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="enemyShotGun2.cpp">
+      <Filter>2DGameFramework\bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="gatorGun.cpp">
+      <Filter>2DGameFramework\weapon</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

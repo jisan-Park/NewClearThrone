@@ -59,5 +59,4 @@ void maggotNestIdle::update(enemyinfo & info)
 	{
 		info.nextState = E_DEAD;
 	}
-
 }

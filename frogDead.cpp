@@ -19,6 +19,7 @@ HRESULT frogDead::init(enemyinfo info)
 	if (info.direction == E_RIGHT)_motion = frogdeadright;
 	_motion->start();
 	_pt = info.pt;
+	deadEffect();
 
 	return S_OK;
 }
@@ -28,4 +29,12 @@ void frogDead::update(enemyinfo & info)
 	_pt = info.pt;
 	
 	_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);
+}
+
+void frogDead::deadEffect()
+{
+	for (int i = 0; i < 35; i++)
+	{
+		BULLETMANAGER->EnemyFire(E_ANGLE16_2, _pt, 5, (PI / 9)*i, 5);
+	}
 }

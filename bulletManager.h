@@ -5,6 +5,8 @@
 #include "grenade.h"
 #include "enemyBullet16_1.h"
 #include "enemyBullet16_2.h"
+#include "enemyShotGun.h"
+#include "enemyShotGun2.h"
 #include <vector>
 enum BULLETTYPE
 {
@@ -14,7 +16,9 @@ enum BULLETTYPE
 	GRENADE,
 
 	E_ANGLE16_1,
-	E_ANGLE16_2
+	E_ANGLE16_2,
+	E_SHOTGUN,
+	E_SHOTGUN2
 };
 class bulletManager : public singletonBase<bulletManager>
 {

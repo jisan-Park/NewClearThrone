@@ -105,6 +105,10 @@ void enemyManager::setimage()
 	IMAGEMANAGER->addFrameImage("rat_idle", "image/enemy/stage2/rat_idle.bmp", 192, 96, 4, 2, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("rat_walk", "image/enemy/stage2/rat_walk.bmp", 575, 96, 6, 2, true, RGB(255, 0, 255));
 
+	IMAGEMANAGER->addImage("shotgun", "image/enemy/stage2/shotgun1.bmp", 32, 32, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("shotgun2", "image/enemy/stage2/shotgun2.bmp", 32, 32, true, RGB(255, 0, 255));
+
+
 	//stage3
 
 

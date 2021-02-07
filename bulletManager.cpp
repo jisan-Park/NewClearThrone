@@ -102,7 +102,6 @@ void bulletManager::EnemyFire(BULLETTYPE type, POINT pt, float speed, float angl
 	break;
 	case FLAME:
 		break;
-	default:
 	case GRENADE:
 	{
 		temp = new grenade;
@@ -118,6 +117,18 @@ void bulletManager::EnemyFire(BULLETTYPE type, POINT pt, float speed, float angl
 	case E_ANGLE16_2:
 	{
 		temp = new enemyBullet16_2;
+		temp->fire(pt, speed, angle, damage);
+	}
+	break;
+	case E_SHOTGUN:
+	{
+		temp = new enemyShotGun;
+		temp->fire(pt, speed, angle, damage);
+	}
+	break;
+	case E_SHOTGUN2:
+	{
+		temp = new enemyShotGun2;
 		temp->fire(pt, speed, angle, damage);
 	}
 	break;

@@ -44,7 +44,7 @@ struct enemyinfo
 	float moveAngle;		//이동각입니다
 	float noticeRange;
 	bool isHurt;		//다쳤는지 보는겁니다
-
+	bool isFire;		//fire했는지 보는겁니다
 
 	ENEMYSTATE state;
 	ENEMYSTATE nextState;
@@ -64,6 +64,8 @@ protected:
 	POINT _pt;
 
 	bool isHurt;
+	bool isFire;		//fire했는지 보는겁니다
+
 public:
 	enemyState();
 	~enemyState();
@@ -78,7 +80,9 @@ public:
 	void setAnimation(animation* ani) { _motion = ani; };
 	void setPoint(int x, int y) { _pt.x = x; _pt.y = y; };
 	void setHurt(bool what) { isHurt = what; };
+	void setFire(bool b) { isFire = b; };
 	static void hurtFinish(void* obj);
+	static void fireFinish(void * obj);
 	virtual void setRect();
 };
 

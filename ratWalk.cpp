@@ -54,8 +54,20 @@ void ratWalk::update(enemyinfo & info)
 		info.pt.y += -sinf(info.moveAngle)* info.speed;
 		
 		_img = IMAGEMANAGER->findImage("rat_walk");
-		if (info.direction == E_LEFT) _motion = ratwalkleft;
-		if (info.direction == E_RIGHT)_motion = ratwalkright;
+	
+		if (PLAYERMANAGER->getPlayer()->getPt().x < info.pt.x)
+		{
+			info.direction == E_LEFT;
+			_motion = ratwalkleft;
+
+		}
+		if (PLAYERMANAGER->getPlayer()->getPt().x > info.pt.x)
+		{
+			info.direction == E_RIGHT;
+			_motion = ratwalkright;
+
+		}
+
 	}
 	if (_motion->isPlay() == false) _motion->start();
 	_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);

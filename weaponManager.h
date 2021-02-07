@@ -8,6 +8,7 @@
 #include "shotGun.h"
 #include "banditGun.h"
 #include "bigBanditGun.h"
+#include "gatorGun.h"
 #include "wrench.h"
 class weaponManager : public singletonBase <weaponManager>
 {

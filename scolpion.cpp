@@ -15,6 +15,13 @@ HRESULT scolpion::init(float x, float y)
 	_info.nstate = UNNOTICED;
 	_info.noticeRange = 500;
 	_enemyType = SCOLPION;
+
+	_info.state = E_IDLE;
+	_info.nextState = E_IDLE;
+	_info.noticeRange = 400;
+	_info.nstate = UNNOTICED;
+	_rndInterval = RND->getFromIntTo(70, 130);
+
 	_enState = new scolpionIdle;
 	_enState->init(_info);
 	return S_OK;
@@ -25,16 +32,43 @@ void scolpion::update()
 	collision();
 	_info.rc = RectMakeCenter(_info.pt.x, _info.pt.y, _info.width, _info.height);
 	_enState->update(_info);
-	setState(_info.nextState);
-	if (inRange() == true)
+
+	_rndMoveCnt++;
+
+	if (_info.hp <= 0) _info.nextState = E_DEAD;
+	if (_info.state != E_DEAD)
 	{
-		_info.nextState = E_WALK;
-		_info.moveAngle = EtoPAngle();
+		if (inRange() == true)
+		{
+			_fireCnt++;
+			if (_fireCnt % 50 == 0)
+			{
+				_info.aimAngle = EtoPAngle();
+				_info.nextState = E_FIRE;
+				_fireCnt = 0;
+			}
+		}
+		if (_info.nstate == UNNOTICED)
+		{
+			if (_rndMoveCnt % _rndInterval == 0)
+			{
+				if (_info.state == E_IDLE)
+				{
+					_info.nextState = E_WALK;
+					_info.moveAngle = RND->getFloat(PI2);
+					_rndInterval = RND->getFromIntTo(70, 130);
+					_rndMoveCnt = 0;
+				}
+				if (_info.state == E_WALK)
+				{
+					_info.nextState = E_IDLE;
+					_rndInterval = RND->getFromIntTo(70, 130);
+					_rndMoveCnt == 0;
+				}
+			}
+		}
 	}
-
-
-
-
+	setState(_info.nextState);
 }
 
 void scolpion::render(HDC hdc)

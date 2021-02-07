@@ -8,7 +8,7 @@ HRESULT greenMaggot::init(float x, float y)
 	_info.pt.y = y;
 	_info.width = 28;
 	_info.height = 14;
-	_info.hp = 1;
+	_info.hp = 2;
 	_info.speed = _info.originSpeed = 2;
 	_info.moveAngle = 0;
 	_info.rc = RectMakeCenter(_info.pt.x, _info.pt.y, _info.width, _info.height);
@@ -31,30 +31,34 @@ void greenMaggot::update()
 	_enState->update(_info);
 
 
-	_rndMoveCnt++;
-
-	if (inRange() == true)
+	if (_info.hp <= 0) _info.nextState = E_DEAD;
+	if (_info.state != E_DEAD)
 	{
-		_info.nstate = NOTICED;
-		_info.moveAngle = getAngle(_info.pt, MAPMANAGER->enemyMove(_info.pt));
-	}
+		_rndMoveCnt++;
 
-
-	if (_rndMoveCnt % _rndInterval == 0)
-	{
-		if (_info.speed < 3)
+		if (inRange() == true)
 		{
-			if (_info.nstate == UNNOTICED)_info.moveAngle = RND->getFloat(PI2);
-			_info.speed = 3;
-			_rndInterval = RND->getFromIntTo(70, 130);
-			_rndMoveCnt = 0;
+			_info.nstate = NOTICED;
+			_info.moveAngle = getAngle(_info.pt, MAPMANAGER->enemyMove(_info.pt));
 		}
-		else if (_info.speed >= 3)
+
+
+		if (_rndMoveCnt % _rndInterval == 0)
 		{
-			if (_info.nstate == UNNOTICED)_info.moveAngle = RND->getFloat(PI2);
-			_info.speed = 2;
-			_rndInterval = RND->getFromIntTo(70, 130);
-			_rndMoveCnt = 0;
+			if (_info.speed < 3)
+			{
+				if (_info.nstate == UNNOTICED)_info.moveAngle = RND->getFloat(PI2);
+				_info.speed = 3;
+				_rndInterval = RND->getFromIntTo(70, 130);
+				_rndMoveCnt = 0;
+			}
+			else if (_info.speed >= 3)
+			{
+				if (_info.nstate == UNNOTICED)_info.moveAngle = RND->getFloat(PI2);
+				_info.speed = 2;
+				_rndInterval = RND->getFromIntTo(70, 130);
+				_rndMoveCnt = 0;
+			}
 		}
 	}
 

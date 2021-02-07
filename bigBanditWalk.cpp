@@ -51,8 +51,20 @@ void bigBanditWalk::update(enemyinfo & info)
 	else
 	{
 		_img = IMAGEMANAGER->findImage("bigbandit_walk");
-		if (info.direction == E_LEFT) _motion = bigbanditwalkleft;
-		if (info.direction == E_RIGHT) _motion = bigbanditwalkright;
+		
+		if (PLAYERMANAGER->getPlayer()->getPt().x < info.pt.x)
+		{
+			info.direction == E_LEFT;
+			_motion = bigbanditwalkleft;
+
+		}
+		if (PLAYERMANAGER->getPlayer()->getPt().x > info.pt.x)
+		{
+			info.direction == E_RIGHT;
+			_motion = bigbanditwalkright;
+
+		}
+
 	}
 	if (_motion->isPlay() == false) _motion->start();
 	_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);

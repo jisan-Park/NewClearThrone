@@ -42,3 +42,9 @@ void enemyState::hurtFinish(void * obj)
 	enemyState*e = (enemyState*)obj;
 	e->setHurt(false);
 }
+
+void enemyState::fireFinish(void * obj)
+{
+	enemyState*e = (enemyState*)obj;
+	e->setFire(true);
+}

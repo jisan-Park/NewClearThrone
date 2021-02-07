@@ -10,5 +10,7 @@ private:
 public:
 	virtual HRESULT init(enemyinfo info);
 	virtual void update(enemyinfo &info);
+
+	void deadEffect();
 };
 

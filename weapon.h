@@ -1,6 +1,9 @@
 #pragma once
 #include "bullet16.h"
 #include "bullet1.h"
+#include "enemyBullet16_1.h"
+#include "enemyBullet16_2.h"
+#include "enemyShotGun.h"
 
 enum weaponState
 {

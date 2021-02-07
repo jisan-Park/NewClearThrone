@@ -36,5 +36,6 @@ public:
 	bool inRange();
 	float EtoPAngle();
 	float EtoPAngleRnd();
+	float EtoPAngleRnd2();
 };
 

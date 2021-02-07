@@ -89,6 +89,7 @@ void bigBandit::update()
 void bigBandit::render(HDC hdc)
 {
 	_enState->render(hdc);
+	_weapon->render(hdc);
 }
 
 void bigBandit::setState(ENEMYSTATE state)

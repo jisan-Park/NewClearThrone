@@ -5,12 +5,12 @@ HRESULT scolpionFire::init(enemyinfo info)
 {
 	scolpionfireright = new animation;
 	scolpionfireright->init("scolpion_fire");
-	scolpionfireright->setPlayFrame(0, 1, false, false);
+	scolpionfireright->setPlayFrame(0, 1, false, false, fireFinish,this);
 	scolpionfireright->setFPS(10);
 
 	scolpionfireleft = new animation;
 	scolpionfireleft->init("scolpion_fire");
-	scolpionfireleft->setPlayFrame(3, 2, false, false);
+	scolpionfireleft->setPlayFrame(3, 2, false, false,fireFinish,this);
 	scolpionfireleft->setFPS(10);
 
 
@@ -35,6 +35,12 @@ HRESULT scolpionFire::init(enemyinfo info)
 void scolpionFire::update(enemyinfo & info)
 {
 	_pt = info.pt;
+
+	if (isFire) {
+		info.nextState = E_IDLE;
+		isFire = false;
+	}
+
 	if (info.isHurt == true)
 	{
 		isHurt = true;
@@ -49,8 +55,29 @@ void scolpionFire::update(enemyinfo & info)
 	else
 	{
 		_img = IMAGEMANAGER->findImage("scolpion_fire");
-		if (info.direction == E_LEFT) _motion = scolpionfireleft;
-		if (info.direction == E_RIGHT) _motion = scolpionfireright;
+		//bullet 6발 angle random 으로 발사
+		fire_interval ++;
+		if (fire_interval % 7 == 0) {
+			for (int i = 0; i < 6; i++)
+			{
+				BULLETMANAGER->EnemyFire(E_ANGLE16_2, info.pt, info.speed, info.aimAngle - 0.7f +(i * 0.3f), 5);
+			}
+			fire_interval = 0;
+		}
+		
+		
+		if (PLAYERMANAGER->getPlayer()->getPt().x < info.pt.x)
+		{
+			info.direction == E_LEFT;
+			_motion = scolpionfireleft;
+
+		}
+		if (PLAYERMANAGER->getPlayer()->getPt().x > info.pt.x)
+		{
+			info.direction == E_RIGHT;
+			_motion = scolpionfireright;
+		}
+		
 	}
 	if (_motion->isPlay() == false) _motion->start();
 	_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);

@@ -16,7 +16,7 @@ HRESULT rat::init(float x, float y)
 
 	_info.state = E_IDLE;
 	_info.nextState = E_IDLE;
-	_info.noticeRange = 300;
+	_info.noticeRange = 400;
 	_info.nstate = UNNOTICED;
 	_rndInterval = RND->getFromIntTo(70, 130);
 
@@ -32,7 +32,7 @@ void rat::update()
 	_enState->update(_info);
 	collision();
 	_rndMoveCnt++;
-
+	if (_info.hp <= 0) _info.nextState = E_DEAD;
 	if (_info.state != E_DEAD)
 	{
 

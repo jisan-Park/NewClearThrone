@@ -4,6 +4,7 @@ class scolpionFire :
 	public scolpionState
 {
 private:
+	int fire_interval = 0;
 	animation* scolpionfireright;
 	animation* scolpionfireleft;
 

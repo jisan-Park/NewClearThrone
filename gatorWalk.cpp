@@ -50,9 +50,21 @@ void gatorWalk::update(enemyinfo & info)
 	}
 	else
 	{
+		info.pt.x += cosf(info.moveAngle)* info.speed;
+		info.pt.y += -sinf(info.moveAngle)* info.speed;
 		_img = IMAGEMANAGER->findImage("gator_walk");
-		if (info.direction == E_LEFT) _motion = gatorwalkleft;
-		if (info.direction == E_RIGHT)_motion = gatorwalkright;
+		if (PLAYERMANAGER->getPlayer()->getPt().x < info.pt.x)
+		{
+			info.direction == E_LEFT;
+			_motion = gatorwalkleft;
+
+		}
+		if (PLAYERMANAGER->getPlayer()->getPt().x > info.pt.x)
+		{
+			info.direction == E_RIGHT;
+			_motion = gatorwalkright;
+
+		}
 	}
 	if (_motion->isPlay() == false) _motion->start();
 	_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);

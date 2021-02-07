@@ -203,6 +203,8 @@
     <ClInclude Include="enemyBullet16_1.h" />
     <ClInclude Include="enemyBullet16_2.h" />
     <ClInclude Include="enemyManager.h" />
+    <ClInclude Include="enemyShotGun.h" />
+    <ClInclude Include="enemyShotGun2.h" />
     <ClInclude Include="enemyState.h" />
     <ClInclude Include="Eyes.h" />
     <ClInclude Include="Fish.h" />
@@ -216,6 +218,7 @@
     <ClInclude Include="gameScene.h" />
     <ClInclude Include="gator.h" />
     <ClInclude Include="gatorDead.h" />
+    <ClInclude Include="gatorGun.h" />
     <ClInclude Include="gatorIdle.h" />
     <ClInclude Include="gatorState.h" />
     <ClInclude Include="gatorWalk.h" />
@@ -376,6 +379,8 @@
     <ClCompile Include="enemyBullet16_1.cpp" />
     <ClCompile Include="enemyBullet16_2.cpp" />
     <ClCompile Include="enemyManager.cpp" />
+    <ClCompile Include="enemyShotGun.cpp" />
+    <ClCompile Include="enemyShotGun2.cpp" />
     <ClCompile Include="enemyState.cpp" />
     <ClCompile Include="Eyes.cpp" />
     <ClCompile Include="Fish.cpp" />
@@ -389,6 +394,7 @@
     <ClCompile Include="gameScene.cpp" />
     <ClCompile Include="gator.cpp" />
     <ClCompile Include="gatorDead.cpp" />
+    <ClCompile Include="gatorGun.cpp" />
     <ClCompile Include="gatorIdle.cpp" />
     <ClCompile Include="gatorState.cpp" />
     <ClCompile Include="gatorWalk.cpp" />

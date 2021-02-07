@@ -77,6 +77,11 @@ float enemy::EtoPAngleRnd()
 	return rndAngle;
 }
 
+float enemy::EtoPAngleRnd2()
+{
+	return 0.0f;
+}
+
 void enemy::eyeSkill(int x, int y)
 {
 	if (_info.pt.x < x) _info.pt.x += 1;

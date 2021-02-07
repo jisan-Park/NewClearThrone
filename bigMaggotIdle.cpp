@@ -74,11 +74,4 @@ void bigMaggotIdle::update(enemyinfo & info)
 	if (_motion->isPlay() == false) _motion->start();
 	_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);
 
-
-	//플레이어와 충돌 시 죽도록 설정
-	RECT temp;
-	if (IntersectRect(&temp, &info.rc, &PLAYERMANAGER->getPlayer()->getRect())) {
-		info.nextState = E_DEAD;
-	}
-
 }

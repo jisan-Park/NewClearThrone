@@ -50,8 +50,20 @@ void scolpionWalk::update(enemyinfo & info)
 		info.pt.x -= cosf(info.moveAngle)*info.speed;
 		info.pt.y -= -sinf(info.moveAngle)*info.speed;
 		_img = IMAGEMANAGER->findImage("scolpion_walk");
-		if (info.direction == E_LEFT) _motion = scolpionwalkleft;
-		if (info.direction == E_RIGHT) _motion = scolpionwalkright;
+	
+		if (PLAYERMANAGER->getPlayer()->getPt().x < info.pt.x)
+		{
+			info.direction == E_LEFT;
+			_motion = scolpionwalkleft;
+
+		}
+		if (PLAYERMANAGER->getPlayer()->getPt().x > info.pt.x)
+		{
+			info.direction == E_RIGHT;
+			_motion = scolpionwalkright;
+
+		}
+
 	}
 	if (_motion->isPlay() == false) _motion->start();
 	_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);
