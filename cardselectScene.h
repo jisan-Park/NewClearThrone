@@ -25,6 +25,10 @@ private:
 	float _y;
 	bool _right;
 
+
+	//스테이지
+	int _firstS;
+	int _SecondS;
 	//rand
 	int _a[4];
 	tagCard _aCard[4];

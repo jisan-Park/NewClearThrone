@@ -56,42 +56,85 @@ void bulletManager::render(HDC hdc)
 void bulletManager::PlayerFire(BULLETTYPE type, POINT pt, float speed, float angle, int damage)
 {
 	bullet* temp;
-	switch (type)
+	if (!_isScareFace)
 	{
-	case ANGLE16:
-	{
-		temp = new bullet16;
-		temp->fire(pt, speed, angle, damage);
-	}
-	break;
-	case ANGLE1:
-	{
-		temp = new bullet1;
-		temp->fire(pt, speed, angle, damage);
-	}
-	break;
-	case FLAME:
+		switch (type)
+		{
+		case ANGLE16:
+		{
+			temp = new bullet16;
+			temp->fire(pt, speed, angle, damage);
+		}
 		break;
-	case GRENADE:
-	{
-		temp = new grenade;
-		temp->fire(pt, speed, angle, damage);
-	}
+		case ANGLE1:
+		{
+			temp = new bullet1;
+			temp->fire(pt, speed, angle, damage);
+		}
+		break;
+		case FLAME:
+			break;
+		case GRENADE:
+		{
+			temp = new grenade;
+			temp->fire(pt, speed, angle, damage);
+		}
 
-	break;
-	case SHOTGUNBULLET:
-	{
-		temp = new shotGunBullet;
-		temp->fire(pt, speed, angle, damage);
-	}
-	case LASERBULLET:
-	{
-		temp = new laserBullet;
-		temp->fire(pt, speed, angle, damage);
-	}
-	break;
-	default:
 		break;
+		case SHOTGUNBULLET:
+		{
+			temp = new shotGunBullet;
+			temp->fire(pt, speed, angle, damage);
+		}
+		case LASERBULLET:
+		{
+			temp = new laserBullet;
+			temp->fire(pt, speed, angle, damage);
+		}
+		break;
+		default:
+			break;
+		}
+	}
+	else
+	{
+		switch (type)
+		{
+		case ANGLE16:
+		{
+			temp = new bullet16;
+			temp->fire(pt, speed, angle, damage*1.2);
+		}
+		break;
+		case ANGLE1:
+		{
+			temp = new bullet1;
+			temp->fire(pt, speed, angle, damage*1.2);
+		}
+		break;
+		case FLAME:
+			break;
+		case GRENADE:
+		{
+			temp = new grenade;
+			temp->fire(pt, speed, angle, damage*1.2);
+		}
+
+		break;
+		case SHOTGUNBULLET:
+		{
+			temp = new shotGunBullet;
+			temp->fire(pt, speed, angle, damage*1.2);
+		}
+		case LASERBULLET:
+		{
+			temp = new laserBullet;
+			temp->fire(pt, speed, angle, damage*1.2);
+		}
+		break;
+		default:
+			break;
+		}
 	}
 	_vPlayerBullet.push_back(temp);
 }
@@ -99,55 +142,109 @@ void bulletManager::PlayerFire(BULLETTYPE type, POINT pt, float speed, float ang
 void bulletManager::EnemyFire(BULLETTYPE type, POINT pt, float speed, float angle, int damage)
 {
 	bullet* temp;
-	switch (type)
-	{
-	case ANGLE16:
-	{
-		temp = new bullet16;
-		temp->fire(pt, speed, angle, damage);
-	}
-	break;
-	case ANGLE1:
-	{
-		temp = new bullet1;
-		temp->fire(pt, speed, angle, damage);
-	}
-	break;
-	case FLAME:
-		break;
-	case GRENADE:
-	{
-		temp = new grenade;
-		temp->fire(pt, speed, angle, damage);
-	}
-	break;
-	case E_ANGLE16_1:
-	{
-		temp = new enemyBullet16_1;
-		temp->fire(pt, speed, angle, damage);
-	}
-	break;
-	case E_ANGLE16_2:
-	{
-		temp = new enemyBullet16_2;
-		temp->fire(pt, speed, angle, damage);
-	}
-	break;
-	case E_SHOTGUN:
-	{
-		temp = new enemyShotGun;
-		temp->fire(pt, speed, angle, damage);
-	}
-	break;
-	case E_SHOTGUN2:
-	{
-		temp = new enemyShotGun2;
-		temp->fire(pt, speed, angle, damage);
-	}
-	break;
 
-	_vEnemyBullet.push_back(temp);
+	if (!_isEuphoria)
+	{
+		switch (type)
+		{
+		case ANGLE16:
+		{
+			temp = new bullet16;
+			temp->fire(pt, speed, angle, damage);
+		}
+		break;
+		case ANGLE1:
+		{
+			temp = new bullet1;
+			temp->fire(pt, speed, angle, damage);
+		}
+		break;
+		case FLAME:
+			break;
+		case GRENADE:
+		{
+			temp = new grenade;
+			temp->fire(pt, speed, angle, damage);
+		}
+		break;
+		case E_ANGLE16_1:
+		{
+			temp = new enemyBullet16_1;
+			temp->fire(pt, speed, angle, damage);
+		}
+		break;
+		case E_ANGLE16_2:
+		{
+			temp = new enemyBullet16_2;
+			temp->fire(pt, speed, angle, damage);
+		}
+		break;
+		case E_SHOTGUN:
+		{
+			temp = new enemyShotGun;
+			temp->fire(pt, speed, angle, damage);
+		}
+		break;
+		case E_SHOTGUN2:
+		{
+			temp = new enemyShotGun2;
+			temp->fire(pt, speed, angle, damage);
+		}
+		break;
+		}
 	}
+	else
+	{
+		switch (type)
+		{
+		case ANGLE16:
+		{
+			temp = new bullet16;
+			temp->fire(pt, speed*0.9, angle, damage);
+		}
+		break;
+		case ANGLE1:
+		{
+			temp = new bullet1;
+			temp->fire(pt, speed*0.9, angle, damage);
+		}
+		break;
+		case FLAME:
+			break;
+		case GRENADE:
+		{
+			temp = new grenade;
+			temp->fire(pt, speed*0.9, angle, damage);
+		}
+		break;
+		case E_ANGLE16_1:
+		{
+			temp = new enemyBullet16_1;
+			temp->fire(pt, speed*0.9, angle, damage);
+		}
+		break;
+		case E_ANGLE16_2:
+		{
+			temp = new enemyBullet16_2;
+			temp->fire(pt, speed*0.9, angle, damage);
+		}
+		break;
+		case E_SHOTGUN:
+		{
+			temp = new enemyShotGun;
+			temp->fire(pt, speed*0.9, angle, damage);
+		}
+		break;
+		case E_SHOTGUN2:
+		{
+			temp = new enemyShotGun2;
+			temp->fire(pt, speed*0.9, angle, damage);
+		}
+		break;
+		}
+	}
+
+	_vEnemyBullet.push_back(temp);	
 }
 
 void bulletManager::removePlayerBullet(int i)
@@ -180,4 +277,13 @@ void bulletManager::wallCollision()
 		}
 		++i;
 	}
+}
+void bulletManager::Euphoria()
+{
+	_isEuphoria = true;
+}
+
+void bulletManager::ScareFace()
+{
+	_isScareFace = true;
 }

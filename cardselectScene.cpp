@@ -170,11 +170,11 @@ void cardselectScene::ptInCard()
 				}
 				else if (_aCard[i].cardNum == 4)
 				{
-					//유포리아
+					BULLETMANAGER->Euphoria();
 				}
 				else if (_aCard[i].cardNum == 5)
 				{
-					//헤머헤드
+					//헤머헤드 벽뚫기
 				}
 				else if (_aCard[i].cardNum == 6)
 				{
@@ -190,7 +190,7 @@ void cardselectScene::ptInCard()
 				}
 				else if (_aCard[i].cardNum == 9)
 				{
-					//스케어 페이스
+					BULLETMANAGER->ScareFace();
 				}
 				else if (_aCard[i].cardNum == 10)
 				{
@@ -200,6 +200,35 @@ void cardselectScene::ptInCard()
 				{
 					PLAYERMANAGER->getPlayer()->Strongspirit();
 				}
+
+
+				_firstS = MAPMANAGER->getStage_first();
+				_SecondS = MAPMANAGER->getStage_second();
+
+				if (_firstS == 0 && _SecondS == 0)
+				{
+					MAPMANAGER->setStage_second(1);
+				}
+				else if (_firstS == 0 && _SecondS == 1)
+				{
+					MAPMANAGER->setStage_first(1);
+					MAPMANAGER->setStage_second(0);
+				}
+				else if (_firstS == 1 && _SecondS == 0)
+				{
+					MAPMANAGER->setStage_second(1);
+				}
+				else if (_firstS == 1 && _SecondS == 1)
+				{
+					MAPMANAGER->setStage_first(2);
+					MAPMANAGER->setStage_second(0);
+				}
+				else if (_firstS == 2 && _SecondS == 0)
+				{
+					MAPMANAGER->setStage_second(1);
+				}
+
+				SCENEMANAGER->changeScene("게임씬");
 			}
 		}
 		else

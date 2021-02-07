@@ -23,6 +23,9 @@ private:
 	vBullet _vPlayerBullet;
 	viBullet _viPlayerBullet;
 
+	//변이 카드 변수
+	bool _isEuphoria;
+	bool _isScareFace;
 public:
 	bulletManager() {};
 	~bulletManager() {};
@@ -36,6 +39,10 @@ public:
 	void removeEnemyBullet(int i);
 
 	void wallCollision();
+
+	//변이 카드 함수
+	void Euphoria();
+	void ScareFace();
 
 	vBullet getvEnemyBullet() { return _vEnemyBullet; };
 	viBullet getViEnemyBullet() { return _viEnemyBullet; };

@@ -63,7 +63,10 @@ void gameScene::update()
 			PLAYERMANAGER->getPlayer()->getPt().y);
 		//mouse update
 		CAMERAMANAGER->update();
+		MAPMANAGER->autoTile();
 
+
+		//SOUND
 		if (MAPMANAGER->getStage_first() == 0 && _sound1 == 0)
 		{
 			SOUNDMANAGER->stop("스테이지1");
