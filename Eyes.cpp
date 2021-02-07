@@ -26,6 +26,7 @@ HRESULT Eyes::init(float x, float y)
 	_direction = RIGHT;
 	_playerstate = IDLE;
 	_img = IMAGEMANAGER->findImage("eyes_idle");
+	_img2 = IMAGEMANAGER->findImage("eyes_skill");
 	_motion = eyesidleright;
 	_motion->start();
 	_ishit = false;
@@ -50,12 +51,18 @@ void Eyes::update()
 		_readyWeapon->setAngle(0);
 	}
 	_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);
+	
+	
+	
 }
 
 void Eyes::render(HDC hdc)
 {
 	_img->aniRender(hdc, _pt.x - _img->getFrameWidth() / 2, _pt.y - _img->getFrameHeight() / 2, _motion);
 	_currentWeapon->render(hdc);
+
+	_img2->aniRender(hdc, _pt.x - _img->getFrameWidth() / 2, _pt.y - _img->getFrameHeight() / 2, _motion);
+	
 }
 
 void Eyes::setAnimation()
@@ -95,10 +102,11 @@ void Eyes::setAnimation()
 	eyesdead->setPlayFrame(0, 3, false, false);//콜백필요
 	eyesdead->setFPS(6);
 
-	//eyesmenuidle = new animation;
-	//eyesmenuidle->init("eyes_menuidle");
-	//eyesmenuidle->setPlayFrame(0, 23, false, true);
-	//eyesmenuidle->setFPS(10);
+
+	eyesskill = new animation;
+	eyesskill->init("eyes_skill");
+	eyesskill->setPlayFrame(0, 2, false, false);
+	eyesskill->setFPS(10);
 
 }
 
@@ -245,6 +253,23 @@ void Eyes::contral()
 			_isStrongSpirit = false;
 		}
 	}
+	if (KEYMANAGER->isStayKeyDown(VK_RBUTTON))
+	{
+		for (int i = 0; i < ENEMYMANAGER->getShowEnemyVector().size(); ++i)
+		{
+			ENEMYMANAGER->getShowEnemyVector()[i]->eyeSkill(_pt.x, _pt.y);
+		}
+		_img2 = IMAGEMANAGER->findImage("eyes_skill");
+		_motion2 = eyesskill;
+		if (!_motion2->isPlay())
+		{
+			_motion2->start();
+		}
+		_motion2->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);
+	}
+	
+
+
 	if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
 	{
 		switch (_currentWeapon->getType())

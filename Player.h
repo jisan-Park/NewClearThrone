@@ -46,7 +46,9 @@ protected:
 	float _aimAngle;		//조준각입니다
 	float _moveAngle;		//이동각입니다
 	image* _img;			//이미지 입니다
+	image* _img2;
 	animation* _motion;		//애니메이션 모션
+	animation* _motion2;
 	bool _ishit;			//픽격확인
 	int _maxhp;				//총HP
 	int _hp;				//HP
@@ -65,7 +67,7 @@ protected:
 	bool _shotfire;
 	int _interval = 10;
 	int _count;
-
+	bool _isskill;
 
 	//변이 함수
 	bool _isBloodLust;
