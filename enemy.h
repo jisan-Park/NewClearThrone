@@ -29,6 +29,7 @@ public:
 	void eyeSkill(int x, int y);
 	void plantSkill(RECT rc);
 	void plantBulletCollision();
+	ENEMYSTATE getState() { return _info.state; };
 	virtual void setState(ENEMYSTATE state);
 	virtual ENEMYTYPE getEnemyType() { return _enemyType; };
 	virtual enemyinfo getInfo() { return _info; };
@@ -37,5 +38,6 @@ public:
 	float EtoPAngle();
 	float EtoPAngleRnd();
 	float EtoPAngleRnd2();
+	RECT getRect() { return _info.rc; };
 };
 

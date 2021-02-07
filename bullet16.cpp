@@ -26,6 +26,7 @@ void bullet16::render(HDC hdc)
 void bullet16::fire(POINT pt, float speed, float angle, int damage)
 {
 	_img = IMAGEMANAGER->findImage("bullet16");
+	_type = ANGLE16;
 	_speed = speed;
 	_damage = damage;
 	_range = 2000;

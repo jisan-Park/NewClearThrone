@@ -278,13 +278,75 @@ void Player::collision()
 	{
 		for (int i = 0; i < BULLETMANAGER->getvEnemyBullet().size(); ++i)
 		{
-			if (PLAYERMANAGER->getPlayerType() == CRYSTAL && _playerstate == SKILL)continue;
 			RECT temp;
 			if (IntersectRect(&temp, &BULLETMANAGER->getvEnemyBullet()[i]->getRect(), &_rc) && !_ishit)
 			{
+				if (PLAYERMANAGER->getPlayerType() == CRYSTAL && _playerstate == SKILL) {
+					switch (BULLETMANAGER->getvEnemyBullet()[i]->getType())
+					{
+					case ANGLE16:
+					{
+						BULLETMANAGER->PlayerFire(ANGLE16, _pt, BULLETMANAGER->getvEnemyBullet()[i]->getSpeed(), BULLETMANAGER->getvEnemyBullet()[i]->getAngle() - PI, 2);
+					}
+						break;
+					case ANGLE1:
+					{
+						BULLETMANAGER->PlayerFire(ANGLE1, _pt, BULLETMANAGER->getvEnemyBullet()[i]->getSpeed(), BULLETMANAGER->getvEnemyBullet()[i]->getAngle() - PI, 2);
+					}
+						break;
+					case FLAME:
+					{
+						BULLETMANAGER->PlayerFire(ANGLE16, _pt, BULLETMANAGER->getvEnemyBullet()[i]->getSpeed(), BULLETMANAGER->getvEnemyBullet()[i]->getAngle() - PI, 2);
+					}
+						break;
+					case LASERBULLET:
+					{
+						BULLETMANAGER->PlayerFire(LASERBULLET, _pt, BULLETMANAGER->getvEnemyBullet()[i]->getSpeed(), BULLETMANAGER->getvEnemyBullet()[i]->getAngle() - PI, 2);
+					}
+						break;
+					case E_ANGLE16_1:
+					{
+						BULLETMANAGER->PlayerFire(E_ANGLE16_1, _pt, BULLETMANAGER->getvEnemyBullet()[i]->getSpeed(), BULLETMANAGER->getvEnemyBullet()[i]->getAngle() - PI, 2);
+					}
+						break;
+					case E_ANGLE16_2:
+					{
+						BULLETMANAGER->PlayerFire(E_ANGLE16_2, _pt, BULLETMANAGER->getvEnemyBullet()[i]->getSpeed(), BULLETMANAGER->getvEnemyBullet()[i]->getAngle() - PI, 2);
+					}
+						break;
+					case E_SHOTGUN:
+					{
+						BULLETMANAGER->PlayerFire(E_SHOTGUN, _pt, BULLETMANAGER->getvEnemyBullet()[i]->getSpeed(), BULLETMANAGER->getvEnemyBullet()[i]->getAngle() - PI, 2);
+					}
+						break;
+					case E_SHOTGUN2:
+					{
+						BULLETMANAGER->PlayerFire(E_SHOTGUN2, _pt, BULLETMANAGER->getvEnemyBullet()[i]->getSpeed(), BULLETMANAGER->getvEnemyBullet()[i]->getAngle() - PI, 2);
+					}
+						break;
+					default:
+						break;
+					}
+					BULLETMANAGER->removeEnemyBullet(i);
+				}
+				else
+				{
+					_ishit = true;
+					_hp -= BULLETMANAGER->getvEnemyBullet()[i]->getDamage();
+					BULLETMANAGER->removeEnemyBullet(i);
+				}
+				
+				break;
+			}
+		}
+		for (int i = 0; i < ENEMYMANAGER->getShowEnemyVector().size(); i++)
+		{
+			RECT temp;
+			if (ENEMYMANAGER->getShowEnemyVector()[i]->getState() != E_DEAD &&IntersectRect(&temp, &ENEMYMANAGER->getShowEnemyVector()[i]->getRect(), &_rc) && !_ishit)
+			{
+				if (PLAYERMANAGER->getPlayerType() == CRYSTAL && _playerstate == SKILL)continue;
 				_ishit = true;
-				_hp -= BULLETMANAGER->getvEnemyBullet()[i]->getDamage();
-				BULLETMANAGER->removeEnemyBullet(i);
+				_hp -= 1;
 				break;
 			}
 		}

@@ -25,6 +25,7 @@ void shotGunBullet::render(HDC hdc)
 void shotGunBullet::fire(POINT pt, float speed, float angle, int damage)
 {
 	_img = IMAGEMANAGER->findImage("bullet16");
+	_type = SHOTGUNBULLET;
 	_speed = speed;
 	_damage = damage;
 	_range = 2000;

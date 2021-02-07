@@ -25,6 +25,7 @@ void enemyShotGun2::render(HDC hdc)
 void enemyShotGun2::fire(POINT pt, float speed, float angle, int damage)
 {
 	_range = 2000;
+	_type = E_ANGLE16_2;
 	_img = IMAGEMANAGER->findImage("shotgun2");
 	_speed = speed;
 	_radius = _img->getWidth() / 2;

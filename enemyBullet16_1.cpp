@@ -25,6 +25,7 @@ void enemyBullet16_1::render(HDC hdc)
 void enemyBullet16_1::fire(POINT pt, float speed, float angle, int damage)
 {
 	_img = IMAGEMANAGER->findImage("bandit_bullet");
+	_type = E_ANGLE16_1;
 	_speed = speed;
 	_damage = damage;
 	_range = 2000;

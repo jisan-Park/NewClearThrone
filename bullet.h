@@ -53,7 +53,7 @@ public:
 	int getDamage() { return _damage; }
 	bool getGone() { return _gone; }
 	POINT getPt() { return _pt; }
-
+	float getSpeed() { return _speed; }
 	BULLETTYPE getType() { return _type; }
 };
 

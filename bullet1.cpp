@@ -29,6 +29,7 @@ void bullet1::fire(POINT pt, float speed, float angle, int damage)
 	_speed = speed;
 	_radius = _img->getWidth() / 2;
 	_damage = damage;
+	_type = ANGLE1;
 	_pt.x = _firept.x = pt.x;
 	_pt.y = _firept.y = pt.y;
 	_angle = angle;

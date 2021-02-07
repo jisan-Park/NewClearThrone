@@ -26,6 +26,7 @@ void enemyBullet16_2::render(HDC hdc)
 void enemyBullet16_2::fire(POINT pt, float speed, float angle, int damage)
 {
 	_img = IMAGEMANAGER->findImage("scolpion_bullet");
+	_type = E_ANGLE16_2;
 	_speed = speed;
 	_damage = damage;
 	_range = 2000;

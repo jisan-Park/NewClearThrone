@@ -25,6 +25,7 @@ void laserBullet::render(HDC hdc)
 void laserBullet::fire(POINT pt, float speed, float angle, int damage)
 {
 	_img = IMAGEMANAGER->findImage("·¹ÀÌÀú");
+	_type = LASERBULLET;
 	_speed = speed;
 	_damage = damage;
 	_range = 2000;
