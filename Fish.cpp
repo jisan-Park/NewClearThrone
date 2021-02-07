@@ -30,6 +30,7 @@ HRESULT Fish::init(float x, float y)
 	_motion->start();
 	_ishit = false;
 	_pushp = 0;
+
 	return S_OK;
 }
 
@@ -40,6 +41,7 @@ void Fish::update()
 		_hp = _maxhp;
 	}
 	contral();
+	collision();
 	_rc = RectMakeCenter(_pt.x, _pt.y, _width, _height);
 	_currentWeapon->update();
 	_currentWeapon->setAngle(getAngle(_pt.x, _pt.y, CAMERAMANAGER->getMousePoint().x, CAMERAMANAGER->getMousePoint().y));
@@ -157,6 +159,7 @@ void Fish::contral()
 
 	if (_playerstate == WALK)
 	{
+
 		if (KEYMANAGER->isStayKeyDown('A'))
 		{
 			_pt.x -= 5;
@@ -178,38 +181,29 @@ void Fish::contral()
 			_pt.y += 5;
 			_movedirctiony = DOWNMOVE;
 		}
+
 		if (!_ishit)
 		{
-			if (_direction == LEFT)
+		if (_direction == LEFT)
+		{
+			_img = IMAGEMANAGER->findImage("fish_walk");
+			_motion = fishwalkleft;
+			if (!_motion->isPlay())
 			{
-				_img = IMAGEMANAGER->findImage("fish_walk");
-				_motion = fishwalkleft;
-				if (!_motion->isPlay())
-				{
-					_motion->start();
-				}
-			}
-			else
-			{
-				_img = IMAGEMANAGER->findImage("fish_walk");
-				_motion = fishwalkright;
-				if (!_motion->isPlay())
-				{
-					_motion->start();
-				}
+				_motion->start();
 			}
 		}
-	}
-	//================================================= 
-	if (KEYMANAGER->isOnceKeyDown(VK_SPACE))
-	{
+		else
+		{
+			_img = IMAGEMANAGER->findImage("fish_walk");
+			_motion = fishwalkright;
+			if (!_motion->isPlay())
+			{
+				_motion->start();
+			}
+		}
 
-		if (_weaponReady) playerWeaponSwap();
-	}
-	if (KEYMANAGER->isOnceKeyDown('E'))
-	{
-		if (_weaponReady == true) ITEMMANAGER->weaponSwap();
-		if (_weaponReady == false) ITEMMANAGER->grabWeapon();
+		}
 	}
 	if (_ishit)
 	{
@@ -232,7 +226,19 @@ void Fish::contral()
 			}
 		}
 	}
-	if (KEYMANAGER->isOnceKeyDown('Q'))
+	//================================================= 
+	if (KEYMANAGER->isOnceKeyDown(VK_SPACE))
+	{
+
+		if (_weaponReady) playerWeaponSwap();
+	}
+	if (KEYMANAGER->isOnceKeyDown('E'))
+	{
+		if (_weaponReady == true) ITEMMANAGER->weaponSwap();
+		if (_weaponReady == false) ITEMMANAGER->grabWeapon();
+	}
+
+	if (_hp <= 0 && !_isStrongSpirit)
 	{
 		_playerstate = DEAD;
 		_img = IMAGEMANAGER->findImage("fish_dead");
@@ -240,6 +246,19 @@ void Fish::contral()
 		if (!_motion->isPlay())
 		{
 			_motion->start();
+		}
+	}
+	if (_isStrongSpirit&&_hp <= 0)
+	{
+		_count++;
+		if (_count < 300)
+		{
+			_hp = 1;
+		}
+		else
+		{
+			_count = 0;
+			_isStrongSpirit = false;
 		}
 	}
 
@@ -257,7 +276,7 @@ void Fish::contral()
 		default:
 			break;
 		}
-		
+
 	}
 	if (KEYMANAGER->isStayKeyDown(VK_LBUTTON))
 	{
@@ -323,15 +342,7 @@ void Fish::righthurt(void * obj)
 {
 	Fish*f = (Fish*)obj;
 	f->setIshit(false);
-	if (!KEYMANAGER->isStayKeyDown(VK_LEFT) && !KEYMANAGER->isStayKeyDown(VK_RIGHT) && !KEYMANAGER->isStayKeyDown(VK_UP) && !KEYMANAGER->isStayKeyDown(VK_DOWN))
-	{
-		f->setState(IDLE);
-	}
-	if (KEYMANAGER->isOnceKeyDown(VK_LEFT) || KEYMANAGER->isOnceKeyDown(VK_RIGHT) || KEYMANAGER->isOnceKeyDown(VK_UP) || KEYMANAGER->isOnceKeyDown(VK_DOWN))
-	{
-		f->setState(WALK);
 
-	}
 }
 
 
@@ -339,15 +350,7 @@ void Fish::lefthurt(void * obj)
 {
 	Fish*f = (Fish*)obj;
 	f->setIshit(false);
-	if (!KEYMANAGER->isStayKeyDown(VK_LEFT) && !KEYMANAGER->isStayKeyDown(VK_RIGHT) && !KEYMANAGER->isStayKeyDown(VK_UP) && !KEYMANAGER->isStayKeyDown(VK_DOWN))
-	{
-		f->setState(IDLE);
-	}
-	if (KEYMANAGER->isOnceKeyDown(VK_LEFT) || KEYMANAGER->isOnceKeyDown(VK_RIGHT) || KEYMANAGER->isOnceKeyDown(VK_UP) || KEYMANAGER->isOnceKeyDown(VK_DOWN))
-	{
-		f->setState(WALK);
 
-	}
 }
 
 void Fish::makeDead(void * obj)

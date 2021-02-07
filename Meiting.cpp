@@ -40,6 +40,7 @@ void Meiting::update()
 		_hp = _maxhp;
 	}
 	contral();
+	collision();
 	_rc = RectMakeCenter(_pt.x, _pt.y, _width, _height);
 	_currentWeapon->update();
 	_currentWeapon->setAngle(getAngle(_pt.x, _pt.y, CAMERAMANAGER->getMousePoint().x, CAMERAMANAGER->getMousePoint().y));
@@ -220,7 +221,8 @@ void Meiting::contral()
 			}
 		}
 	}
-	if (KEYMANAGER->isOnceKeyDown('Q'))
+	
+	if (_hp <= 0 && !_isStrongSpirit)
 	{
 		_playerstate = DEAD;
 		_img = IMAGEMANAGER->findImage("melting_dead");
@@ -230,6 +232,20 @@ void Meiting::contral()
 			_motion->start();
 		}
 	}
+	if (_isStrongSpirit&&_hp <= 0)
+	{
+		_count++;
+		if (_count < 300)
+		{
+			_hp = 1;
+		}
+		else
+		{
+			_count = 0;
+			_isStrongSpirit = false;
+		}
+	}
+
 	if (KEYMANAGER->isOnceKeyDown(VK_RBUTTON))
 	{
 		for (int i = 0; i < ENEMYMANAGER->getShowEnemyVector().size(); ++i)
@@ -264,129 +280,21 @@ void Meiting::contral()
 			break;
 		}
 	}
-	//if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
-	//{
-	//	if (_currentWeapon->getType() == ASSULTRIFLE && !_assfire)
-	//	{
-	//		_assfire = true;
-	//
-	//	}
-	//	if (_currentWeapon->getType() == PISTOL && _playerbullet > 0)
-	//	{
-	//		_currentWeapon->fire();
-	//		_playerbullet -= 1;
-	//		if (_playerbullet < 0)
-	//		{
-	//			_playerbullet = 0;
-	//		}
-	//	}
-	//	if (_currentWeapon->getType() == SHOVEL || _currentWeapon->getType() == SWORD || _currentWeapon->getType() == WRENCH)
-	//	{
-	//		_currentWeapon->fire();
-	//	}
-	//	if (_currentWeapon->getType() == SHOTGUN && !_shotfire)
-	//	{
-	//		_shotfire = true;
-	//	}
-	//}
-	//if (KEYMANAGER->isStayKeyDown(VK_LBUTTON))
-	//{
-	//	_countt++;
-	//
-	//	if (_currentWeapon->getType() == TRIPLEMACHINEGUN)
-	//	{
-	//
-	//		if (_countt % 3 == 0 && _playerbullet > 0)
-	//		{
-	//
-	//			_currentWeapon->fire();
-	//			_playerbullet -= 3;
-	//			if (_playerbullet < 0)
-	//			{
-	//				_playerbullet = 0;
-	//			}
-	//			_countt = 0;
-	//		}
-	//	}
-	//	if (_currentWeapon->getType() == MACHINEGUN)
-	//	{
-	//		if (_countt % 3 == 0 && _playerbullet > 0)
-	//		{
-	//			_currentWeapon->fire();
-	//			_playerbullet -= 1;
-	//			if (_playerbullet < 0)
-	//			{
-	//				_playerbullet = 0;
-	//			}
-	//			_countt = 0;
-	//		}
-	//	}
-	//}
-	//if (_shotfire)
-	//{
-	//	_counttt++;
-	//	if (_playershellb > 0 && _counttt % 6 == 0)
-	//	{
-	//		_currentWeapon->fire();
-	//		_playershellb -= 5;
-	//		if (_playershellb < 0)
-	//		{
-	//			_playershellb = 0;
-	//		}
-	//	}
-	//	if (_counttt >= 7)
-	//	{
-	//		_shotfire = false;
-	//		_counttt = 0;
-	//	}
-	//}
-	//
-	//if (_assfire)
-	//{
-	//	_count++;
-	//	if (_playerbullet > 0 && _count % 2 == 0)
-	//	{
-	//		_currentWeapon->fire();
-	//		_playerbullet -= 1;
-	//		if (_playerbullet < 0)
-	//		{
-	//			_playerbullet = 0;
-	//		}
-	//	}
-	//	if (_count >= 7)
-	//	{
-	//		_assfire = false;
-	//		_count = 0;
-	//	}
-	//}
+	
 }
 
 void Meiting::righthurt(void * obj)
 {
 	Meiting*f = (Meiting*)obj;
 	f->setIshit(false);
-	if (!KEYMANAGER->isStayKeyDown(VK_LEFT) && !KEYMANAGER->isStayKeyDown(VK_RIGHT) && !KEYMANAGER->isStayKeyDown(VK_UP) && !KEYMANAGER->isStayKeyDown(VK_DOWN))
-	{
-		f->setState(IDLE);
-	}
-	if (KEYMANAGER->isOnceKeyDown(VK_LEFT) || KEYMANAGER->isOnceKeyDown(VK_RIGHT) || KEYMANAGER->isOnceKeyDown(VK_UP) || KEYMANAGER->isOnceKeyDown(VK_DOWN))
-	{
-		f->setState(WALK);
-	}
+	
 }
 
 void Meiting::lefthurt(void * obj)
 {
 	Meiting*f = (Meiting*)obj;
 	f->setIshit(false);
-	if (!KEYMANAGER->isStayKeyDown(VK_LEFT) && !KEYMANAGER->isStayKeyDown(VK_RIGHT) && !KEYMANAGER->isStayKeyDown(VK_UP) && !KEYMANAGER->isStayKeyDown(VK_DOWN))
-	{
-		f->setState(IDLE);
-	}
-	if (KEYMANAGER->isOnceKeyDown(VK_LEFT) || KEYMANAGER->isOnceKeyDown(VK_RIGHT) || KEYMANAGER->isOnceKeyDown(VK_UP) || KEYMANAGER->isOnceKeyDown(VK_DOWN))
-	{
-		f->setState(WALK);
-	}
+	
 }
 
 void Meiting::makeDead(void * obj)

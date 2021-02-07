@@ -64,13 +64,14 @@ protected:
 	bool _assfire;
 	bool _shotfire;
 	int _interval = 10;
+	int _count;
 
 
 	//변이 함수
 	bool _isBloodLust;
 	bool _isRecycleGland;
 	bool _isStrongSpirit;
-	
+
 
 
 	//=========================================
@@ -110,6 +111,13 @@ public:
 	virtual void Rhinoskin();		//피 최대치 4 증가, 피 4 채워줌
 	virtual void Stress();			//피가 적을수록 총알속도 빨라짐
 	virtual void Strongspirit();	//활성화시 머리위에 링 생기고 << 안생겨도 될듯 5초동안 트린궁 피1로 고정
+
+
+	virtual void Bloodlustupdate();
+	virtual void RecycleGlandate();
+
+	virtual void collision();
+
 	//콜백을 위한 겟터,셋터
 	//=========================================
 	DIRECTION getDirection() { return _direction; }

@@ -40,6 +40,7 @@ void Eyes::update()
 		_hp = _maxhp;
 	}
 	contral();
+	collision();
 	_rc = RectMakeCenter(_pt.x, _pt.y, _width, _height);
 	_currentWeapon->update();
 	_currentWeapon->setAngle(getAngle(_pt.x, _pt.y, CAMERAMANAGER->getMousePoint().x, CAMERAMANAGER->getMousePoint().y));
@@ -221,7 +222,7 @@ void Eyes::contral()
 			}
 		}
 	}
-	if (KEYMANAGER->isOnceKeyDown('Q'))
+	if (_hp <= 0 && !_isStrongSpirit)
 	{
 		_playerstate = DEAD;
 		_img = IMAGEMANAGER->findImage("eyes_dead");
@@ -229,6 +230,19 @@ void Eyes::contral()
 		if (!_motion->isPlay())
 		{
 			_motion->start();
+		}
+	}
+	if (_isStrongSpirit&&_hp <= 0)
+	{
+		_count++;
+		if (_count < 300)
+		{
+			_hp = 1;
+		}
+		else
+		{
+			_count = 0;
+			_isStrongSpirit = false;
 		}
 	}
 	if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
@@ -260,30 +274,14 @@ void Eyes::righthurt(void * obj)
 {
 	Eyes*f = (Eyes*)obj;
 	f->setIshit(false);
-	if (!KEYMANAGER->isStayKeyDown(VK_LEFT) && !KEYMANAGER->isStayKeyDown(VK_RIGHT) && !KEYMANAGER->isStayKeyDown(VK_UP) && !KEYMANAGER->isStayKeyDown(VK_DOWN))
-	{
-		f->setState(IDLE);
-	}
-	if (KEYMANAGER->isOnceKeyDown(VK_LEFT) || KEYMANAGER->isOnceKeyDown(VK_RIGHT) || KEYMANAGER->isOnceKeyDown(VK_UP) || KEYMANAGER->isOnceKeyDown(VK_DOWN))
-	{
-		f->setState(WALK);
 
-	}
 }
 
 void Eyes::lefthurt(void * obj)
 {
 	Eyes*f = (Eyes*)obj;
 	f->setIshit(false);
-	if (!KEYMANAGER->isStayKeyDown(VK_LEFT) && !KEYMANAGER->isStayKeyDown(VK_RIGHT) && !KEYMANAGER->isStayKeyDown(VK_UP) && !KEYMANAGER->isStayKeyDown(VK_DOWN))
-	{
-		f->setState(IDLE);
-	}
-	if (KEYMANAGER->isOnceKeyDown(VK_LEFT) || KEYMANAGER->isOnceKeyDown(VK_RIGHT) || KEYMANAGER->isOnceKeyDown(VK_UP) || KEYMANAGER->isOnceKeyDown(VK_DOWN))
-	{
-		f->setState(WALK);
-
-	}
+	
 }
 
 void Eyes::makeDead(void * obj)

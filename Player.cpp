@@ -242,3 +242,53 @@ void Player::Strongspirit()
 {
 	_isStrongSpirit = true;
 }
+
+void Player::Bloodlustupdate()
+{
+	if (_isBloodLust)
+	{
+		int num;
+		num = RND->getFromIntTo(0, 100);
+		if (num < 5)
+		{
+			_hp += 1;
+		}
+	}
+}
+
+void Player::RecycleGlandate()
+{
+	if (_isRecycleGland)
+	{
+		int num;
+		num = RND->getFromIntTo(0, 100);
+		if (num < 61)
+		{
+			_playerbullet += 1;
+			_playerexplodeb += 1;
+			_playerenergyb += 1;
+			_playershellb += 1;
+		}
+	}
+}
+
+void Player::collision()
+{
+	if (_playerstate != DEAD)
+	{
+		for (int i = 0; i < BULLETMANAGER->getvEnemyBullet().size(); ++i)
+		{
+			if (PLAYERMANAGER->getPlayerType() == CRYSTAL && _playerstate == SKILL)continue;
+			RECT temp;
+			if (IntersectRect(&temp, &BULLETMANAGER->getvEnemyBullet()[i]->getRect(), &_rc) && !_ishit)
+			{
+				_ishit = true;
+				_hp -= BULLETMANAGER->getvEnemyBullet()[i]->getDamage();
+				BULLETMANAGER->removeEnemyBullet(i);
+				break;
+			}
+		}
+	}
+}
+
+

@@ -115,6 +115,8 @@ void enemy::collision()
 			RECT temp;
 			if (IntersectRect(&temp, &BULLETMANAGER->getvPlayerBullet()[i]->getRect(), &_info.rc))
 			{
+				PLAYERMANAGER->getPlayer()->Bloodlustupdate();
+				PLAYERMANAGER->getPlayer()->RecycleGlandate();
 				_info.isHurt = true;
 				_info.hp -= BULLETMANAGER->getvPlayerBullet()[i]->getDamage();
 				_info.pt.x += cosf(BULLETMANAGER->getvPlayerBullet()[i]->getAngle()) * 10;
