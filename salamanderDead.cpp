@@ -5,12 +5,12 @@ HRESULT salamanderDead::init(enemyinfo info)
 {
 	salamanderdeadright = new animation;
 	salamanderdeadright->init("salamander_dead");
-	salamanderdeadright->setPlayFrame(0, 1, false, false);
+	salamanderdeadright->setPlayFrame(0, 7, false, false);
 	salamanderdeadright->setFPS(10);
 
 	salamanderdeadleft = new animation;
 	salamanderdeadleft->init("salamander_dead");
-	salamanderdeadleft->setPlayFrame(3, 2, false, false);
+	salamanderdeadleft->setPlayFrame(15, 8, false, false);
 	salamanderdeadleft->setFPS(10);
 
 	_img = IMAGEMANAGER->findImage("salamander_dead");
@@ -18,6 +18,7 @@ HRESULT salamanderDead::init(enemyinfo info)
 	if (info.direction == E_RIGHT) _motion = salamanderdeadright;
 	_motion->start();
 	_pt = info.pt;
+
 	return S_OK;
 }
 

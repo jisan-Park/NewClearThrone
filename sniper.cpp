@@ -23,6 +23,8 @@ void sniper::update()
 	_info.rc = RectMakeCenter(_info.pt.x, _info.pt.y, _info.width, _info.height);
 	_enState->update(_info);
 	setState(_info.nextState);
+	collision();
+	if (_info.hp <= 0) _info.nextState = E_DEAD;
 }
 
 void sniper::render(HDC hdc)
@@ -36,11 +38,11 @@ void sniper::setState(ENEMYSTATE state)
 	_info.state = state;
 	switch (_info.state)
 	{
-	case E_IDLE:	_enState = new sniperIdle;
+	case E_IDLE: _enState = new sniperIdle;
 		break;
-	case E_WALK:
+	case E_WALK: _enState = new sniperWalk;
 		break;
-	case E_DEAD:
+	case E_DEAD: _enState = new sniperDead;
 		break;
 	default:
 		break;

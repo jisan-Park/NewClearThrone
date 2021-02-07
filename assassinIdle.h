@@ -8,6 +8,8 @@ private:
 	animation* assassinidleright;
 	animation* assassinfakeleft;
 	animation* assassinidleleft;
+	animation* assassinhurtright;
+	animation* assassinhurtleft;
 
 public:
 

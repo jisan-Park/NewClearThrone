@@ -5,13 +5,14 @@ HRESULT sniperWalk::init(enemyinfo info)
 {
 	sniperhurtright = new animation;
 	sniperhurtright->init("sniper_hurt");
-	sniperhurtright->setPlayFrame(0, 2, false, false);
+	sniperhurtright->setPlayFrame(0, 2, false, false, hurtFinish, this);
 	sniperhurtright->setFPS(10);
 
 	sniperhurtleft = new animation;
 	sniperhurtleft->init("sniper_hurt");
-	sniperhurtleft->setPlayFrame(5, 3, false, false);
+	sniperhurtleft->setPlayFrame(5, 3, false, false, hurtFinish, this);
 	sniperhurtleft->setFPS(10);
+
 	sniperwalkright = new animation;
 	sniperwalkright->init("sniper_walk");
 	sniperwalkright->setPlayFrame(0, 5, false, true);

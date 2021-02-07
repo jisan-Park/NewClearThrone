@@ -133,8 +133,8 @@ void enemyManager::setimage()
 	IMAGEMANAGER->addFrameImage("raven_lift", "image/enemy/stage3/raven_lift.bmp", 640, 256, 5, 2, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("raven_walk", "image/enemy/stage3/raven_walk.bmp", 288, 96, 6, 2, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("salamander_bullet", "image/enemy/stage3/salamander_bullet.bmp", 224, 32, 7, 1, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addFrameImage("salamander_fire", "image/enemy/stage3/salamander_dead.bmp", 768, 192, 8, 2, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addFrameImage("salamander_dead", "image/enemy/stage3/salamander_fire.bmp", 192, 192, 2, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("salamander_fire", "image/enemy/stage3/salamander_fire.bmp", 192, 192, 2, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("salamander_dead", "image/enemy/stage3/salamander_dead.bmp", 768, 192, 8, 2, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("salamander_hurt", "image/enemy/stage3/salamander_hurt.bmp", 288, 192, 3, 2, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("salamander_idle", "image/enemy/stage3/salamander_idle.bmp", 672, 192, 7, 2, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("salamander_walk", "image/enemy/stage3/salamander_walk.bmp", 768, 192, 8, 2, true, RGB(255, 0, 255));

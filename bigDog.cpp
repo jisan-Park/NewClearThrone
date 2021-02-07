@@ -23,6 +23,8 @@ void bigDog::update()
 	_info.rc = RectMakeCenter(_info.pt.x, _info.pt.y, _info.width, _info.height);
 	_enState->update(_info);
 	setState(_info.nextState);
+	collision();
+	if (_info.hp <= 0) _info.nextState = E_DEAD;
 }
 
 void bigDog::render(HDC hdc)

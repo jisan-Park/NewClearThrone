@@ -8,10 +8,10 @@ HRESULT assassinWalk::init(enemyinfo info)
 	assassinwalkleft->setPlayFrame(0, 5, false, true);
 	assassinwalkleft->setFPS(10);
 
-	assassinwalkleft = new animation;					// 수정해야함
-	assassinwalkleft->init("assassin_walk");			// 수정해야함
-	assassinwalkleft->setPlayFrame(0, 5, false, true);	// 수정해야함
-	assassinwalkleft->setFPS(10);						// 수정해야함
+	assassinwalkright = new animation;					
+	assassinwalkright->init("assassin_walk");			
+	assassinwalkright->setPlayFrame(11, 6, false, true);	
+	assassinwalkright->setFPS(10);						
 
 	assassinhurtright = new animation;
 	assassinhurtright->init("assassin_hurt");
@@ -33,5 +33,23 @@ HRESULT assassinWalk::init(enemyinfo info)
 void assassinWalk::update(enemyinfo & info)
 {
 	_pt = info.pt;
+	if (info.isHurt == true)
+	{
+		isHurt = true;
+		info.isHurt = false;
+	}
+	if (isHurt == true)
+	{
+		_img = IMAGEMANAGER->findImage("bandit_hurt");
+		if (info.direction == E_LEFT) _motion = assassinhurtleft;
+		if (info.direction == E_RIGHT) _motion = assassinhurtright;
+	}
+	else
+	{
+		_img = IMAGEMANAGER->findImage("assassin_walk");
+		if (info.direction == E_LEFT) _motion = assassinwalkleft;
+		if (info.direction == E_RIGHT) _motion = assassinwalkright;
+	}
+	if (_motion->isPlay() == false) _motion->start();
 	_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);
 }

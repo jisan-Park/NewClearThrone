@@ -13,7 +13,6 @@ HRESULT sniperDead::init(enemyinfo info)
 	sniperdeadleft->setPlayFrame(11, 6, false, false);
 	sniperdeadleft->setFPS(10);
 
-
 	_img = IMAGEMANAGER->findImage("sniper_dead");
 	if (info.direction == E_LEFT) _motion = sniperdeadleft;
 	if (info.direction == E_RIGHT) _motion = sniperdeadright;

@@ -52,7 +52,7 @@ void bigBandit::update()
 				_info.nextState = E_IDLE;
 			}
 			_fireCnt++;
-			if (_fireCnt % 10 == 0 && MAPMANAGER->isStraight(PLAYERMANAGER->getPlayer()->getPt(), _info.pt))
+			if (_fireCnt % 30 == 0 && MAPMANAGER->isStraight(PLAYERMANAGER->getPlayer()->getPt(), _info.pt))
 			{
 				_weapon->fire();
 				_fireCnt = 0;
