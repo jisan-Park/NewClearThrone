@@ -36,6 +36,7 @@ struct enemyinfo
 	float width, height;	//너비 높이입니다
 	RECT rc;				//충돌판정용 렉트입니다
 	int hp;				//hp입니다.
+	int originSpeed;		// 플랜트 스킬에 갇혔을때 돌아오게 할 스피드입니다 시팔,,
 	int speed;				//움직이는 속도입니다
 	int damage;			//데미지입니다
 	int firecnt;			//발사 쿨입니다

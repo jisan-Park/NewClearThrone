@@ -27,7 +27,8 @@ public:
 	void explosion(POINT pt, float range, int damage);
 	void meleecollision(POINT pt, float range, int damage);
 	void eyeSkill(int x, int y);
-
+	void plantSkill(RECT rc);
+	void plantBulletCollision();
 	virtual void setState(ENEMYSTATE state);
 	virtual ENEMYTYPE getEnemyType() { return _enemyType; };
 	virtual enemyinfo getInfo() { return _info; };

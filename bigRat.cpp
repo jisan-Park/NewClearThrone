@@ -8,7 +8,7 @@ HRESULT bigRat::init(float x, float y)
 	_info.width = 60;
 	_info.height = 60;
 	_info.hp = 40;
-	_info.speed = 3;
+	_info.speed = _info.originSpeed = 3;
 	_info.moveAngle = 0;
 	_info.rc = RectMakeCenter(_info.pt.x, _info.pt.y, _info.width, _info.height);
 	_info.direction = E_RIGHT;

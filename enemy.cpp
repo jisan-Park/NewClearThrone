@@ -85,6 +85,27 @@ void enemy::eyeSkill(int x, int y)
 	if (_info.pt.y > y) _info.pt.y -= 1;
 }
 
+void enemy::plantSkill(RECT rc)
+{
+	RECT temp;
+	if (IntersectRect(&temp, &rc, &_info.rc))
+	{
+		_info.speed = 0;
+	}
+	else _info.speed = _info.originSpeed;
+}
+
+void enemy::plantBulletCollision()
+{
+	RECT temp;
+	if (IntersectRect(&temp, &_info.rc, &PLANTBULLET->getRC()))
+	{
+		PLANTBULLET->setISfire(false);
+		PLANTBULLET->setImage(IMAGEMANAGER->findImage("plant_skill"));
+		PLANTBULLET->setMotion();
+	}
+}
+
 void enemy::collision()
 {
 	if (_info.state != E_DEAD)

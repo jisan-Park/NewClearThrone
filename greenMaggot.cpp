@@ -9,7 +9,7 @@ HRESULT greenMaggot::init(float x, float y)
 	_info.width = 28;
 	_info.height = 14;
 	_info.hp = 1;
-	_info.speed = 2;
+	_info.speed = _info.originSpeed = 2;
 	_info.moveAngle = 0;
 	_info.rc = RectMakeCenter(_info.pt.x, _info.pt.y, _info.width, _info.height);
 	_info.direction = E_RIGHT;

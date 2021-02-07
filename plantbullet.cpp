@@ -22,7 +22,12 @@ void plantbullet::update()
 	{ 
 		_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);
 		_rc = RectMakeCenter(_pt.x, _pt.y, 80, 60);
+		for (int i = 0; i < ENEMYMANAGER->getShowEnemyVector().size(); ++i)
+		{
+			ENEMYMANAGER->getShowEnemyVector()[i]->plantSkill(_rc);
+		}
 	}
+	if (_isFire) ENEMYMANAGER->plantSkill();
 
 }
 
@@ -80,6 +85,14 @@ void plantbullet::move()
 
 		}
 	}
+	//if (!_isFire)
+	//{
+	//	_img = IMAGEMANAGER->findImage("plant_skill");
+	//	_motion = _plantbullet;
+	//
+	//	if (_motion->isPlay() == false) _motion->start();
+	//	_speed = 0;
+	//}
 	
 	
 }
@@ -90,4 +103,26 @@ void plantbullet::setAni()
 	_plantbullet->init("plant_skill");
 	_plantbullet->setPlayFrame(0, 4, false, false);
 	_plantbullet->setFPS(10);
+}
+
+void plantbullet::collision()
+{
+	//if (_isFire != _isFire && _img != NULL)
+	//{
+	//	for (int i = 0; i < ENEMYMANAGER->getShowEnemyVector().size(); ++i)
+	//	{
+	//		RECT temp;
+	//		if (IntersectRect(&temp, &ENEMYMANAGER->getShowEnemyVector()[i]->getInfo().rc, &_rc)
+	//	}
+	//}
+}
+
+void plantbullet::setMotion()
+{
+	_motion = _plantbullet;
+	_speed = 0;
+	if (!_motion->isPlay())
+	{
+		_motion->start();
+	}
 }

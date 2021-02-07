@@ -86,6 +86,7 @@ public:
 	void clearShowEnemyVector() { _showEnemy.clear(); };
 	void createRandomEnemyVector();
 	void removeEnemy(int i);
+	void plantSkill();
 	//getter
 	vEnemy getShowEnemyVector() { return _showEnemy; };
 };

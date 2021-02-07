@@ -9,7 +9,7 @@ HRESULT salamander::init(float x, float y)
 	_info.width = 65;
 	_info.height = 65;
 	_info.hp = 60;
-	_info.speed = 10;
+	_info.speed = _info.originSpeed = 10;
 	_info.moveAngle = 0;
 	_info.rc = RectMakeCenter(_info.pt.x, _info.pt.y, _info.width, _info.height);
 	_info.direction = E_RIGHT;

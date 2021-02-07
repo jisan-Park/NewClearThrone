@@ -30,10 +30,14 @@ public:
 	virtual void fire(POINT pt, float speed, float angle);
 	virtual void move();
 	virtual void setAni();
-
+	
+	void collision();
 	bool getIsfire() { return _isFire; }
 	void setISfire(bool isfire) { _isFire = isfire; };
 	RECT getRC() { return _rc; }
+	image* getImage() { return _img; }
+	void setImage(image* img) { _img = img; };
+	void setMotion();
 };
 
 

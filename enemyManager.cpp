@@ -418,3 +418,11 @@ void enemyManager::removeEnemy(int i)
 {
 	_showEnemy.erase(_showEnemy.begin() + i);
 }
+
+void enemyManager::plantSkill()
+{
+	for (int i = 0; i < _showEnemy.size(); i++)
+	{
+		_showEnemy[i]->plantBulletCollision();
+	}
+}
