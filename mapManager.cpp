@@ -47,6 +47,54 @@ void mapManager::release()
 {
 }
 
+bool mapManager::isCollisionTile(POINT& pt)
+{
+	RECT playerRect = RectMakeCenter(pt.x,pt.y,30,30);
+	RECT temp;
+	for (int i = 0; i < TILEX; ++i) {
+		for (int j = 0; j < TILEY; ++j) {
+			if (_tiles[i][j].wall == WALL_NONE) {
+				continue;
+			}
+			//벽이 있는 타일과 충돌하면
+			if (IntersectRect(&temp, &playerRect, &_tiles[i][j].rc)) {
+				//가로가 넓다 = 위, 아래에서 충돌했다
+				if (temp.right - temp.left > temp.bottom - temp.top) {
+					//top이 같다 = 아래에서 충돌했다
+					if (playerRect.top == temp.top) {
+						//밑으로 밀어줘야함 +
+						pt.y += temp.bottom - temp.top;
+					}
+					else {
+						//위로 밀어줘야함 -
+						pt.y -= temp.bottom - temp.top;
+					}
+
+				}
+				//세로가 넓다 = 좌, 우 에서 충돌했다
+				else {
+					//left가 같다 = 우측에서 충돌했다
+					if (playerRect.left == temp.left) {
+						//우로 밀어줘야함 +
+						pt.x += temp.right - temp.left;
+					}
+					else {
+						//좌로 밀어줘야함 -
+						pt.x -= temp.right - temp.left;
+					}
+				}
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+void mapManager::collision(RECT rc)
+{
+	
+}
+
 void mapManager::setRandomMap()
 {
 	setRandomStage(stage_first);

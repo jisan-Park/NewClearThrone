@@ -53,6 +53,7 @@ void Fish::update()
 
 
 	_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);
+	MAPMANAGER->isCollisionTile(_pt);
 }
 
 void Fish::render(HDC hdc)
@@ -159,27 +160,28 @@ void Fish::contral()
 
 	if (_playerstate == WALK)
 	{
+		if (!MAPMANAGER->isCollisionTile(_pt)) {
+			if (KEYMANAGER->isStayKeyDown('A'))
+			{
+				_pt.x -= 5;
+				_movedirctionx = LEFTMOVE;
 
-		if (KEYMANAGER->isStayKeyDown('A'))
-		{
-			_pt.x -= 5;
-			_movedirctionx = LEFTMOVE;
-
-		}
-		if (KEYMANAGER->isStayKeyDown('D'))
-		{
-			_pt.x += 5;
-			_movedirctionx = RIGHTMOVE;
-		}
-		if (KEYMANAGER->isStayKeyDown('W'))
-		{
-			_pt.y -= 5;
-			_movedirctiony = UPMOVE;
-		}
-		if (KEYMANAGER->isStayKeyDown('S'))
-		{
-			_pt.y += 5;
-			_movedirctiony = DOWNMOVE;
+			}
+			if (KEYMANAGER->isStayKeyDown('D'))
+			{
+				_pt.x += 5;
+				_movedirctionx = RIGHTMOVE;
+			}
+			if (KEYMANAGER->isStayKeyDown('W'))
+			{
+				_pt.y -= 5;
+				_movedirctiony = UPMOVE;
+			}
+			if (KEYMANAGER->isStayKeyDown('S'))
+			{
+				_pt.y += 5;
+				_movedirctiony = DOWNMOVE;
+			}
 		}
 
 		if (!_ishit)

@@ -84,6 +84,7 @@ void customScene::render()
 	//map wall rect render
 	if (KEYMANAGER->isToggleKey(VK_F2)) {
 		MAPMANAGER->RectRender(getMapDC());
+		Rectangle(getMapDC(),PLAYERMANAGER->getPlayer()->getRect().left, PLAYERMANAGER->getPlayer()->getRect().top, PLAYERMANAGER->getPlayer()->getRect().right, PLAYERMANAGER->getPlayer()->getRect().bottom);
 	}
 
 

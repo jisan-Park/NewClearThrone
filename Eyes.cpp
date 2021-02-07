@@ -54,7 +54,7 @@ void Eyes::update()
 	_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);
 	
 	
-	
+	MAPMANAGER->isCollisionTile(_pt);
 }
 
 void Eyes::render(HDC hdc)
@@ -162,22 +162,24 @@ void Eyes::contral()
 
 	if (_playerstate == WALK)
 	{
-		if (KEYMANAGER->isStayKeyDown('A'))
-		{
-			_pt.x -= 5;
+		if (!MAPMANAGER->isCollisionTile(_pt)) {
+			if (KEYMANAGER->isStayKeyDown('A'))
+			{
+				_pt.x -= 5;
 
-		}
-		if (KEYMANAGER->isStayKeyDown('D'))
-		{
-			_pt.x += 5;
-		}
-		if (KEYMANAGER->isStayKeyDown('W'))
-		{
-			_pt.y -= 5;
-		}
-		if (KEYMANAGER->isStayKeyDown('S'))
-		{
-			_pt.y += 5;
+			}
+			if (KEYMANAGER->isStayKeyDown('D'))
+			{
+				_pt.x += 5;
+			}
+			if (KEYMANAGER->isStayKeyDown('W'))
+			{
+				_pt.y -= 5;
+			}
+			if (KEYMANAGER->isStayKeyDown('S'))
+			{
+				_pt.y += 5;
+			}
 		}
 		if (!_ishit)
 		{

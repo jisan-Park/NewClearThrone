@@ -169,6 +169,8 @@ public:
 	void update();
 	void release();
 	////////////////////[ stage ]///////////////////////////
+	bool isCollisionTile(POINT& pt);
+	void collision(RECT rc);
 	//setter
 	void setStage_first(int i) { stage_first = i; };
 	void setStage_second(int i) { stage_second = i; };
