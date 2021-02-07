@@ -154,51 +154,51 @@ void cardselectScene::ptInCard()
 
 				if (_aCard[i].cardNum == 0)
 				{
-
+					PLAYERMANAGER->getPlayer()->BackMuscle();
 				}
 				else if (_aCard[i].cardNum == 1)
 				{
-
+					PLAYERMANAGER->getPlayer()->Bloodlust();
 				}
 				else if (_aCard[i].cardNum == 2)
 				{
-
+					PLAYERMANAGER->getPlayer()->EagleEyes();
 				}
 				else if (_aCard[i].cardNum == 3)
 				{
-
+					PLAYERMANAGER->getPlayer()->ExtraFeet();
 				}
 				else if (_aCard[i].cardNum == 4)
 				{
-
+					//유포리아
 				}
 				else if (_aCard[i].cardNum == 5)
 				{
-
+					//헤머헤드
 				}
 				else if (_aCard[i].cardNum == 6)
 				{
-
+					PLAYERMANAGER->getPlayer()->LastWish();
 				}
 				else if (_aCard[i].cardNum == 7)
 				{
-
+					PLAYERMANAGER->getPlayer()->RecycleGland();
 				}
 				else if (_aCard[i].cardNum == 8)
 				{
-
+					PLAYERMANAGER->getPlayer()->Rhinoskin();
 				}
 				else if (_aCard[i].cardNum == 9)
 				{
-
+					//스케어 페이스
 				}
 				else if (_aCard[i].cardNum == 10)
 				{
-
+					PLAYERMANAGER->getPlayer()->Stress();
 				}
 				else if (_aCard[i].cardNum == 11)
 				{
-
+					PLAYERMANAGER->getPlayer()->Strongspirit();
 				}
 			}
 		}

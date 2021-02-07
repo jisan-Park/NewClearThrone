@@ -11,6 +11,11 @@ Player::~Player()
 
 HRESULT Player::init(float x, float y)
 {
+	_isBloodLust = false;
+	_isRecycleGland = false;
+	_isStrongSpirit = false;
+
+
 	return S_OK;
 }
 
@@ -193,6 +198,7 @@ void Player::BackMuscle()
 
 void Player::Bloodlust()
 {
+	_isBloodLust = true;
 }
 
 void Player::EagleEyes()
@@ -218,6 +224,7 @@ void Player::LastWish()
 
 void Player::RecycleGland()
 {
+	_isRecycleGland = true;
 }
 
 void Player::Rhinoskin()
@@ -233,4 +240,5 @@ void Player::Stress()
 
 void Player::Strongspirit()
 {
+	_isStrongSpirit = true;
 }

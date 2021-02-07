@@ -66,6 +66,13 @@ protected:
 	int _interval = 10;
 
 
+	//변이 함수
+	bool _isBloodLust;
+	bool _isRecycleGland;
+	bool _isStrongSpirit;
+	
+
+
 	//=========================================
 	bool _isdash;//fish 스킬 트리거
 	float _pushp;//fish 스킬 미는 힘
