@@ -248,5 +248,6 @@ public:
 	//enemy A* algorithm
 	POINT enemyMove(POINT pt);
 	bool isStraight(POINT player, POINT enemy);
+	bool ptIntersect(POINT pt);
 };
 

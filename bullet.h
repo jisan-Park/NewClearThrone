@@ -47,6 +47,7 @@ public:
 	float getAngle() { return _angle; }
 	int getDamage() { return _damage; }
 	bool getGone() { return _gone; }
+	POINT getPt() { return _pt; }
 
 };
 

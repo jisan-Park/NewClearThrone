@@ -3267,3 +3267,12 @@ bool mapManager::isStraight(POINT player, POINT enemy)
 	return true;
 }
 
+bool mapManager::ptIntersect(POINT pt)
+{
+	int x = pt.x / 64;
+	int y = pt.y / 64;
+
+	if (_tiles[x][y].wall == WALL_NONE) return false;
+	if (_tiles[x][y].wall != WALL_NONE) return true;
+}
+

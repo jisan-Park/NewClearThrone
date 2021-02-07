@@ -38,6 +38,7 @@ void bulletManager::update()
 		_vPlayerBullet[i]->update();
 		++i;
 	}
+	wallCollision();
 }
 
 void bulletManager::render(HDC hdc)
@@ -132,4 +133,26 @@ void bulletManager::removePlayerBullet(int i)
 void bulletManager::removeEnemyBullet(int i)
 {
 	_vEnemyBullet.erase(_vEnemyBullet.begin() + i);
+}
+
+void bulletManager::wallCollision()
+{
+	for (int i = 0; i < _vPlayerBullet.size();)
+	{
+		if (MAPMANAGER->ptIntersect(_vPlayerBullet[i]->getPt()))
+		{
+			removePlayerBullet(i);
+			break;
+		}
+		++i;
+	}
+	for (int i = 0; i < _vEnemyBullet.size();)
+	{
+		if (MAPMANAGER->ptIntersect(_vEnemyBullet[i]->getPt()))
+		{
+			removeEnemyBullet(i);
+			break;
+		}
+		++i;
+	}
 }

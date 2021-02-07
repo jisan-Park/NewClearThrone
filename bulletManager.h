@@ -41,6 +41,8 @@ public:
 	void removePlayerBullet(int i);
 	void removeEnemyBullet(int i);
 
+	void wallCollision();
+
 	vBullet getvEnemyBullet() { return _vEnemyBullet; };
 	viBullet getViEnemyBullet() { return _viEnemyBullet; };
 
