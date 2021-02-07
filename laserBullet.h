@@ -1,10 +1,8 @@
 #pragma once
 #include "bullet.h"
-class grenade :
+class laserBullet :
 	public bullet
 {
-private:
-	int _cnt;
 public:
 	HRESULT init();
 	virtual void release();
@@ -12,8 +10,6 @@ public:
 	virtual void render(HDC hdc);
 
 	virtual void fire(POINT pt, float speed, float angle, int damage);
-	virtual void setFrameIndex();
-	virtual void explode();
 
 	virtual void move();
 };

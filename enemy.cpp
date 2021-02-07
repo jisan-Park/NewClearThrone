@@ -122,6 +122,17 @@ void enemy::collision()
 			{
 				PLAYERMANAGER->getPlayer()->Bloodlustupdate();
 				PLAYERMANAGER->getPlayer()->RecycleGlandate();
+				if (BULLETMANAGER->getvPlayerBullet()[i]->getType() == GRENADE)
+				{
+					////BULLETMANAGER->getvPlayerBullet()[i]->setGone(true);
+					//for (int i = 0; i < ENEMYMANAGER->getShowEnemyVector().size(); ++i)
+					//{
+					//	ENEMYMANAGER->getShowEnemyVector()[i]->explosion(BULLETMANAGER->getvPlayerBullet()[i]->getPt(), 200, 20);
+					//}
+					BULLETMANAGER->getvPlayerBullet()[i]->explode();
+					BULLETMANAGER->removePlayerBullet(i);
+					break;
+				}
 				_info.isHurt = true;
 				_info.hp -= BULLETMANAGER->getvPlayerBullet()[i]->getDamage();
 				_info.pt.x += cosf(BULLETMANAGER->getvPlayerBullet()[i]->getAngle()) * 10;

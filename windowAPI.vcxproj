@@ -247,6 +247,7 @@
     <ClInclude Include="itemManager.h" />
     <ClInclude Include="keyAniManager.h" />
     <ClInclude Include="keyManager.h" />
+    <ClInclude Include="laserBullet.h" />
     <ClInclude Include="loadingScene.h" />
     <ClInclude Include="machineGun.h" />
     <ClInclude Include="maggot.h" />
@@ -301,6 +302,7 @@
     <ClInclude Include="selectScene.h" />
     <ClInclude Include="settingScene.h" />
     <ClInclude Include="shotGun.h" />
+    <ClInclude Include="shotGunBullet.h" />
     <ClInclude Include="shovel.h" />
     <ClInclude Include="singletonBase.h" />
     <ClInclude Include="sniper.h" />
@@ -423,6 +425,7 @@
     <ClCompile Include="itemManager.cpp" />
     <ClCompile Include="keyAniManager.cpp" />
     <ClCompile Include="keyManager.cpp" />
+    <ClCompile Include="laserBullet.cpp" />
     <ClCompile Include="loadingScene.cpp" />
     <ClCompile Include="machineGun.cpp" />
     <ClCompile Include="maggot.cpp" />
@@ -475,6 +478,7 @@
     <ClCompile Include="selectScene.cpp" />
     <ClCompile Include="settingScene.cpp" />
     <ClCompile Include="shotGun.cpp" />
+    <ClCompile Include="shotGunBullet.cpp" />
     <ClCompile Include="shovel.cpp" />
     <ClCompile Include="sniper.cpp" />
     <ClCompile Include="sniperDead.cpp" />

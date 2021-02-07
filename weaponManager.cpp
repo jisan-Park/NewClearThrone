@@ -41,4 +41,6 @@ void weaponManager::setImage()
 	IMAGEMANAGER->addFrameImage("wrenchdrop", "image/weapon/wrenchdrop.bmp", 380, 14, 7, 1, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("bullet16", "image/bullet/bullet16.bmp", 512, 32, 16, 1, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("bullet1", "image/bullet/bullet1.bmp", 24, 24, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("수류탄", "image/bullet/수류탄.bmp", 208, 26, 8, 1, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("레이저", "image/bullet/레이저.bmp", 368, 46, 8, 1, true, RGB(255, 0, 255));
 }

@@ -72,13 +72,26 @@ void bulletManager::PlayerFire(BULLETTYPE type, POINT pt, float speed, float ang
 	break;
 	case FLAME:
 		break;
-	default:
 	case GRENADE:
 	{
 		temp = new grenade;
 		temp->fire(pt, speed, angle, damage);
 	}
+
 	break;
+	case SHOTGUNBULLET:
+	{
+		temp = new shotGunBullet;
+		temp->fire(pt, speed, angle, damage);
+	}
+	case LASERBULLET:
+	{
+		temp = new laserBullet;
+		temp->fire(pt, speed, angle, damage);
+	}
+	break;
+	default:
+		break;
 	}
 	_vPlayerBullet.push_back(temp);
 }
@@ -132,8 +145,9 @@ void bulletManager::EnemyFire(BULLETTYPE type, POINT pt, float speed, float angl
 		temp->fire(pt, speed, angle, damage);
 	}
 	break;
-	}
+
 	_vEnemyBullet.push_back(temp);
+	}
 }
 
 void bulletManager::removePlayerBullet(int i)

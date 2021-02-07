@@ -7,19 +7,9 @@
 #include "enemyBullet16_2.h"
 #include "enemyShotGun.h"
 #include "enemyShotGun2.h"
+#include "shotGunBullet.h"
+#include "laserBullet.h"
 #include <vector>
-enum BULLETTYPE
-{
-	ANGLE16,
-	ANGLE1,
-	FLAME,
-	GRENADE,
-
-	E_ANGLE16_1,
-	E_ANGLE16_2,
-	E_SHOTGUN,
-	E_SHOTGUN2
-};
 class bulletManager : public singletonBase<bulletManager>
 {
 private:

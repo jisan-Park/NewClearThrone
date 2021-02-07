@@ -1,19 +1,20 @@
 #pragma once
 #include <vector>
-//struct tagBullet
-//{
-//	image* img;				//총알의 이미지
-//	RECT rc;
-//	POINT pt;				//중점 좌표
-//	POINT firept;			//발사할 때 좌표
-//	whoshot who;
-//	float angle;			//각도
-//	float radius;			//붼지름
-//	float speed;			//스피드
-//	bool isFire;			//발사했누?
-//	int count;				//프레임 이미지 카운트용
-//	int damage;
-//};
+enum BULLETTYPE
+{
+	ANGLE16,
+	ANGLE1,
+	FLAME,
+	GRENADE,
+	SHOTGUNBULLET,
+	LASERBULLET,
+
+	E_ANGLE16_1,
+	E_ANGLE16_2,
+	E_SHOTGUN,
+	E_SHOTGUN2
+
+};
 class bullet
 {
 protected:
@@ -23,6 +24,8 @@ protected:
 	RECT _rc;
 	POINT _pt;				//중점 좌표
 	POINT _firept;			//발사할 때 좌표
+
+	BULLETTYPE _type;
 	float _angle;			//각도
 	float _radius;			//붼지름
 	float _speed;			//스피드
@@ -41,7 +44,9 @@ public:
 	virtual void update();
 	virtual void render(HDC hdc);
 	virtual void fire(POINT pt, float speed, float angle, int damage);
+	void setFrameIndex8();
 	virtual void move();
+	virtual void explode();
 
 	RECT getRect() { return _rc; }
 	float getAngle() { return _angle; }
@@ -49,5 +54,6 @@ public:
 	bool getGone() { return _gone; }
 	POINT getPt() { return _pt; }
 
+	BULLETTYPE getType() { return _type; }
 };
 

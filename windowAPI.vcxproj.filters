@@ -723,6 +723,12 @@
     <ClInclude Include="gatorGun.h">
       <Filter>2DGameFramework\weapon</Filter>
     </ClInclude>
+    <ClInclude Include="shotGunBullet.h">
+      <Filter>2DGameFramework\bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="laserBullet.h">
+      <Filter>2DGameFramework\bullet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -1234,6 +1240,12 @@
     </ClCompile>
     <ClCompile Include="gatorGun.cpp">
       <Filter>2DGameFramework\weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="shotGunBullet.cpp">
+      <Filter>2DGameFramework\bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="laserBullet.cpp">
+      <Filter>2DGameFramework\bullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
