@@ -27,6 +27,7 @@ HRESULT Eyes::init(float x, float y)
 	_playerstate = IDLE;
 	_img = IMAGEMANAGER->findImage("eyes_idle");
 	_img2 = IMAGEMANAGER->findImage("eyes_skill");
+	_motion2 = eyesskill;
 	_motion = eyesidleright;
 	_motion->start();
 	_ishit = false;
@@ -60,8 +61,10 @@ void Eyes::render(HDC hdc)
 {
 	_img->aniRender(hdc, _pt.x - _img->getFrameWidth() / 2, _pt.y - _img->getFrameHeight() / 2, _motion);
 	_currentWeapon->render(hdc);
-
-	_img2->aniRender(hdc, _pt.x - _img->getFrameWidth() / 2, _pt.y - _img->getFrameHeight() / 2, _motion);
+	if (KEYMANAGER->isStayKeyDown(VK_RBUTTON))
+	{
+		_img2->aniRender(hdc, _pt.x - _img2->getFrameWidth() / 2, _pt.y - _img2->getFrameHeight()-20, _motion2);
+	}
 	
 }
 
