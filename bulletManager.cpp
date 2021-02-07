@@ -3,6 +3,8 @@
 
 HRESULT bulletManager::init()
 {
+	_isScareFace = false;
+	_isEuphoria = false;
 	return S_OK;
 }
 

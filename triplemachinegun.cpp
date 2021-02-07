@@ -47,7 +47,7 @@ void triplemachinegun::fire()
 		for (int i = 0; i < 3; i++)
 		{
 			if (PLAYERMANAGER->getPlayer()->getPlayerbullet() <= 0) break;
-			BULLETMANAGER->PlayerFire(ANGLE16, _pt, _bulletSpd, _angle + RND->getFromFloatTo(-(_rndSpreadAngle - 0.01 * PLAYERMANAGER->getPlayer()->getAngleCard()), (_rndSpreadAngle - 0.01 * PLAYERMANAGER->getPlayer()->getAngleCard())) - 0.05f + 0.05f * i, _damage);
+			BULLETMANAGER->PlayerFire(ANGLE16, _pt, _bulletSpd, _angle - (0.05f - 0.01f * PLAYERMANAGER->getPlayer()->getAngleCard())+ (0.05f - 0.01f * PLAYERMANAGER->getPlayer()->getAngleCard())* i, _damage);
 			PLAYERMANAGER->getPlayer()->setPlayerbullet(PLAYERMANAGER->getPlayer()->getPlayerbullet() - 1);
 		}
 		_coolCnt = 0;
