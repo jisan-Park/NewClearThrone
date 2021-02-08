@@ -14,7 +14,17 @@ effectManager::~effectManager()
 
 HRESULT effectManager::init()
 {
-
+	addEffect("exp", "image/effect/explosion_effect", 252, 34, 34, 34, 1.0f,0.1f, 1000);
+	addEffect("red_exp", "image/effect/rad_explosion_effect", 252, 34, 34, 34, 1.0f, 0.1f, 1000);
+	addEffect("longMeele", "image/effect/긴근접 8방향", 530, 848, 106, 106, 1.0f, 0.1f, 1000);
+	addEffect("dust", "image/effect/먼지구름", 133, 19, 19, 19, 1.0f, 0.1f, 1000);
+	addEffect("shotMeele", "image/effect/짧은근접 8방향", 255, 408, 51, 51, 1.0f, 0.1f, 1000);
+	addEffect("bullet1", "image/effect/총알 터질때 이펙트", 180, 36, 36, 36, 1.0f, 0.1f, 1000);
+	addEffect("bullet2", "image/effect/폭발 이미지", 800, 200, 100, 100, 1.0f, 0.1f, 1000);
+	
+	
+	
+	
 	return S_OK;
 }
 

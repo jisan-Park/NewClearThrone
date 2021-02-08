@@ -207,6 +207,55 @@ void soundManager::setSound()
 	SOUNDMANAGER->addSound("스테이지1", "sound/배경/스테이지1.mp3", true, true);
 	SOUNDMANAGER->addSound("스테이지2", "sound/배경/스테이지2.mp3", true, true);
 	SOUNDMANAGER->addSound("스테이지3", "sound/배경/스테이지3.mp3", true, true);
+
+	//효과음
+	
+	//플레이어
+	SOUNDMANAGER->addSound("멜팅사망", "sound/플레이어/멜팅죽을때.mp3", false, false);
+	SOUNDMANAGER->addSound("아이즈사망", "sound/플레이어/아이즈죽을때.mp3", false, false);
+	SOUNDMANAGER->addSound("크리스탈사망", "sound/플레이어/크리스탈죽을때.mp3", false, false);
+	SOUNDMANAGER->addSound("플랜트사망", "sound/플레이어/플랜트죽을때.mp3", false, false);
+	SOUNDMANAGER->addSound("피쉬사망", "sound/플레이어/피쉬죽을때.mp3", false, false);
+
+	SOUNDMANAGER->addSound("아이즈 스킬", "sound/플레이어/아이즈 스킬.mp3", false, false);
+	SOUNDMANAGER->addSound("크리스탈 스킬", "sound/플레이어/크리스탈 스킬.mp3", false, false);
+	SOUNDMANAGER->addSound("플랜트 스킬", "sound/플레이어/플랜트 스킬.mp3", false, false);
+	SOUNDMANAGER->addSound("피쉬 스킬", "sound/플레이어/피쉬 스킬.mp3", false, false);
+
+	//플레이어선택시
+	SOUNDMANAGER->addSound("멜팅 선택", "sound/효과음/캐릭터 선택/멜팅 선택.mp3", false, false);
+	SOUNDMANAGER->addSound("아이즈 선택", "sound/효과음/캐릭터 선택/아이즈 선택.mp3", false, false);
+	SOUNDMANAGER->addSound("크리스탈선택", "sound/효과음/캐릭터 선택/크리스탈 선택.mp3", false, false);
+	SOUNDMANAGER->addSound("플랜트 선택", "sound/효과음/캐릭터 선택/플랜트 선택.mp3", false, false);
+	SOUNDMANAGER->addSound("피쉬 선택", "sound/효과음/캐릭터 선택/피쉬 선택.mp3", false, false);
+
+	//무기
+	SOUNDMANAGER->addSound("권총1", "sound/효과음/무기/권총.mp3", false, false);
+	SOUNDMANAGER->addSound("단발1", "sound/효과음/무기/단발 쎈거.mp3", false, false);
+	SOUNDMANAGER->addSound("둔기1", "sound/효과음/무기/둔기.mp3", false, false);
+	SOUNDMANAGER->addSound("레이저1", "sound/효과음/무기/레이저.mp3", false, false);
+	SOUNDMANAGER->addSound("렌치1", "sound/효과음/무기/렌치.mp3", false, false);
+	SOUNDMANAGER->addSound("쇠소리1", "sound/효과음/무기/쇠소리.mp3", false, false);
+	SOUNDMANAGER->addSound("약한총1", "sound/효과음/무기/약한총.mp3", false, false);
+	SOUNDMANAGER->addSound("재장전1", "sound/효과음/무기/재장전.mp3", false, false);
+	SOUNDMANAGER->addSound("칼1", "sound/효과음/무기/칼.mp3", false, false);
+
+	//에너미
+	SOUNDMANAGER->addSound("까마귀맞음", "sound/효과음/에너미/까마귀/까마귀 맞았을때.mp3", false, false);
+	SOUNDMANAGER->addSound("까마귀소리1", "sound/효과음/에너미/까마귀/까마귀1.mp3", false, false);
+	SOUNDMANAGER->addSound("까마귀소리2", "sound/효과음/에너미/까마귀/까마귀2.mp3", false, false);
+	
+	SOUNDMANAGER->addSound("불뿜기", "sound/효과음/에너미/도마뱀/불뿜기.mp3", false, false);
+
+	SOUNDMANAGER->addSound("빅독총쏘는", "sound/효과음/에너미/보스/빅독돌면서총쏘는.mp3", false, false);
+	SOUNDMANAGER->addSound("빅독등장", "sound/효과음/에너미/보스/빅독등장.mp3", false, false);
+	SOUNDMANAGER->addSound("빅밴딧등장", "sound/효과음/에너미/보스/빅밴딧등장.mp3", false, false);
+	
+	SOUNDMANAGER->addSound("에너미힛1", "sound/효과음/에너미/잡몹/잡몹죽을때1.mp3", false, false);
+	SOUNDMANAGER->addSound("에너미힛2", "sound/효과음/에너미/잡몹/잡몹죽을때2.mp3", false, false);
+
+	SOUNDMANAGER->addSound("클릭소리", "sound/효과음/클릭소리.mp3", false, false);
+	SOUNDMANAGER->addSound("폭발사운드", "sound/효과음/폭발사운드.mp3", false, false);
 }
 
 unsigned int soundManager::getPosition(string keyName)
