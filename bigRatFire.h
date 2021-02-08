@@ -1,6 +1,6 @@
 #pragma once
 #include "bigRatState.h"
-class bigRatFire :	public bigRatState
+class bigRatFire : public bigRatState
 {
 private:
 	animation*	bigratfireright;
@@ -9,5 +9,6 @@ private:
 public:
 	virtual HRESULT init(enemyinfo info);
 	virtual void update(enemyinfo &info);
+	static void isEndFire(void * obj);
 };
 

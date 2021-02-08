@@ -6,12 +6,12 @@ HRESULT banditDead::init(enemyinfo info)
 {
 	banditdeadright = new animation;
 	banditdeadright->init("bandit_dead");
-	banditdeadright->setPlayFrame(0, 2, false, false);
+	banditdeadright->setPlayFrame(0, 3, false, false);
 	banditdeadright->setFPS(10);
 
 	banditdeadleft = new animation;
 	banditdeadleft->init("bandit_dead");
-	banditdeadleft->setPlayFrame(5, 3, false, false);
+	banditdeadleft->setPlayFrame(6, 3, false, false);
 	banditdeadleft->setFPS(10);
 	_img = IMAGEMANAGER->findImage("bandit_dead");
 	if (info.direction == E_LEFT) _motion = banditdeadleft;

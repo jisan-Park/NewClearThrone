@@ -53,8 +53,23 @@ void bigRatWalk::update(enemyinfo & info)
 	else
 	{
 		_img = IMAGEMANAGER->findImage("bigrat_walk");
-		if (info.direction == E_LEFT) _motion = bigratwalkleft;
-		if (info.direction == E_RIGHT)_motion = bigratwalkright;
+
+		info.pt.x += cosf(info.moveAngle)* info.speed;
+		info.pt.y += -sinf(info.moveAngle)* info.speed;
+
+		if (PLAYERMANAGER->getPlayer()->getPt().x < info.pt.x)
+		{
+			info.direction == E_LEFT;
+			_motion = bigratwalkleft;
+			_motion->start();
+		}
+		if (PLAYERMANAGER->getPlayer()->getPt().x > info.pt.x)
+		{
+			info.direction == E_RIGHT;
+			_motion = bigratwalkright;
+			_motion->start();
+		}
+
 	}
 	if (_motion->isPlay() == false) _motion->start();
 	_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);

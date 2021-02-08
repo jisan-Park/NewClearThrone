@@ -23,8 +23,6 @@ HRESULT bigBanditWalk::init(enemyinfo info)
 	bigbandithurtleft->setPlayFrame(5, 3, false, false, hurtFinish, this);
 	bigbandithurtleft->setFPS(10);
 
-
-
 	_pt = info.pt;
 	_img = IMAGEMANAGER->findImage("bigbandit_walk");
 	if (info.direction == E_LEFT) _motion = bigbanditwalkleft;
@@ -50,19 +48,19 @@ void bigBanditWalk::update(enemyinfo & info)
 	}
 	else
 	{
-		_img = IMAGEMANAGER->findImage("bigbandit_walk");
-		
-		if (PLAYERMANAGER->getPlayer()->getPt().x < info.pt.x)
-		{
-			info.direction == E_LEFT;
-			_motion = bigbanditwalkleft;
-
+		if (!MAPMANAGER->isCollisionTile(info.pt, info.width, info.height)) {
+			info.pt.x += cosf(info.moveAngle)* info.speed;
+			info.pt.y += -sinf(info.moveAngle)* info.speed;
 		}
-		if (PLAYERMANAGER->getPlayer()->getPt().x > info.pt.x)
-		{
-			info.direction == E_RIGHT;
-			_motion = bigbanditwalkright;
 
+		_img = IMAGEMANAGER->findImage("bigbandit_walk");
+		if (info.direction == E_LEFT)
+		{
+			_motion = bigbanditwalkleft;
+		}
+		if (info.direction == E_RIGHT)
+		{
+			_motion = bigbanditwalkright;
 		}
 
 	}

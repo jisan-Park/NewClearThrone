@@ -6,17 +6,17 @@ HRESULT bigRatIdle::init(enemyinfo info)
 {
 	bigratidleright = new animation;
 	bigratidleright->init("bigrat_idle");
-	bigratidleright->setPlayFrame(0, 1, false, true);
+	bigratidleright->setPlayFrame(0, 3, false, true);
 	bigratidleright->setFPS(10);
 
-	bigratidleright = new animation;
-	bigratidleright->init("bigrat_idle");
-	bigratidleright->setPlayFrame(3, 2, false, true);
-	bigratidleright->setFPS(10);
+	bigratidleleft = new animation;
+	bigratidleleft->init("bigrat_idle");
+	bigratidleleft->setPlayFrame(7, 4, false, true);
+	bigratidleleft->setFPS(10);
 
 	bigrathurtright = new animation;
 	bigrathurtright->init("bigrat_hurt");
-	bigrathurtright->setPlayFrame(0, 2, false, false, hurtFinish,this);
+	bigrathurtright->setPlayFrame(0, 2, false, false, hurtFinish, this);
 	bigrathurtright->setFPS(10);
 
 	bigrathurtleft = new animation;
@@ -42,7 +42,6 @@ void bigRatIdle::update(enemyinfo & info)
 	}
 	if (isHurt == true)
 	{
-
 		_img = IMAGEMANAGER->findImage("bigrat_hurt");
 		if (info.direction == E_LEFT) _motion = bigrathurtleft;
 		if (info.direction == E_RIGHT)_motion = bigrathurtright;
@@ -50,8 +49,19 @@ void bigRatIdle::update(enemyinfo & info)
 	else
 	{
 		_img = IMAGEMANAGER->findImage("bigrat_idle");
-		if (info.direction == E_LEFT) _motion = bigratidleright;
-		if (info.direction == E_RIGHT)_motion = bigratidleright;
+
+		if (PLAYERMANAGER->getPlayer()->getPt().x < info.pt.x)
+		{
+			info.direction == E_LEFT;
+			_motion = bigratidleleft;
+			_motion->start();
+		}
+		if (PLAYERMANAGER->getPlayer()->getPt().x > info.pt.x)
+		{
+			info.direction == E_RIGHT;
+			_motion = bigratidleright;
+			_motion->start();
+		}
 	}
 	if (_motion->isPlay() == false) _motion->start();
 	_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);

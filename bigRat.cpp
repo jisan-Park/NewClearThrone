@@ -28,9 +28,56 @@ void bigRat::update()
 {
 	_info.rc = RectMakeCenter(_info.pt.x, _info.pt.y, _info.width, _info.height);
 	_enState->update(_info);
-	setState(_info.nextState);
 	collision();
+	_rndMoveCnt++;
 	if (_info.hp <= 0) _info.nextState = E_DEAD;
+	if (_info.state != E_DEAD)
+	{
+		if (inRange() == true)
+		{
+			_info.moveAngle = getAngle(_info.pt, MAPMANAGER->enemyMove(_info.pt));
+
+			if (_info.state == E_BURROW)
+			{
+				int index_x = 0;
+				int index_y = 0;
+
+				int next_x = 0;
+				int next_y = 0;
+
+				index_x = _info.pt.x / 64;
+				index_y = _info.pt.y / 64;
+
+				next_x = PLAYERMANAGER->getPlayer()->getPt().x / 64;
+				next_y = PLAYERMANAGER->getPlayer()->getPt().y / 64;
+				if (abs(index_x - next_x) <= 1 && abs(index_y - next_y) <= 1)
+				{
+					_info.nextState = E_APPEAR;
+				}
+			}
+		}
+
+		if (_info.nstate == UNNOTICED)
+		{
+			if (_rndMoveCnt % _rndInterval == 0)
+			{
+				if (_info.state == E_IDLE)
+				{
+					_info.nextState = E_WALK;
+					_info.moveAngle = getAngle(_info.pt, MAPMANAGER->enemyRandomMove(_info.pt));
+					_rndInterval = RND->getFromIntTo(70, 130);
+					_rndMoveCnt = 0;
+				}
+				if (_info.state == E_WALK)
+				{
+					_info.nextState = E_IDLE;
+					_rndInterval = RND->getFromIntTo(70, 130);
+					_rndMoveCnt == 0;
+				}
+			}
+		}
+	}
+	setState(_info.nextState);
 }
 
 void bigRat::render(HDC hdc)

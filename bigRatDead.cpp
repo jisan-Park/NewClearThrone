@@ -6,12 +6,13 @@ HRESULT bigRatDead::init(enemyinfo info)
 {
 	bigratdeadright = new animation;
 	bigratdeadright->init("bigrat_dead");
-	bigratdeadright->setPlayFrame(0, 5, false, false);
+	bigratdeadright->setPlayFrame(0, 6, false, false);
 	bigratdeadright->setFPS(10);
 
 	bigratdeadleft = new animation; // 콜백추가해야함
 	bigratdeadleft->init("bigrat_dead");
-	bigratdeadleft->setPlayFrame(10, 6, false, false);
+	bigratdeadleft->setPlayFrame(11, 6, false, false);
+
 	bigratdeadleft->setFPS(10);
 
 	_img = IMAGEMANAGER->findImage("bigrat_dead");

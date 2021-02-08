@@ -5,12 +5,12 @@ HRESULT bigMaggotDead::init(enemyinfo info)
 {
 	bigmaggotdeadright = new animation;
 	bigmaggotdeadright->init("bigmaggot_dead");
-	bigmaggotdeadright->setPlayFrame(0, 6, false, false);
+	bigmaggotdeadright->setPlayFrame(0, 7, false, false);
 	bigmaggotdeadright->setFPS(10);
 
 	bigmaggotdeadleft = new animation;
 	bigmaggotdeadleft->init("bigmaggot_dead");
-	bigmaggotdeadleft->setPlayFrame(7, 13, false, false);
+	bigmaggotdeadleft->setPlayFrame(14, 7, false, false);
 	bigmaggotdeadleft->setFPS(10);
 	_img = IMAGEMANAGER->findImage("bigmaggot_dead");
 	if (info.direction == E_LEFT) _motion = bigmaggotdeadleft;

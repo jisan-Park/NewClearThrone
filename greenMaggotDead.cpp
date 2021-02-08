@@ -15,17 +15,17 @@ HRESULT greenMaggotDead::init(enemyinfo info)
 
 	greenmaggotdeadright = new animation;
 	greenmaggotdeadright->init("greenmaggot_dead");
-	greenmaggotdeadright->setPlayFrame(0, 5, false, false);
+	greenmaggotdeadright->setPlayFrame(0, 6, false, false);
 	greenmaggotdeadright->setFPS(10);
 
 	greenmaggotdeadleft = new animation;
 	greenmaggotdeadleft->init("greenmaggot_dead");
-	greenmaggotdeadleft->setPlayFrame(11, 6, false, false);
+	greenmaggotdeadleft->setPlayFrame(12, 6, false, false);
 	greenmaggotdeadleft->setFPS(10);
 
-	_img = IMAGEMANAGER->findImage("greenmaggot_hurt");
-	if (info.direction == E_LEFT) _motion = greenmaggothurtleft;
-	if (info.direction == E_RIGHT) _motion = greenmaggothurtright;
+	_img = IMAGEMANAGER->findImage("greenmaggot_dead");
+	if (info.direction == E_LEFT) _motion = greenmaggotdeadleft;
+	if (info.direction == E_RIGHT) _motion = greenmaggotdeadright;
 	_motion->start();
 	_pt = info.pt;
 	return S_OK;

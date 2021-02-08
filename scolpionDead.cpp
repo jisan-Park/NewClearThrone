@@ -5,12 +5,12 @@ HRESULT scolpionDead::init(enemyinfo info)
 {
 	scolpiondeadright = new animation;
 	scolpiondeadright->init("scolpion_dead");
-	scolpiondeadright->setPlayFrame(0, 5, false, false);
+	scolpiondeadright->setPlayFrame(0, 6, false, false);
 	scolpiondeadright->setFPS(10);
 
 	scolpiondeadleft = new animation;
 	scolpiondeadleft->init("scolpion_dead");
-	scolpiondeadleft->setPlayFrame(11, 6, false, false);
+	scolpiondeadleft->setPlayFrame(12, 6, false, false);
 	scolpiondeadleft->setFPS(10);
 
 	_img = IMAGEMANAGER->findImage("scolpion_dead");
@@ -24,6 +24,6 @@ HRESULT scolpionDead::init(enemyinfo info)
 void scolpionDead::update(enemyinfo & info)
 {
 	_pt = info.pt;
-	
+
 	_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);
 }

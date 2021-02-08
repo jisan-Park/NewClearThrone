@@ -41,7 +41,7 @@ void enemyManager::setimage()
 	IMAGEMANAGER->addFrameImage("bandit_walk", "image/enemy/stage1/bandit_walk.bmp", 288, 96, 6, 2, true, RGB(255, 0, 255));
 
 	IMAGEMANAGER->addFrameImage("bigbandit_dash", "image/enemy/stage1/bigbandit_dash.bmp", 360, 120, 6, 2, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addFrameImage("bigbandit_dead", "image/enemy/stage1/bigbandit_dead.bmp", 540, 120, 8, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("bigbandit_dead", "image/enemy/stage1/bigbandit_dead.bmp", 540, 120, 9, 2, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("bigbandit_fire", "image/enemy/stage1/bigbandit_fire.bmp", 120, 120, 2, 2, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("bigbandit_gun", "image/enemy/stage1/bigbandit_gun.bmp", 528, 66, 8, 1, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("bigbandit_hurt", "image/enemy/stage1/bigbandit_hurt.bmp", 180, 120, 3, 2, true, RGB(255, 0, 255));
@@ -62,7 +62,7 @@ void enemyManager::setimage()
 	IMAGEMANAGER->addFrameImage("maggotnest_dead", "image/enemy/stage1/maggotnest_dead.bmp", 128, 128, 2, 2, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("maggotnest_hurt", "image/enemy/stage1/maggotnest_hurt.bmp", 192, 128, 3, 2, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("maggotnest_idle", "image/enemy/stage1/maggotnest_idle.bmp", 256, 128, 4, 2, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addFrameImage("maggot_dead", "image/enemy/stage1/maggot_dead.bmp", 192, 64, 2, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("maggot_dead", "image/enemy/stage1/maggot_dead.bmp", 192, 64, 6, 2, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("maggot_hurt", "image/enemy/stage1/maggot_hurt.bmp", 96, 64, 3, 2, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("maggot_idle", "image/enemy/stage1/maggot_idle.bmp", 128, 64, 4, 2, true, RGB(255, 0, 255));
 
@@ -228,7 +228,7 @@ void enemyManager::addEnemys(string strKey, ENEMYTYPE enemyType, int x, int y)
 	//못찾으면 새로 strKey값으로 vector를 추가하여 map에 추가
 	if (!isfound) {
 		_vtemp.push_back(temp);
-		_mvEnemy.insert(pair<string,vEnemy>(strKey,_vtemp));
+		_mvEnemy.insert(pair<string, vEnemy>(strKey, _vtemp));
 	}
 }
 
@@ -255,14 +255,14 @@ void enemyManager::deleteEnemys(string strKey, int x, int y)
 			break;
 		}
 	}
-	
+
 }
 
 vector<enemy*> enemyManager::getEnemys(string strKey)
 {
 	mviEnemy _miter;
 	vector<enemy*> _vtemp;
-	for (_miter = _mvEnemy.begin(); _miter != _mvEnemy.end();++_miter) {
+	for (_miter = _mvEnemy.begin(); _miter != _mvEnemy.end(); ++_miter) {
 		if (_miter->first == strKey) {
 			_vtemp = _miter->second;
 			break;
@@ -295,6 +295,17 @@ void enemyManager::createGreenMaggot(POINT pt)
 	//cout << "showenemyVector size = " << _showEnemy.size() << endl;
 }
 
+void enemyManager::createGreenRat(POINT pt)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		enemy* temp;
+		temp = new greenRat;
+		temp->init(pt.x + RND->getFromFloatTo(-40, 40), pt.y + RND->getFromFloatTo(-40, 40));
+		_showEnemy.push_back(temp);
+	}
+}
+
 
 void enemyManager::setShowEnemyVector(string strKey)
 {
@@ -325,12 +336,12 @@ void enemyManager::createRandomEnemyVector()
 		_showEnemy.push_back(boss_temp);
 	}
 
-	
+
 	//정해진 enemy count 만큼 에너미를 만든다
-	for (int i = 0; i < MAPMANAGER->getEnemyCount();++i) {
+	for (int i = 0; i < MAPMANAGER->getEnemyCount(); ++i) {
 		enemy* temp;
 		ENEMYTYPE rndEnemy;
-		
+
 		//현재 스테이지를 받아와서 해당 스테이지에 맞는 에너미를 생성한다.
 		switch (MAPMANAGER->getStage_first())
 		{
@@ -435,7 +446,7 @@ bool enemyManager::checkShowEnemyVector()
 {
 	bool isAllDead = true;
 
-	for (int i = 0; i < _showEnemy.size();++i) {
+	for (int i = 0; i < _showEnemy.size(); ++i) {
 		if (_showEnemy[i]->getState() != E_DEAD) {
 			isAllDead = false;
 		}

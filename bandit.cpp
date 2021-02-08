@@ -44,7 +44,7 @@ void bandit::update()
 		{
 			_info.aimAngle = EtoPAngle();
 			_info.nstate == NOTICED;
-			if (_info.state == E_IDLE) _info.nextState == E_WALK;
+			if (_info.state == E_IDLE) _info.nextState = E_WALK;
 			_info.moveAngle = getAngle(_info.pt, MAPMANAGER->enemyMove(_info.pt));
 			if (_info.pt.x == MAPMANAGER->enemyMove(_info.pt).x && _info.pt.y == MAPMANAGER->enemyMove(_info.pt).y) {
 				_info.nextState = E_IDLE;
@@ -64,7 +64,7 @@ void bandit::update()
 				if (_info.state == E_IDLE)
 				{
 					_info.nextState = E_WALK;
-					_info.moveAngle = getAngle(_info.pt,MAPMANAGER->enemyRandomMove(_info.pt));
+					_info.moveAngle = getAngle(_info.pt, MAPMANAGER->enemyRandomMove(_info.pt));
 					_rndInterval = RND->getFromIntTo(70, 130);
 					_rndMoveCnt = 0;
 				}
@@ -72,7 +72,7 @@ void bandit::update()
 				{
 					_info.nextState = E_IDLE;
 					_rndInterval = RND->getFromIntTo(70, 130);
-					_rndMoveCnt == 0;
+					_rndMoveCnt = 0;
 				}
 			}
 		}

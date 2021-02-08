@@ -5,12 +5,12 @@ HRESULT bigBanditDead::init(enemyinfo info)
 {
 	bigbanditdeadright = new animation;
 	bigbanditdeadright->init("bigbandit_dead");
-	bigbanditdeadright->setPlayFrame(0, 8, false, false);
+	bigbanditdeadright->setPlayFrame(0, 9, false, false);
 	bigbanditdeadright->setFPS(10);
 
 	bigbanditdeadleft = new animation;
 	bigbanditdeadleft->init("bigbandit_dead");
-	bigbanditdeadleft->setPlayFrame(17, 9, false, false);
+	bigbanditdeadleft->setPlayFrame(18, 9, false, false);
 	bigbanditdeadleft->setFPS(10);
 
 

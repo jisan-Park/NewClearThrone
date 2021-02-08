@@ -5,5 +5,7 @@ class bigRatState : public enemyState
 protected:
 	animation*	bigrathurtright;
 	animation*	bigrathurtleft;
+
+	bool isFireEnd;
 };
 

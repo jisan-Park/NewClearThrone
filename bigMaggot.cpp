@@ -29,18 +29,19 @@ HRESULT bigMaggot::init(float x, float y)
 void bigMaggot::update()
 {
 	//if (_info.state == E_DEAD) return;
-
-	_info.rc = RectMakeCenter(_info.pt.x, _info.pt.y, _info.width, _info.height);
 	_enState->update(_info);
-	collision();
+	_info.rc = RectMakeCenter(_info.pt.x, _info.pt.y, _info.width, _info.height);
+
 	if (_info.hp <= 0) _info.nextState = E_DEAD;
 	if (_info.state != E_DEAD)
 	{
+		collision();
+
 		_rndMoveCnt++;
 		if (_rndMoveCnt % 30 == 0)
 		{
 			int rnd;
-			rnd = RND->getFromIntTo(1, 8);
+			rnd = RND->getFromIntTo(1, 10);
 			if (rnd > 2)
 			{
 				if (_info.state != E_BURROW)

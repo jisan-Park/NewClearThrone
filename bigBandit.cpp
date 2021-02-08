@@ -11,13 +11,14 @@ HRESULT bigBandit::init(float x, float y)
 	_info.speed = _info.originSpeed = 10;
 	_info.moveAngle = 0;
 	_info.rc = RectMakeCenter(_info.pt.x, _info.pt.y, _info.width, _info.height);
-	
+
 	_info.direction = E_RIGHT;
 	_info.state = E_IDLE;
 	_info.nextState = E_IDLE;
 	_info.nstate = UNNOTICED;
-	_info.noticeRange = 400;
-	
+	_info.noticeRange = 300;
+	_rndInterval = RND->getFromIntTo(70, 130);
+
 	_enemyType = BIGBANDIT;
 	_enState = new bigBanditIdle;
 	_enState->init(_info);
@@ -30,6 +31,7 @@ void bigBandit::update()
 {
 	_info.rc = RectMakeCenter(_info.pt.x, _info.pt.y, _info.width, _info.height);
 	_enState->update(_info);
+	collision();
 
 	_rndMoveCnt++;
 
@@ -45,7 +47,7 @@ void bigBandit::update()
 			_info.aimAngle = EtoPAngleRnd();
 			_info.nstate = NOTICED;
 			if (_info.state == E_IDLE)
-				_info.nextState == E_WALK;
+				_info.nextState = E_WALK;
 			_info.moveAngle = getAngle(_info.pt, MAPMANAGER->enemyMove(_info.pt));
 
 			if (_info.pt.x == MAPMANAGER->enemyMove(_info.pt).x && _info.pt.y == MAPMANAGER->enemyMove(_info.pt).y) {
@@ -68,7 +70,7 @@ void bigBandit::update()
 				if (_info.state == E_IDLE)
 				{
 					_info.nextState = E_WALK;
-					_info.moveAngle = RND->getFloat(PI2);
+					_info.moveAngle = getAngle(_info.pt, MAPMANAGER->enemyRandomMove(_info.pt));
 					_rndInterval = RND->getFromIntTo(70, 130);
 					_rndMoveCnt = 0;
 				}
@@ -76,7 +78,7 @@ void bigBandit::update()
 				{
 					_info.nextState = E_IDLE;
 					_rndInterval = RND->getFromIntTo(70, 130);
-					_rndMoveCnt == 0;
+					_rndMoveCnt = 0;
 				}
 			}
 		}

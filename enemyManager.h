@@ -81,6 +81,7 @@ public:
 	//create
 	void createMaggot(POINT pt);
 	void createGreenMaggot(POINT pt);
+	void createGreenRat(POINT pt);
 	//setter
 	void setShowEnemyVector(string strKey);
 	void clearShowEnemyVector() { _showEnemy.clear(); };
