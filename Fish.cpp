@@ -36,6 +36,7 @@ HRESULT Fish::init(float x, float y)
 
 void Fish::update()
 {
+	pybullet();
 	if (_hp > _maxhp)
 	{
 		_hp = _maxhp;

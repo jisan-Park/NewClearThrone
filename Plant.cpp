@@ -34,6 +34,7 @@ HRESULT Plant::init(float x, float y)
 
 void Plant::update()
 {
+	pybullet();
 	if (_hp > _maxhp)
 	{
 		_hp = _maxhp;

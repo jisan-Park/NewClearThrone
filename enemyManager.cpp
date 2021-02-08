@@ -120,8 +120,10 @@ void enemyManager::setimage()
 	IMAGEMANAGER->addFrameImage("assassin_walk", "image/enemy/stage3/assassin_walk.bmp", 298, 48, 6, 1, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("assassin_weapon", "image/enemy/stage3/assassin_weapon.bmp", 448, 56, 8, 1, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("bigdog_idle", "image/enemy/stage3/bigdog_idle.bmp", 1068, 248, 6, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("bigdog_idle_hurt", "image/enemy/stage3/bigdog_idle_hurt.bmp", 356, 248, 2, 2, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("bigdog_sleep", "image/enemy/stage3/bigdog_sleep.bmp", 2324, 212, 14, 2, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("bigdog_spin", "image/enemy/stage3/bigdog_spin.bmp", 392, 120, 2, 1, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("bigdog_spin_hurt", "image/enemy/stage3/bigdog_spin_hurt.bmp", 392, 120, 2, 1, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("bigdog_spinend", "image/enemy/stage3/bigdog_spinend.bmp", 392, 240, 2, 2, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("bigdog_portrait", "image/enemy/stage3/bigdog_portrait.bmp", 800, 459, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("firetrap", "image/enemy/stage3/firetrap.bmp", 64, 64, true, RGB(255, 0, 255));

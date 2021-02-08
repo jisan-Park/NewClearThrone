@@ -46,7 +46,7 @@ void flameBullet::move()
 		if (_count < 6)
 		{
 			_count++;
-			_speed--;
+			_speed-= 0.1f;
 		}
 		else _gone = true;
 	}

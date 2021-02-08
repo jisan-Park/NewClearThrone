@@ -119,6 +119,7 @@ public:
 	virtual void RecycleGlandate();
 
 	virtual void collision();
+	virtual void pybullet();
 
 	//콜백을 위한 겟터,셋터
 	//=========================================

@@ -9,6 +9,9 @@ private:
 	animation* salamanderhurtright;
 	animation* salamanderhurtleft;
 
+	int _cnt;
+	float _flameAngle;
+
 
 public:
 	virtual HRESULT init(enemyinfo info);

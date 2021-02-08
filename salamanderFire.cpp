@@ -6,12 +6,12 @@ HRESULT salamanderFire::init(enemyinfo info)
 	salamanderfireright = new animation;
 	salamanderfireright->init("salamander_fire");
 	salamanderfireright->setPlayFrame(0, 1, false, false, fireFinish, this);
-	salamanderfireright->setFPS(10);
+	salamanderfireright->setFPS(5);
 
 	salamanderfireleft = new animation;
 	salamanderfireleft->init("salamander_fire");
 	salamanderfireleft->setPlayFrame(3, 2, false, false, fireFinish, this);
-	salamanderfireleft->setFPS(10);
+	salamanderfireleft->setFPS(5);
 
 	salamanderhurtright = new animation;
 	salamanderhurtright->init("salamander_hurt");
@@ -27,6 +27,7 @@ HRESULT salamanderFire::init(enemyinfo info)
 	if (info.direction == E_RIGHT) _motion = salamanderfireright;
 	_motion->start();
 	_pt = info.pt;
+	_flameAngle = -0.5;
 	return S_OK;
 }
 
@@ -62,17 +63,24 @@ void salamanderFire::update(enemyinfo & info)
 		//	}
 		//	fire_interval = 0;
 		//}
-
+		_cnt++;
+		if (_cnt % 3 == 0) 
+		{
+			if (_flameAngle < 0.5f) _flameAngle += 0.1f;
+			else if (_flameAngle > 0.6f) _flameAngle = 0;
+			BULLETMANAGER->EnemyFire(FLAME, info.pt, 5, info.aimAngle - _flameAngle, 3);
+			_cnt = 0;
+		}
 
 		if (PLAYERMANAGER->getPlayer()->getPt().x < info.pt.x)
 		{
-			info.direction == E_LEFT;
+			info.direction = E_LEFT;
 			_motion = salamanderfireleft;
 
 		}
 		if (PLAYERMANAGER->getPlayer()->getPt().x > info.pt.x)
 		{
-			info.direction == E_RIGHT;
+			info.direction = E_RIGHT;
 			_motion = salamanderfireright;
 		}
 

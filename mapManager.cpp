@@ -494,6 +494,7 @@ void mapManager::emptymap()
 			_tiles[i][j].obj = OBJ_NONE;
 			ENEMYMANAGER->remove();
 			ITEMMANAGER->remove();
+			
 		}
 	}
 }
@@ -1616,7 +1617,8 @@ void mapManager::random()
 		}
 		else
 		{
-			PLAYERMANAGER->setplayer(PLAYERMANAGER->getPlayerType(), _tiles[_x2temp][_y2temp].rc.right - 64, _tiles[_x2temp][_y2temp].rc.top);
+			PLAYERMANAGER->setPlayerPosition(PointMake(_tiles[_x2temp][_y2temp].rc.right - 64, _tiles[_x2temp][_y2temp].rc.top));
+			//PLAYERMANAGER->setplayer(PLAYERMANAGER->getPlayerType(), _tiles[_x2temp][_y2temp].rc.right - 64, _tiles[_x2temp][_y2temp].rc.top);
 		}
 
 	}
@@ -1637,7 +1639,8 @@ void mapManager::random()
 		}
 		else
 		{
-			PLAYERMANAGER->setplayer(PLAYERMANAGER->getPlayerType(), _tiles[_x2temp][_y2temp].rc.right - 64, _tiles[_x2temp][_y2temp].rc.top);
+			PLAYERMANAGER->setPlayerPosition(PointMake(_tiles[_x2temp][_y2temp].rc.right - 64, _tiles[_x2temp][_y2temp].rc.top));
+			//PLAYERMANAGER->setplayer(PLAYERMANAGER->getPlayerType(), _tiles[_x2temp][_y2temp].rc.right - 64, _tiles[_x2temp][_y2temp].rc.top);
 		}
 	}
 	

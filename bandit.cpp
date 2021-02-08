@@ -30,7 +30,6 @@ void bandit::update()
 {
 	_info.rc = RectMakeCenter(_info.pt.x, _info.pt.y, _info.width, _info.height);
 	_enState->update(_info);
-	collision();
 	_rndMoveCnt++;
 	if (_info.state != E_DEAD)
 	{

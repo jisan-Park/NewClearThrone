@@ -34,7 +34,7 @@ HRESULT Meiting::init(float x, float y)
 
 void Meiting::update()
 {
-
+	pybullet();
 	if (_hp > _maxhp)
 	{
 		_hp = _maxhp;

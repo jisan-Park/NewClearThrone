@@ -36,7 +36,7 @@ HRESULT Eyes::init(float x, float y)
 
 void Eyes::update()
 {
-
+	pybullet();
 	if (_hp > _maxhp)
 	{
 		_hp = _maxhp;

@@ -34,6 +34,7 @@ HRESULT Crystal::init(float x, float y)
 
 void Crystal::update()
 {
+	pybullet();
 	MAPMANAGER->collision(_rc);
 	if (_hp > _maxhp)
 	{

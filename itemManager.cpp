@@ -327,6 +327,9 @@ void itemManager::collsion()
 			if (_vItem[i]->getItemtype() == BULLETITEM)
 			{
 				PLAYERMANAGER->getPlayer()->setPlayerbullet(PLAYERMANAGER->getPlayer()->getPlayerbullet() + 30);
+				PLAYERMANAGER->getPlayer()->setPlayershellb(PLAYERMANAGER->getPlayer()->getPlayershellb() + 30);
+				PLAYERMANAGER->getPlayer()->setPlayerenergyb(PLAYERMANAGER->getPlayer()->getPlayerenergyb() + 30);
+				PLAYERMANAGER->getPlayer()->setPlayerexplodeb(PLAYERMANAGER->getPlayer()->getPlayerexplodeb() + 30);
 
 			}
 			if (_vItem[i]->getItemtype() == MEDKETITEM && PLAYERMANAGER->getPlayer()->getHp() < PLAYERMANAGER->getPlayer()->getMaxhp())

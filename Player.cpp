@@ -353,4 +353,24 @@ void Player::collision()
 	}
 }
 
+void Player::pybullet()
+{
+	if (_playerbullet > _playerbulletMax)
+	{
+		_playerbullet = _playerbulletMax;
+	}
+	if (_playershellb > _playershellbMax)
+	{
+		_playershellb = _playershellbMax;
+	}
+	if (_playerenergyb > _playerenergubMax)
+	{
+		_playerenergyb = _playerenergubMax;
+	}
+	if (_playerexplodeb > _playerecplodbeMax)
+	{
+		_playerexplodeb = _playerecplodbeMax;
+	}
+}
+
 
