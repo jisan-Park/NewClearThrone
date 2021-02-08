@@ -55,7 +55,7 @@ void shovel::fire()
 		temppt = PointMake(_pt.x + cosf(_angle + _meleeAngle / 2) * _radius, _pt.y + -sinf(_angle + _meleeAngle / 2) * _radius);
 		for (int i = 0; i < ENEMYMANAGER->getShowEnemyVector().size(); ++i)
 		{
-			ENEMYMANAGER->getShowEnemyVector()[i]->explosion(temppt, 50, _damage);
+			ENEMYMANAGER->getShowEnemyVector()[i]->meleecollision(temppt, 50, _damage);
 		}
 		_meleeAngle *= (-1);
 		_coolCnt = 0;
