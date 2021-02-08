@@ -64,7 +64,7 @@ void greenFrog::update()
 				if (_info.state == E_IDLE)
 				{
 					_info.nextState = E_WALK;
-					_info.moveAngle = RND->getFloat(PI2);
+					_info.moveAngle = getAngle(_info.pt, MAPMANAGER->enemyRandomMove(_info.pt));
 					_rndInterval = RND->getFromIntTo(70, 130);
 					_rndMoveCnt = 0;
 				}

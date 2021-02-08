@@ -24,8 +24,10 @@ HRESULT maggotIdle::init(enemyinfo info)
 void maggotIdle::update(enemyinfo & info)
 {
 	_pt = info.pt;
-	info.pt.x += cosf(info.moveAngle)* info.speed;
-	info.pt.y += -sinf(info.moveAngle)* info.speed;
+	if (!MAPMANAGER->isCollisionTile(info.pt, info.width, info.height)) {
+		info.pt.x += cosf(info.moveAngle)* info.speed;
+		info.pt.y += -sinf(info.moveAngle)* info.speed;
+	}
 
 	_img = IMAGEMANAGER->findImage("maggot_idle");
 

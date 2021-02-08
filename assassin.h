@@ -15,5 +15,6 @@ public:
 	virtual void render(HDC hdc);
 
 	virtual void setState(ENEMYSTATE state);
+	void meleeattack();
 };
 

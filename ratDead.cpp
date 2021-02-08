@@ -5,12 +5,12 @@ HRESULT ratDead::init(enemyinfo info)
 {
 	ratdeadright = new animation;
 	ratdeadright->init("rat_dead");
-	ratdeadright->setPlayFrame(0, 5, false, false);
+	ratdeadright->setPlayFrame(0, 6, false, false);
 	ratdeadright->setFPS(10);
 
 	ratdeadleft = new animation;
 	ratdeadleft->init("rat_dead");
-	ratdeadleft->setPlayFrame(11, 6, false, false);
+	ratdeadleft->setPlayFrame(12, 6, false, false);
 	ratdeadleft->setFPS(10);
 
 	_pt = info.pt;

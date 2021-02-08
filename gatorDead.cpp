@@ -5,12 +5,12 @@ HRESULT gatorDead::init(enemyinfo info)
 {
 	gatordeadright = new animation;
 	gatordeadright->init("gator_dead");
-	gatordeadright->setPlayFrame(0, 5, false, false);
+	gatordeadright->setPlayFrame(0, 6, false, false);
 	gatordeadright->setFPS(10);
 
 	gatordeadleft = new animation;
 	gatordeadleft->init("gator_dead");
-	gatordeadleft->setPlayFrame(11, 6, false, false);
+	gatordeadleft->setPlayFrame(12, 6, false, false);
 	gatordeadleft->setFPS(10);
 
 	_img = IMAGEMANAGER->findImage("gator_dead");

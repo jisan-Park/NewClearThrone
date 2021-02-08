@@ -7,7 +7,7 @@ HRESULT rat::init(float x, float y)
 	_info.pt.y = y;
 	_info.width = 30;
 	_info.height = 30;
-	_info.hp = 15;
+	_info.hp = 5;
 	_info.speed = _info.originSpeed = 4;
 	_info.moveAngle = 0;
 	_info.rc = RectMakeCenter(_info.pt.x, _info.pt.y, _info.width, _info.height);
@@ -57,7 +57,7 @@ void rat::update()
 				if (_info.state == E_IDLE)
 				{
 					_info.nextState = E_WALK;
-					_info.moveAngle = RND->getFloat(PI2);
+					_info.moveAngle = getAngle(_info.pt, MAPMANAGER->enemyRandomMove(_info.pt));
 					_rndInterval = RND->getFromIntTo(70, 130);
 					_rndMoveCnt = 0;
 				}

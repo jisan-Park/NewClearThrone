@@ -54,8 +54,10 @@ void bigRatWalk::update(enemyinfo & info)
 	{
 		_img = IMAGEMANAGER->findImage("bigrat_walk");
 
-		info.pt.x += cosf(info.moveAngle)* info.speed;
-		info.pt.y += -sinf(info.moveAngle)* info.speed;
+		if (!MAPMANAGER->isCollisionTile(info.pt, info.width, info.height)) {
+			info.pt.x += cosf(info.moveAngle)* info.speed;
+			info.pt.y += -sinf(info.moveAngle)* info.speed;
+		}
 
 		if (PLAYERMANAGER->getPlayer()->getPt().x < info.pt.x)
 		{

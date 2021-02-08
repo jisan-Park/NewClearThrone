@@ -5,12 +5,12 @@ HRESULT greenFrogDead::init(enemyinfo info)
 {
 	greenfrogdeadright = new animation;
 	greenfrogdeadright->init("greenfrog_dead");
-	greenfrogdeadright->setPlayFrame(0, 7, false, false);
+	greenfrogdeadright->setPlayFrame(0, 6, false, false);
 	greenfrogdeadright->setFPS(10);
 
 	greenfrogdeadleft = new animation;
 	greenfrogdeadleft->init("greenfrog_dead");
-	greenfrogdeadleft->setPlayFrame(15, 8, false, false);
+	greenfrogdeadleft->setPlayFrame(12, 6, false, false);
 	greenfrogdeadleft->setFPS(10);
 
 	_pt = info.pt;

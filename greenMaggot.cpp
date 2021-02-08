@@ -47,14 +47,14 @@ void greenMaggot::update()
 		{
 			if (_info.speed < 3)
 			{
-				if (_info.nstate == UNNOTICED)_info.moveAngle = RND->getFloat(PI2);
+				if (_info.nstate == UNNOTICED)_info.moveAngle = getAngle(_info.pt, MAPMANAGER->enemyRandomMove(_info.pt));
 				_info.speed = 3;
 				_rndInterval = RND->getFromIntTo(70, 130);
 				_rndMoveCnt = 0;
 			}
 			else if (_info.speed >= 3)
 			{
-				if (_info.nstate == UNNOTICED)_info.moveAngle = RND->getFloat(PI2);
+				if (_info.nstate == UNNOTICED)_info.moveAngle = getAngle(_info.pt, MAPMANAGER->enemyRandomMove(_info.pt));
 				_info.speed = 2;
 				_rndInterval = RND->getFromIntTo(70, 130);
 				_rndMoveCnt = 0;

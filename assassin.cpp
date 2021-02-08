@@ -58,3 +58,8 @@ void assassin::setState(ENEMYSTATE state)
 	_enState->init(_info);
 }
 
+void assassin::meleeattack()
+{
+	
+}
+

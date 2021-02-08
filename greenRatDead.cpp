@@ -6,12 +6,12 @@ HRESULT greenRatDead::init(enemyinfo info)
 
 	greenratdeadright = new animation;
 	greenratdeadright->init("greenrat_dead");
-	greenratdeadright->setPlayFrame(0, 8, false, false);
+	greenratdeadright->setPlayFrame(0, 9, false, false);
 	greenratdeadright->setFPS(10);
 
 	greenratdeadleft = new animation;
 	greenratdeadleft->init("greenrat_dead");
-	greenratdeadleft->setPlayFrame(17, 9, false, false);
+	greenratdeadleft->setPlayFrame(18, 9, false, false);
 	greenratdeadleft->setFPS(10);
 
 
