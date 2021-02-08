@@ -492,7 +492,7 @@ void mapManager::emptymap()
 
 			_tiles[i][j].wall = WALL_NONE;
 			_tiles[i][j].obj = OBJ_NONE;
-			ENEMYMANAGER->deleteEnemys("custom", i*TILESIZE, j*TILESIZE);
+			ENEMYMANAGER->remove();
 			ITEMMANAGER->remove();
 		}
 	}

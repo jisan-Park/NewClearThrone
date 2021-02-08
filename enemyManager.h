@@ -74,6 +74,7 @@ public:
 	void render(HDC hdc);
 
 	void setimage();
+	void remove();
 	void addEnemys(string strKey, ENEMYTYPE enemyType, int x, int y);
 	void deleteEnemys(string strKey, int x, int y);
 	vector<enemy*> getEnemys(string strKey);

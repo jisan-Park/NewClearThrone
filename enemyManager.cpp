@@ -147,6 +147,12 @@ void enemyManager::setimage()
 
 }
 
+void enemyManager::remove()
+{
+	_mvEnemy.clear();
+	_showEnemy.clear();
+}
+
 void enemyManager::addEnemys(string strKey, ENEMYTYPE enemyType, int x, int y)
 {
 	mviEnemy _miter;
