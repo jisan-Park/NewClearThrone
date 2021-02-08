@@ -259,6 +259,8 @@ public:
 
 	//go to next stage
 	void createPortal();
+	void updatePortal();
+	void erasePortal();
 	void renderPortal(HDC hdc);
 	void collisionPortal();
 };

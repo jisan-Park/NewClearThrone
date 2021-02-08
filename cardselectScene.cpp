@@ -14,6 +14,7 @@ cardselectScene::~cardselectScene()
 
 HRESULT cardselectScene::init()
 {
+	MAPMANAGER->erasePortal();
 	SOUNDMANAGER->stop("스테이지1");
 	SOUNDMANAGER->stop("스테이지2");
 	SOUNDMANAGER->stop("스테이지3");

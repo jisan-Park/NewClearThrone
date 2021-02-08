@@ -3459,6 +3459,17 @@ bool mapManager::ptIntersect(POINT pt)
 void mapManager::createPortal()
 {
 	portal.rc = RectMakeCenter(getStartPoint().x, getStartPoint().y, portal.img->getWidth(), portal.img->getHeight());
+	portal_animation->start();
+}
+
+void mapManager::updatePortal()
+{
+	portal_animation->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);
+}
+
+void mapManager::erasePortal()
+{
+	portal.rc = RectMakeCenter(0,0,0,0);
 }
 
 void mapManager::renderPortal(HDC hdc)

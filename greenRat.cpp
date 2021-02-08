@@ -7,8 +7,8 @@ HRESULT greenRat::init(float x, float y)
 	_info.pt.y = y;
 	_info.width = 30;
 	_info.height = 30;
-	_info.hp = 5;
-	_info.speed = _info.originSpeed = 15;
+	_info.hp = 3;
+	_info.speed = _info.originSpeed = 3;
 	_info.moveAngle = 0;
 	_info.rc = RectMakeCenter(_info.pt.x, _info.pt.y, _info.width, _info.height);
 	_info.direction = E_RIGHT;

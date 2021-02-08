@@ -11,6 +11,8 @@
 #include "gatorGun.h"
 #include "wrench.h"
 #include "bbaRU.h"
+#include "sniperGun.h"
+
 class weaponManager : public singletonBase <weaponManager>
 {
 private:

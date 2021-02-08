@@ -333,8 +333,11 @@ void bulletManager::wallCollision()
 				BULLETMANAGER->removePlayerBullet(i);
 				break;
 			}
-			removePlayerBullet(i);
-			break;
+			else
+			{
+				removePlayerBullet(i);
+				break;
+			}
 		}
 		++i;
 	}

@@ -7,7 +7,7 @@ HRESULT greenFrog::init(float x, float y)
 	_info.pt.y = y;
 	_info.width = 30;
 	_info.height = 30;
-	_info.hp = 20;
+	_info.hp = 10;
 	_info.speed = _info.originSpeed = 5;
 	_info.moveAngle = 0;
 	_info.rc = RectMakeCenter(_info.pt.x, _info.pt.y, _info.width, _info.height);
@@ -35,48 +35,49 @@ void greenFrog::update()
 	if (_info.state != E_DEAD)
 	{
 		_fireCnt++;
-		if (_fireCnt % 40 == 0)
+		if (_fireCnt % 100 == 0)
 		{
 			for (int i = 0; i < 17; i++)
 			{
-				BULLETMANAGER->EnemyFire(E_ANGLE16_2, _info.pt, 5, (PI / 9)*i, 5);
-			}
-		}
+				BULLETMANAGER->EnemyFire(E_ANGLE16_2, _info.pt, 3, (PI / 9)*i, 5);
 
-		if (inRange() == true)
-		{
-			_info.nstate == NOTICED;
-			_info.moveAngle = getAngle(_info.pt, MAPMANAGER->enemyMove(_info.pt));
-
-			_info.nextState == E_WALK;
-
-			if (64 > getDistance(_info.pt, PLAYERMANAGER->getPlayer()->getPt()))
-			{
-				_info.nextState = E_IDLE;
 			}
 
-		}
-
-		if (_info.nstate == UNNOTICED)
-		{
-			if (_rndMoveCnt % _rndInterval == 0)
+			if (inRange() == true)
 			{
-				if (_info.state == E_IDLE)
-				{
-					_info.nextState = E_WALK;
-					_info.moveAngle = getAngle(_info.pt, MAPMANAGER->enemyRandomMove(_info.pt));
-					_rndInterval = RND->getFromIntTo(70, 130);
-					_rndMoveCnt = 0;
-				}
-				if (_info.state == E_WALK)
+				_info.nstate == NOTICED;
+				_info.moveAngle = getAngle(_info.pt, MAPMANAGER->enemyMove(_info.pt));
+
+				_info.nextState == E_WALK;
+
+				if (64 > getDistance(_info.pt, PLAYERMANAGER->getPlayer()->getPt()))
 				{
 					_info.nextState = E_IDLE;
-					_rndInterval = RND->getFromIntTo(70, 130);
-					_rndMoveCnt == 0;
+				}
+
+			}
+
+			if (_info.nstate == UNNOTICED)
+			{
+				if (_rndMoveCnt % _rndInterval == 0)
+				{
+					if (_info.state == E_IDLE)
+					{
+						_info.nextState = E_WALK;
+						_info.moveAngle = getAngle(_info.pt, MAPMANAGER->enemyRandomMove(_info.pt));
+						_rndInterval = RND->getFromIntTo(70, 130);
+						_rndMoveCnt = 0;
+					}
+					if (_info.state == E_WALK)
+					{
+						_info.nextState = E_IDLE;
+						_rndInterval = RND->getFromIntTo(70, 130);
+						_rndMoveCnt == 0;
+					}
 				}
 			}
+			setState(_info.nextState);
 		}
-		setState(_info.nextState);
 	}
 }
 

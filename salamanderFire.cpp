@@ -5,12 +5,12 @@ HRESULT salamanderFire::init(enemyinfo info)
 {
 	salamanderfireright = new animation;
 	salamanderfireright->init("salamander_fire");
-	salamanderfireright->setPlayFrame(0, 1, false, false);
+	salamanderfireright->setPlayFrame(0, 1, false, false, fireFinish, this);
 	salamanderfireright->setFPS(10);
 
 	salamanderfireleft = new animation;
 	salamanderfireleft->init("salamander_fire");
-	salamanderfireleft->setPlayFrame(3, 2, false, false);
+	salamanderfireleft->setPlayFrame(3, 2, false, false, fireFinish, this);
 	salamanderfireleft->setFPS(10);
 
 	salamanderhurtright = new animation;
@@ -33,5 +33,50 @@ HRESULT salamanderFire::init(enemyinfo info)
 void salamanderFire::update(enemyinfo & info)
 {
 	_pt = info.pt;
+
+	if (isFire) {
+		info.nextState = E_IDLE;
+		isFire = false;
+	}
+
+	if (info.isHurt == true)
+	{
+		isHurt = true;
+		info.isHurt = false;
+	}
+	if (isHurt == true)
+	{
+		_img = IMAGEMANAGER->findImage("salamander_hurt");
+		if (info.direction == E_LEFT) _motion = salamanderhurtleft;
+		if (info.direction == E_RIGHT) _motion = salamanderhurtright;
+	}
+	else
+	{
+		_img = IMAGEMANAGER->findImage("salamander_fire");
+		////bullet 6발 angle random 으로 발사
+		//fire_interval++;
+		//if (fire_interval % 7 == 0) {
+		//	for (int i = 0; i < 6; i++)
+		//	{
+		//		BULLETMANAGER->EnemyFire(E_ANGLE16_2, info.pt, info.speed, info.aimAngle - 0.7f + (i * 0.3f), 5);
+		//	}
+		//	fire_interval = 0;
+		//}
+
+
+		if (PLAYERMANAGER->getPlayer()->getPt().x < info.pt.x)
+		{
+			info.direction == E_LEFT;
+			_motion = salamanderfireleft;
+
+		}
+		if (PLAYERMANAGER->getPlayer()->getPt().x > info.pt.x)
+		{
+			info.direction == E_RIGHT;
+			_motion = salamanderfireright;
+		}
+
+	}
+	if (_motion->isPlay() == false) _motion->start();
 	_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);
 }

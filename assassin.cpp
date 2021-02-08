@@ -40,21 +40,6 @@ void assassin::update()
 		_weapon->setAngle(_info.aimAngle);
 
 		if (_info.hp <= 0) _info.nextState = E_DEAD;
-
-		if (inRange() == true)
-		{
-			/*if (_info.state == E_IDLE) _info.nextState = E_WALK;
-			_info.moveAngle = getAngle(_info.pt, MAPMANAGER->enemyMove(_info.pt));*/
-			
-			/*_fireCnt++;
-			if (_fireCnt % 30 == 0 && MAPMANAGER->isStraight(PLAYERMANAGER->getPlayer()->getPt(), _info.pt))
-			{
-				_weapon->fire();
-				_fireCnt = 0;
-			}*/
-		}
-		else _info.aimAngle = _info.moveAngle;
-		
 	}
 }
 

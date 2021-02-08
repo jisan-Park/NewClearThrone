@@ -40,7 +40,7 @@ void Meiting::update()
 		_hp = _maxhp;
 	}
 	contral();
-	collision();
+	//collision();
 	_rc = RectMakeCenter(_pt.x, _pt.y, _width, _height);
 	_currentWeapon->update();
 	_currentWeapon->setAngle(getAngle(_pt.x, _pt.y, CAMERAMANAGER->getMousePoint().x, CAMERAMANAGER->getMousePoint().y));

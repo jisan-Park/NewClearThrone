@@ -8,23 +8,13 @@ class salamander :
 	public enemy
 {
 private:
-	animation* salamanderfireright;
-	animation* salamanderdeadright;
-	animation* salamanderhurtright;
-	animation* salamanderidleright;
-	animation* salamanderwalkright;
 
-	animation* salamanderfireleft;
-	animation* salamanderdeadleft;
-	animation* salamanderhurtleft;
-	animation* salamanderidleleft;
-	animation* salamanderwalkleft;
 public:
 	virtual HRESULT init(float x, float y);
 	virtual void update();
 	virtual void render(HDC hdc);
 
 	virtual void setState(ENEMYSTATE state);
-	virtual void setAnimation();
+	
 };
 

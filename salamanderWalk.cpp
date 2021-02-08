@@ -15,12 +15,12 @@ HRESULT salamanderWalk::init(enemyinfo info)
 
 	salamanderhurtright = new animation;
 	salamanderhurtright->init("salamander_hurt");
-	salamanderhurtright->setPlayFrame(0, 2, false, false);
+	salamanderhurtright->setPlayFrame(0, 2, false, false, hurtFinish, this);
 	salamanderhurtright->setFPS(10);
 
 	salamanderhurtleft = new animation;
 	salamanderhurtleft->init("salamander_hurt");
-	salamanderhurtleft->setPlayFrame(5, 3, false, false);
+	salamanderhurtleft->setPlayFrame(5, 3, false, false, hurtFinish, this);
 	salamanderhurtleft->setFPS(10);
 	_img = IMAGEMANAGER->findImage("salamander_walk");
 	if (info.direction == E_LEFT) _motion = salamanderwalkleft;
@@ -33,5 +33,39 @@ HRESULT salamanderWalk::init(enemyinfo info)
 void salamanderWalk::update(enemyinfo & info)
 {
 	_pt = info.pt;
+	if (info.isHurt == true)
+	{
+		isHurt = true;
+		info.isHurt = false;
+	}
+	if (isHurt == true)
+	{
+		_img = IMAGEMANAGER->findImage("scolpion_hurt");
+		if (info.direction == E_LEFT) _motion = salamanderhurtleft;
+		if (info.direction == E_RIGHT) _motion = salamanderhurtright;
+	}
+	else
+	{
+		if (!MAPMANAGER->isCollisionTile(info.pt, info.width, info.height)) {
+			info.pt.x += cosf(info.moveAngle)* info.speed;
+			info.pt.y += -sinf(info.moveAngle)* info.speed;
+		}
+		_img = IMAGEMANAGER->findImage("scolpion_walk");
+
+		if (PLAYERMANAGER->getPlayer()->getPt().x < info.pt.x)
+		{
+			info.direction == E_LEFT;
+			_motion = salamanderwalkleft;
+
+		}
+		if (PLAYERMANAGER->getPlayer()->getPt().x > info.pt.x)
+		{
+			info.direction == E_RIGHT;
+			_motion = salamanderwalkright;
+
+		}
+
+	}
+	if (_motion->isPlay() == false) _motion->start();
 	_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);
 }

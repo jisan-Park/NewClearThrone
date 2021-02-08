@@ -4,10 +4,10 @@
 #include "sniperIdle.h"
 #include "sniperWalk.h"
 
-class sniper :
-	public enemy
+class sniper :public enemy
 {
 private:
+	weapon* _weapon;
 public:
 	virtual HRESULT init(float x, float y);
 	virtual void update();

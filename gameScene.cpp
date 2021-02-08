@@ -120,6 +120,7 @@ void gameScene::update()
 	}
 
 	EFFECTMANAGER->update();
+	MAPMANAGER->updatePortal();
 }
 
 void gameScene::release()

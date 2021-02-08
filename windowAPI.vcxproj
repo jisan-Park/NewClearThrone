@@ -310,6 +310,7 @@
     <ClInclude Include="singletonBase.h" />
     <ClInclude Include="sniper.h" />
     <ClInclude Include="sniperDead.h" />
+    <ClInclude Include="sniperGun.h" />
     <ClInclude Include="sniperIdle.h" />
     <ClInclude Include="sniperState.h" />
     <ClInclude Include="sniperWalk.h" />
@@ -488,6 +489,7 @@
     <ClCompile Include="shovel.cpp" />
     <ClCompile Include="sniper.cpp" />
     <ClCompile Include="sniperDead.cpp" />
+    <ClCompile Include="sniperGun.cpp" />
     <ClCompile Include="sniperIdle.cpp" />
     <ClCompile Include="sniperState.cpp" />
     <ClCompile Include="sniperWalk.cpp" />

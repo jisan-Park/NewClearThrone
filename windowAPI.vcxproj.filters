@@ -738,6 +738,9 @@
     <ClInclude Include="clearScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
+    <ClInclude Include="sniperGun.h">
+      <Filter>2DGameFramework\weapon</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -1264,6 +1267,9 @@
     </ClCompile>
     <ClCompile Include="clearScene.cpp">
       <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="sniperGun.cpp">
+      <Filter>2DGameFramework\weapon</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

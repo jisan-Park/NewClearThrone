@@ -7,8 +7,8 @@ HRESULT bigBandit::init(float x, float y)
 	_info.pt.y = y;
 	_info.width = 60;
 	_info.height = 60;
-	_info.hp = 100;
-	_info.speed = _info.originSpeed = 10;
+	_info.hp = 7;
+	_info.speed = _info.originSpeed = 3;
 	_info.moveAngle = 0;
 	_info.rc = RectMakeCenter(_info.pt.x, _info.pt.y, _info.width, _info.height);
 
@@ -54,7 +54,7 @@ void bigBandit::update()
 				_info.nextState = E_IDLE;
 			}
 			_fireCnt++;
-			if (_fireCnt % 30 == 0 && MAPMANAGER->isStraight(PLAYERMANAGER->getPlayer()->getPt(), _info.pt))
+			if (_fireCnt % 50 == 0 && MAPMANAGER->isStraight(PLAYERMANAGER->getPlayer()->getPt(), _info.pt))
 			{
 				_weapon->fire();
 				_fireCnt = 0;

@@ -7,8 +7,8 @@ HRESULT raven::init(float x, float y)
 	_info.pt.y = y;
 	_info.width = 30;
 	_info.height = 30;
-	_info.hp = 20;
-	_info.speed = _info.originSpeed = 5;
+	_info.hp = 5;
+	_info.speed = _info.originSpeed = 4;
 	_info.moveAngle = 0;
 	_info.rc = RectMakeCenter(_info.pt.x, _info.pt.y, _info.width, _info.height);
 	_info.direction = E_RIGHT;
@@ -87,14 +87,14 @@ void raven::update()
 		{
 			if (_info.speed < 2)
 			{
-				if (_info.nstate == UNNOTICED)_info.moveAngle = RND->getFloat(PI2);
+			if (_info.nstate == UNNOTICED)_info.moveAngle = getAngle(_info.pt, MAPMANAGER->enemyRandomMove(_info.pt));
 				_info.speed = 2;
 				_rndInterval = RND->getFromIntTo(70, 130);
 				_rndMoveCnt = 0;
 			}
 			else if (_info.speed <= 2)
 			{
-				if (_info.nstate == UNNOTICED)_info.moveAngle = RND->getFloat(PI2);
+				if (_info.nstate == UNNOTICED)_info.moveAngle = getAngle(_info.pt, MAPMANAGER->enemyRandomMove(_info.pt));
 				_info.speed = 1;
 				_rndInterval = RND->getFromIntTo(70, 130);
 				_rndMoveCnt = 0;

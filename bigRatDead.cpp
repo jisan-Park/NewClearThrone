@@ -21,6 +21,8 @@ HRESULT bigRatDead::init(enemyinfo info)
 	_motion->start();
 	_pt = info.pt;
 
+	deadEffect();
+
 	return S_OK;
 }
 
@@ -28,4 +30,9 @@ void bigRatDead::update(enemyinfo & info)
 {
 	_pt = info.pt;
 	_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);
+}
+
+void bigRatDead::deadEffect()
+{
+	ENEMYMANAGER->createGreenRat(_pt);
 }

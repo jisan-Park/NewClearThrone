@@ -33,6 +33,37 @@ HRESULT sniperWalk::init(enemyinfo info)
 
 void sniperWalk::update(enemyinfo & info)
 {
+	if (info.isHurt == true)
+	{
+		isHurt = true;
+		info.isHurt = false;
+	}
 	_pt = info.pt;
+	if (isHurt == true)
+	{
+		_img = IMAGEMANAGER->findImage("sniper_hurt");
+		if (info.direction == E_LEFT) _motion = sniperhurtleft;
+		if (info.direction == E_RIGHT) _motion = sniperhurtright;
+	}
+	else
+	{
+		if (!MAPMANAGER->isCollisionTile(info.pt, info.width, info.height)) {
+			info.pt.x += cosf(info.moveAngle)* info.speed;
+			info.pt.y += -sinf(info.moveAngle)* info.speed;
+		}
+
+
+		_img = IMAGEMANAGER->findImage("sniper_walk");
+		if (info.direction == E_LEFT)
+		{
+			_motion = sniperwalkleft;
+		}
+		if (info.direction == E_RIGHT)
+		{
+			_motion = sniperwalkright;
+		}
+	}
+	if (_motion->isPlay() == false) _motion->start();
 	_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);
+
 }

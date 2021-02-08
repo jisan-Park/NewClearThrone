@@ -29,7 +29,7 @@ void enemyBullet16_2::fire(POINT pt, float speed, float angle, int damage)
 	_type = E_ANGLE16_2;
 	_speed = speed;
 	_damage = damage;
-	_range = 2000;
+	_range = 500;
 	_radius = _img->getFrameWidth() / 2;
 	_pt.x = _firept.x = pt.x;
 	_pt.y = _firept.y = pt.y;
