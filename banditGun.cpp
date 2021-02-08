@@ -7,10 +7,10 @@ HRESULT banditGun::init(POINT pt, weaponState state)
 	_pt = pt;
 	_state = state;
 	_radius = 15;
-	_damage = 5;
+	_damage = 2;
 	_coolDown = 50;
 	_angle = 0;
-	_bulletSpd = 15;
+	_bulletSpd = 7;
 	return S_OK;
 }
 

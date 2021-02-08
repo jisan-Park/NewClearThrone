@@ -311,6 +311,12 @@ void bulletManager::wallCollision()
 	{
 		if (MAPMANAGER->ptIntersect(_vPlayerBullet[i]->getPt()))
 		{
+			if (BULLETMANAGER->getvPlayerBullet()[i]->getType() == GRENADE)
+			{
+				BULLETMANAGER->getvPlayerBullet()[i]->explode();
+				BULLETMANAGER->removePlayerBullet(i);
+				break;
+			}
 			removePlayerBullet(i);
 			break;
 		}
