@@ -209,6 +209,7 @@
     <ClInclude Include="enemyState.h" />
     <ClInclude Include="Eyes.h" />
     <ClInclude Include="Fish.h" />
+    <ClInclude Include="flameBullet.h" />
     <ClInclude Include="frog.h" />
     <ClInclude Include="frogDead.h" />
     <ClInclude Include="frogIdle.h" />
@@ -388,6 +389,7 @@
     <ClCompile Include="enemyState.cpp" />
     <ClCompile Include="Eyes.cpp" />
     <ClCompile Include="Fish.cpp" />
+    <ClCompile Include="flameBullet.cpp" />
     <ClCompile Include="frog.cpp" />
     <ClCompile Include="frogDead.cpp" />
     <ClCompile Include="frogIdle.cpp" />

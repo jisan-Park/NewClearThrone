@@ -732,6 +732,9 @@
     <ClInclude Include="bbaRU.h">
       <Filter>2DGameFramework\weapon</Filter>
     </ClInclude>
+    <ClInclude Include="flameBullet.h">
+      <Filter>2DGameFramework\bullet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -1252,6 +1255,9 @@
     </ClCompile>
     <ClCompile Include="bbaRU.cpp">
       <Filter>2DGameFramework\weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="flameBullet.cpp">
+      <Filter>2DGameFramework\bullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -9,6 +9,7 @@
 #include "enemyShotGun2.h"
 #include "shotGunBullet.h"
 #include "laserBullet.h"
+#include "flameBullet.h"
 #include <vector>
 class bulletManager : public singletonBase<bulletManager>
 {
