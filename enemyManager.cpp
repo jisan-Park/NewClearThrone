@@ -288,7 +288,7 @@ void enemyManager::createMaggot(POINT pt)
 		temp->init(pt.x + RND->getFromFloatTo(-30, 30), pt.y + RND->getFromFloatTo(-30, 30));
 		_showEnemy.push_back(temp);
 	}
-	//cout << "showenemyVector size = " << _showEnemy.size() << endl;
+	
 }
 
 void enemyManager::createGreenMaggot(POINT pt)
@@ -300,7 +300,7 @@ void enemyManager::createGreenMaggot(POINT pt)
 		temp->init(pt.x + RND->getFromFloatTo(-30, 30), pt.y + RND->getFromFloatTo(-30, 30));
 		_showEnemy.push_back(temp);
 	}
-	//cout << "showenemyVector size = " << _showEnemy.size() << endl;
+	
 }
 
 void enemyManager::createGreenRat(POINT pt)

@@ -42,6 +42,7 @@ void grenadeLauncher::fire()
 {
 	if (_coolCnt >= _coolDown + PLAYERMANAGER->getPlayer()->getInterval() && PLAYERMANAGER->getPlayer()->getPlayerexplodeb() > 0)
 	{
+		SOUNDMANAGER->play("¾àÇÑÃÑ", GAMEMANAGER->getSfxVolume() * GAMEMANAGER->getMasterVolume());
 		BULLETMANAGER->PlayerFire(GRENADE, _pt, _bulletSpd, _angle, _damage);
 		PLAYERMANAGER->getPlayer()->setPlayerexplodeb(PLAYERMANAGER->getPlayer()->getPlayerexplodeb() - 1);
 		_coolCnt = 0;

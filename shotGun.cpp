@@ -43,6 +43,7 @@ void shotGun::fire()
 {
 	if (_coolCnt >= _coolDown + PLAYERMANAGER->getPlayer()->getInterval() && PLAYERMANAGER->getPlayer()->getPlayershellb() > 0)
 	{
+		SOUNDMANAGER->play("´Ü¹ß", GAMEMANAGER->getSfxVolume() * GAMEMANAGER->getMasterVolume());
 		for (int i = 0; i < 5; i++)
 		{
 			if (PLAYERMANAGER->getPlayer()->getPlayershellb() <= 0) break;

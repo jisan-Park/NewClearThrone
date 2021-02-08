@@ -46,6 +46,7 @@ void bigDogSpin::update(enemyinfo & info)
 	{
 		if (_spincnt % 10 == 0)
 		{
+			SOUNDMANAGER->play("ºòµ¶ÃÑ½î´Â", GAMEMANAGER->getSfxVolume() * GAMEMANAGER->getMasterVolume());
 			for (int i = 0; i < 4; i++)
 			{
 				BULLETMANAGER->EnemyFire(E_ANGLE16_1, _pt, 3, PI / 2 * i + _dogangle, 2);

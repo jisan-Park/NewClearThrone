@@ -40,6 +40,7 @@ void playGround::update()
 {
 	gameNode::update();
 
+	EFFECTMANAGER->update();
 	SCENEMANAGER->update();
 }
 

@@ -43,6 +43,7 @@ void salamanderFire::update(enemyinfo & info)
 	if (info.isHurt == true)
 	{
 		isHurt = true;
+		SOUNDMANAGER->play("¿¡³Ê¹ÌÈý2", GAMEMANAGER->getSfxVolume() * GAMEMANAGER->getMasterVolume());
 		info.isHurt = false;
 	}
 	if (isHurt == true)

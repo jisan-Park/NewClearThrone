@@ -18,12 +18,14 @@ HRESULT mainmenuScene::init()
 
 void mainmenuScene::update()
 {
+	SOUNDMANAGER->update();
 	KEYANIMANAGER->update();
 
 	for (int i = 0; i < 5; i++) {
 		if (PtInRect(&selectMenu[i].info.rc, _ptMouse)) {
 			selectMenu[i].alpha = 255;
 			if (KEYMANAGER->isOnceKeyUp(VK_LBUTTON)) {
+				SOUNDMANAGER->play("클릭소리", GAMEMANAGER->getSfxVolume() * GAMEMANAGER->getMasterVolume());
 				switch (i)
 				{
 				case 0:

@@ -235,6 +235,7 @@ void Plant::contral()
 		_motion = plantdead;
 		if (!_motion->isPlay())
 		{
+			SOUNDMANAGER->play("플랜트사망", GAMEMANAGER->getMusicVolume() * GAMEMANAGER->getMasterVolume());
 			_motion->start();
 		}
 	}
@@ -278,6 +279,7 @@ void Plant::contral()
 
 	if (KEYMANAGER->isOnceKeyDown(VK_RBUTTON) && !PLANTBULLET->getIsfire())
 	{
+		SOUNDMANAGER->play("플랜트 스킬", GAMEMANAGER->getMusicVolume() * GAMEMANAGER->getMasterVolume());
 		PLANTBULLET->fire(_pt, 10, getAngle(_pt.x, _pt.y, CAMERAMANAGER->getMousePoint().x, CAMERAMANAGER->getMousePoint().y));
 	}
 }

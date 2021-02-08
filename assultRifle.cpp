@@ -56,6 +56,7 @@ void assultRifle::fire()
 		BULLETMANAGER->PlayerFire(ANGLE16, _pt, _bulletSpd, _angle + RND->getFromFloatTo(-(_rndSpreadAngle - 0.01 * PLAYERMANAGER->getPlayer()->getAngleCard()), (_rndSpreadAngle - 0.01 * PLAYERMANAGER->getPlayer()->getAngleCard())), _damage);
 
 		PLAYERMANAGER->getPlayer()->setPlayerbullet(PLAYERMANAGER->getPlayer()->getPlayerbullet() - 1);
+		SOUNDMANAGER->play("¾àÇÑÃÑ", GAMEMANAGER->getSfxVolume() * GAMEMANAGER->getMasterVolume());
 		_coolCnt = 0;
 	}
 }
@@ -66,5 +67,6 @@ void assultRifle::followingFire()
 	{
 		BULLETMANAGER->PlayerFire(ANGLE16, _pt, _bulletSpd, _angle + RND->getFromFloatTo(-(_rndSpreadAngle - 0.01 * PLAYERMANAGER->getPlayer()->getAngleCard()), (_rndSpreadAngle - 0.01 * PLAYERMANAGER->getPlayer()->getAngleCard())), _damage);
 		PLAYERMANAGER->getPlayer()->setPlayerbullet(PLAYERMANAGER->getPlayer()->getPlayerbullet() - 1);
+		SOUNDMANAGER->play("¾àÇÑÃÑ", GAMEMANAGER->getSfxVolume() * GAMEMANAGER->getMasterVolume());
 	}
 }

@@ -24,6 +24,7 @@ HRESULT bigBandit::init(float x, float y)
 	_enState->init(_info);
 	_weapon = new bigBanditGun;
 	_weapon->init(_info.pt, NOWUSING);
+	SOUNDMANAGER->play("ºò¹êµ÷µîÀå", GAMEMANAGER->getSfxVolume() * GAMEMANAGER->getMasterVolume());
 	return S_OK;
 }
 

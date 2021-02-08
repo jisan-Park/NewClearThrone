@@ -3,7 +3,6 @@ Some hit bullets recovers HP.
 Increased accuracy of the gun
 Decrease enemy projectile speed
 Increase movement speed
-Can destroy walls
 Revoben HP to its full and a certain amount of ammunition charge
 Some hit bullets recovers ammunition
 Increase Max HP upto 4 and recover full HP

@@ -13,7 +13,7 @@ HRESULT ravenAppear::init(enemyinfo info)
 	ravenlandleft->init("raven_land");
 	ravenlandleft->setPlayFrame(7, 4, false, false, appearidle,this);
 	ravenlandleft->setFPS(10);
-
+	SOUNDMANAGER->play("±î¸¶±Í¼Ò¸®2", GAMEMANAGER->getSfxVolume() * GAMEMANAGER->getMasterVolume());
 	_img = IMAGEMANAGER->findImage("raven_land");
 	if (info.direction == E_LEFT) _motion = ravenlandleft;
 	if (info.direction == E_RIGHT) _motion = ravenlandright;

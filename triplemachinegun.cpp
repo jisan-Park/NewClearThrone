@@ -44,6 +44,7 @@ void triplemachinegun::fire()
 {
 	if (_coolCnt >= _coolDown + PLAYERMANAGER->getPlayer()->getInterval() && PLAYERMANAGER->getPlayer()->getPlayerbullet() > 0)
 	{
+		SOUNDMANAGER->play("´Ü¹ß", GAMEMANAGER->getSfxVolume() * GAMEMANAGER->getMasterVolume());
 		for (int i = 0; i < 3; i++)
 		{
 			if (PLAYERMANAGER->getPlayer()->getPlayerbullet() <= 0) break;

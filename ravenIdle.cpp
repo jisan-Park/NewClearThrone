@@ -39,6 +39,7 @@ void ravenIdle::update(enemyinfo & info)
 	if (info.isHurt == true)
 	{
 		isHurt = true;
+		SOUNDMANAGER->play("±î¸¶±Í¸ÂÀ½", GAMEMANAGER->getSfxVolume() * GAMEMANAGER->getMasterVolume());
 		info.isHurt = false;
 	}
 	_pt = info.pt;

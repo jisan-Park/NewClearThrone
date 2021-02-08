@@ -42,6 +42,7 @@ void grenade::setFrameIndex()
 
 void grenade::explode()
 {
+	SOUNDMANAGER->play("Æø¹ß»ç¿îµå", GAMEMANAGER->getSfxVolume() * GAMEMANAGER->getMasterVolume());
 	for (int i = 0; i < ENEMYMANAGER->getShowEnemyVector().size(); ++i)
 	{
 		ENEMYMANAGER->getShowEnemyVector()[i]->explosion(_pt, 200, 20);

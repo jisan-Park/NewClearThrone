@@ -64,6 +64,7 @@ void customScene::update()
 			PLAYERMANAGER->getPlayer()->getPt().x,
 			PLAYERMANAGER->getPlayer()->getPt().y);
 		//mouse update
+		EFFECTMANAGER->update();
 		CAMERAMANAGER->update();
 		MAPMANAGER->autoTile();
 	}
@@ -100,14 +101,18 @@ void customScene::render()
 	if (ENEMYMANAGER->checkShowEnemyVector()) {
 		MAPMANAGER->renderPortal(getMapDC());
 	}
-
+	
 	//마우스 포인터 render
 	RECT _mouse = RectMakeCenter(CAMERAMANAGER->getMousePoint().x, CAMERAMANAGER->getMousePoint().y, 40, 40);
 	IMAGEMANAGER->findImage("mouse_aim")->render(getMapDC(), _mouse.left, _mouse.top);
 	BULLETMANAGER->render(getMapDC());
+
+	//effectRender getMapDC();
+	EFFECTMANAGER->render();
+
 	//mapBuffer 에 그려져 있는 내용들을 memDC에 옮김
 	_mapBuffer->stretchRender(getMemDC(), 0, 0, WINSIZEX, WINSIZEY, CAMERAMANAGER->getCameraPoint().x, CAMERAMANAGER->getCameraPoint().y, CAMERAMANAGER->getSizeX(), CAMERAMANAGER->getSizeY());
-
+	
 	//pause render
 	GAMEMANAGER->pauseRender(getMemDC());
 	//ui render

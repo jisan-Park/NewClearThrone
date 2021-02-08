@@ -240,6 +240,7 @@ void Eyes::contral()
 		_motion = eyesdead;
 		if (!_motion->isPlay())
 		{
+			SOUNDMANAGER->play("아이즈사망", GAMEMANAGER->getMusicVolume() * GAMEMANAGER->getMasterVolume());
 			_motion->start();
 		}
 	}
@@ -258,6 +259,10 @@ void Eyes::contral()
 	}
 	if (KEYMANAGER->isStayKeyDown(VK_RBUTTON))
 	{
+		if (!SOUNDMANAGER->isPlaySound("아이즈 스킬"))
+		{
+			SOUNDMANAGER->play("아이즈 스킬", GAMEMANAGER->getSfxVolume() * GAMEMANAGER->getMasterVolume());
+		}
 		for (int i = 0; i < ENEMYMANAGER->getShowEnemyVector().size(); ++i)
 		{
 			ENEMYMANAGER->getShowEnemyVector()[i]->eyeSkill(_pt.x, _pt.y);

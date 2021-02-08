@@ -103,3 +103,65 @@ void weapon::enemyMeleeAttack(POINT pt, float range, int damage)
 		PLAYERMANAGER->getPlayer()->setHp(PLAYERMANAGER->getPlayer()->getHp() - damage);
 	}
 }
+
+void weapon::playlongAngleEffect(float angle, POINT pt)
+{
+	float temp = PI / 8;
+
+	if (angle > 0 && angle < temp) {
+		EFFECTMANAGER->play("longSword_0",pt.x,pt.y);
+	}
+	else if (angle >= temp && angle < temp * 2) {
+		EFFECTMANAGER->play("longSword_1", pt.x, pt.y);
+	}
+	else if (angle >= temp * 2 && angle < temp * 3) {
+		EFFECTMANAGER->play("longSword_2", pt.x, pt.y);
+	}
+	else if (angle >= temp * 3 && angle < temp * 4) {
+		EFFECTMANAGER->play("longSword_3", pt.x, pt.y);
+	}
+	else if (angle >= temp * 4 && angle < temp * 5) {
+		EFFECTMANAGER->play("longSword_4", pt.x, pt.y);
+	}
+	else if (angle >= temp * 5 && angle < temp * 6) {
+		EFFECTMANAGER->play("longSword_5", pt.x, pt.y);
+	}
+	else if (angle >= temp * 6 && angle < temp * 7) {
+		EFFECTMANAGER->play("longSword_6", pt.x, pt.y);
+	}
+	else if (angle >= temp * 7 && angle < temp * 8) {
+		EFFECTMANAGER->play("longSword_7", pt.x, pt.y);
+	}
+
+}
+
+void weapon::playshortAngleEffect(float angle, POINT pt)
+{
+	float temp = PI / 8;
+
+	if (angle > 0 && angle < temp) {
+		EFFECTMANAGER->play("shortSword_0", pt.x, pt.y);
+	}
+	else if (angle >= temp && angle < temp * 2) {
+		EFFECTMANAGER->play("shortSword_1", pt.x, pt.y);
+	}
+	else if (angle >= temp * 2 && angle < temp * 3) {
+		EFFECTMANAGER->play("shortSword_2", pt.x, pt.y);
+	}
+	else if (angle >= temp * 3 && angle < temp * 4) {
+		EFFECTMANAGER->play("shortSword_3", pt.x, pt.y);
+	}
+	else if (angle >= temp * 4 && angle < temp * 5) {
+		EFFECTMANAGER->play("shortSword_4", pt.x, pt.y);
+	}
+	else if (angle >= temp * 5 && angle < temp * 6) {
+		EFFECTMANAGER->play("shortSword_5", pt.x, pt.y);
+	}
+	else if (angle >= temp * 6 && angle < temp * 7) {
+		EFFECTMANAGER->play("shortSword_6", pt.x, pt.y);
+	}
+	else if (angle >= temp * 7 && angle < temp * 8) {
+		EFFECTMANAGER->play("shortSword_7", pt.x, pt.y);
+	}
+}
+

@@ -2014,13 +2014,13 @@ void mapManager::setMap()
 						//선택한 FrameX번째의 enemy으로 enemy set
 						//EnemyManager create
 						ENEMYMANAGER->addEnemys("custom", (ENEMYTYPE)getEnemyType(_currentTile.x,_currentTile.y), _showTile[i][j].pt.x * 64, _showTile[i][j].pt.y * 64);
-						cout << "enemy x = " << _showTile[i][j].pt.x * 64 << ",enemy y = " << _showTile[i][j].pt.y * 64 << endl;
+						
 					}
 				}
 				else if (_Select == DrawBoss) {
 					if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON)) {
 						ENEMYMANAGER->addEnemys("custom", (ENEMYTYPE)getEnemyType(_currentTile.x, _currentTile.y), _showTile[i][j].pt.x * 64, _showTile[i][j].pt.y * 64);
-						cout << "enemy x = " << _showTile[i][j].pt.x * 64 << ",enemy y = " << _showTile[i][j].pt.y * 64 << endl;
+						
 					}
 				}
 				else {
@@ -3331,12 +3331,7 @@ POINT mapManager::enemyMove(POINT pt)
 	}
 	nextArea = PointMake(next_x * TILESIZE, next_y * TILESIZE);
 
-	/*cout << "player index x : " << PLAYERMANAGER->getPlayer()->getPt().x/64 << ", index y : " << PLAYERMANAGER->getPlayer()->getPt().y/64 << endl;
-	cout << "enemy index x : " << index_x << ", index y : " << index_y << endl;
-	cout << "이동할 index x : " << next_x << ", index y : " << next_y << endl<<endl;*/
-
-	/*cout << "현재위치 index x : " << pt.x << ", index y :" << pt.y << endl;
-	cout << "이동할위치 next x : " << nextArea.x << ", next y :" << nextArea.y << endl;*/
+	
 	return nextArea;
 }
 
@@ -3347,7 +3342,7 @@ POINT mapManager::enemyRandomMove(POINT pt)
 	int index_x = pt.x / 64;
 	int index_y = pt.y / 64;
 	int rnd = RND->getInt(4);
-	cout << "현재 enemy 위치 x : "<<index_x<<", y : "<<index_y << endl<<endl;
+	
 	while (true) {
 		int i;
 		int j;	
@@ -3387,8 +3382,6 @@ POINT mapManager::enemyRandomMove(POINT pt)
 		}
 	}
 
-	cout << "선택된 rnd : " << rnd << endl << endl;
-	cout << "index_x : " << index_x << "index_y : "<<index_y << endl<<endl;
 
 	//랜덤으로 상, 하, 좌, 우 의 타일로 이동한다.
 	switch (rnd)
@@ -3412,7 +3405,7 @@ POINT mapManager::enemyRandomMove(POINT pt)
 	default:
 		break;
 	}
-	cout << "nextArea.x : " << nextArea.x << "nextArea.y : " << nextArea.y << endl << endl;
+	
 	return nextArea;
 }
 

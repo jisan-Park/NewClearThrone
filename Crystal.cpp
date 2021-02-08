@@ -247,8 +247,10 @@ void Crystal::contral()
 		_motion = crystaldead;
 		if (!_motion->isPlay())
 		{
+			SOUNDMANAGER->play("Å©¸®½ºÅ»»ç¸Á", GAMEMANAGER->getMusicVolume() * GAMEMANAGER->getMasterVolume());
 			_motion->start();
 		}
+		
 	}
 	if (_isStrongSpirit&&_hp <= 0)
 	{
@@ -265,6 +267,10 @@ void Crystal::contral()
 	}
 	if (KEYMANAGER->isOnceKeyDown(VK_RBUTTON))
 	{
+		if (!SOUNDMANAGER->isPlaySound("Å©¸®½ºÅ» ½ºÅ³"))
+		{ 
+			SOUNDMANAGER->play("Å©¸®½ºÅ» ½ºÅ³", GAMEMANAGER->getSfxVolume() * GAMEMANAGER->getMasterVolume());
+		}
 		_playerstate = SKILL;
 		_img = IMAGEMANAGER->findImage("crystal_skill");
 		_motion = crystalskill;

@@ -51,6 +51,8 @@ void shovel::fire()
 {
 	if (_coolCnt >= _coolDown + PLAYERMANAGER->getPlayer()->getInterval())
 	{
+		SOUNDMANAGER->play("µÐ±â", GAMEMANAGER->getSfxVolume() * GAMEMANAGER->getMasterVolume());
+		playlongAngleEffect(_angle, _pt);
 		POINT temppt;
 		temppt = PointMake(_pt.x + cosf(_angle + _meleeAngle / 2) * _radius, _pt.y + -sinf(_angle + _meleeAngle / 2) * _radius);
 		for (int i = 0; i < ENEMYMANAGER->getShowEnemyVector().size(); ++i)

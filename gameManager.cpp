@@ -374,9 +374,6 @@ void gameManager::setVolumeImage()
 	sfx.center.x = sfx.rc.left + sfx.width;
 	sfx.center.y = sfx.rc.top;
 
-	cout << "master width = " << master.width << endl;
-	cout << "music width = " << music.width << endl;
-	cout << "sfx width = " << sfx.width << endl;
 }
 
 void gameManager::volumeUpdate()

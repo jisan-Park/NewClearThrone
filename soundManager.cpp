@@ -225,20 +225,20 @@ void soundManager::setSound()
 	//플레이어선택시
 	SOUNDMANAGER->addSound("멜팅 선택", "sound/효과음/캐릭터 선택/멜팅 선택.mp3", false, false);
 	SOUNDMANAGER->addSound("아이즈 선택", "sound/효과음/캐릭터 선택/아이즈 선택.mp3", false, false);
-	SOUNDMANAGER->addSound("크리스탈선택", "sound/효과음/캐릭터 선택/크리스탈 선택.mp3", false, false);
+	SOUNDMANAGER->addSound("크리스탈선택", "sound/효과음/캐릭터 선택/크리스탈선택.mp3", false, false);
 	SOUNDMANAGER->addSound("플랜트 선택", "sound/효과음/캐릭터 선택/플랜트 선택.mp3", false, false);
 	SOUNDMANAGER->addSound("피쉬 선택", "sound/효과음/캐릭터 선택/피쉬 선택.mp3", false, false);
 
 	//무기
-	SOUNDMANAGER->addSound("권총1", "sound/효과음/무기/권총.mp3", false, false);
-	SOUNDMANAGER->addSound("단발1", "sound/효과음/무기/단발 쎈거.mp3", false, false);
-	SOUNDMANAGER->addSound("둔기1", "sound/효과음/무기/둔기.mp3", false, false);
-	SOUNDMANAGER->addSound("레이저1", "sound/효과음/무기/레이저.mp3", false, false);
-	SOUNDMANAGER->addSound("렌치1", "sound/효과음/무기/렌치.mp3", false, false);
-	SOUNDMANAGER->addSound("쇠소리1", "sound/효과음/무기/쇠소리.mp3", false, false);
-	SOUNDMANAGER->addSound("약한총1", "sound/효과음/무기/약한총.mp3", false, false);
-	SOUNDMANAGER->addSound("재장전1", "sound/효과음/무기/재장전.mp3", false, false);
-	SOUNDMANAGER->addSound("칼1", "sound/효과음/무기/칼.mp3", false, false);
+	SOUNDMANAGER->addSound("권총", "sound/효과음/무기/권총.mp3", false, false);
+	SOUNDMANAGER->addSound("단발", "sound/효과음/무기/단발 쎈거.mp3", false, false);
+	SOUNDMANAGER->addSound("둔기", "sound/효과음/무기/둔기.mp3", false, false);
+	SOUNDMANAGER->addSound("레이저", "sound/효과음/무기/레이저.mp3", false, false);
+	SOUNDMANAGER->addSound("렌치", "sound/효과음/무기/렌치.mp3", false, false);
+	SOUNDMANAGER->addSound("쇠소리", "sound/효과음/무기/쇠소리.mp3", false, false);
+	SOUNDMANAGER->addSound("약한총", "sound/효과음/무기/약한총.mp3", false, false);
+	SOUNDMANAGER->addSound("재장전", "sound/효과음/무기/재장전.mp3", false, false);
+	SOUNDMANAGER->addSound("칼", "sound/효과음/무기/칼.mp3", false, false);
 
 	//에너미
 	SOUNDMANAGER->addSound("까마귀맞음", "sound/효과음/에너미/까마귀/까마귀 맞았을때.mp3", false, false);

@@ -138,6 +138,8 @@ void gameScene::render()
 	//player render
 	PLAYERMANAGER->render(getMapDC());
 
+	EFFECTMANAGER->render();
+
 	//enemy render
 	for (enemy* e : ENEMYMANAGER->getShowEnemyVector()) {
 		//각 에너미의 update

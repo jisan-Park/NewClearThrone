@@ -23,27 +23,27 @@ void selectScene::update()
 				//나중에 소리추가
 				if (i == 0)
 				{
-				
+					SOUNDMANAGER->play("피쉬 선택", GAMEMANAGER->getSfxVolume() * GAMEMANAGER->getMasterVolume());
 				}
 				else if (i == 1)
 				{
-					
+					SOUNDMANAGER->play("크리스탈선택", GAMEMANAGER->getSfxVolume() * GAMEMANAGER->getMasterVolume());
 				}
 				else if (i == 2)
 				{
-					
+					SOUNDMANAGER->play("아이즈 선택", GAMEMANAGER->getSfxVolume() * GAMEMANAGER->getMasterVolume());
 				}
 				else if (i == 3)
 				{
-					
+					SOUNDMANAGER->play("플랜트 선택", GAMEMANAGER->getSfxVolume() * GAMEMANAGER->getMasterVolume());
 				}
 				else if (i == 4)
 				{
-					
+					SOUNDMANAGER->play("멜팅 선택", GAMEMANAGER->getSfxVolume() * GAMEMANAGER->getMasterVolume());
 				}
 				else
 				{
-					
+					SOUNDMANAGER->play("클릭소리", GAMEMANAGER->getSfxVolume() * GAMEMANAGER->getMasterVolume());
 				}
 				selectNum = i+1;
 			}

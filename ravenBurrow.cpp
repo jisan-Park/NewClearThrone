@@ -22,7 +22,7 @@ HRESULT ravenBurrow::init(enemyinfo info)
 	ravenflyleft->init("raven_fly");
 	ravenflyleft->setPlayFrame(9, 5, false, true);
 	ravenflyleft->setFPS(10);
-
+	SOUNDMANAGER->play("±î¸¶±Í¼Ò¸®1", GAMEMANAGER->getSfxVolume() * GAMEMANAGER->getMasterVolume());
 	_img = IMAGEMANAGER->findImage("raven_lift");
 	if (info.direction == E_LEFT) _motion = ravenliftleft;
 	if (info.direction == E_RIGHT) _motion = ravenliftright;

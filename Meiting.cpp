@@ -232,6 +232,7 @@ void Meiting::contral()
 		_motion = meltingdead;
 		if (!_motion->isPlay())
 		{
+			SOUNDMANAGER->play("¸áÆÃ»ç¸Á", GAMEMANAGER->getMusicVolume() * GAMEMANAGER->getMasterVolume());
 			_motion->start();
 		}
 	}
@@ -251,13 +252,19 @@ void Meiting::contral()
 
 	if (KEYMANAGER->isOnceKeyDown(VK_RBUTTON))
 	{
+		if (!SOUNDMANAGER->isPlaySound("Æø¹ß»ç¿îµå"))
+		{ 
+			SOUNDMANAGER->play("Æø¹ß»ç¿îµå", GAMEMANAGER->getSfxVolume() * GAMEMANAGER->getMasterVolume());
+		}
 		for (int i = 0; i < ENEMYMANAGER->getShowEnemyVector().size(); ++i)
 		{
 			if (ENEMYMANAGER->getShowEnemyVector()[i]->getInfo().state != DEAD) continue;
 			for (int j = 0; j < ENEMYMANAGER->getShowEnemyVector().size(); ++j)
 			{
-				ENEMYMANAGER->getShowEnemyVector()[j]->explosion(ENEMYMANAGER->getShowEnemyVector()[i]->getInfo().pt, 300, 20);
+				ENEMYMANAGER->getShowEnemyVector()[j]->explosion(ENEMYMANAGER->getShowEnemyVector()[i]->getInfo().pt, 100, 20);
+				
 			}
+			EFFECTMANAGER->play("exp", ENEMYMANAGER->getShowEnemyVector()[i]->getInfo().pt.x, ENEMYMANAGER->getShowEnemyVector()[i]->getInfo().pt.y);
 			ENEMYMANAGER->removeEnemy(i);
 		}
 	}

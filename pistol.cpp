@@ -45,5 +45,6 @@ void pistol::fire()
 		BULLETMANAGER->PlayerFire(ANGLE1, _pt, _bulletSpd, _angle, _damage);
 		PLAYERMANAGER->getPlayer()->setPlayerbullet(PLAYERMANAGER->getPlayer()->getPlayerbullet() - 1);
 		_coolCnt = 0;
+		SOUNDMANAGER->play("±ÇÃÑ", GAMEMANAGER->getSfxVolume() * GAMEMANAGER->getMasterVolume());
 	}
 }

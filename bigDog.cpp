@@ -39,7 +39,11 @@ void bigDog::update()
 
 			if (inRange() == true)
 			{
-				if (_info.nstate == UNNOTICED) _info.nstate = NOTICED;
+				if (_info.nstate == UNNOTICED)
+				{
+					SOUNDMANAGER->play("ºòµ¶µîÀå", GAMEMANAGER->getSfxVolume() * GAMEMANAGER->getMasterVolume());
+					_info.nstate = NOTICED;
+				}
 				_fireCnt++;
 				if (_fireCnt % 5 == 0)
 				{

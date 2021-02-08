@@ -51,6 +51,7 @@ void cardselectScene::update()
 	move();
 
 
+	SOUNDMANAGER->update();
 	KEYANIMANAGER->update();
 }
 
@@ -129,7 +130,6 @@ void cardselectScene::setImage()
 	IMAGEMANAGER->addImage("EE", "card/EE.bmp", 108, 144, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("EP", "card/EP.bmp", 108, 144, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("EF", "card/EF.bmp", 108, 144, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addImage("HH", "card/HH.bmp", 108, 144, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("LW", "card/LW.bmp", 108, 144, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("RC", "card/RC.bmp", 108, 144, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("RS", "card/RS.bmp", 108, 144, true, RGB(255, 0, 255));
@@ -152,7 +152,7 @@ void cardselectScene::ptInCard()
 
 			if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
 			{
-
+				SOUNDMANAGER->play("클릭소리", GAMEMANAGER->getSfxVolume() * GAMEMANAGER->getMasterVolume());
 				if (_aCard[i].cardNum == 0)
 				{
 					PLAYERMANAGER->getPlayer()->BackMuscle();
@@ -175,29 +175,25 @@ void cardselectScene::ptInCard()
 				}
 				else if (_aCard[i].cardNum == 5)
 				{
-					//헤머헤드 벽뚫기
+					PLAYERMANAGER->getPlayer()->LastWish();
 				}
 				else if (_aCard[i].cardNum == 6)
 				{
-					PLAYERMANAGER->getPlayer()->LastWish();
+					PLAYERMANAGER->getPlayer()->RecycleGland();
 				}
 				else if (_aCard[i].cardNum == 7)
 				{
-					PLAYERMANAGER->getPlayer()->RecycleGland();
+					PLAYERMANAGER->getPlayer()->Rhinoskin();
 				}
 				else if (_aCard[i].cardNum == 8)
 				{
-					PLAYERMANAGER->getPlayer()->Rhinoskin();
+					BULLETMANAGER->ScareFace();
 				}
 				else if (_aCard[i].cardNum == 9)
 				{
-					BULLETMANAGER->ScareFace();
-				}
-				else if (_aCard[i].cardNum == 10)
-				{
 					PLAYERMANAGER->getPlayer()->Stress();
 				}
-				else if (_aCard[i].cardNum == 11)
+				else if (_aCard[i].cardNum == 10)
 				{
 					PLAYERMANAGER->getPlayer()->Strongspirit();
 				}
@@ -253,7 +249,7 @@ void cardselectScene::titleI()
 
 	if (ifile.is_open())
 	{
-		while (i < 12)
+		while (i < 11)
 		{
 			ifile.getline(_text[i].title, sizeof(_text[i].title));
 			i++;
@@ -274,7 +270,7 @@ void cardselectScene::disI()
 
 	if (ifile.is_open())
 	{
-		while (i < 12)
+		while (i < 11)
 		{
 			ifile.getline(_text[i].dc, sizeof(_text[i].dc));
 			i++;
@@ -289,16 +285,16 @@ void cardselectScene::randomCard()
 
 	for (int i = 0; i < 4; i++)
 	{
-		_a[i] = RND->getInt(12);
+		_a[i] = RND->getInt(11);
 	}
 
 
 	while (_a[0] == _a[1] || _a[0] == _a[2] || _a[0] == _a[3] || _a[1] == _a[2] || _a[1] == _a[3] || _a[2] == _a[3])
 	{
-		_a[0] = RND->getInt(12);
-		_a[1] = RND->getInt(12);
-		_a[2] = RND->getInt(12);
-		_a[3] = RND->getInt(12);
+		_a[0] = RND->getInt(11);
+		_a[1] = RND->getInt(11);
+		_a[2] = RND->getInt(11);
+		_a[3] = RND->getInt(11);
 	}
 
 	for (int i = 0; i < 4; i++)
@@ -335,45 +331,39 @@ void cardselectScene::randomCard()
 		}
 		else if (_a[i] == 5)
 		{
-			_aCard[i].img = IMAGEMANAGER->findImage("HH");
-			_aCard[i].str = "HH";
+			_aCard[i].img = IMAGEMANAGER->findImage("LW");
+			_aCard[i].str = "LW";
 			_aCard[i].cardNum = 5;
 		}
 		else if (_a[i] == 6)
 		{
-			_aCard[i].img = IMAGEMANAGER->findImage("LW");
-			_aCard[i].str = "LW";
+			_aCard[i].img = IMAGEMANAGER->findImage("RC");
+			_aCard[i].str = "RC";
 			_aCard[i].cardNum = 6;
 		}
 		else if (_a[i] == 7)
 		{
-			_aCard[i].img = IMAGEMANAGER->findImage("RC");
-			_aCard[i].str = "RC";
+			_aCard[i].img = IMAGEMANAGER->findImage("RS");
+			_aCard[i].str = "RS";
 			_aCard[i].cardNum = 7;
 		}
 		else if (_a[i] == 8)
 		{
-			_aCard[i].img = IMAGEMANAGER->findImage("RS");
-			_aCard[i].str = "RS";
+			_aCard[i].img = IMAGEMANAGER->findImage("SF");
+			_aCard[i].str = "SF";
 			_aCard[i].cardNum = 8;
 		}
 		else if (_a[i] == 9)
 		{
-			_aCard[i].img = IMAGEMANAGER->findImage("SF");
-			_aCard[i].str = "SF";
+			_aCard[i].img = IMAGEMANAGER->findImage("SE");
+			_aCard[i].str = "SE";
 			_aCard[i].cardNum = 9;
 		}
 		else if (_a[i] == 10)
 		{
-			_aCard[i].img = IMAGEMANAGER->findImage("SE");
-			_aCard[i].str = "SE";
-			_aCard[i].cardNum = 10;
-		}
-		else if (_a[i] == 11)
-		{
 			_aCard[i].img = IMAGEMANAGER->findImage("SS");
 			_aCard[i].str = "SS";
-			_aCard[i].cardNum = 11;
+			_aCard[i].cardNum = 10;
 		}
 	}
 

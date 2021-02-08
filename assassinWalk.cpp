@@ -37,6 +37,7 @@ void assassinWalk::update(enemyinfo & info)
 	if (info.isHurt == true)
 	{
 		isHurt = true;
+		SOUNDMANAGER->play("¿¡³Ê¹ÌÈý1", GAMEMANAGER->getSfxVolume() * GAMEMANAGER->getMasterVolume());
 		info.isHurt = false;
 	}
 	if (isHurt == true)

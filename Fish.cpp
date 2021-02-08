@@ -247,6 +247,7 @@ void Fish::contral()
 		_motion = fishdead;
 		if (!_motion->isPlay())
 		{
+			SOUNDMANAGER->play("피쉬사망", GAMEMANAGER->getMusicVolume() * GAMEMANAGER->getMasterVolume());
 			_motion->start();
 		}
 	}
@@ -266,7 +267,9 @@ void Fish::contral()
 
 	if (KEYMANAGER->isOnceKeyDown(VK_RBUTTON) && _playerstate == WALK)
 	{
+		SOUNDMANAGER->play("피쉬 스킬", GAMEMANAGER->getSfxVolume() * GAMEMANAGER->getMasterVolume());
 		_isdash = true;
+		//EFFECTMANAGER->play("dust", _pt.x - _img->getFrameWidth() / 2, _pt.y - _img->getFrameHeight() / 2);
 	}
 	if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
 	{
@@ -293,6 +296,7 @@ void Fish::contral()
 	}
 	if (_isdash)
 	{
+		EFFECTMANAGER->play("dust", _pt.x, _pt.y);
 		if (_movedirctionx == RIGHTMOVE)
 		{
 			_pushp++;

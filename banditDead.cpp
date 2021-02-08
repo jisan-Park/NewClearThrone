@@ -17,7 +17,7 @@ HRESULT banditDead::init(enemyinfo info)
 	if (info.direction == E_LEFT) _motion = banditdeadleft;
 	if (info.direction == E_RIGHT)_motion = banditdeadright;
 	_motion->start();
-
+	SOUNDMANAGER->play("¿¡³Ê¹ÌÈı1", GAMEMANAGER->getSfxVolume() * GAMEMANAGER->getMasterVolume());
 	return S_OK;
 }
 

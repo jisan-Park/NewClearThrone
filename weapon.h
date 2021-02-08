@@ -63,5 +63,8 @@ public:
 	weaponType getType() { return _type; };
 	POINT getPt() { return _pt; };
 	virtual void enemyMeleeAttack(POINT pt, float range, int damage);
+
+	void playlongAngleEffect(float angle, POINT pt);
+	void playshortAngleEffect(float angle, POINT pt);
 };
 
