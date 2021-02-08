@@ -6,7 +6,7 @@ HRESULT Eyes::init(float x, float y)
 	setAnimation();
 	_pt.x = x;
 	_pt.y = y;
-	_currentWeapon = new pistol;
+	_currentWeapon = new razerRifle;
 	_currentWeapon->init(_pt, NOWUSING);
 	_width = 30;
 	_height = 30;

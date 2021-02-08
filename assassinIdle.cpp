@@ -26,12 +26,12 @@ HRESULT assassinIdle::init(enemyinfo info)
 
 	assassinhurtright = new animation;
 	assassinhurtright->init("assassin_hurt");
-	assassinhurtright->setPlayFrame(0, 2, false, false);
+	assassinhurtright->setPlayFrame(0, 2, false, false, hurtFinish, this);
 	assassinhurtright->setFPS(10);
 
 	assassinhurtleft = new animation;
 	assassinhurtleft->init("assassin_hurt");
-	assassinhurtleft->setPlayFrame(5, 3, false, false);
+	assassinhurtleft->setPlayFrame(5, 3, false, false, hurtFinish, this);
 	assassinhurtleft->setFPS(10);
 
 	_img = IMAGEMANAGER->findImage("assassin_fake");
@@ -54,7 +54,7 @@ void assassinIdle::update(enemyinfo & info)
 	}
 	if (isHurt == true)
 	{
-		_img = IMAGEMANAGER->findImage("bandit_hurt");
+		_img = IMAGEMANAGER->findImage("assassin_hurt");
 		if (info.direction == E_LEFT) _motion = assassinhurtleft;
 		if (info.direction == E_RIGHT) _motion = assassinhurtright;
 	}

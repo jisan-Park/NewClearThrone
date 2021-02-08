@@ -42,7 +42,7 @@ void razerRifle::fire()
 {
 	if (_coolCnt >= _coolDown + PLAYERMANAGER->getPlayer()->getInterval() && PLAYERMANAGER->getPlayer()->getPlayerenergyb() > 0)
 	{
-		BULLETMANAGER->PlayerFire(ANGLE16, _pt, _bulletSpd, _angle, _damage);
+		BULLETMANAGER->PlayerFire(LASERBULLET, _pt, _bulletSpd, _angle, _damage);
 
 		PLAYERMANAGER->getPlayer()->setPlayerenergyb(PLAYERMANAGER->getPlayer()->getPlayerenergyb() - 1);
 		_coolCnt = 0;
