@@ -61,9 +61,38 @@ bool mapManager::isCollisionTile(POINT& pt, int width, int height)
 	RECT temp;
 	for (int i = 0; i < TILEX; ++i) {
 		for (int j = 0; j < TILEY; ++j) {
+			POINT _tileCenter = PointMake(
+				_tiles[i][j].rc.left + (_tiles[i][j].rc.right - _tiles[i][j].rc.left),
+				_tiles[i][j].rc.top + (_tiles[i][j].rc.bottom - _tiles[i][j].rc.top));
+
 			if (_tiles[i][j].wall == WALL_NONE) {
 				continue;
 			}
+			////벽이 있는 타일과의 거리가 한타일 이상 차이 나면
+			//if ( 32 > getDistance(pt, _tileCenter)) {
+			//	//왼쪽에서 부딫쳤다면
+			//	if (pt.x < _tileCenter.x) {
+			//		pt.x = _tileCenter.x - 32;
+			//		if (pt.y < _tileCenter.x) {
+			//			pt.y = _tileCenter.y - 32;
+			//		}
+			//		else {
+			//			pt.y = _tileCenter.y + 32;
+			//		}
+			//	}
+			//	else {
+			//		pt.x = _tileCenter.x + 32;
+			//		if (pt.y < _tileCenter.x) {
+			//			pt.y = _tileCenter.y - 32;
+			//		}
+			//		else {
+			//			pt.y = _tileCenter.y + 32;
+			//		}
+			//	}
+			//	
+			//	
+			//	return true;
+			//}
 			//벽이 있는 타일과 충돌하면
 			if (IntersectRect(&temp, &playerRect, &_tiles[i][j].rc)) {
 				//가로가 넓다 = 위, 아래에서 충돌했다
@@ -1611,7 +1640,7 @@ void mapManager::random()
 			PLAYERMANAGER->setplayer(PLAYERMANAGER->getPlayerType(), _tiles[_x2temp][_y2temp].rc.right - 64, _tiles[_x2temp][_y2temp].rc.top);
 		}
 	}
-
+	
 
 	//에너미
 	for (int i = 3; i < TILEX - 3; i++)
@@ -2914,22 +2943,30 @@ void mapManager::setHeightCount(int i)
 	}
 }
 
-vector<POINT> mapManager::getOpenTiles()
+void mapManager::setOpenTiles()
 {
-	vector<POINT> temp;
+	//clear
+	_openTiles.clear();
+	//현재 tiles에서 wall_none 인 타일의 중점만 벡터에 추가해준다.
 	for (int i = 0; i < TILEX; ++i) {
 		for (int j = 0; j < TILEY; ++j) {
 			//벽이 없으면 오픈타일이니, 이것의 point를 사용한다.
 			if (_tiles[i][j].wall == WALL_NONE) {
 				POINT temp_pt = PointMake(
-					_tiles[i][j].rc.left + (_tiles[i][j].rc.right - _tiles[i][j].rc.left),
-					_tiles[i][j].rc.top + (_tiles[i][j].rc.bottom - _tiles[i][j].rc.top));
-				temp.push_back(temp_pt);
+					_tiles[i][j].rc.left + (_tiles[i][j].rc.right - _tiles[i][j].rc.left) / 2,
+					_tiles[i][j].rc.top + (_tiles[i][j].rc.bottom - _tiles[i][j].rc.top) / 2);
+				_openTiles.push_back(temp_pt);
 			}
 		}
 	}
 
-	return temp;
+
+
+}
+
+vector<POINT> mapManager::getOpenTiles()
+{
+	return _openTiles;
 }
 
 tagCurrentTile mapManager::getEnemyTileset(int type)

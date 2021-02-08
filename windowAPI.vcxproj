@@ -160,6 +160,7 @@
     <ClInclude Include="banditIdle.h" />
     <ClInclude Include="banditState.h" />
     <ClInclude Include="banditWalk.h" />
+    <ClInclude Include="bbaRU.h" />
     <ClInclude Include="bigBandit.h" />
     <ClInclude Include="bigBanditDash.h" />
     <ClInclude Include="bigBanditDead.h" />
@@ -339,6 +340,7 @@
     <ClCompile Include="banditIdle.cpp" />
     <ClCompile Include="banditState.cpp" />
     <ClCompile Include="banditWalk.cpp" />
+    <ClCompile Include="bbaRU.cpp" />
     <ClCompile Include="bigBandit.cpp" />
     <ClCompile Include="bigBanditDash.cpp" />
     <ClCompile Include="bigBanditDead.cpp" />

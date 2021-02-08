@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "bandit.h"
 
-
 HRESULT bandit::init(float x, float y)
 {
 
@@ -35,6 +34,7 @@ void bandit::update()
 	_rndMoveCnt++;
 	if (_info.state != E_DEAD)
 	{
+		collision();
 		_weapon->update();
 		_weapon->setPt(_info.pt);
 		_weapon->setAngle(_info.aimAngle);
@@ -57,6 +57,7 @@ void bandit::update()
 			}
 		}
 		else _info.aimAngle = _info.moveAngle;
+
 		if (_info.nstate == UNNOTICED)
 		{
 			if (_rndMoveCnt % _rndInterval == 0)

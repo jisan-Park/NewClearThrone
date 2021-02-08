@@ -5,11 +5,14 @@ HRESULT gameScene::init()
 {
 	//해당 라운드의 랜덤맵 생성
 	MAPMANAGER->setRandomMap();
-	//player 위치 시작점으로 설정
-	PLAYERMANAGER->setPlayerPosition(MAPMANAGER->getStartPoint());
 	//random enemy set
 	ENEMYMANAGER->createRandomEnemyVector();
-	//
+
+	ENEMYMANAGER->setShowEnemyVector("custom");
+
+	//player 위치 시작점으로 설정
+	PLAYERMANAGER->setPlayerPosition(MAPMANAGER->getStartPoint());
+	
 	BULLETMANAGER->init();
 	//UI
 	GAMEMANAGER->setUIImage();

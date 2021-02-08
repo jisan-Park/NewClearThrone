@@ -314,6 +314,9 @@ void enemyManager::setShowEnemyVector(string strKey)
 
 void enemyManager::createRandomEnemyVector()
 {
+
+	//현재 타일의 열린 곳을 set
+	MAPMANAGER->setOpenTiles();
 	//보여주기용 에너미 벡터를 모두 비운다.
 	clearShowEnemyVector();
 
@@ -421,6 +424,7 @@ void enemyManager::createRandomEnemyVector()
 			temp = new bandit;
 			break;
 		}
+
 		//open tile 중, random으로 index를 참조하여 타일의 중간값으로 에너미의 좌표를 지정해준다.
 		temp->init(
 			MAPMANAGER->getOpenTiles()[RND->getInt(MAPMANAGER->getOpenTiles().size())].x,

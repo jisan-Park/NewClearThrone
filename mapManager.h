@@ -129,7 +129,7 @@ private:
 
 	POINT player_pt;
 	int player_type;
-
+	vector<POINT> _openTiles;		//벽이없는 타일의 중점 vector
 	//////////////////////////[보여주기 용 set]///////////////////////
 
 	//드래그 용 point
@@ -234,6 +234,7 @@ public:
 	//random
 	void setRandomStage(int num) { _rnd = num; };
 	//getter
+	void setOpenTiles();
 	vector<POINT> getOpenTiles();
 	tagCurrentTile getEnemyTileset(int type);
 	int getEnemyType(int x, int y);

@@ -8,7 +8,7 @@ class assassin :
 	public enemy
 {
 private:
-
+	weapon* _weapon;
 public:
 	virtual HRESULT init(float x, float y);
 	virtual void update();

@@ -72,7 +72,7 @@ void weapon::setAngle(float angle)
 		case TRIPLEMACHINEGUN:
 			_angle = angle;
 			break;
-		case SHOVEL:		case SWORD:				case WRENCH:
+		case SHOVEL:		case SWORD:				case WRENCH:   case BBARU:
 			_angle = angle - _meleeAngle;
 			break;
 		default:
@@ -93,4 +93,13 @@ void weapon::Position()
 {
 	_imgx = _pt.x + cosf(_angle) * _radius;
 	_imgy = _pt.y + -sinf(_angle) * _radius;
+}
+
+void weapon::enemyMeleeAttack(POINT pt, float range, int damage)
+{
+	if (getDistance(PLAYERMANAGER->getPlayer()->getPt(), _pt) < range)
+	{
+		PLAYERMANAGER->getPlayer()->setIshit(true);
+		PLAYERMANAGER->getPlayer()->setHp(PLAYERMANAGER->getPlayer()->getHp() - damage);
+	}
 }

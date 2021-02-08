@@ -34,11 +34,12 @@ HRESULT assassinIdle::init(enemyinfo info)
 	assassinhurtleft->setPlayFrame(5, 3, false, false, hurtFinish, this);
 	assassinhurtleft->setFPS(10);
 
+
+	_pt = info.pt;
 	_img = IMAGEMANAGER->findImage("assassin_fake");
 	if (info.direction == E_LEFT) _motion = assassinfakeleft;
 	if (info.direction == E_RIGHT) _motion = assassinfakeright;
 	_motion->start();
-	_pt = info.pt;
 	return S_OK;
 	
 
@@ -60,9 +61,21 @@ void assassinIdle::update(enemyinfo & info)
 	}
 	else
 	{
-		_img = IMAGEMANAGER->findImage("assassin_idle");
-		if (info.direction == E_LEFT) _motion = assassinidleleft;
-		if (info.direction == E_RIGHT) _motion = assassinidleright;
+		if (128 > getDistance(info.pt, PLAYERMANAGER->getPlayer()->getPt()))
+		{
+			_img = IMAGEMANAGER->findImage("assassin_idle");
+			if (info.direction == E_LEFT) _motion = assassinidleleft;
+			if (info.direction == E_RIGHT) _motion = assassinidleright;
+		
+		}
+		else {
+	
+			_img = IMAGEMANAGER->findImage("assassin_fake");
+			if (info.direction == E_LEFT) _motion = assassinfakeleft;
+			if (info.direction == E_RIGHT) _motion = assassinfakeright;
+		}
+	
+		
 	}
 	if (_motion->isPlay() == false) _motion->start();
 	_motion->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);

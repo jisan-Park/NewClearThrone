@@ -10,6 +10,7 @@
 #include "bigBanditGun.h"
 #include "gatorGun.h"
 #include "wrench.h"
+#include "bbaRU.h"
 class weaponManager : public singletonBase <weaponManager>
 {
 private:

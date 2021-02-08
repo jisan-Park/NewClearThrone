@@ -24,6 +24,7 @@ enum weaponType
 	SWORD,
 	TRIPLEMACHINEGUN,
 	WRENCH,
+	BBARU
 };
 class weapon
 {
@@ -61,5 +62,6 @@ public:
 	void setPt(POINT pt) { _pt = pt; };
 	weaponType getType() { return _type; };
 	POINT getPt() { return _pt; };
+	virtual void enemyMeleeAttack(POINT pt, float range, int damage);
 };
 

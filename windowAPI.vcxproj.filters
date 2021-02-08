@@ -729,6 +729,9 @@
     <ClInclude Include="laserBullet.h">
       <Filter>2DGameFramework\bullet</Filter>
     </ClInclude>
+    <ClInclude Include="bbaRU.h">
+      <Filter>2DGameFramework\weapon</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -1246,6 +1249,9 @@
     </ClCompile>
     <ClCompile Include="laserBullet.cpp">
       <Filter>2DGameFramework\bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="bbaRU.cpp">
+      <Filter>2DGameFramework\weapon</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

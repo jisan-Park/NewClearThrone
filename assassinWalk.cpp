@@ -22,6 +22,7 @@ HRESULT assassinWalk::init(enemyinfo info)
 	assassinhurtleft->init("assassin_hurt");
 	assassinhurtleft->setPlayFrame(5, 3, false, false, hurtFinish, this);
 	assassinhurtleft->setFPS(10);
+
 	_img = IMAGEMANAGER->findImage("assassin_walk");
 	if (info.direction == E_LEFT) _motion = assassinwalkleft;
 	if (info.direction == E_RIGHT) _motion = assassinwalkright;
@@ -46,6 +47,11 @@ void assassinWalk::update(enemyinfo & info)
 	}
 	else
 	{
+		if (!MAPMANAGER->isCollisionTile(info.pt, info.width, info.height)) {
+			info.pt.x += cosf(info.moveAngle)* info.speed;
+			info.pt.y += -sinf(info.moveAngle)* info.speed;
+		}
+
 		_img = IMAGEMANAGER->findImage("assassin_walk");
 		if (info.direction == E_LEFT) _motion = assassinwalkleft;
 		if (info.direction == E_RIGHT) _motion = assassinwalkright;
