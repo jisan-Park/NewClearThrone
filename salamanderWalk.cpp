@@ -40,7 +40,7 @@ void salamanderWalk::update(enemyinfo & info)
 	}
 	if (isHurt == true)
 	{
-		_img = IMAGEMANAGER->findImage("scolpion_hurt");
+		_img = IMAGEMANAGER->findImage("salamander_hurt");
 		if (info.direction == E_LEFT) _motion = salamanderhurtleft;
 		if (info.direction == E_RIGHT) _motion = salamanderhurtright;
 	}
@@ -50,7 +50,7 @@ void salamanderWalk::update(enemyinfo & info)
 			info.pt.x += cosf(info.moveAngle)* info.speed;
 			info.pt.y += -sinf(info.moveAngle)* info.speed;
 		}
-		_img = IMAGEMANAGER->findImage("scolpion_walk");
+		_img = IMAGEMANAGER->findImage("salamander_walk");
 
 		if (PLAYERMANAGER->getPlayer()->getPt().x < info.pt.x)
 		{

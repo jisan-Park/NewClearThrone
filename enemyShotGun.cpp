@@ -25,7 +25,7 @@ void enemyShotGun::fire(POINT pt, float speed, float angle, int damage)
 {
 	_range = 200;
 	_type = E_SHOTGUN;
-	_img = IMAGEMANAGER->findImage("shotgun");
+	_img = IMAGEMANAGER->findImage("shotgun1");
 	_speed = speed;
 	_damage = damage;
 	_radius = _img->getFrameWidth() / 2;

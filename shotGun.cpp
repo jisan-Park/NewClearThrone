@@ -17,7 +17,7 @@ HRESULT shotGun::init(POINT pt, weaponState state)
 	_damage = 5;
 	_coolDown = 20;
 	_coolCnt = _coolDown + PLAYERMANAGER->getPlayer()->getInterval();
-	_bulletSpd = 20;
+	_bulletSpd = 25;
 	_angle = 0;
 
 	return S_OK;
@@ -46,7 +46,7 @@ void shotGun::fire()
 		for (int i = 0; i < 5; i++)
 		{
 			if (PLAYERMANAGER->getPlayer()->getPlayershellb() <= 0) break;
-			BULLETMANAGER->PlayerFire(ANGLE16, _pt, _bulletSpd - 0.2f + 0.1f * i, _angle, _damage);
+			BULLETMANAGER->PlayerFire(SHOTGUNBULLET, _pt, _bulletSpd, _angle - 0.2f + 0.1f * i, _damage);
 			PLAYERMANAGER->getPlayer()->setPlayershellb(PLAYERMANAGER->getPlayer()->getPlayershellb() - 1);
 		}
 		_coolCnt = 0;

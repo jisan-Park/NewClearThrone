@@ -50,7 +50,10 @@ void grenade::explode()
 
 void grenade::move()
 {
+
+
 	if (_speed > 0.5f) _speed -= 0.5f;
+	if (_speed <= 0.5f) _cnt++;
 	if (_cnt > 20) _gone = true;
 	if (_gone == true)
 	{

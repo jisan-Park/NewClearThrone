@@ -92,6 +92,7 @@ void bulletManager::PlayerFire(BULLETTYPE type, POINT pt, float speed, float ang
 			temp = new shotGunBullet;
 			temp->fire(pt, speed, angle, damage);
 		}
+		break;
 		case LASERBULLET:
 		{
 			temp = new laserBullet;
@@ -159,6 +160,7 @@ void bulletManager::PlayerFire(BULLETTYPE type, POINT pt, float speed, float ang
 			temp = new shotGunBullet;
 			temp->fire(pt, speed, angle, damage*1.2);
 		}
+		break;
 		case LASERBULLET:
 		{
 			temp = new laserBullet;
