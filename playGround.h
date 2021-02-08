@@ -8,6 +8,7 @@
 #include "customScene.h"
 #include "selectScene.h"
 #include "cardselectScene.h"
+#include "clearScene.h"
 
 class playGround : public gameNode
 {

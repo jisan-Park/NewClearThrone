@@ -195,6 +195,7 @@
     <ClInclude Include="camera.h" />
     <ClInclude Include="cameraManager.h" />
     <ClInclude Include="cardselectScene.h" />
+    <ClInclude Include="clearScene.h" />
     <ClInclude Include="commonMacroFunction.h" />
     <ClInclude Include="Crystal.h" />
     <ClInclude Include="customScene.h" />
@@ -376,6 +377,7 @@
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="cameraManager.cpp" />
     <ClCompile Include="cardselectScene.cpp" />
+    <ClCompile Include="clearScene.cpp" />
     <ClCompile Include="Crystal.cpp" />
     <ClCompile Include="customScene.cpp" />
     <ClCompile Include="effect.cpp" />

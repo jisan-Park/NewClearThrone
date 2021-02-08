@@ -51,17 +51,17 @@ void gameScene::update()
 	else {
 		BULLETMANAGER->update();
 
+		for (enemy* e : ENEMYMANAGER->getShowEnemyVector()) {
+			//각 에너미의 update
+			e->update();
+		}
+
 		//만약 enemyVector가 비어있다면
 		if (ENEMYMANAGER->checkShowEnemyVector()) {
 			MAPMANAGER->createPortal();
 		}
 		//포탈과 충돌이 일어나면 카드선택씬으로 이동
 		MAPMANAGER->collisionPortal();
-
-		for (enemy* e : ENEMYMANAGER->getShowEnemyVector()) {
-			//각 에너미의 update
-			e->update();
-		}
 
 		if (KEYMANAGER->isOnceKeyDown(VK_BACK)) {
 			SCENEMANAGER->changeScene("메인메뉴씬");

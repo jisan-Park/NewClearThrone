@@ -23,6 +23,7 @@ HRESULT playGround::init()
 	SCENEMANAGER->addScene("셋팅씬", new settingScene);
 	SCENEMANAGER->addScene("셀렉트씬", new selectScene);
 	SCENEMANAGER->addScene("카드선택씬", new cardselectScene);
+	SCENEMANAGER->addScene("클리어씬", new clearScene);
 
 	SCENEMANAGER->changeScene("시작씬");
 
@@ -45,14 +46,16 @@ void playGround::update()
 
 void playGround::render()
 {
-	PatBlt(getMemDC(), 0, 0, WINSIZEX, WINSIZEY, WHITENESS);
-	//================ 위에 건들지 마라 ==============================
+	if (!SCENEMANAGER->getIsVideoPlay()) {
+		PatBlt(getMemDC(), 0, 0, WINSIZEX, WINSIZEY, WHITENESS);
+		//================ 위에 건들지 마라 ==============================
 
-	SCENEMANAGER->render();
+		SCENEMANAGER->render();
 
-	if (KEYMANAGER->isToggleKey(VK_F1)) {
-		TIMEMANAGER->render(getMemDC());
+		if (KEYMANAGER->isToggleKey(VK_F1)) {
+			TIMEMANAGER->render(getMemDC());
+		}
+		//================= 아래도 건들지 마라 ==============================
+		_backBuffer->render(getHDC());
 	}
-	//================= 아래도 건들지 마라 ==============================
-	_backBuffer->render(getHDC());
 }

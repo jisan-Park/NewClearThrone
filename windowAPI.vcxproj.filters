@@ -735,6 +735,9 @@
     <ClInclude Include="flameBullet.h">
       <Filter>2DGameFramework\bullet</Filter>
     </ClInclude>
+    <ClInclude Include="clearScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -1258,6 +1261,9 @@
     </ClCompile>
     <ClCompile Include="flameBullet.cpp">
       <Filter>2DGameFramework\bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="clearScene.cpp">
+      <Filter>Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

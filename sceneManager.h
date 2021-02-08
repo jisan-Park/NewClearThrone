@@ -40,11 +40,15 @@ private:
 
 	mapSceneList _mSceneList;
 
+	bool _isVideoPlay;
 public:
 	HRESULT init();
 	void release();
 	void update();
 	void render();
+
+	void setIsVideoPlay(bool b) { _isVideoPlay = b; };
+	bool getIsVideoPlay() { return _isVideoPlay; };
 
 	//¾ÀÃß°¡ ÇÔ¼ö
 	gameNode* addScene(string sceneName, gameNode* scene);
